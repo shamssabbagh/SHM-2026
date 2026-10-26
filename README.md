@@ -1,2 +1,2 @@
-# study planner shams and malak
+# SHM-2026
 
