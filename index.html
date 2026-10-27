@@ -16,56 +16,54 @@
   <!-- חלל הצגת השקופיות -->
   <main class="presentation-viewport">
 
-    <!-- ==================== שקופית 1: שער ==================== -->
+    <!-- ==================== שקופית 1: שער בעיצוב עשיר עם Hero Image ==================== -->
     <section class="slide active" id="slide-1">
-      <div class="cover-content">
-        <span class="cover-badge-top">קורס סוכני <bdi>AI</bdi> ו-<bdi>Vibe Coding</bdi> | פרויקט גמר</span>
-        <h1 class="cover-title">המוח הצרכני</h1>
-        <p class="cover-subtitle">
-          הפסיכולוגיה שמאחורי החלטות קנייה
-          <br>
-          <span style="font-size: 1.05rem; color: var(--accent-indigo);">
-            <bdi>The Consumer Brain: The Psychology Behind Purchasing Decisions</bdi>
-          </span>
-        </p>
+      <div class="cover-grid">
+        <!-- עמודת הטקסט והצוות -->
+        <div class="cover-text-col">
+          <span class="cover-badge-top">מטלה מספר 1 | קורס סוכני <bdi>AI</bdi> ו-<bdi>Vibe Coding</bdi></span>
+          
+          <div>
+            <h1 class="cover-title">המוח הצרכני</h1>
+            <p class="cover-subtitle">הפסיכולוגיה שמאחורי החלטות קנייה</p>
+            <p class="cover-subtitle-en"><bdi>The Consumer Brain: The Psychology Behind Purchasing Decisions</bdi></p>
+          </div>
 
-        <div class="team-pill-container">
-          <div class="team-pill">
-            <span class="icon">🧠</span>
-            <div>
-              <strong>סטודנטית לפסיכולוגיה</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">תהליכים קוגניטיביים והתנהגותיים</div>
+          <!-- תיאור צוות העבודה באופן שוויוני ומקצועי -->
+          <div class="team-equal-grid">
+            <div class="team-card-box psych">
+              <span class="team-icon">🧠</span>
+              <div class="team-info">
+                <h4>סטודנטית לפסיכולוגיה</h4>
+                <p>אוניברסיטת חיפה | תהליכים קוגניטיביים והתנהגותיים</p>
+              </div>
+            </div>
+
+            <div class="team-card-box comm">
+              <span class="team-icon">📈</span>
+              <div class="team-info">
+                <h4>סטודנטית לתקשורת ושיווק</h4>
+                <p>אסטרטגיה מותגית וקבלת החלטות צרכניות</p>
+              </div>
             </div>
           </div>
-          <div class="team-pill">
-            <span class="icon">📈</span>
-            <div>
-              <strong>סטודנטית לשיווק</strong>
-              <div style="font-size: 0.8rem; color: var(--text-muted);">אסטרטגיה וקבלת החלטות צרכניות</div>
-            </div>
+
+          <div style="margin-top: 6px;">
+            <button type="button" class="btn-start-presentation" id="btnStartPresentation">
+              <span>התחל במצגת</span>
+              <span>←</span>
+            </button>
           </div>
         </div>
 
-        <div class="cover-features-grid">
-          <div class="feature-mini-card">
-            <h4>דיוק מדעי ואקדמי</h4>
-            <p>התבססות על תיאוריות אמפיריות מוכחות והפרדת מיתוסים מעובדות.</p>
+        <!-- עמודת התמונה המרכזית (Hero Visual) -->
+        <div class="cover-visual-col">
+          <div class="hero-brain-frame">
+            <img src="assets/images/hero_brain.jpg" alt="המוח הצרכני: רשתות עצביות והחלטות קנייה">
           </div>
-          <div class="feature-mini-card">
-            <h4>המחשה תלת-ממדית (3D)</h4>
-            <p>הדמיה קונספטואלית של אזורי מוח המשפיעים על בחירה וערך.</p>
+          <div class="hero-caption">
+            הדמיה קונספטואלית: רשתות עצביות, רגש ושיקולי ערך בקבלת החלטות צרכניות
           </div>
-          <div class="feature-mini-card">
-            <h4>קוד <bdi>Python</bdi> חי</h4>
-            <p>סימולציה פעילה של מודלים מתמטיים והטיות קוגניטיביות בדפדפן.</p>
-          </div>
-        </div>
-
-        <div>
-          <button type="button" class="btn-start-presentation" id="btnStartPresentation">
-            <span>התחל במצגת</span>
-            <span>←</span>
-          </button>
         </div>
       </div>
     </section>
@@ -131,54 +129,9 @@
         <span class="slide-badge marketing">פסיכולוגיה &amp; שיווק</span>
       </header>
 
-      <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px;">
-        פסיכולוגיית השיפוט מבחינה בין שני מנגנוני עיבוד מידע מוחיים המשפיעים באופן שונה על בחירת מוצרים:
-      </p>
-
-      <div class="dual-system-container">
-        <!-- מערכת 1 -->
-        <div class="system-column system-1">
-          <div class="system-header">
-            <div class="system-title" style="color: var(--accent-amber);">מערכת 1 (<bdi>System 1</bdi>)</div>
-            <span class="system-badge-tag">עיבוד מהיר ואינטואיטיבי</span>
-          </div>
-
-          <ul class="traits-list">
-            <li><strong>מהירה ואוטומטית:</strong> פועלת ללא מאמץ מודע כמעט.</li>
-            <li><strong>אסוציאטיבית ורגשית:</strong> מושפעת ממראית עין, צבע וסיפור.</li>
-            <li><strong>שגרתית:</strong> נשענת על הרגלים מושרשים וקיצורי דרך (<bdi>Heuristics</bdi>).</li>
-            <li><strong>חסכונית באנרגיה:</strong> ברירת המחדל של המוח ביומיום.</li>
-          </ul>
-
-          <div class="marketing-implication-box">
-            <h5>השלכה שיווקית: קניות אימפולסיביות</h5>
-            <p>
-              עיצוב חוויית רכישה ללא חיכוך (<bdi>Frictionless UX</bdi>), מיקום מוצרים ליד הקופה, ותמונות מוצר מעוררות תיאבון ורגש.
-            </p>
-          </div>
-        </div>
-
-        <!-- מערכת 2 -->
-        <div class="system-column system-2">
-          <div class="system-header">
-            <div class="system-title" style="color: var(--accent-cyan);">מערכת 2 (<bdi>System 2</bdi>)</div>
-            <span class="system-badge-tag">עיבוד איטי ומבוקר</span>
-          </div>
-
-          <ul class="traits-list">
-            <li><strong>איטית ומאומצת:</strong> דורשת קשב ממוקד וריכוז פעיל.</li>
-            <li><strong>אנליטית ולוגית:</strong> שוקלת יתרונות, חסרונות ומחירים.</li>
-            <li><strong>מודעת ומחושבת:</strong> מופעלת במצבי ספק או מורכבות.</li>
-            <li><strong>עייפה בקלות:</strong> רגישה לעומס קוגניטיבי (<bdi>Cognitive Load</bdi>).</li>
-          </ul>
-
-          <div class="marketing-implication-box">
-            <h5>השלכה שיווקית: מעורבות גבוהה (<bdi>High Involvement</bdi>)</h5>
-            <p>
-              הצגת מפרטים טכניים, טבלאות השוואת מחירים, ביקורות מומחים והוכחת החזר השקעה (<bdi>ROI</bdi>) ברכישות גדולות.
-            </p>
-          </div>
-        </div>
+      <div class="diagram-card">
+        <img src="assets/images/dual_system.svg" alt="השוואת מודל שתי המערכות: מערכת 1 מול מערכת 2 בקבלת החלטות">
+        <div class="diagram-caption">תרשים תהליכי: מערכת 1 (אינטואיטיבית, מהירה ואוטומטית) מול מערכת 2 (אנליטית, מבוקרת ומאומצת)</div>
       </div>
     </section>
 
@@ -189,15 +142,12 @@
           <h2>קשב חזותי וסלקטיביות</h2>
           <div class="slide-subtitle"><bdi>Visual Attention &amp; Perceptual Saliency</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">קוגניציה חזותית</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">👁️</div>
-        <p class="skeleton-desc">
-          עקרונות קשב מלמטה-למעלה (<bdi>Bottom-Up</bdi>) ומלמעלה-למטה (<bdi>Top-Down</bdi>).
-          כיצד צרכנים סורקים אריזות, מדפי חנויות וממשקי אי-קומרס דיגיטליים.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/visual_attention_heatmap.svg" alt="הדמיית מפת חום לקשב חזותי">
+        <div class="diagram-caption">הדמיית מעקב עיניים (<bdi>Eye-Tracking</bdi>): סריקה חזותית בתבנית <bdi>F-Pattern</bdi> ומוקדי משיכת קשב במסחר דיגיטלי</div>
       </div>
     </section>
 
@@ -208,14 +158,12 @@
           <h2>תפיסה ועיבוד חושי</h2>
           <div class="slide-subtitle"><bdi>Sensory Marketing &amp; Perception</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">שיווק חושי</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">🎨</div>
-        <p class="skeleton-desc">
-          פסיכולוגיית הצבעים, השפעת משקל החומר וצלילי פתיחת מוצר על שיפוט איכות ותפיסת ערך.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/sensory_wheel.svg" alt="שיווק חושי ועיבוד רב-חושי">
+        <div class="diagram-caption">מעגל ההשפעה החושית: ראייה, מגע, ריח, שמיעה וטעם בעיצוב תפיסת ערך ואיכות המוצר</div>
       </div>
     </section>
 
@@ -224,16 +172,14 @@
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>רגשות וסמנים סומטיים בהחלטות</h2>
-          <div class="slide-subtitle"><bdi>Emotions &amp; Somatic Markers (Damasio)</bdi></div>
+          <div class="slide-subtitle"><bdi>Emotions &amp; Somatic Markers (Antonio Damasio)</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">נוירו-פסיכולוגיה</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">❤️</div>
-        <p class="skeleton-desc">
-          תיאוריית הסמנים הסומטיים של דמאסיו: כיצד תחושות גופניות ורגשות מקדימים משמשים כעוגן קבלת החלטות.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/somatic_marker.svg" alt="תיאוריית הסמנים הסומטיים">
+        <div class="diagram-caption">מודל דמאסיו: תחושות גופניות מקדימות ("תחושת בטן") כעוגן קבלת החלטות לפני נימוק רציונלי</div>
       </div>
     </section>
 
@@ -244,14 +190,12 @@
           <h2>זיכרון ואסוציאציות מותג</h2>
           <div class="slide-subtitle"><bdi>Memory Retrieval &amp; Associative Networks</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">זיכרון ומיתוג</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">🧠</div>
-        <p class="skeleton-desc">
-          מודל הפצת ההפעלה ברשת האסוציאטיבית ובולטות מותגית מנטלית ברגע הבחירה.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/brand_associative_network.svg" alt="מודל הפצת ההפעלה ברשת אסוציאטיבית">
+        <div class="diagram-caption">מודל הפצת ההפעלה (<bdi>Spreading Activation</bdi>): בולטות מנטלית וקישוריות אסוציאציות ברגע הבחירה</div>
       </div>
     </section>
 
@@ -283,14 +227,12 @@
           <h2>הטיית העיגון וההתאמה</h2>
           <div class="slide-subtitle"><bdi>Anchoring &amp; Adjustment Heuristic</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">הטיות שיפוט</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">⚓</div>
-        <p class="skeleton-desc">
-          כיצד מספר התחלתי אקראי מעוות את הערכת השווי של מוצר ואסטרטגיות תמחור שיווקיות.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/anchoring_effect.svg" alt="הטיית העיגון וההתאמה בתמחור">
+        <div class="diagram-caption">השפעת עוגן מחיר ראשוני על שיפוט שווי: התאמה בלתי מספקת (<bdi>Insufficient Adjustment</bdi>)</div>
       </div>
     </section>
 
@@ -299,16 +241,14 @@
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>שנאת הפסד ותורת הסיכויים</h2>
-          <div class="slide-subtitle"><bdi>Loss Aversion &amp; Prospect Theory</bdi></div>
+          <div class="slide-subtitle"><bdi>Loss Aversion &amp; Prospect Theory (Kahneman &amp; Tversky)</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">כלכלה התנהגותית</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">⚖️</div>
-        <p class="skeleton-desc">
-          הכאב שבהפסד מול ההנאה שברווח: פונקציית הערך של כהנמן וטברסקי ויישומי מסגור (<bdi>Framing</bdi>).
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/prospect_theory_curve.svg" alt="פונקציית הערך של תורת הסיכויים">
+        <div class="diagram-caption">פונקציית הערך הא-סימטרית: כאב ההפסד תלול פי שניים ומעלה מהנאת הרווח המקביל</div>
       </div>
     </section>
 
@@ -319,14 +259,12 @@
           <h2>אפקט הפיתיון ופרדוקס הבחירה</h2>
           <div class="slide-subtitle"><bdi>The Decoy Effect &amp; Choice Overload</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge marketing">ארכיטקטורת בחירה</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">🍿</div>
-        <p class="skeleton-desc">
-          אפקט הפיתיון הא-סימטרי בהצעות מחיר, וכיצד עודף אפשרויות מוביל לחוסר החלטיות וחרטת קנייה.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/decoy_effect.svg" alt="אפקט הפיתיון בתמחור הצעות">
+        <div class="diagram-caption">נחיתות א-סימטרית: כיצד הוספת אפשרות ביניים נחותה מנתבת את הצרכן לרכישת החבילה הגדולה ביותר</div>
       </div>
     </section>
 
@@ -335,16 +273,14 @@
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>השפעה והוכחה חברתית</h2>
-          <div class="slide-subtitle"><bdi>Social Proof &amp; Normative Influence</bdi></div>
+          <div class="slide-subtitle"><bdi>Social Proof &amp; Normative Influence (Cialdini)</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">פסיכולוגיה חברתית</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">👥</div>
-        <p class="skeleton-desc">
-          עקרונות ההשפעה של צ'אלדיני, אפקט העדר ורמזים חברתיים באתרי מסחר.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/social_proof.svg" alt="הוכחה חברתית ורמזים נורמטיביים">
+        <div class="diagram-caption">רמזי הוכחה חברתית במסחר: אותות פופולריות, ביקורות המונים וצמצום אי-ודאות בקנייה</div>
       </div>
     </section>
 
@@ -399,14 +335,12 @@
           <h2>כאב התשלום וארנקים דיגיטליים</h2>
           <div class="slide-subtitle"><bdi>The "Pain of Paying" &amp; Frictionless Checkout</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge marketing">נוירו-כלכלה</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">💳</div>
-        <p class="skeleton-desc">
-          הפחתת החיכוך הפסיכולוגי של תשלום במזומן מול תשלום דיגיטלי ללא מגע.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/pain_of_paying.svg" alt="כאב התשלום: מזומן מול ארנק דיגיטלי">
+        <div class="diagram-caption">הפחתת החיכוך הפסיכולוגי: כיצד כרטיסי אשראי ותשלומי <bdi>1-Click</bdi> מרדימים את תגובת הכאב באינסולה</div>
       </div>
     </section>
 
@@ -417,14 +351,12 @@
           <h2>שיווק מבוסס מדע ואתיקה מקצועית</h2>
           <div class="slide-subtitle"><bdi>Ethical Marketing &amp; Behavioral Nudges</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">אתיקה צרכנית</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">🛡️</div>
-        <p class="skeleton-desc">
-          ההבדל בין דחיפה עדינה חיובית (<bdi>Nudge</bdi>) לבין דפוסי עיצוב מניפולטיביים (<bdi>Dark Patterns</bdi>).
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/nudge_vs_darkpattern.svg" alt="דחיפה אתית מול תבנית אפלה">
+        <div class="diagram-caption">ההבחנה המוסרית: עיצוב בחירה שקוף ומיטיב (<bdi>Nudge</bdi>) מול מניפולציות ומלכודות הרשמה (<bdi>Dark Patterns</bdi>)</div>
       </div>
     </section>
 
@@ -435,14 +367,12 @@
           <h2>סוכני <bdi>AI</bdi> ועתיד ההחלטות הצרכניות</h2>
           <div class="slide-subtitle"><bdi>AI Agents &amp; The Future of Consumer Decisions</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">עתידנות שיווקית</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">🤖</div>
-        <p class="skeleton-desc">
-          התאמה היפר-אישית בזמן אמת, והמעבר של סוכני בינה מלאכותית לקבלת החלטות צרכניות עצמאיות.
-        </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+
+      <div class="diagram-card">
+        <img src="assets/images/ai_decision_loop.svg" alt="סוכני AI בקבלת החלטות צרכניות">
+        <div class="diagram-caption">מעגל ההתאמה ההיפר-אישית: ניטור התנהגותי, מיפוי הטיות קוגניטיביות ומעבר לקוחות מכונה (<bdi>Machine Customers</bdi>)</div>
       </div>
     </section>
 
@@ -453,32 +383,62 @@
           <h2>סיכום ותובנות יישומיות</h2>
           <div class="slide-subtitle"><bdi>Summary &amp; Actionable Takeaways</bdi></div>
         </div>
-        <span class="slide-badge">שלד תוכן</span>
+        <span class="slide-badge">סיכום אינטגרטיבי</span>
       </header>
+      
       <div class="skeleton-card">
-        <div class="skeleton-icon">📋</div>
+        <h4 style="font-size: 1.15rem; color: var(--accent-cyan); margin-bottom: 8px;">אינטגרציה בין פסיכולוגיה לשיווק:</h4>
         <p class="skeleton-desc">
-          מסקנות מרכזיות, צ'ק ליסט יישומי לצרכן הביקורתי ולאיש השיווק המקצועי.
+          החלטות צרכניות אינן אקראיות ואינן רציונליות לחלוטין. הן מנוהלות על ידי אינטראקציה מורכבת בין מנגנוני קשב סלקטיביים, תחושות גופניות מקדימות (סמנים סומטיים), הטיות קוגניטיביות מושרשות ועוצמתה של השפעה חברתית.
         </p>
-        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 10px;">
+          <div style="background: rgba(56, 189, 248, 0.08); border-right: 3px solid var(--accent-cyan); padding: 12px; border-radius: 6px;">
+            <strong style="color: var(--accent-cyan);">לאיש השיווק והתקשורת:</strong>
+            <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 4px;">בנה אמון שקוף, הפחת עומס קוגניטיבי, והשתמש בארכיטקטורת בחירה חיובית ללא מניפולציות מטעות.</p>
+          </div>
+          <div style="background: rgba(192, 132, 252, 0.08); border-right: 3px solid var(--accent-purple); padding: 12px; border-radius: 6px;">
+            <strong style="color: var(--accent-purple);">לצרכן הביקורתי:</strong>
+            <p style="font-size: 0.85rem; color: #cbd5e1; margin-top: 4px;">זהה עוגני מחיר, השהה החלטות אימפולסיביות של מערכת 1, והפעל את מערכת 2 ברכישות משמעותיות.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ==================== שקופית 19: ביבליוגרפיה ומקורות ==================== -->
+    <!-- ==================== שקופית 19: ביבליוגרפיה, קרדיטים ומקורות ==================== -->
     <section class="slide" id="slide-19">
       <header class="slide-header">
         <div class="slide-title-group">
-          <h2>ביבליוגרפיה ומקורות אקדמיים</h2>
-          <div class="slide-subtitle"><bdi>References &amp; Academic Foundations</bdi></div>
+          <h2>ביבליוגרפיה, קרדיטים ומקורות</h2>
+          <div class="slide-subtitle"><bdi>References, Visual Credits &amp; Academic Foundations</bdi></div>
         </div>
-        <span class="slide-badge">מקורות</span>
+        <span class="slide-badge">מקורות ורישוי</span>
       </header>
-      <div class="skeleton-card">
-        <div class="skeleton-icon">📚</div>
-        <p class="skeleton-desc">
-          ספרות מחקרית מובילה: <bdi>Kahneman, Tversky, Ariely, Cialdini, Damasio, Thaler &amp; Sunstein</bdi>.
-        </p>
-        <span class="skeleton-badge">רשימה ביבליוגרפית מלאה תשולב בשלב התוכן</span>
+
+      <div class="references-grid">
+        <!-- מקורות אקדמיים -->
+        <div class="ref-section">
+          <h4>ספרות מחקרית מובילה</h4>
+          <ul class="ref-list">
+            <li><bdi>Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.</bdi></li>
+            <li><bdi>Tversky, A., &amp; Kahneman, D. (1974). Judgment under Uncertainty: Heuristics and Biases. Science, 185(4157), 1124-1131.</bdi></li>
+            <li><bdi>Kahneman, D., &amp; Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. Econometrica, 47(2), 263-291.</bdi></li>
+            <li><bdi>Damasio, A. R. (1994). Descartes' Error: Emotion, Reason, and the Human Brain. Putnam.</bdi></li>
+            <li><bdi>Cialdini, R. B. (2006). Influence: The Psychology of Persuasion. Harper Business.</bdi></li>
+            <li><bdi>Prelec, D., &amp; Loewenstein, G. (1998). The red and the black: Mental accounting of savings and debt. Marketing Science, 17(1), 4-28.</bdi></li>
+            <li><bdi>Thaler, R. H., &amp; Sunstein, C. R. (2008). Nudge: Improving Decisions About Health, Wealth, and Happiness. Yale University Press.</bdi></li>
+            <li><bdi>Ariely, D. (2008). Predictably Irrational: The Hidden Forces That Shape Our Decisions. HarperCollins.</bdi></li>
+          </ul>
+        </div>
+
+        <!-- קרדיטים לאלמנטים חזותיים -->
+        <div class="ref-section">
+          <h4>תיעוד אלמנטים חזותיים ורישוי</h4>
+          <ul class="ref-list">
+            <li><strong>תמונת מוח מרכזית (שקופית 1):</strong> איור דיגיטלי נוירו-גרפי מותאם אישית שנוצר עבור הפרויקט (שימוש פתוח למטרות לימודיות ואקדמיות).</li>
+            <li><strong>איורים ודיאגרמות קונספטואליות (שקופיות 3–17):</strong> איורים וקטוריים מקוריים בפורמט <bdi>SVG</bdi> שפותחו עבור המצגת (רישיון פרויקט <bdi>MIT / Creative Commons BY 4.0</bdi>).</li>
+            <li><strong>הערת רישוי ושימוש הוגן:</strong> כלל התכנים והאיורים נוצרו ונשמרו מקומית תחת תיקיית <bdi>assets/images/</bdi> לשם טעינה מלאה ועצמאית, ללא תלות ברשת חיצונית.</li>
+          </ul>
+        </div>
       </div>
     </section>
 

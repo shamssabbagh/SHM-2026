@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sys1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="sys2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="glow-sys" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="420" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+
+  <!-- Grid lines -->
+  <line x1="400" y1="30" x2="400" y2="390" stroke="#334155" stroke-width="2" stroke-dasharray="6,6"/>
+
+  <!-- System 1 Left Box -->
+  <rect x="30" y="30" width="350" height="360" rx="12" fill="url(#sys1-grad)" stroke="#f59e0b" stroke-width="1.5"/>
+  <circle cx="80" cy="80" r="28" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+  <text x="80" y="88" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle" fill="#fbbf24">⚡</text>
+
+  <text x="125" y="75" font-family="'Heebo', system-ui, sans-serif" font-size="20" font-weight="800" fill="#fef3c7">מערכת 1 (System 1)</text>
+  <text x="125" y="98" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">עיבוד אינטואיטיבי, רגשי ואוטומטי</text>
+
+  <!-- System 1 features -->
+  <g transform="translate(50, 130)">
+    <rect width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <text x="290" y="26" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מהירות: מיידית (מילישניות)</text>
+    <circle cx="25" cy="21" r="5" fill="#f59e0b"/>
+
+    <rect y="52" width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <text x="290" y="78" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מאמץ מנטלי: כמעט אפסי (ברירת מחדל)</text>
+    <circle cx="25" cy="73" r="5" fill="#f59e0b"/>
+
+    <rect y="104" width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <text x="290" y="130" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מניע: אסוציאציות, הרגלים ורגשות</text>
+    <circle cx="25" cy="125" r="5" fill="#f59e0b"/>
+
+    <rect y="156" width="310" height="74" rx="8" fill="rgba(245, 158, 11, 0.12)" stroke="#f59e0b" stroke-width="1"/>
+    <text x="295" y="180" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#fbbf24" text-anchor="end">יישום שיווקי: קניות אימפולסיביות</text>
+    <text x="295" y="202" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#fed7aa" text-anchor="end">רכישה בלחיצת כפתור (1-Click), מיתוג מושך, אריזות בולטות</text>
+    <text x="295" y="218" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#fed7aa" text-anchor="end">ומבצעים מעוררי דחיפות (Urgency Cues)</text>
+  </g>
+
+  <!-- System 2 Right Box -->
+  <rect x="420" y="30" width="350" height="360" rx="12" fill="url(#sys2-grad)" stroke="#38bdf8" stroke-width="1.5"/>
+  <circle cx="470" cy="80" r="28" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="2"/>
+  <text x="470" y="88" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle" fill="#38bdf8">🔍</text>
+
+  <text x="515" y="75" font-family="'Heebo', system-ui, sans-serif" font-size="20" font-weight="800" fill="#f0f9ff">מערכת 2 (System 2)</text>
+  <text x="515" y="98" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#38bdf8">עיבוד איטי, מבוקר, מודע ואנליטי</text>
+
+  <!-- System 2 features -->
+  <g transform="translate(440, 130)">
+    <rect width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <text x="290" y="26" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מהירות: איטית, שקולה ומדורגת</text>
+    <circle cx="25" cy="21" r="5" fill="#38bdf8"/>
+
+    <rect y="52" width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <text x="290" y="78" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מאמץ מנטלי: גבוה, דורש ריכוז מלא</text>
+    <circle cx="25" cy="73" r="5" fill="#38bdf8"/>
+
+    <rect y="104" width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
+    <text x="290" y="130" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מניע: לוגיקה, השוואת מחירים, תועלת</text>
+    <circle cx="25" cy="125" r="5" fill="#38bdf8"/>
+
+    <rect y="156" width="310" height="74" rx="8" fill="rgba(56, 189, 248, 0.12)" stroke="#38bdf8" stroke-width="1"/>
+    <text x="295" y="180" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#7dd3fc" text-anchor="end">יישום שיווקי: מעורבות גבוהה</text>
+    <text x="295" y="202" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#bae6fd" text-anchor="end">מפרטים טכניים מפורטים, טבלאות השוואת תכונות,</text>
+    <text x="295" y="218" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#bae6fd" text-anchor="end">ביקורות מומחים והוכחת כדאיות כלכלית ארוכת טווח</text>
+  </g>
+</svg>

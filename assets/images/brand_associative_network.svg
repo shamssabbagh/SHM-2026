@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="100%" height="100%">
+  <defs>
+    <radialGradient id="net-center" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.9"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="720" height="360" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Network Graph Connections -->
+  <g stroke="#475569" stroke-width="2">
+    <!-- Lines from Center (Brand Node) -->
+    <line x1="360" y1="180" x2="200" y2="90" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6,3"/>
+    <line x1="360" y1="180" x2="520" y2="90" stroke="#818cf8" stroke-width="3"/>
+    <line x1="360" y1="180" x2="160" y2="240" stroke="#34d399" stroke-width="2.5"/>
+    <line x1="360" y1="180" x2="560" y2="240" stroke="#fbbf24" stroke-width="2.5"/>
+    <line x1="360" y1="180" x2="360" y2="300" stroke="#c084fc" stroke-width="2"/>
+
+    <!-- Interconnections -->
+    <line x1="200" y1="90" x2="160" y2="240" stroke="#334155" stroke-width="1.5"/>
+    <line x1="520" y1="90" x2="560" y2="240" stroke="#334155" stroke-width="1.5"/>
+  </g>
+
+  <!-- Central Brand Node -->
+  <circle cx="360" cy="180" r="50" fill="url(#net-center)" stroke="#38bdf8" stroke-width="3"/>
+  <text x="360" y="176" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">צומת מותג</text>
+  <text x="360" y="196" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#bae6fd" text-anchor="middle">Brand Core</text>
+
+  <!-- Node 1: Quality / Innovation (Top Left) -->
+  <circle cx="200" cy="90" r="38" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <text x="200" y="88" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#e0f2fe" text-anchor="middle">חדשנות</text>
+  <text x="200" y="104" font-family="'Assistant', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">אסוציאציה ראשית</text>
+
+  <!-- Node 2: Emotional Belonging (Top Right) -->
+  <circle cx="520" cy="90" r="38" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+  <text x="520" y="88" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#e0e7ff" text-anchor="middle">שייכות חברתית</text>
+  <text x="520" y="104" font-family="'Assistant', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">סטטוס וקהילה</text>
+
+  <!-- Node 3: Design / Aesthetics (Bottom Left) -->
+  <circle cx="160" cy="240" r="36" fill="#1e293b" stroke="#34d399" stroke-width="2"/>
+  <text x="160" y="238" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#d1fae5" text-anchor="middle">עיצוב מינימליסטי</text>
+  <text x="160" y="254" font-family="'Assistant', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">חוויית משתמש</text>
+
+  <!-- Node 4: Trust & Reliability (Bottom Right) -->
+  <circle cx="560" cy="240" r="36" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="560" y="238" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#fef3c7" text-anchor="middle">אמינות וביטחון</text>
+  <text x="560" y="254" font-family="'Assistant', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">הפחתת סיכון</text>
+
+  <!-- Node 5: Premium Price (Bottom Center) -->
+  <circle cx="360" cy="300" r="30" fill="#1e293b" stroke="#c084fc" stroke-width="2"/>
+  <text x="360" y="304" font-family="'Heebo', system-ui, sans-serif" font-size="12" font-weight="700" fill="#f3e8ff" text-anchor="middle">מחיר פרימיום</text>
+
+  <!-- Header explanation -->
+  <text x="680" y="35" font-family="'Heebo', system-ui, sans-serif" font-size="17" font-weight="800" fill="#38bdf8" text-anchor="end">מודל הפצת ההפעלה (Spreading Activation)</text>
+  <text x="680" y="55" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="end">עירור של מושג אחד מציף רשת עשירה של אסוציאציות בזיכרון לטווח ארוך</text>
+</svg>

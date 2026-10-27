@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="100%" height="100%">
+  <rect width="720" height="320" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+
+  <text x="680" y="38" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#c084fc" text-anchor="end">סוכני AI ועתיד ההחלטות הצרכניות</text>
+  <text x="680" y="58" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="end">למידת הטיות אישיות ומעבר מצרכן אנושי ללקוח אלגוריתמי (Machine Customers)</text>
+
+  <!-- Circular feedback flow -->
+  <g transform="translate(60, 90)">
+    <!-- Stage 1 -->
+    <rect x="0" y="20" width="180" height="150" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="90" y="50" font-family="'Heebo', system-ui, sans-serif" font-size="14" font-weight="700" fill="#7dd3fc" text-anchor="middle">1. ניטור התנהגותי</text>
+    <text x="90" y="80" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">מעקב אחר זמני תגובה,</text>
+    <text x="90" y="100" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">סריקת מבטים ועגלות נטושות</text>
+
+    <!-- Stage 2 -->
+    <rect x="210" y="20" width="180" height="150" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="300" y="50" font-family="'Heebo', system-ui, sans-serif" font-size="14" font-weight="700" fill="#a5b4fc" text-anchor="middle">2. מיפוי הטיות אישי</text>
+    <text x="300" y="80" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">זיהוי רגישות לעוגן מחיר,</text>
+    <text x="300" y="100" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">עוצמת שנאת הפסד ו-FOMO</text>
+
+    <!-- Stage 3 -->
+    <rect x="420" y="20" width="180" height="150" rx="10" fill="#1e293b" stroke="#c084fc" stroke-width="1.5"/>
+    <text x="510" y="50" font-family="'Heebo', system-ui, sans-serif" font-size="14" font-weight="700" fill="#e9d5ff" text-anchor="middle">3. התאמה היפר-אישית</text>
+    <text x="510" y="80" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">הצגת מסגור מותאם בזמן אמת</text>
+    <text x="510" y="100" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="middle">הממקסם המרה אישית</text>
+  </g>
+</svg>

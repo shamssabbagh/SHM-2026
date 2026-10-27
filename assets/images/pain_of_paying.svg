@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="100%" height="100%">
+  <rect width="720" height="340" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="680" y="38" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#f43f5e" text-anchor="end">"כאב התשלום" וארנקים דיגיטליים (The Pain of Paying)</text>
+  <text x="680" y="58" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="end">כיצד מעבר ממזומן לתשלום דיגיטלי מרדים את הפעלת האינסולה (Prelec &amp; Loewenstein)</text>
+
+  <!-- Left: Cash payment (High Pain) -->
+  <g transform="translate(60, 90)">
+    <rect width="280" height="210" rx="12" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
+    <circle cx="140" cy="45" r="26" fill="rgba(244, 63, 94, 0.15)"/>
+    <text x="140" y="53" font-family="system-ui, sans-serif" font-size="22" text-anchor="middle">💵</text>
+    <text x="140" y="95" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="800" fill="#fda4af" text-anchor="middle">תשלום במזומן</text>
+    
+    <!-- Pain Indicator High -->
+    <rect x="30" y="115" width="220" height="20" rx="10" fill="#334155"/>
+    <rect x="30" y="115" width="195" height="20" rx="10" fill="#f43f5e"/>
+    <text x="140" y="130" font-family="'Heebo', system-ui, sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">כאב פסיכולוגי גבוה (High Pain)</text>
+
+    <text x="250" y="165" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• פרידה פיזית מוחשית משטרות כסף</text>
+    <text x="250" y="185" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• הפעלה מידית של אינסולה (Insula)</text>
+  </g>
+
+  <!-- Right: Digital / 1-Click (Frictionless) -->
+  <g transform="translate(380, 90)">
+    <rect width="280" height="210" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <circle cx="140" cy="45" r="26" fill="rgba(56, 189, 248, 0.15)"/>
+    <text x="140" y="53" font-family="system-ui, sans-serif" font-size="22" text-anchor="middle">📱</text>
+    <text x="140" y="95" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="800" fill="#7dd3fc" text-anchor="middle">ארנק דיגיטלי / 1-Click</text>
+
+    <!-- Pain Indicator Low -->
+    <rect x="30" y="115" width="220" height="20" rx="10" fill="#334155"/>
+    <rect x="30" y="115" width="45" height="20" rx="10" fill="#10b981"/>
+    <text x="140" y="130" font-family="'Heebo', system-ui, sans-serif" font-size="11" font-weight="700" fill="#cbd5e1" text-anchor="middle">חיכוך נמוך (Frictionless)</text>
+
+    <text x="250" y="165" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• ניתוק פסיכולוגי בין הקנייה לעלות</text>
+    <text x="250" y="185" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• הגדלת סל הקנייה הממוצע ב-20%–40%</text>
+  </g>
+</svg>

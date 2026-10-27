@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="somatic-arrow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="50%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="360" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="680" y="45" font-family="'Heebo', system-ui, sans-serif" font-size="20" font-weight="800" fill="#fb7185" text-anchor="end">תיאוריית הסמנים הסומטיים (Antonio Damasio)</text>
+  <text x="680" y="70" font-family="'Assistant', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">כיצד תחושות גופניות מקדימות מכריעות בחירות כלכליות</text>
+
+  <!-- Flow Steps: 3 Steps horizontal flow -->
+  <!-- Step 1: Stimulus -->
+  <g transform="translate(480, 110)">
+    <rect width="200" height="190" rx="12" fill="#1e293b" stroke="#fb7185" stroke-width="1.5"/>
+    <circle cx="100" cy="50" r="28" fill="rgba(251, 113, 133, 0.15)"/>
+    <text x="100" y="58" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle">🏷️</text>
+    <text x="100" y="105" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="700" fill="#fecdd3" text-anchor="middle">1. גירוי שיווקי</text>
+    <text x="100" y="132" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">מוצר, מודעה או הצעת מחיר</text>
+    <text x="100" y="152" font-family="'Assistant', system-ui, sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">נקלטים בחושים</text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M470,205 L440,205" fill="none" stroke="url(#somatic-arrow)" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="440,200 430,205 440,210" fill="#c084fc"/>
+
+  <!-- Step 2: Somatic Response -->
+  <g transform="translate(250, 110)">
+    <rect width="180" height="190" rx="12" fill="#1e293b" stroke="#c084fc" stroke-width="1.5"/>
+    <circle cx="90" cy="50" r="28" fill="rgba(192, 132, 252, 0.15)"/>
+    <text x="90" y="58" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle">💓</text>
+    <text x="90" y="105" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="700" fill="#e9d5ff" text-anchor="middle">2. תגובה גופנית ("Gut Feeling")</text>
+    <text x="90" y="132" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">דופק, עוררות רגשית ותחושת</text>
+    <text x="90" y="152" font-family="'Assistant', system-ui, sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">משיכה או רתיעה אוטומטית</text>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M240,205 L210,205" fill="none" stroke="url(#somatic-arrow)" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="210,200 200,205 210,210" fill="#38bdf8"/>
+
+  <!-- Step 3: Decision -->
+  <g transform="translate(20, 110)">
+    <rect width="180" height="190" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <circle cx="90" cy="50" r="28" fill="rgba(56, 189, 248, 0.15)"/>
+    <text x="90" y="58" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle">⚖️</text>
+    <text x="90" y="105" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="700" fill="#bae6fd" text-anchor="middle">3. הכרעה מנומקת</text>
+    <text x="90" y="132" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">מערכת 2 מנסחת הסבר</text>
+    <text x="90" y="152" font-family="'Assistant', system-ui, sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">לגיטימי לבחירה שכבר נעשתה</text>
+  </g>
+</svg>
