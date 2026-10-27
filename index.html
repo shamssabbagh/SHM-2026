@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>המוח הצרכני – הפסיכולוגיה שמאחורי החלטות קנייה</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- פס התקדמות עליון -->
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- חלל הצגת השקופיות -->
+  <main class="presentation-viewport">
+
+    <!-- ==================== שקופית 1: שער ==================== -->
+    <section class="slide active" id="slide-1">
+      <div class="cover-content">
+        <span class="cover-badge-top">קורס סוכני <bdi>AI</bdi> ו-<bdi>Vibe Coding</bdi> | פרויקט גמר</span>
+        <h1 class="cover-title">המוח הצרכני</h1>
+        <p class="cover-subtitle">
+          הפסיכולוגיה שמאחורי החלטות קנייה
+          <br>
+          <span style="font-size: 1.05rem; color: var(--accent-indigo);">
+            <bdi>The Consumer Brain: The Psychology Behind Purchasing Decisions</bdi>
+          </span>
+        </p>
+
+        <div class="team-pill-container">
+          <div class="team-pill">
+            <span class="icon">🧠</span>
+            <div>
+              <strong>סטודנטית לפסיכולוגיה</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">תהליכים קוגניטיביים והתנהגותיים</div>
+            </div>
+          </div>
+          <div class="team-pill">
+            <span class="icon">📈</span>
+            <div>
+              <strong>סטודנטית לשיווק</strong>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">אסטרטגיה וקבלת החלטות צרכניות</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cover-features-grid">
+          <div class="feature-mini-card">
+            <h4>דיוק מדעי ואקדמי</h4>
+            <p>התבססות על תיאוריות אמפיריות מוכחות והפרדת מיתוסים מעובדות.</p>
+          </div>
+          <div class="feature-mini-card">
+            <h4>המחשה תלת-ממדית (3D)</h4>
+            <p>הדמיה קונספטואלית של אזורי מוח המשפיעים על בחירה וערך.</p>
+          </div>
+          <div class="feature-mini-card">
+            <h4>קוד <bdi>Python</bdi> חי</h4>
+            <p>סימולציה פעילה של מודלים מתמטיים והטיות קוגניטיביות בדפדפן.</p>
+          </div>
+        </div>
+
+        <div>
+          <button type="button" class="btn-start-presentation" id="btnStartPresentation">
+            <span>התחל במצגת</span>
+            <span>←</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 2: מיתוס מול מדע ==================== -->
+    <section class="slide" id="slide-2">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>מבוא וגבולות המדע: מיתוס מול מציאות</h2>
+          <div class="slide-subtitle"><bdi>Myths vs. Science in Consumer Behavior</bdi></div>
+        </div>
+        <span class="slide-badge">מתודולוגיה מדעית</span>
+      </header>
+
+      <div class="scientific-notice">
+        <strong>הצהרת שקיפות אקדמית:</strong>
+        חקר התנהגות צרכנים נעזר במודלים קוגניטיביים מבוססי ניסויים מבוקרים. הדמיות מוח אינן "קריאת מחשבות" ואינן מהוות כלי דימות רפואי ישיר (<bdi>fMRI / EEG</bdi>). מטרתנו להציג מדע אמפירי מדויק ולשלול מניפולציות פסאודו-מדעיות.
+      </div>
+
+      <div class="myth-fact-grid">
+        <div class="myth-fact-card">
+          <div class="myth-box">
+            <div class="label">❌ מיתוס נוירו-שיווקי נפוץ</div>
+            <div class="text">"קיים 'כפתור קנייה' סודי במוח שמאפשר למפרסמים להכריח צרכנים לקנות."</div>
+          </div>
+          <div class="fact-box">
+            <div class="label">✓ העובדה המדעית המבוססת</div>
+            <div class="text">החלטת קנייה היא תוצר של אינטראקציה מורכבת ודינמית בין תהליכי הערכה, רגש, שיקולי תקציב והקשר סביבתי.</div>
+          </div>
+        </div>
+
+        <div class="myth-fact-card">
+          <div class="myth-box">
+            <div class="label">❌ מיתוס נוירו-שיווקי נפוץ</div>
+            <div class="text">"מסרים תת-סיפיים (<bdi>Subliminal Priming</bdi>) שולטים לחלוטין ברצון הצרכן."</div>
+          </div>
+          <div class="fact-box">
+            <div class="label">✓ העובדה המדעית המבוססת</div>
+            <div class="text">הטרמה (<bdi>Priming</bdi>) משפיעה על בולטות אסוציאטיבית בתנאי מעבדה ספציפיים בלבד, ואינה גוברת על העדפות ברורות של הצרכן.</div>
+          </div>
+        </div>
+
+        <div class="myth-fact-card">
+          <div class="myth-box">
+            <div class="label">❌ מיתוס נוירו-שיווקי נפוץ</div>
+            <div class="text">"צרכנים פועלים כמחשבונים רציונליים לחלוטין שמחשבים תועלת אופטימלית."</div>
+          </div>
+          <div class="fact-box">
+            <div class="label">✓ העובדה המדעית המבוססת</div>
+            <div class="text">קבלת החלטות מוגבלת ברציונליות חסומה (<bdi>Bounded Rationality</bdi>) ונעזרת בהיוריסטיקות ובקיצורי דרך מחשבתיים.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 3: מודל שתי המערכות ==================== -->
+    <section class="slide" id="slide-3">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>מודל שתי המערכות: אינטואיציה מול שיקול דעת</h2>
+          <div class="slide-subtitle"><bdi>Dual-Process Theory: System 1 &amp; System 2</bdi> (Kahneman &amp; Tversky)</div>
+        </div>
+        <span class="slide-badge marketing">פסיכולוגיה &amp; שיווק</span>
+      </header>
+
+      <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px;">
+        פסיכולוגיית השיפוט מבחינה בין שני מנגנוני עיבוד מידע מוחיים המשפיעים באופן שונה על בחירת מוצרים:
+      </p>
+
+      <div class="dual-system-container">
+        <!-- מערכת 1 -->
+        <div class="system-column system-1">
+          <div class="system-header">
+            <div class="system-title" style="color: var(--accent-amber);">מערכת 1 (<bdi>System 1</bdi>)</div>
+            <span class="system-badge-tag">עיבוד מהיר ואינטואיטיבי</span>
+          </div>
+
+          <ul class="traits-list">
+            <li><strong>מהירה ואוטומטית:</strong> פועלת ללא מאמץ מודע כמעט.</li>
+            <li><strong>אסוציאטיבית ורגשית:</strong> מושפעת ממראית עין, צבע וסיפור.</li>
+            <li><strong>שגרתית:</strong> נשענת על הרגלים מושרשים וקיצורי דרך (<bdi>Heuristics</bdi>).</li>
+            <li><strong>חסכונית באנרגיה:</strong> ברירת המחדל של המוח ביומיום.</li>
+          </ul>
+
+          <div class="marketing-implication-box">
+            <h5>השלכה שיווקית: קניות אימפולסיביות</h5>
+            <p>
+              עיצוב חוויית רכישה ללא חיכוך (<bdi>Frictionless UX</bdi>), מיקום מוצרים ליד הקופה, ותמונות מוצר מעוררות תיאבון ורגש.
+            </p>
+          </div>
+        </div>
+
+        <!-- מערכת 2 -->
+        <div class="system-column system-2">
+          <div class="system-header">
+            <div class="system-title" style="color: var(--accent-cyan);">מערכת 2 (<bdi>System 2</bdi>)</div>
+            <span class="system-badge-tag">עיבוד איטי ומבוקר</span>
+          </div>
+
+          <ul class="traits-list">
+            <li><strong>איטית ומאומצת:</strong> דורשת קשב ממוקד וריכוז פעיל.</li>
+            <li><strong>אנליטית ולוגית:</strong> שוקלת יתרונות, חסרונות ומחירים.</li>
+            <li><strong>מודעת ומחושבת:</strong> מופעלת במצבי ספק או מורכבות.</li>
+            <li><strong>עייפה בקלות:</strong> רגישה לעומס קוגניטיבי (<bdi>Cognitive Load</bdi>).</li>
+          </ul>
+
+          <div class="marketing-implication-box">
+            <h5>השלכה שיווקית: מעורבות גבוהה (<bdi>High Involvement</bdi>)</h5>
+            <p>
+              הצגת מפרטים טכניים, טבלאות השוואת מחירים, ביקורות מומחים והוכחת החזר השקעה (<bdi>ROI</bdi>) ברכישות גדולות.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 4: קשב חזותי ==================== -->
+    <section class="slide" id="slide-4">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>קשב חזותי וסלקטיביות</h2>
+          <div class="slide-subtitle"><bdi>Visual Attention &amp; Perceptual Saliency</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">👁️</div>
+        <p class="skeleton-desc">
+          עקרונות קשב מלמטה-למעלה (<bdi>Bottom-Up</bdi>) ומלמעלה-למטה (<bdi>Top-Down</bdi>).
+          כיצד צרכנים סורקים אריזות, מדפי חנויות וממשקי אי-קומרס דיגיטליים.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 5: תפיסה ועיבוד חושי ==================== -->
+    <section class="slide" id="slide-5">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>תפיסה ועיבוד חושי</h2>
+          <div class="slide-subtitle"><bdi>Sensory Marketing &amp; Perception</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">🎨</div>
+        <p class="skeleton-desc">
+          פסיכולוגיית הצבעים, השפעת משקל החומר וצלילי פתיחת מוצר על שיפוט איכות ותפיסת ערך.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 6: רגשות וסמנים סומטיים ==================== -->
+    <section class="slide" id="slide-6">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>רגשות וסמנים סומטיים בהחלטות</h2>
+          <div class="slide-subtitle"><bdi>Emotions &amp; Somatic Markers (Damasio)</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">❤️</div>
+        <p class="skeleton-desc">
+          תיאוריית הסמנים הסומטיים של דמאסיו: כיצד תחושות גופניות ורגשות מקדימים משמשים כעוגן קבלת החלטות.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 7: זיכרון ואסוציאציות ==================== -->
+    <section class="slide" id="slide-7">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>זיכרון ואסוציאציות מותג</h2>
+          <div class="slide-subtitle"><bdi>Memory Retrieval &amp; Associative Networks</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">🧠</div>
+        <p class="skeleton-desc">
+          מודל הפצת ההפעלה ברשת האסוציאטיבית ובולטות מותגית מנטלית ברגע הבחירה.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 8: מודל תלת-ממדי (הכנה) ==================== -->
+    <section class="slide" id="slide-8">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>הדמיה תלת-ממדית: מפת המוח הקונספטואלית</h2>
+          <div class="slide-subtitle"><bdi>Interactive 3D Brain: Key Conceptual Regions</bdi></div>
+        </div>
+        <span class="slide-badge">תשתית Three.js</span>
+      </header>
+      <div class="placeholder-container">
+        <div class="placeholder-badge">רכיב תלת-ממד Three.js (יוטמע בשלב 4)</div>
+        <p class="skeleton-desc">
+          הכנה למודל מוח אינטראקטיבי המציג נקודות מפתח קונספטואליות:
+          <bdi>Prefrontal Cortex</bdi>, <bdi>Amygdala</bdi>, <bdi>Insula</bdi>, ו-<bdi>Nucleus Accumbens</bdi>.
+        </p>
+        <div style="color: var(--text-subtle); font-size: 0.85rem;">
+          [סצנת Three.js, שליטת סיבוב ואודיו יוטמעו בשלבים המיועדים לפי ה-PRD]
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 9: הטיית העיגון ==================== -->
+    <section class="slide" id="slide-9">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>הטיית העיגון וההתאמה</h2>
+          <div class="slide-subtitle"><bdi>Anchoring &amp; Adjustment Heuristic</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">⚓</div>
+        <p class="skeleton-desc">
+          כיצד מספר התחלתי אקראי מעוות את הערכת השווי של מוצר ואסטרטגיות תמחור שיווקיות.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 10: שנאת הפסד ותורת הסיכויים ==================== -->
+    <section class="slide" id="slide-10">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>שנאת הפסד ותורת הסיכויים</h2>
+          <div class="slide-subtitle"><bdi>Loss Aversion &amp; Prospect Theory</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">⚖️</div>
+        <p class="skeleton-desc">
+          הכאב שבהפסד מול ההנאה שברווח: פונקציית הערך של כהנמן וטברסקי ויישומי מסגור (<bdi>Framing</bdi>).
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 11: אפקט הפיתיון ופרדוקס הבחירה ==================== -->
+    <section class="slide" id="slide-11">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>אפקט הפיתיון ופרדוקס הבחירה</h2>
+          <div class="slide-subtitle"><bdi>The Decoy Effect &amp; Choice Overload</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">🍿</div>
+        <p class="skeleton-desc">
+          אפקט הפיתיון הא-סימטרי בהצעות מחיר, וכיצד עודף אפשרויות מוביל לחוסר החלטיות וחרטת קנייה.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 12: השפעה והוכחה חברתית ==================== -->
+    <section class="slide" id="slide-12">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>השפעה והוכחה חברתית</h2>
+          <div class="slide-subtitle"><bdi>Social Proof &amp; Normative Influence</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">👥</div>
+        <p class="skeleton-desc">
+          עקרונות ההשפעה של צ'אלדיני, אפקט העדר ורמזים חברתיים באתרי מסחר.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 13: הדגמת Python #1 (הכנה) ==================== -->
+    <section class="slide" id="slide-13">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>הדגמת קוד <bdi>Python</bdi>: פונקציית תורת הסיכויים</h2>
+          <div class="slide-subtitle"><bdi>Python Live Demo: Prospect Theory Model</bdi></div>
+        </div>
+        <span class="slide-badge">תשתית Python</span>
+      </header>
+      <div class="placeholder-container python">
+        <div class="placeholder-badge">הכנה לשילוב קוד Python פעיל (Pyodide - יוטמע בשלב 6)</div>
+        <p class="skeleton-desc">
+          סימולציה אינטראקטיבית לחישוב פונקציית התועלת הא-סימטרית של שנאת הפסד לפי פרמטרים הניתנים לשינוי חי על ידי המשתמש.
+        </p>
+        <div class="code-mockup">
+          # קוד לדוגמה שיופעל בדפדפן בשלב 6:
+          lambda_val = 2.25
+          alpha, beta = 0.88, 0.88
+          # def value_function(x): ...
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 14: הדגמת Python #2 (הכנה) ==================== -->
+    <section class="slide" id="slide-14">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>הדגמת קוד <bdi>Python</bdi>: סימולציית <bdi>A/B Testing</bdi> בתמחור עוגן</h2>
+          <div class="slide-subtitle"><bdi>Python Live Demo: A/B Testing Anchoring Effect</bdi></div>
+        </div>
+        <span class="slide-badge">תשתית Python</span>
+      </header>
+      <div class="placeholder-container python">
+        <div class="placeholder-badge">הכנה לשילוב קוד Python פעיל (Pyodide - יוטמע בשלב 6)</div>
+        <p class="skeleton-desc">
+          סימולציית נכונות לתשלום (<bdi>WTP</bdi>) תחת תנאי עוגן שונים והרצת מבחנים סטטיסטיים בלייב.
+        </p>
+        <div class="code-mockup">
+          # הרצת סימולציה סטטיסטית של צרכנים סינתטיים
+          # import numpy as np, matplotlib.pyplot as plt
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 15: כאב התשלום ==================== -->
+    <section class="slide" id="slide-15">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>כאב התשלום וארנקים דיגיטליים</h2>
+          <div class="slide-subtitle"><bdi>The "Pain of Paying" &amp; Frictionless Checkout</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">💳</div>
+        <p class="skeleton-desc">
+          הפחתת החיכוך הפסיכולוגי של תשלום במזומן מול תשלום דיגיטלי ללא מגע.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 16: שיווק אתי ו-Nudge ==================== -->
+    <section class="slide" id="slide-16">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>שיווק מבוסס מדע ואתיקה מקצועית</h2>
+          <div class="slide-subtitle"><bdi>Ethical Marketing &amp; Behavioral Nudges</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">🛡️</div>
+        <p class="skeleton-desc">
+          ההבדל בין דחיפה עדינה חיובית (<bdi>Nudge</bdi>) לבין דפוסי עיצוב מניפולטיביים (<bdi>Dark Patterns</bdi>).
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 17: סוכני AI והעתיד ==================== -->
+    <section class="slide" id="slide-17">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>סוכני <bdi>AI</bdi> ועתיד ההחלטות הצרכניות</h2>
+          <div class="slide-subtitle"><bdi>AI Agents &amp; The Future of Consumer Decisions</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">🤖</div>
+        <p class="skeleton-desc">
+          התאמה היפר-אישית בזמן אמת, והמעבר של סוכני בינה מלאכותית לקבלת החלטות צרכניות עצמאיות.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 18: סיכום ותובנות ==================== -->
+    <section class="slide" id="slide-18">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>סיכום ותובנות יישומיות</h2>
+          <div class="slide-subtitle"><bdi>Summary &amp; Actionable Takeaways</bdi></div>
+        </div>
+        <span class="slide-badge">שלד תוכן</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">📋</div>
+        <p class="skeleton-desc">
+          מסקנות מרכזיות, צ'ק ליסט יישומי לצרכן הביקורתי ולאיש השיווק המקצועי.
+        </p>
+        <span class="skeleton-badge">תוכן מפורט ישולב בשלב הבא בהתאם ל-PRD</span>
+      </div>
+    </section>
+
+    <!-- ==================== שקופית 19: ביבליוגרפיה ומקורות ==================== -->
+    <section class="slide" id="slide-19">
+      <header class="slide-header">
+        <div class="slide-title-group">
+          <h2>ביבליוגרפיה ומקורות אקדמיים</h2>
+          <div class="slide-subtitle"><bdi>References &amp; Academic Foundations</bdi></div>
+        </div>
+        <span class="slide-badge">מקורות</span>
+      </header>
+      <div class="skeleton-card">
+        <div class="skeleton-icon">📚</div>
+        <p class="skeleton-desc">
+          ספרות מחקרית מובילה: <bdi>Kahneman, Tversky, Ariely, Cialdini, Damasio, Thaler &amp; Sunstein</bdi>.
+        </p>
+        <span class="skeleton-badge">רשימה ביבליוגרפית מלאה תשולב בשלב התוכן</span>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- סרגל ניווט תחתון -->
+  <nav class="navigation-bar" aria-label="ניווט במצגת">
+    <div class="nav-group-start">
+      <button type="button" class="nav-btn" id="btnToc" title="תוכן עניינים ומעבר מהיר (Esc)">
+        <span>☰</span>
+        <span>תוכן עניינים</span>
+      </button>
+    </div>
+
+    <div class="nav-center-info">
+      <div class="slide-counter" id="slideCounter">שקופית 1 מתוך 19</div>
+      <div class="slide-hint">ניווט באמצעות החצים במקלדת או מקש רווח</div>
+    </div>
+
+    <div class="nav-group-end">
+      <button type="button" class="nav-btn" id="btnPrev" title="שקופית קודמת (חץ ימינה)" disabled>
+        <span>→</span>
+        <span>הקודם</span>
+      </button>
+      <button type="button" class="nav-btn primary" id="btnNext" title="שקופית הבאה (חץ שמאלה / רווח)">
+        <span>הבא</span>
+        <span>←</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- חלונית מודאל לתוכן העניינים -->
+  <div class="toc-modal-overlay" id="tocModal" role="dialog" aria-modal="true" aria-label="תוכן עניינים">
+    <div class="toc-modal">
+      <div class="toc-header">
+        <h3>תוכן השקופיות (מעבר מהיר)</h3>
+        <button type="button" class="btn-close-toc" id="btnCloseToc" title="סגור (Esc)">✕</button>
+      </div>
+      <div class="toc-grid" id="tocGrid">
+        <!-- נבנה דינמית על ידי JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="js/presentation.js"></script>
+</body>
+</html>
