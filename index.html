@@ -229,10 +229,20 @@
               <span>🔄</span>
               <span>אפס מבט</span>
             </button>
-            <button type="button" class="brain-ctrl-btn" id="btnToggleSound" title="הפעל או השתק צלילי משוב">
-              <span>🔇</span>
-              <span>צליל מושתק</span>
-            </button>
+
+            <!-- קבוצת שליטת שמע מורחבת (Mute וסליידר עוצמה) -->
+            <div class="brain-sound-control-group">
+              <button type="button" class="brain-ctrl-btn" id="btnToggleSound" title="לחץ להפעלת שמע וצליל רקע עתידני">
+                <span>🔇</span>
+                <span>צליל מושתק</span>
+              </button>
+
+              <div class="audio-volume-wrap" id="audioVolumeContainer" title="שליטה בעוצמת השמע">
+                <span class="vol-icon" id="volIcon">🔇</span>
+                <input type="range" id="audioVolumeSlider" min="0" max="100" value="70" class="audio-slider" aria-label="עוצמת שמע">
+                <span id="volValueText" class="vol-val-text">מושתק</span>
+              </div>
+            </div>
           </div>
 
           <!-- מיכל הקנבס התלת-ממדי -->
@@ -546,6 +556,7 @@
   </div>
 
   <script src="js/vendor/three.min.js"></script>
+  <script src="js/audio.js"></script>
   <script src="js/brain3d.js"></script>
   <script src="js/presentation.js"></script>
 </body>

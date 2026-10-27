@@ -898,6 +898,76 @@ bdi, .bidi-isolate {
   color: var(--accent-emerald);
 }
 
+/* קבוצת פקדי סאונד מורחבת (Mute וסליידר עוצמה) */
+.brain-sound-control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(30, 41, 59, 0.6);
+  padding: 3px 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.audio-volume-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.vol-icon {
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.audio-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 75px;
+  height: 5px;
+  border-radius: 5px;
+  background: #334155;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.audio-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
+  transition: transform 0.15s ease;
+}
+
+.audio-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.audio-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
+}
+
+.vol-val-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  min-width: 44px;
+  text-align: left;
+  direction: ltr;
+  display: inline-block;
+}
+
 .brain3d-canvas-container {
   width: 100%;
   height: 380px;

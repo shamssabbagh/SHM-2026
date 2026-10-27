@@ -90,45 +90,7 @@
     }
   };
 
-  // אובייקט ניהול האודיו (Web Audio API)
-  const soundManager = {
-    ctx: null,
-    isMuted: true, // ברירת מחדל מושתקת לחלוטין לפי הדרישה!
-    init: function () {
-      if (!this.ctx) {
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (AudioCtx) {
-          this.ctx = new AudioCtx();
-        }
-      }
-      if (this.ctx && this.ctx.state === 'suspended') {
-        this.ctx.resume();
-      }
-    },
-    playTone: function (freq) {
-      if (this.isMuted) return;
-      try {
-        this.init();
-        if (!this.ctx) return;
-        const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
-
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
-
-        gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.5);
-
-        osc.connect(gain);
-        gain.connect(this.ctx.destination);
-
-        osc.start();
-        osc.stop(this.ctx.currentTime + 0.5);
-      } catch (err) {
-        console.warn('Audio playback not supported or blocked:', err);
-      }
-    }
-  };
+  // ניהול צלילים מבוצע במודול הייעודי js/audio.js דרך window.AudioEngine
 
   // משתני Three.js
   let scene, camera, renderer, brainGroup;
@@ -398,8 +360,8 @@
     selectedRegionId = regionId;
 
     // הפעלת צליל (אם המשתמש ביטל השתקה)
-    if (playAudio && soundManager) {
-      soundManager.playTone(region.toneFreq);
+    if (playAudio && window.AudioEngine) {
+      window.AudioEngine.playRegionTone(region.toneFreq);
     }
 
     // הדגשה ויזואלית של נקודות העניין
@@ -616,21 +578,7 @@
       });
     }
 
-    // כפתור השתקת / הפעלת סאונד
-    if (btnSound) {
-      btnSound.addEventListener('click', () => {
-        soundManager.isMuted = !soundManager.isMuted;
-        if (!soundManager.isMuted) {
-          soundManager.init();
-          soundManager.playTone(523.25); // צליל אימות הפעלה
-          btnSound.innerHTML = '<span>🔊</span><span>צליל מופעל</span>';
-          btnSound.classList.add('sound-active');
-        } else {
-          btnSound.innerHTML = '<span>🔇</span><span>צליל מושתק</span>';
-          btnSound.classList.remove('sound-active');
-        }
-      });
-    }
+    // כפתור השתקת / הפעלת סאונד מנוהל כעת ישירות ב-js/audio.js למניעת כפילויות
 
     // כפתורי בחירת אזורים
     document.querySelectorAll('.brain-region-btn').forEach((btn) => {
