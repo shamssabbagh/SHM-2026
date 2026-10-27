@@ -199,23 +199,85 @@
       </div>
     </section>
 
-    <!-- ==================== שקופית 8: מודל תלת-ממדי (הכנה) ==================== -->
+    <!-- ==================== שקופית 8: מודל תלת-ממדי אינטראקטיבי ==================== -->
     <section class="slide" id="slide-8">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>הדמיה תלת-ממדית: מפת המוח הקונספטואלית</h2>
           <div class="slide-subtitle"><bdi>Interactive 3D Brain: Key Conceptual Regions</bdi></div>
         </div>
-        <span class="slide-badge">תשתית Three.js</span>
+        <span class="slide-badge">הדמיה תלת-ממדית (Three.js)</span>
       </header>
-      <div class="placeholder-container">
-        <div class="placeholder-badge">רכיב תלת-ממד Three.js (יוטמע בשלב 4)</div>
-        <p class="skeleton-desc">
-          הכנה למודל מוח אינטראקטיבי המציג נקודות מפתח קונספטואליות:
-          <bdi>Prefrontal Cortex</bdi>, <bdi>Amygdala</bdi>, <bdi>Insula</bdi>, ו-<bdi>Nucleus Accumbens</bdi>.
-        </p>
-        <div style="color: var(--text-subtle); font-size: 0.85rem;">
-          [סצנת Three.js, שליטת סיבוב ואודיו יוטמעו בשלבים המיועדים לפי ה-PRD]
+
+      <!-- הערת שקיפות מדעית -->
+      <div class="scientific-notice">
+        <strong>הבהרה מדעית קריטית:</strong>
+        מודל זה הינו <strong>הדמיה קונספטואלית-חינוכית</strong> של תהליכים פסיכולוגיים והתנהגותיים. אין לראות בו מיפוי אנטומי רפואי מדויק או מדידה מוחית ישירה (<bdi>fMRI / EEG</bdi>).
+      </div>
+
+      <!-- ממשק תלת-ממדי: שתי עמודות (קנבס 3D + כרטיסיית הסבר אינטראקטיבית) -->
+      <div class="brain3d-dashboard-grid">
+        <!-- עמודת מודל ה-3D והפקדים -->
+        <div class="brain3d-viewport-card">
+          <!-- סרגל פקדים עליון -->
+          <div class="brain3d-toolbar">
+            <button type="button" class="brain-ctrl-btn" id="btnToggleRotate" title="הפעל או עצור סיבוב אוטומטי">
+              <span>⏸</span>
+              <span>עצור סיבוב</span>
+            </button>
+            <button type="button" class="brain-ctrl-btn" id="btnResetView" title="אפס זווית מבט ומרכוז">
+              <span>🔄</span>
+              <span>אפס מבט</span>
+            </button>
+            <button type="button" class="brain-ctrl-btn" id="btnToggleSound" title="הפעל או השתק צלילי משוב">
+              <span>🔇</span>
+              <span>צליל מושתק</span>
+            </button>
+          </div>
+
+          <!-- מיכל הקנבס התלת-ממדי -->
+          <div id="brain3d-canvas-container" class="brain3d-canvas-container">
+            <!-- Three.js מזריק לכאן את הקנבס -->
+          </div>
+
+          <!-- הודעת שגיאה / Fallback אם WebGL נכשל -->
+          <div id="brain3d-fallback" class="brain3d-fallback" style="display: none;">
+            <div class="fallback-icon">⚠️</div>
+            <h4>הודעת מערכת: טעינת מודל תלת-ממד</h4>
+            <p class="fallback-msg">הדפדפן אינו תומך בהאצת חומרה (WebGL) או שחלה שגיאה באתחול המנוע הגרפי.</p>
+            <div style="margin-top: 14px;">
+              <img src="assets/images/hero_brain_diagram.jpg" alt="תרשים מוח חלופי" style="max-width: 100%; border-radius: 8px;">
+            </div>
+          </div>
+
+          <!-- כפתורי בחירה מהירה של 4 האזורים -->
+          <div class="brain-regions-selector">
+            <button type="button" class="brain-region-btn active" data-region="pfc">
+              <span class="dot pfc"></span>
+              <span>קליפת המוח הקדם-מצחית (<bdi>PFC</bdi>)</span>
+            </button>
+            <button type="button" class="brain-region-btn" data-region="amygdala">
+              <span class="dot amygdala"></span>
+              <span>אמיגדלה (<bdi>Amygdala</bdi>)</span>
+            </button>
+            <button type="button" class="brain-region-btn" data-region="insula">
+              <span class="dot insula"></span>
+              <span>אינסולה (<bdi>Insula</bdi>)</span>
+            </button>
+            <button type="button" class="brain-region-btn" data-region="nacc">
+              <span class="dot nacc"></span>
+              <span>גרעין האקומבנס (<bdi>NAcc</bdi>)</span>
+            </button>
+          </div>
+
+          <div class="brain-interaction-hint">
+            💡 גררו בעכבר או במגע לסיבוב 360°, גללו לזום, או הקליקו על נקודות העניין והכפתורים לקבלת הסבר.
+          </div>
+        </div>
+
+        <!-- עמודת פירוט האזור הנבחר -->
+        <div class="brain-info-card" id="brainRegionCard">
+          <!-- נטען דינמית ע"י brain3d.js -->
         </div>
       </div>
     </section>
@@ -483,6 +545,8 @@
     </div>
   </div>
 
+  <script src="js/vendor/three.min.js"></script>
+  <script src="js/brain3d.js"></script>
   <script src="js/presentation.js"></script>
 </body>
 </html>

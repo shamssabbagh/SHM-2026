@@ -89,6 +89,9 @@
 
     // עדכון סימון בשולחן תוכן העניינים
     updateTocSelection(slideNumber);
+
+    // שליחת אירוע גלובלי לטובת מודולים כגון Three.js או Pyodide
+    document.dispatchEvent(new CustomEvent('slideChanged', { detail: { slideNumber } }));
   }
 
   /**
