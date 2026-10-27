@@ -898,27 +898,35 @@ bdi, .bidi-isolate {
   color: var(--accent-emerald);
 }
 
-/* קבוצת פקדי סאונד מורחבת (Mute וסליידר עוצמה) */
+/* קבוצת פקדי סאונד מורחבת (Mute וסליידרים נפרדים) */
 .brain-sound-control-group {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   background: rgba(30, 41, 59, 0.6);
-  padding: 3px 8px;
+  padding: 4px 12px;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
 }
 
 .audio-volume-wrap {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   padding: 0 4px;
 }
 
 .vol-icon {
   font-size: 0.95rem;
   user-select: none;
+}
+
+.vol-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .audio-slider {

@@ -230,17 +230,25 @@
               <span>אפס מבט</span>
             </button>
 
-            <!-- קבוצת שליטת שמע מורחבת (Mute וסליידר עוצמה) -->
+            <!-- קבוצת שליטת שמע מורחבת (Mute, מוזיקת רקע ואפקטים) -->
             <div class="brain-sound-control-group">
-              <button type="button" class="brain-ctrl-btn" id="btnToggleSound" title="לחץ להפעלת שמע וצליל רקע עתידני">
+              <button type="button" class="brain-ctrl-btn" id="btnToggleSound" title="לחץ להפעלת מוזיקת רקע Ambient ואפקטים">
                 <span>🔇</span>
                 <span>צליל מושתק</span>
               </button>
 
-              <div class="audio-volume-wrap" id="audioVolumeContainer" title="שליטה בעוצמת השמע">
-                <span class="vol-icon" id="volIcon">🔇</span>
-                <input type="range" id="audioVolumeSlider" min="0" max="100" value="70" class="audio-slider" aria-label="עוצמת שמע">
-                <span id="volValueText" class="vol-val-text">מושתק</span>
+              <div class="audio-volume-wrap" title="עוצמת מוזיקת רקע Ambient">
+                <span class="vol-icon">🎵</span>
+                <span class="vol-label">מוזיקה:</span>
+                <input type="range" id="musicVolumeSlider" min="0" max="100" value="70" class="audio-slider" aria-label="עוצמת מוזיקת רקע">
+                <span id="musicValText" class="vol-val-text">מושתק</span>
+              </div>
+
+              <div class="audio-volume-wrap" title="עוצמת אפקטים קוליים של אזורי המוח">
+                <span class="vol-icon">🔔</span>
+                <span class="vol-label">אפקטים:</span>
+                <input type="range" id="sfxVolumeSlider" min="0" max="100" value="85" class="audio-slider" aria-label="עוצמת אפקטים">
+                <span id="sfxValText" class="vol-val-text">מושתק</span>
               </div>
             </div>
           </div>
