@@ -99,22 +99,34 @@
   - המשגה מדעית מבוססת: <bdi>Scarcity Effect</bdi> (Cialdini, Worchel 1975), תיאוריית ההתנגדות הפסיכולוגית (<bdi>Brehm, 1966</bdi>), וחרטת החמצה צפויה (<bdi>Anticipated Regret</bdi>).
 - **שקיפות מדעית ואזהרה אתית:** הבהרה שמדובר בהדמיה לימודית ולא בניסוי מעבדה מבוקר, וציון איסור אתי וצרכני חמור על שימוש בהתרעות מלאי פיקטיביות (<bdi>False Scarcity / Dark Patterns</bdi>).
 
+### שלב 11 - ניסוי פרדוקס הבחירה ועומס יתר בשקופית 10 (The Paradox of Choice)
+- **החלפת שקופית 10 בניסוי אינטראקטיבי בזמן אמת:** "פרדוקס הבחירה: האם יותר אפשרויות באמת הופכות אותנו למאושרים יותר?".
+- **מבנה ניסוי השוואתי מדוד (3 מול 12 אפשרויות):**
+  - סבב 1: הצגת 3 בשמים יוקרתיים מתוך קולקציית טריו (`assets/images/perfume_trio.jpg`) ומדידת זמן ההחלטה המדויק באמצעות שעון עצר דיגיטלי בדפדפן.
+  - סבב 2: הצגת 12 בשמים יוקרתיים מתוך קטלוג רחב (`assets/images/perfumes_collection_12.jpg`) ומדידת זמן ההחלטה המדויק.
+  - דירוג סובייקטיבי לאחר כל סבב: "עד כמה היה לך קשה לבחור?" (סולם 1–10).
+- **תמונות ועיצוב Luxury / Fancy:** כרטיסיות מוצר מעוצבות עם אפקטי Hover, שעון עצר דיגיטלי זוהר, ובאנר תצוגה לקטלוג המורחב.
+- **השוואה סטטיסטית ב-Python (Pyodide WebAssembly):** חישוב התארכות זמן הבחירה (בשניות ובאחוזים), מכפיל הזמן (Time Ratio), והפער ברמת הקושי הנתפסת.
+- **בסיס פסיכולוגי ואקדמי:** המשגת Choice Overload (Barry Schwartz, 2004; Iyengar & Lepper, 2000), עומס קוגניטיבי (<bdi>Cognitive Load</bdi>), קיפאון בבחירה (<bdi>Analysis Paralysis</bdi>), וחרטה פוסט-רכישתית.
+- **הסתייגות מדעית מפורשת:** ציון שההשפעה תלויה במאפייני הצרכן ובארכיטקטורת הבחירה (חלוקה לקטגוריות), ושהדגמה אישית אינה מהווה ניסוי מבוקר.
+
 ---
 
 ## כיצד לוודא ש-Python באמת מבצע את החישוב (לבדיקת מרצים ובודקים)
 על אף שהממשק החיצוני נקי לחלוטין מפרטים טכניים ומותאם לקהל הרחב, מנגנון האימות נגיש ישירות מתוך הדפדפן:
 1. פתחו את `index.html` בדפדפן (Chrome / Edge / Firefox).
-2. נווטו לשקופית 9 ("אפקט המחסור"), שקופית 13 ("תורת הסיכויים"), שקופית 14 ("אפקט העיגון") או שקופית 19 ("פרסום רגשי").
+2. נווטו לשקופית 9 ("אפקט המחסור"), שקופית 10 ("פרדוקס הבחירה"), שקופית 13 ("תורת הסיכויים"), שקופית 14 ("אפקט העיגון") או שקופית 19 ("פרסום רגשי").
 3. פתחו את כלי המפתחים בלחיצה על מקש `F12` (או `Ctrl + Shift + I`) ועברו ללשונית **Console**.
 4. הריצו את הפקודה:
    ```javascript
    verifyPythonExecution()
    ```
-5. יוצג אובייקט JSON המאמת את פעולת ה-Python עבור ארבעת מודלי המצגת:
+5. יוצג אובייקט JSON המאמת את פעולת ה-Python עבור חמשת מודלי המצגת:
    - `isPythonRunning: true`
    - `runtime: "Pyodide WebAssembly (Client-side)"`
    - `pythonVersion: "3.11.3"`
    - `slide9_scarcity_effect: { desireDiff: 4.0, urgencyDiff: 6.0, fomoDiff: 5.0, scarcityMultiplier: 2.6, executedBy: "Pyodide CPython WebAssembly" }`
+   - `slide10_choice_paradox: { timeRound1: 3.2, timeRound2: 9.8, diffTime: 6.6, timeRatio: 3.06, diffDifficulty: 5.0, executedBy: "Pyodide CPython WebAssembly" }`
    - `slide13_prospect_theory: { testGain200: 105.4, testLoss200: -237.2, lossAversionRatio: 2.25, executedBy: "Pyodide CPython WebAssembly" }`
    - `slide14_anchoring: { formula: "399 + 0.3 * (850 - 399)", result: 534.3, executedBy: "Pyodide CPython WebAssembly" }`
    - `slide19_emotional_advertising: { emotionDiff: 4.0, brandDiff: 4.0, intentDiff: 3.0, attitudeIntentGap: 1.0, executedBy: "Pyodide CPython WebAssembly" }`

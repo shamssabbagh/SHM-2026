@@ -631,19 +631,263 @@
       </div>
     </section>
 
-    <!-- ==================== שקופית 10: שנאת הפסד ותורת הסיכויים ==================== -->
+    <!-- ==================== שקופית 10: פרדוקס הבחירה ועומס יתר ==================== -->
     <section class="slide" id="slide-10">
       <header class="slide-header">
         <div class="slide-title-group">
-          <h2>שנאת הפסד ותורת הסיכויים</h2>
-          <div class="slide-subtitle"><bdi>Loss Aversion &amp; Prospect Theory (Kahneman &amp; Tversky)</bdi></div>
+          <h2>פרדוקס הבחירה: האם יותר אפשרויות באמת הופכות אותנו למאושרים יותר?</h2>
+          <div class="slide-subtitle"><bdi>The Paradox of Choice &amp; Choice Overload: Impact on Decision Time &amp; Difficulty</bdi></div>
         </div>
-        <span class="slide-badge">כלכלה התנהגותית</span>
+        <span class="slide-badge purple-badge">ניסוי קוגניטיבי בזמן אמת</span>
       </header>
 
-      <div class="diagram-card">
-        <img src="assets/images/prospect_theory_curve.svg" alt="פונקציית הערך של תורת הסיכויים">
-        <div class="diagram-caption">פונקציית הערך הא-סימטרית: כאב ההפסד תלול פי שניים ומעלה מהנאת הרווח המקביל</div>
+      <!-- הערת שקיפות מדעית והסבר קצר -->
+      <div class="scientific-notice">
+        <strong>הבהרה מתודולוגית:</strong>
+        ניסוי אינטראקטיבי זה מודד את זמן קבלת ההחלטה ואת הקושי הסובייקטיבי. תוצאות של משתתף יחיד מושפעות מסדר הסבבים (<bdi>Order Effects</bdi>), ממאפייני הצרכן ומההקשר, ואינן מהוות הוכחה מדעית מבוקרת.
+      </div>
+
+      <!-- מכולת ניסוי פרדוקס הבחירה -->
+      <div class="choice-sim-container" id="choiceSimContainer">
+        <!-- סרגל מעקב צעדים -->
+        <div class="choice-steps-tracker">
+          <div class="step-pill active" id="choiceTrackerIntro">
+            <span class="step-num">0</span>
+            <span>הנחיות הניסוי</span>
+          </div>
+          <span class="tracker-arrow">←</span>
+          <div class="step-pill" id="choiceTrackerR1">
+            <span class="step-num">1</span>
+            <span>סבב א׳ (3 בשמים)</span>
+          </div>
+          <span class="tracker-arrow">←</span>
+          <div class="step-pill" id="choiceTrackerR2">
+            <span class="step-num">2</span>
+            <span>סבב ב׳ (12 בשמים)</span>
+          </div>
+          <span class="tracker-arrow">←</span>
+          <div class="step-pill" id="choiceTrackerRes">
+            <span class="step-num">3</span>
+            <span>השוואת זמנים ומסקנות</span>
+          </div>
+        </div>
+
+        <!-- פאנל 0: מבוא והסבר לפני התחלה -->
+        <div class="choice-step-panel" id="choicePanelIntro">
+          <div class="choice-intro-hero">
+            <img src="assets/images/perfume_trio.jpg" alt="טריו בשמים יוקרתי לניסוי פרדוקס הבחירה" class="choice-intro-img">
+            <div class="choice-intro-copy">
+              <h3>ניסוי קבלת החלטות: האם קל יותר לבחור מתוך מעט או מתוך הרבה?</h3>
+              <p>בניסוי זה נמדוד באמצעות שעון עצר דיגיטלי את זמן קבלת ההחלטה (<bdi>Decision Time</bdi>) שלכם בשני תרחישים שונים:</p>
+              <ul class="choice-intro-rules">
+                <li><strong>סבב 1:</strong> בחירת הבושם המועדף עליכם מתוך מבחר ממוקד של <strong>3 אפשרויות</strong>.</li>
+                <li><strong>סבב 2:</strong> בחירת הבושם המועדף עליכם מתוך קטלוג רחב של <strong>12 אפשרויות</strong>.</li>
+                <li>לאחר כל בחירה תדרגו את רמת הקושי שחוויתם בקבלת ההחלטה (סולם 1 עד 10).</li>
+                <li>כל המוצרים בעלי מחירים דומים (₪ 420–480) ותיאורים קצרים כדי למנוע הטיות חיצוניות.</li>
+              </ul>
+              <button type="button" class="btn-start-choice-exp" id="choiceBtnStartExp">
+                <span>התחל בניסוי (הפעל שעון עצר)</span>
+                <span>⏱️ ←</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- פאנל 1: סבב 1 (3 אפשרויות) -->
+        <div class="choice-step-panel" id="choicePanelRound1" style="display: none;">
+          <div class="choice-round-header">
+            <div class="round-title-wrap">
+              <span class="round-badge">סבב 1 מתוך 2</span>
+              <h4>בחרו כעת את הבושם המועדף עליכם בלחיצה על הכרטיס:</h4>
+            </div>
+            <div class="choice-live-stopwatch">
+              <span class="stopwatch-icon">⏱️</span>
+              <span class="stopwatch-label">זמן בחירה:</span>
+              <span class="stopwatch-val" id="choiceTimerDisplayR1">0.00 שנ'</span>
+            </div>
+          </div>
+
+          <div class="choice-cards-grid-3" id="choiceCardsContainerR1">
+            <!-- נבנה דינמית ע"י JavaScript -->
+          </div>
+        </div>
+
+        <!-- פאנל 1.5: שאלת דירוג קושי לאחר סבב 1 -->
+        <div class="choice-step-panel" id="choicePanelRating1" style="display: none;">
+          <div class="choice-rating-modal-card">
+            <span class="recorded-time-badge">⏱️ בחירתכם נקלטה בהצלחה!</span>
+            <h4>עד כמה היה לכם קשה לבחור מתוך 3 האפשרויות?</h4>
+            <p class="rating-subtext">השיבו בכנות על פי תחושתכם הסובייקטיבית (סולם 1 עד 10):</p>
+
+            <div class="rating-slider-group">
+              <div class="rating-label-row">
+                <label for="choiceSliderDiff1">רמת קושי ומאמץ בקבלת ההחלטה:</label>
+                <span class="rating-val-badge" id="choiceValBadgeDiff1">3/10</span>
+              </div>
+              <input type="range" id="choiceSliderDiff1" min="1" max="10" value="3" class="ad-range-slider neutral-slider" aria-label="דירוג קושי סבב 1">
+              <div class="rating-ticks"><span>1 (קל ומהיר מאוד)</span><span>5 (בינוני)</span><span>10 (קשה ומבלבל)</span></div>
+            </div>
+
+            <button type="button" class="btn-step-next purple-btn" id="choiceBtnGoToR2" style="align-self: center; margin-top: 8px;">
+              <span>המשך לסבב 2 (12 אפשרויות)</span>
+              <span>←</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- פאנל 2: סבב 2 (12 אפשרויות) -->
+        <div class="choice-step-panel" id="choicePanelRound2" style="display: none;">
+          <div class="choice-round-header">
+            <div class="round-title-wrap">
+              <span class="round-badge purple">סבב 2 מתוך 2</span>
+              <h4>כעת, בחרו את הבושם המועדף עליכם מתוך 12 אפשרויות:</h4>
+            </div>
+            <div class="choice-live-stopwatch purple">
+              <span class="stopwatch-icon">⏱️</span>
+              <span class="stopwatch-label">זמן בחירה:</span>
+              <span class="stopwatch-val" id="choiceTimerDisplayR2">0.00 שנ'</span>
+            </div>
+          </div>
+
+          <div class="choice-showcase-banner">
+            <img src="assets/images/perfumes_collection_12.jpg" alt="קולקציית 12 בשמים יוקרתיים">
+            <div class="banner-overlay">
+              <span>✦ קטלוג הבשמים המורחב: 12 חלופות יוקרתיות &bull; מצאו את הבושם המושלם עבורכם</span>
+            </div>
+          </div>
+
+          <div class="choice-cards-grid-12" id="choiceCardsContainerR2">
+            <!-- נבנה דינמית ע"י JavaScript -->
+          </div>
+        </div>
+
+        <!-- פאנל 2.5: שאלת דירוג קושי לאחר סבב 2 -->
+        <div class="choice-step-panel" id="choicePanelRating2" style="display: none;">
+          <div class="choice-rating-modal-card">
+            <span class="recorded-time-badge">⏱️ בחירתכם מתוך 12 האפשרויות נקלטה!</span>
+            <h4>עד כמה היה לכם קשה לבחור כעת מתוך 12 האפשרויות?</h4>
+            <p class="rating-subtext">שימו לב האם הרגשתם צורך להשוות, היסוס או עומס קוגניטיבי (סולם 1 עד 10):</p>
+
+            <div class="rating-slider-group">
+              <div class="rating-label-row">
+                <label for="choiceSliderDiff2">רמת קושי ומאמץ בקבלת ההחלטה:</label>
+                <span class="rating-val-badge emotional" id="choiceValBadgeDiff2">8/10</span>
+              </div>
+              <input type="range" id="choiceSliderDiff2" min="1" max="10" value="8" class="ad-range-slider emotional-slider" aria-label="דירוג קושי סבב 2">
+              <div class="rating-ticks"><span>1 (קל ואינטואיטיבי)</span><span>5 (בינוני)</span><span>10 (מאתגר ומציף מאוד)</span></div>
+            </div>
+
+            <button type="button" class="btn-step-next primary purple-btn" id="choiceBtnGoToResults" style="align-self: center; margin-top: 8px;">
+              <span>שקלל תוצאות והשווה נתונים 📊</span>
+              <span>←</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- פאנל 3: תוצאות, השוואת זמנים ותובנות פסיכולוגיות -->
+        <div class="choice-step-panel" id="choicePanelResults" style="display: none;">
+          <div class="results-layout-grid">
+            <!-- עמודה ימנית: גרף השוואת זמנים וקושי -->
+            <div class="results-chart-card">
+              <div class="chart-header-row">
+                <h4>📊 תוצאות הניסוי: 3 אפשרויות מול 12 אפשרויות</h4>
+                <span class="python-calculated-badge">מחושב במודל סטטיסטי ב-Python</span>
+              </div>
+
+              <div class="chart-comparison-wrap">
+                <!-- קבוצה 1: זמן קבלת החלטה -->
+                <div class="metric-chart-group">
+                  <div class="metric-title-row">
+                    <span class="metric-group-name">⏱️ זמן קבלת החלטה בפועל (<bdi>Decision Time</bdi>)</span>
+                    <span class="metric-diff-badge positive" id="choiceDiffTimeBadge">+6.6 שניות (+206%)</span>
+                  </div>
+                  <div class="paired-bars">
+                    <div class="bar-item">
+                      <span class="bar-label">3 אפשרויות:</span>
+                      <div class="bar-track"><div class="bar-fill neutral" id="choiceBarTime1" style="width: 25%;"></div></div>
+                      <span class="bar-val" id="choiceResTime1">3.2 שניות</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-label">12 אפשרויות:</span>
+                      <div class="bar-track"><div class="bar-fill emotional" id="choiceBarTime2" style="width: 75%;"></div></div>
+                      <span class="bar-val emotional" id="choiceResTime2">9.8 שניות</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- קבוצה 2: רמת קושי סובייקטיבית -->
+                <div class="metric-chart-group">
+                  <div class="metric-title-row">
+                    <span class="metric-group-name">🧠 רמת קושי נתפסת (<bdi>Decision Difficulty</bdi>)</span>
+                    <span class="metric-diff-badge positive" id="choiceDiffDiffBadge">+5.0 נקודות (+167%)</span>
+                  </div>
+                  <div class="paired-bars">
+                    <div class="bar-item">
+                      <span class="bar-label">3 אפשרויות:</span>
+                      <div class="bar-track"><div class="bar-fill neutral" id="choiceBarDiff1" style="width: 30%;"></div></div>
+                      <span class="bar-val" id="choiceResDiff1">3/10</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-label">12 אפשרויות:</span>
+                      <div class="bar-track"><div class="bar-fill emotional" id="choiceBarDiff2" style="width: 80%;"></div></div>
+                      <span class="bar-val emotional" id="choiceResDiff2">8/10</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- תגית יחס מסכמת -->
+              <div style="text-align: center; margin: 12px 0 6px 0;">
+                <span class="cover-badge-top" id="choiceSummaryRatioBadge" style="align-self: center; background: rgba(192, 132, 252, 0.15); border-color: rgba(192, 132, 252, 0.4); color: var(--accent-purple);">
+                  זמן ההחלטה התארך פי 3.1!
+                </span>
+              </div>
+
+              <!-- כפתור נסה שוב -->
+              <div class="reset-button-wrap">
+                <button type="button" class="btn-retry" id="choiceBtnRestartExp">
+                  <span>🔄</span>
+                  <span>בצע את הניסוי שוב (איפוס שעון עצר)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- עמודה שמאלית: ניתוח פסיכולוגי ואקדמי מורחב -->
+            <div class="results-insights-card">
+              <h4>🧠 ניתוח פסיכולוגי והתנהגותי: עומס הבחירה</h4>
+
+              <div class="psych-concept-box">
+                <div class="concept-header">
+                  <span class="concept-icon">📚</span>
+                  <strong>פרדוקס הבחירה ועומס יתר (<bdi>The Paradox of Choice &amp; Choice Overload</bdi>)</strong>
+                </div>
+                <p>
+                  לפי מחקריהם של <bdi>Iyengar &amp; Lepper (2000)</bdi> (ניסוי הריבות המפורסם) ו-<bdi>Barry Schwartz (2004)</bdi>, אינטואיציה עסקית מניחה שיותר אפשרויות מגבירות חופש וסיפוק. בפועל, ריבוי חלופות מציף את הצרכן, מוביל לקיפאון בבחירה (<bdi>Analysis Paralysis</bdi>) ומעלה את רף הציפיות.
+                </p>
+              </div>
+
+              <div class="psych-concept-box">
+                <div class="concept-header">
+                  <span class="concept-icon">⚡</span>
+                  <strong>עומס קוגניטיבי, זמן וחרטת החמצה (<bdi>Cognitive Load &amp; Decision Time</bdi>)</strong>
+                </div>
+                <p>
+                  בסבב של 3 חלופות, המוח מבצע 3 השוואות זוגיות בלבד. בסבב של 12 חלופות, מספר ההשוואות האפשריות מזנק ל-66! הדבר גובה משאבי עיבוד כבדים ממערכת 2 (<bdi>System 2</bdi>), מאריך משמעותית את זמן הבחירה, ומגביר את החשש מחרטה פוסט-רכישתית (<bdi>Post-Decision Regret</bdi>).
+                </p>
+              </div>
+
+              <div class="psych-concept-box warning">
+                <div class="concept-header">
+                  <span class="concept-icon">⚖️</span>
+                  <strong>גבולות ההשפעה: מתי ריבוי אפשרויות אינו פוגע?</strong>
+                </div>
+                <p>
+                  עומס הבחירה אינו תופעה מוחלטת: כאשר לצרכן יש העדפה מוגדרת מראש, מומחיות בתחום, או כאשר המבחר מסודר בקטגוריות ברורות ומסוננות – ריבוי מוצרים עשוי להוביל לשביעות רצון גבוהה. ארכיטקטורת בחירה חכמה מציגה מבחר רחב לצד המלצות ממוקדות.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1478,6 +1722,7 @@
   <script src="js/brain3d.js"></script>
   <script src="js/python_runner.js"></script>
   <script src="js/scarcity_sim.js"></script>
+  <script src="js/choice_paradox.js"></script>
   <script src="js/prospect_theory.js"></script>
   <script src="js/emotional_ad.js"></script>
   <script src="js/presentation.js"></script>

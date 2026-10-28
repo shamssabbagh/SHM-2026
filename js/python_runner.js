@@ -173,6 +173,43 @@ def calculate_scarcity_comparison(ratings_a, ratings_b):
         "python_version": sys.version.split()[0],
         "executed_by": "Pyodide CPython WebAssembly"
     }
+
+def calculate_choice_paradox(round_1, round_2):
+    """
+    ניתוח השוואתי של פרדוקס הבחירה (The Paradox of Choice) בין 3 אפשרויות ל-12 אפשרויות (שקופית 10).
+    מדידת השפעת עומס חלופות על זמן קבלת החלטה ורמת הקושי הנתפסת.
+    """
+    try:
+        t1 = float(round_1.get('time', 0))
+        d1 = float(round_1.get('difficulty', 0))
+        t2 = float(round_2.get('time', 0))
+        d2 = float(round_2.get('difficulty', 0))
+    except Exception:
+        t1, d1 = 3.2, 3.0
+        t2, d2 = 9.8, 8.0
+
+    diff_time = round(t2 - t1, 2)
+    pct_time = round(((t2 - t1) / max(0.1, t1)) * 100.0, 1)
+    ratio_time = round(t2 / max(0.1, t1), 2)
+
+    diff_difficulty = round(d2 - d1, 1)
+    pct_difficulty = round(((d2 - d1) / max(1.0, d1)) * 100.0, 1)
+
+    return {
+        "round1": {"options": 3, "time": t1, "difficulty": d1},
+        "round2": {"options": 12, "time": t2, "difficulty": d2},
+        "differences": {
+            "time": diff_time,
+            "difficulty": diff_difficulty
+        },
+        "percentages": {
+            "time": pct_time,
+            "difficulty": pct_difficulty
+        },
+        "time_ratio": ratio_time,
+        "python_version": sys.version.split()[0],
+        "executed_by": "Pyodide CPython WebAssembly"
+    }
 `;
 
   // אלמנטי DOM
@@ -417,10 +454,10 @@ def calculate_scarcity_comparison(ratings_a, ratings_b):
       });
     }
 
-    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 9, 13, 14 או 19
+    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 9, 10, 13, 14 או 19
     document.addEventListener('slideChanged', (e) => {
       const slideNum = e.detail ? e.detail.slideNumber : 1;
-      if (slideNum === 9 || slideNum === 13 || slideNum === 14 || slideNum === 19) {
+      if (slideNum === 9 || slideNum === 10 || slideNum === 13 || slideNum === 14 || slideNum === 19) {
         if (state.status === 'idle') {
           initPyodide();
         }
@@ -441,6 +478,23 @@ def calculate_scarcity_comparison(ratings_a, ratings_b):
       return res;
     } catch (e) {
       console.warn('[Scarcity Python Runner] Python execution warning:', e);
+      return null;
+    }
+  };
+
+  /**
+   * חישוב פרדוקס הבחירה ועומס יתר באמצעות Python (שקופית 10)
+   */
+  window.calculateChoiceParadoxPython = function (round1, round2) {
+    if (!state.pyodide || state.status !== 'ready') return null;
+    try {
+      const pyCmd = `calculate_choice_paradox(${JSON.stringify(round1)}, ${JSON.stringify(round2)})`;
+      const proxy = state.pyodide.runPython(pyCmd);
+      const res = proxy.toJs();
+      proxy.destroy();
+      return res;
+    } catch (e) {
+      console.warn('[Choice Paradox Python Runner] Python execution warning:', e);
       return null;
     }
   };
@@ -492,6 +546,7 @@ def calculate_scarcity_comparison(ratings_a, ratings_b):
       };
     }
     const scarcityResult = state.pyodide.runPython('calculate_scarcity_comparison({"desire":4,"urgency":3,"fomo":3}, {"desire":8,"urgency":9,"fomo":8})').toJs();
+    const choiceResult = state.pyodide.runPython('calculate_choice_paradox({"time":3.2,"difficulty":3},{"time":9.8,"difficulty":8})').toJs();
     const anchoringResult = state.pyodide.runPython('calculate_anchoring(399, 850)').toJs();
     const prospectGain = state.pyodide.runPython('calculate_prospect_theory(200, False)').toJs();
     const prospectLoss = state.pyodide.runPython('calculate_prospect_theory(200, True)').toJs();
@@ -508,6 +563,15 @@ def calculate_scarcity_comparison(ratings_a, ratings_b):
         fomoDiff: scarcityResult.get('differences').get('fomo'),
         scarcityMultiplier: scarcityResult.get('scarcity_multiplier'),
         executedBy: scarcityResult.get('executed_by')
+      },
+      slide10_choice_paradox: {
+        formula: 'Decision Time & Difficulty Delta (3 Options vs. 12 Options)',
+        timeRound1: choiceResult.get('round1').get('time'),
+        timeRound2: choiceResult.get('round2').get('time'),
+        diffTime: choiceResult.get('differences').get('time'),
+        timeRatio: choiceResult.get('time_ratio'),
+        diffDifficulty: choiceResult.get('differences').get('difficulty'),
+        executedBy: choiceResult.get('executed_by')
       },
       slide13_prospect_theory: {
         formula: 'v(x) = x^0.88 for gain, -2.25 * (-x)^0.88 for loss (Kahneman & Tversky)',
@@ -539,9 +603,9 @@ def calculate_scarcity_comparison(ratings_a, ratings_b):
   function setup() {
     cacheDOMElements();
     bindEvents();
-    // אם המשתמש כבר נמצא בשקופית 9, 13, 14 או 19 בעת רענון
+    // אם המשתמש כבר נמצא בשקופית 9, 10, 13, 14 או 19 בעת רענון
     const curSlide = window.PresentationController ? window.PresentationController.getCurrentSlide() : 1;
-    if (curSlide === 9 || curSlide === 13 || curSlide === 14 || curSlide === 19) {
+    if (curSlide === 9 || curSlide === 10 || curSlide === 13 || curSlide === 14 || curSlide === 19) {
       initPyodide();
     }
   }

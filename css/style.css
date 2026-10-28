@@ -3014,6 +3014,429 @@ bdi, .bidi-isolate {
   border: 1px solid rgba(244, 63, 94, 0.35);
 }
 
+/* ==========================================================================
+   שקופית 10 - פרדוקס הבחירה (The Paradox of Choice & Choice Overload)
+   ניסוי אינטראקטיבי: 3 אפשרויות מול 12 אפשרויות, שעון עצר דיגיטלי, והשוואת זמנים
+   ========================================================================== */
+
+.purple-badge {
+  border-color: rgba(192, 132, 252, 0.4) !important;
+  color: #c084fc !important;
+  background: rgba(192, 132, 252, 0.12) !important;
+}
+
+.choice-sim-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.choice-steps-tracker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid var(--border-color);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.choice-steps-tracker .step-pill.active {
+  background: rgba(192, 132, 252, 0.2);
+  color: #c084fc;
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 0 12px rgba(192, 132, 252, 0.25);
+}
+
+/* כרטיסיית מבוא לניסוי */
+.choice-intro-hero {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.5), rgba(15, 23, 42, 0.8));
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 900px) {
+  .choice-intro-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.choice-intro-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.choice-intro-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.choice-intro-copy h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: #f8fafc;
+  line-height: 1.3;
+}
+
+.choice-intro-rules {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.choice-intro-rules li {
+  position: relative;
+  padding-right: 18px;
+}
+
+.choice-intro-rules li::before {
+  content: '✦';
+  position: absolute;
+  right: 0;
+  color: var(--accent-purple);
+  font-size: 0.8rem;
+}
+
+.btn-start-choice-exp {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-indigo));
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(192, 132, 252, 0.35);
+  transition: all var(--transition-speed);
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.btn-start-choice-exp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(192, 132, 252, 0.5);
+}
+
+/* סרגל כותרת סבב ושעון עצר דיגיטלי */
+.choice-round-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid var(--border-color);
+  padding: 10px 18px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 12px;
+}
+
+.round-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.round-badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.round-badge.purple {
+  background: rgba(192, 132, 252, 0.15);
+  color: var(--accent-purple);
+  border-color: rgba(192, 132, 252, 0.35);
+}
+
+.round-title-wrap h4 {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  color: #f1f5f9;
+}
+
+.choice-live-stopwatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #090d16;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 6px 14px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
+}
+
+.choice-live-stopwatch.purple {
+  border-color: rgba(192, 132, 252, 0.4);
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.2);
+}
+
+.stopwatch-label {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.stopwatch-val {
+  font-family: monospace, var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  direction: ltr;
+  min-width: 75px;
+}
+
+.choice-live-stopwatch.purple .stopwatch-val {
+  color: var(--accent-purple);
+}
+
+/* באנר תצוגה לסבב 2 */
+.choice-showcase-banner {
+  height: 90px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 12px;
+  border: 1px solid rgba(192, 132, 252, 0.2);
+}
+
+.choice-showcase-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.9);
+}
+
+.choice-showcase-banner .banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(11, 15, 25, 0.8) 0%, rgba(11, 15, 25, 0.4) 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+/* רשת כרטיסי הבשמים */
+.choice-cards-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.choice-cards-grid-12 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-height: 430px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+@media (max-width: 900px) {
+  .choice-cards-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .choice-cards-grid-12 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* כרטיס בושם אישי */
+.choice-perfume-card {
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.choice-perfume-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(192, 132, 252, 0.45);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45), 0 0 15px rgba(192, 132, 252, 0.2);
+}
+
+.choice-perfume-card.selected {
+  border-color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+}
+
+.perfume-visual-head {
+  height: 55px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.perfume-glow-circle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-hue, var(--accent-cyan));
+  filter: blur(15px);
+  opacity: 0.35;
+}
+
+.perfume-bottle-icon {
+  font-size: 1.6rem;
+  z-index: 1;
+}
+
+.perfume-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.perfume-house-tag {
+  font-size: 0.68rem;
+  color: var(--accent-purple);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.perfume-title {
+  font-family: var(--font-heading);
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.2;
+}
+
+.perfume-notes {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 30px;
+}
+
+.perfume-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.perfume-price {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.btn-select-perfume {
+  background: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.choice-perfume-card:hover .btn-select-perfume {
+  background: var(--accent-purple);
+  color: #ffffff;
+  border-color: var(--accent-purple);
+}
+
+.choice-perfume-card.selected .btn-select-perfume {
+  background: var(--accent-cyan);
+  color: #0b0f19;
+  border-color: var(--accent-cyan);
+  font-weight: 800;
+}
+
+/* כרטיסיית דירוג קושי לאחר בחירה */
+.choice-rating-modal-card {
+  background: linear-gradient(145deg, #111827, #0b0f19);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  border-radius: var(--border-radius-lg);
+  padding: 24px;
+  max-width: 580px;
+  margin: 18px auto;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.choice-rating-modal-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #f8fafc;
+}
+
+.recorded-time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent-cyan);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0 auto;
+}
+
+.purple-btn {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-indigo)) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 15px rgba(192, 132, 252, 0.35) !important;
+}
+
 /* רספונסיביות למסכים קטנים */
 @media (max-width: 768px) {
   .slide {
