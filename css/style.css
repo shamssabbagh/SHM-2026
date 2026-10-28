@@ -683,13 +683,13 @@ bdi, .bidi-isolate {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 
 .ref-list li {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
-  line-height: 1.45;
+  line-height: 1.38;
   padding-right: 14px;
   position: relative;
 }
