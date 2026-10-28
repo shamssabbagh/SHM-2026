@@ -73,7 +73,7 @@ def calculate_prospect_theory(amount, is_loss):
 
 def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
     """
-    ניתוח השוואתי בין פרסומת ניטרלית (A) לפרסומת רגשית (B) (שקופית 20).
+    ניתוח השוואתי בין פרסומת ניטרלית (A) לפרסומת רגשית (B) (שקופית 19).
     חישוב פערים, אחוזי שינוי ופער עמדה-התנהגות (Attitude-Behavior Gap).
     """
     try:
@@ -367,10 +367,10 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
       });
     }
 
-    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 13, 14 או 20
+    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 13, 14 או 19
     document.addEventListener('slideChanged', (e) => {
       const slideNum = e.detail ? e.detail.slideNumber : 1;
-      if (slideNum === 13 || slideNum === 14 || slideNum === 20) {
+      if (slideNum === 13 || slideNum === 14 || slideNum === 19) {
         if (state.status === 'idle') {
           initPyodide();
         }
@@ -397,7 +397,7 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
   };
 
   /**
-   * חישוב השוואת פרסומת רגשית מול ניטרלית באמצעות Python (שקופית 20)
+   * חישוב השוואת פרסומת רגשית מול ניטרלית באמצעות Python (שקופית 19)
    */
   window.calculateEmotionalAdPython = function (adA, adB) {
     if (!state.pyodide || state.status !== 'ready') return null;
@@ -448,7 +448,7 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
         pctIncrease: anchoringResult.get('pct_increase'),
         executedBy: anchoringResult.get('executed_by')
       },
-      slide20_emotional_advertising: {
+      slide19_emotional_advertising: {
         formula: 'Comparative Multi-Dimensional Delta & Attitude-Behavior Gap',
         emotionDiff: emotionalAdResult.get('differences').get('emotion'),
         brandDiff: emotionalAdResult.get('differences').get('brand'),
@@ -463,9 +463,9 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
   function setup() {
     cacheDOMElements();
     bindEvents();
-    // אם המשתמש כבר נמצא בשקופית 13, 14 או 20 בעת רענון
+    // אם המשתמש כבר נמצא בשקופית 13, 14 או 19 בעת רענון
     const curSlide = window.PresentationController ? window.PresentationController.getCurrentSlide() : 1;
-    if (curSlide === 13 || curSlide === 14 || curSlide === 20) {
+    if (curSlide === 13 || curSlide === 14 || curSlide === 19) {
       initPyodide();
     }
   }

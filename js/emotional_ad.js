@@ -1,6 +1,6 @@
 /**
  * המוח הצרכני – הפסיכולוגיה שמאחורי החלטות קנייה
- * שקופית 20: סימולציית פרסום רגשי מול ניטרלי (Emotional Advertising Simulation)
+ * שקופית 19: סימולציית פרסום רגשי מול ניטרלי (Emotional Advertising Simulation)
  * ניתוח השוואתי, סינתזת מוזיקה רומנטית (Web Audio API), וחישוב Python בדפדפן (Pyodide).
  */
 
@@ -435,7 +435,7 @@
     // עצירת מוזיקה בעת מעבר שקופית
     document.addEventListener('slideChanged', (e) => {
       const slideNum = e.detail ? e.detail.slideNumber : 1;
-      if (slideNum !== 20 && state.isMusicPlaying) {
+      if (slideNum !== 19 && state.isMusicPlaying) {
         stopEmotionalMusic();
       }
     });

@@ -73,8 +73,8 @@
 - **תובנה פסיכולוגית יישומית:** הסבר התנהגותי על שימוש בשנאת הפסד בקמפיינים שיווקיים ובמסרי FOMO.
 - **חישוב Python ברקע:** פונקציית `calculate_prospect_theory` מוטמעת במנוע Pyodide WebAssembly ומאומתת ב-Console.
 
-### שלב 9 - מעבדת פרסום רגשי בשקופית 20 (Emotional vs. Neutral Advertising)
-- **הוספת שקופית 20 (20 שקופיות בסך הכל):** סימולציית מעבדה חיה: "כשהפרסומת מעוררת רגש – האם אנחנו רוצים לקנות יותר?".
+### שלב 9 - מעבדת פרסום רגשי בשקופית 19 (Emotional vs. Neutral Advertising)
+- **הוספת סימולציית מעבדה חיה בשקופית 19 (20 שקופיות בסך הכל):** "כשהפרסומת מעוררת רגש – האם אנחנו רוצים לקנות יותר?". שקופית הסיכום, הקרדיטים והביבליוגרפיה הועברה לשקופית 20.
 - **מוצר יוקרתי אחיד ועקבי:** בושם יוקרתי דמיוני `AURA Privée — L'Étoile Noire` (100 מ"ל, ₪ 480).
 - **תמונות מסחריות ברזולוציה גבוהה (`assets/images/`):**
   - `perfume_neutral.jpg`: תצלום סטודיו מינימליסטי על במה אבן בהירה עם תאורה מאוזנת ורשימת רכיבים עובדתית.
@@ -91,7 +91,7 @@
 ## כיצד לוודא ש-Python באמת מבצע את החישוב (לבדיקת מרצים ובודקים)
 על אף שהממשק החיצוני נקי לחלוטין מפרטים טכניים ומותאם לקהל הרחב, מנגנון האימות נגיש ישירות מתוך הדפדפן:
 1. פתחו את `index.html` בדפדפן (Chrome / Edge / Firefox).
-2. נווטו לשקופית 13 ("תורת הסיכויים"), שקופית 14 ("אפקט העיגון") או שקופית 20 ("פרסום רגשי").
+2. נווטו לשקופית 13 ("תורת הסיכויים"), שקופית 14 ("אפקט העיגון") או שקופית 19 ("פרסום רגשי").
 3. פתחו את כלי המפתחים בלחיצה על מקש `F12` (או `Ctrl + Shift + I`) ועברו ללשונית **Console**.
 4. הריצו את הפקודה:
    ```javascript
@@ -103,7 +103,7 @@
    - `pythonVersion: "3.11.3"`
    - `slide13_prospect_theory: { testGain200: 105.4, testLoss200: -237.2, lossAversionRatio: 2.25, executedBy: "Pyodide CPython WebAssembly" }`
    - `slide14_anchoring: { formula: "399 + 0.3 * (850 - 399)", result: 534.3, executedBy: "Pyodide CPython WebAssembly" }`
-   - `slide20_emotional_advertising: { emotionDiff: 4.0, brandDiff: 4.0, intentDiff: 3.0, attitudeIntentGap: 1.0, executedBy: "Pyodide CPython WebAssembly" }`
+   - `slide19_emotional_advertising: { emotionDiff: 4.0, brandDiff: 4.0, intentDiff: 3.0, attitudeIntentGap: 1.0, executedBy: "Pyodide CPython WebAssembly" }`
 
 ---
 
