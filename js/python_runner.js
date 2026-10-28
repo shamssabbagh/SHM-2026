@@ -18,19 +18,16 @@
   };
 
   // קוד הפייתון האמיתי שייטען ויופעל בתוך Pyodide
-  const PYTHON_ANCHORING_SCRIPT = `
+  const PYTHON_SCRIPTS = `
 import sys
 
 def calculate_anchoring(base_price, anchor_price):
     """
-    חישוב הערכת שווי תחת השפעת מחיר עוגן.
-    שים לב: הנוסחה ומקדם 0.3 נבחרו לצורך הדגמה והמחשה לימודית בלבד,
-    ואינם מהווים מודל פסיכולוגי מאומת.
+    חישוב הערכת שווי תחת השפעת מחיר עוגן (שקופית 14).
+    הנוסחה והמקדם 0.3 נבחרו לצורך הדגמה והמחשה לימודית בלבד.
     """
     base = float(base_price)
     anchor = float(anchor_price)
-    
-    # נוסחת המחשה: הערכה = 399 + 0.3 * (מחיר העוגן - 399)
     estimated_val = base + 0.3 * (anchor - base)
     difference = estimated_val - base
     pct_increase = (difference / base) * 100.0 if base > 0 else 0.0
@@ -41,6 +38,35 @@ def calculate_anchoring(base_price, anchor_price):
         "pct_increase": round(pct_increase, 1),
         "anchor_price": round(anchor, 2),
         "base_price": round(base, 2),
+        "python_version": sys.version.split()[0],
+        "executed_by": "Pyodide CPython WebAssembly"
+    }
+
+def calculate_prospect_theory(amount, is_loss):
+    """
+    פונקציית הערך של תורת הסיכויים (Kahneman & Tversky, 1992 - שקופית 13).
+    v(x) = x^0.88 עבור רווח (x >= 0)
+    v(x) = -2.25 * (-x)^0.88 עבור הפסד (x < 0)
+    """
+    x = float(amount)
+    if is_loss:
+        val = -2.25 * (x ** 0.88) if x > 0 else 0.0
+        intensity = 2.25 * (x ** 0.88) if x > 0 else 0.0
+        ratio = 2.25
+        message = "ההפסד נתפס בעוצמה רגשית גבוהה יותר מאשר רווח מקביל"
+    else:
+        val = (x ** 0.88) if x > 0 else 0.0
+        intensity = val
+        ratio = 1.0
+        message = "הרווח נתפס כחיובי, אך בעוצמה מתונה יחסית"
+
+    return {
+        "amount": x,
+        "is_loss": bool(is_loss),
+        "psychological_value": round(val, 1),
+        "intensity": round(intensity, 1),
+        "ratio": ratio,
+        "message": message,
         "python_version": sys.version.split()[0],
         "executed_by": "Pyodide CPython WebAssembly"
     }
@@ -94,8 +120,8 @@ def calculate_anchoring(base_price, anchor_price):
         indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.1/full/'
       });
 
-      // 3. טעינת קוד הפונקציה לתוך סביבת Python
-      await state.pyodide.runPythonAsync(PYTHON_ANCHORING_SCRIPT);
+      // 3. טעינת קוד הפונקציות לתוך סביבת Python
+      await state.pyodide.runPythonAsync(PYTHON_SCRIPTS);
 
       // קריאת גרסת Python לאימות
       state.pythonVersion = state.pyodide.runPython('import sys; sys.version.split()[0]');
@@ -288,10 +314,10 @@ def calculate_anchoring(base_price, anchor_price):
       });
     }
 
-    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 14
+    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 13 או 14
     document.addEventListener('slideChanged', (e) => {
       const slideNum = e.detail ? e.detail.slideNumber : 1;
-      if (slideNum === 14) {
+      if (slideNum === 13 || slideNum === 14) {
         if (state.status === 'idle') {
           initPyodide();
         }
@@ -300,7 +326,25 @@ def calculate_anchoring(base_price, anchor_price):
   }
 
   /**
-   * פונקציית אימות גלובלית המאפשרת למשתמשים ולבודקים לוודא בקונסול ש-Python באמת מחשב!
+   * חישוב תורת הסיכויים באמצעות מנוע Python בדפדפן (Pyodide)
+   */
+  window.calculateProspectPython = function (amount, isLoss) {
+    if (!state.pyodide || state.status !== 'ready') return null;
+    try {
+      const amt = parseFloat(amount) || 0;
+      const pyBool = isLoss ? 'True' : 'False';
+      const proxy = state.pyodide.runPython(`calculate_prospect_theory(${amt}, ${pyBool})`);
+      const res = proxy.toJs();
+      proxy.destroy();
+      return res;
+    } catch (e) {
+      console.warn('[Prospect Python Runner] Python execution warning:', e);
+      return null;
+    }
+  };
+
+  /**
+   * פונקציית אימות גלובלית המאפשרת לבודקים ומרצים לוודא בקונסול ש-Python מבצע את החישובים!
    */
   window.verifyPythonExecution = function () {
     if (!state.pyodide || state.status !== 'ready') {
@@ -310,15 +354,28 @@ def calculate_anchoring(base_price, anchor_price):
         message: 'Python runtime is not ready.'
       };
     }
-    const testResult = state.pyodide.runPython('calculate_anchoring(399, 850)').toJs();
+    const anchoringResult = state.pyodide.runPython('calculate_anchoring(399, 850)').toJs();
+    const prospectGain = state.pyodide.runPython('calculate_prospect_theory(200, False)').toJs();
+    const prospectLoss = state.pyodide.runPython('calculate_prospect_theory(200, True)').toJs();
+
     return {
       isPythonRunning: true,
       runtime: 'Pyodide WebAssembly (Client-side)',
       pythonVersion: state.pythonVersion,
-      testCalculation: {
+      slide13_prospect_theory: {
+        formula: 'v(x) = x^0.88 for gain, -2.25 * (-x)^0.88 for loss (Kahneman & Tversky)',
+        testGain200: prospectGain.get('psychological_value'),
+        testLoss200: prospectLoss.get('psychological_value'),
+        lossAversionRatio: prospectLoss.get('ratio'),
+        lossMessage: prospectLoss.get('message'),
+        executedBy: prospectLoss.get('executed_by')
+      },
+      slide14_anchoring: {
         formula: '399 + 0.3 * (850 - 399)',
-        result: testResult.get('estimated_value'),
-        executedBy: testResult.get('executed_by')
+        result: anchoringResult.get('estimated_value'),
+        difference: anchoringResult.get('difference'),
+        pctIncrease: anchoringResult.get('pct_increase'),
+        executedBy: anchoringResult.get('executed_by')
       }
     };
   };
@@ -327,8 +384,9 @@ def calculate_anchoring(base_price, anchor_price):
   function setup() {
     cacheDOMElements();
     bindEvents();
-    // אם המשתמש כבר נמצא בשקופית 14 בעת רענון
-    if (window.PresentationController && window.PresentationController.getCurrentSlide() === 14) {
+    // אם המשתמש כבר נמצא בשקופית 13 או 14 בעת רענון
+    const curSlide = window.PresentationController ? window.PresentationController.getCurrentSlide() : 1;
+    if (curSlide === 13 || curSlide === 14) {
       initPyodide();
     }
   }

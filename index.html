@@ -364,25 +364,207 @@
       </div>
     </section>
 
-    <!-- ==================== שקופית 13: הדגמת Python #1 (הכנה) ==================== -->
+    <!-- ==================== שקופית 13: תורת הסיכויים (Prospect Theory) ==================== -->
     <section class="slide" id="slide-13">
       <header class="slide-header">
         <div class="slide-title-group">
-          <h2>הדגמת קוד <bdi>Python</bdi>: פונקציית תורת הסיכויים</h2>
-          <div class="slide-subtitle"><bdi>Python Live Demo: Prospect Theory Model</bdi></div>
+          <h2>תורת הסיכויים: למה הפסד כואב יותר מרווח?</h2>
+          <div class="slide-subtitle"><bdi>Prospect Theory: Why Losses Feel Stronger Than Gains</bdi></div>
         </div>
-        <span class="slide-badge">תשתית Python</span>
+        <span class="slide-badge">סימולציה אינטראקטיבית</span>
       </header>
-      <div class="placeholder-container python">
-        <div class="placeholder-badge">הכנה לשילוב קוד Python פעיל (Pyodide - יוטמע בשלב 6)</div>
-        <p class="skeleton-desc">
-          סימולציה אינטראקטיבית לחישוב פונקציית התועלת הא-סימטרית של שנאת הפסד לפי פרמטרים הניתנים לשינוי חי על ידי המשתמש.
-        </p>
-        <div class="code-mockup">
-          # קוד לדוגמה שיופעל בדפדפן בשלב 6:
-          lambda_val = 2.25
-          alpha, beta = 0.88, 0.88
-          # def value_function(x): ...
+
+      <!-- משפט הסבר קצר (לפי דרישה א') -->
+      <div class="scientific-notice prospect-notice">
+        <strong>תורת הסיכויים של כהנמן וטברסקי:</strong>
+        תורת הסיכויים של כהנמן וטברסקי מראה שאנשים אינם מגיבים באופן סימטרי לרווחים ולהפסדים – הפסד נתפס חזק וכואב יותר מרווח באותו גודל.
+      </div>
+
+      <!-- ממשק הסימולציה הדו-עמודי -->
+      <div class="prospect-simulation-grid">
+        <!-- עמודה ימנית: בקרות, בחירת סכום וכרטיס חוויה פסיכולוגית -->
+        <div class="prospect-control-card mode-gain" id="prospectControlCard">
+          <!-- 1. מתג בחירה בין רווח להפסד -->
+          <div class="prospect-mode-toggle-group">
+            <span class="prospect-field-label">סוג התרחיש לבדיקה:</span>
+            <div class="prospect-toggle-pills" role="radiogroup" aria-label="בחירה בין רווח כספי להפסד כספי">
+              <button type="button" class="prospect-pill active-gain" id="btnGainMode" aria-pressed="true">
+                <span class="pill-badge-icon">▲</span>
+                <span>רווח כספי</span>
+              </button>
+              <button type="button" class="prospect-pill" id="btnLossMode" aria-pressed="false">
+                <span class="pill-badge-icon">▼</span>
+                <span>הפסד כספי</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. סליידר בחירת סכום בין 0 ל-500 ש"ח -->
+          <div class="prospect-slider-group">
+            <div class="slider-label-row">
+              <label for="prospectSlider">בחירת סכום כספי לבדיקה:</label>
+              <span class="prospect-amount-tag gain" id="prospectAmountDisplay">+ ₪ 200</span>
+            </div>
+            <input type="range" id="prospectSlider" min="0" max="500" step="10" value="200" class="prospect-range-slider" aria-label="בחירת סכום כספי בשקלים">
+            <div class="slider-ticks">
+              <span>₪ 0</span>
+              <span>₪ 250</span>
+              <span>₪ 500</span>
+            </div>
+          </div>
+
+          <!-- 3. כרטיס תוצאה מרכזי: החוויה הפסיכולוגית המשוערת -->
+          <div class="prospect-experience-card gain" id="prospectExpCard">
+            <div class="exp-card-header">
+              <div class="exp-icon-wrap" id="prospectIconWrap">
+                <span class="exp-main-icon" id="prospectMainIcon">🪙</span>
+                <span class="exp-face-icon" id="prospectFaceIcon">😊</span>
+              </div>
+              <div class="exp-header-text">
+                <div class="exp-card-subtitle">החוויה הפסיכולוגית המשוערת</div>
+                <div class="exp-message" id="prospectExpMessage">
+                  הרווח נתפס כחיובי, אך בעוצמה מתונה יחסית
+                </div>
+              </div>
+            </div>
+
+            <!-- השוואה ויזואלית: סכום אמיתי מול עוצמה פסיכולוגית נתפסת -->
+            <div class="prospect-intensity-section">
+              <div class="intensity-label-row">
+                <span class="intensity-section-title">השוואת עוצמה: סכום מול תפיסה סובייקטיבית</span>
+                <span class="intensity-ratio-badge gain" id="prospectRatioBadge">עוצמה מתונה (1.0x)</span>
+              </div>
+
+              <!-- סרגל 1: סכום כספי אמיתי -->
+              <div class="intensity-bar-row">
+                <div class="intensity-bar-header">
+                  <span class="bar-name">סכום כספי אמיתי:</span>
+                  <span class="bar-val-text" id="valMonetaryText">200 ₪</span>
+                </div>
+                <div class="intensity-bar-track">
+                  <div class="intensity-bar-fill monetary" id="barMonetary" style="width: 40%;"></div>
+                </div>
+              </div>
+
+              <!-- סרגל 2: עוצמה פסיכולוגית נתפסת -->
+              <div class="intensity-bar-row">
+                <div class="intensity-bar-header">
+                  <span class="bar-name">עוצמה רגשית נתפסת:</span>
+                  <span class="bar-val-text" id="valPsychologicalText">105 נק' (ערך מתון)</span>
+                </div>
+                <div class="intensity-bar-track">
+                  <div class="intensity-bar-fill psychological gain" id="barPsychological" style="width: 21%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. תיבת תובנה פסיכולוגית מודגשת -->
+          <div class="prospect-insight-box">
+            <div class="insight-icon">💡</div>
+            <div class="insight-body">
+              <strong>תובנה פסיכולוגית:</strong>
+              צרכנים מגיבים חזק יותר לאפשרות של הפסד מאשר לאפשרות של רווח באותו גודל. לכן מסרים שיווקיים רבים מדגישים מה נפסיד אם לא נקנה, ולא רק מה נרוויח אם כן.
+            </div>
+          </div>
+        </div>
+
+        <!-- עמודה שמאלית: גרף פונקציית תורת הסיכויים -->
+        <div class="prospect-graph-card">
+          <div class="graph-card-header">
+            <h4>📊 עקומת הערך הפסיכולוגי של כהנמן וטברסקי</h4>
+            <span class="graph-sub-badge">פונקציית S א-סימטרית</span>
+          </div>
+
+          <!-- מיכל הגרף הוויזואלי (SVG אינטראקטיבי) -->
+          <div class="prospect-svg-container" id="prospectSvgWrapper">
+            <svg id="prospectSvgGraph" viewBox="0 0 540 320" preserveAspectRatio="xMidYMid meet" class="prospect-svg-graph">
+              <defs>
+                <!-- גרדיאנט לרווחים -->
+                <linearGradient id="gainCurveGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#06b6d4" />
+                  <stop offset="100%" stop-color="#34d399" />
+                </linearGradient>
+                <!-- גרדיאנט להפסדים -->
+                <linearGradient id="lossCurveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ef4444" />
+                  <stop offset="100%" stop-color="#fb7185" />
+                </linearGradient>
+                <!-- אפקט זוהר לנקודה הפעילה -->
+                <filter id="dotGlow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- רשת עדינה (Grid) -->
+              <g class="svg-grid-lines" opacity="0.15">
+                <line x1="50" y1="90" x2="490" y2="90" stroke="#94a3b8" stroke-dasharray="3,3" />
+                <line x1="50" y1="240" x2="490" y2="240" stroke="#94a3b8" stroke-dasharray="3,3" />
+                <line x1="160" y1="35" x2="160" y2="295" stroke="#94a3b8" stroke-dasharray="3,3" />
+                <line x1="380" y1="35" x2="380" y2="295" stroke="#94a3b8" stroke-dasharray="3,3" />
+              </g>
+
+              <!-- צירים ראשיים -->
+              <!-- ציר X: הפסדים <-> רווחים -->
+              <line x1="35" y1="165" x2="505" y2="165" stroke="#64748b" stroke-width="1.8" />
+              <polygon points="510,165 500,161 500,169" fill="#64748b" />
+              <polygon points="30,165 40,161 40,169" fill="#64748b" />
+
+              <!-- ציר Y: ערך פסיכולוגי -->
+              <line x1="270" y1="295" x2="270" y2="35" stroke="#64748b" stroke-width="1.8" />
+              <polygon points="270,30 266,40 274,40" fill="#64748b" />
+              <polygon points="270,300 266,290 274,290" fill="#64748b" />
+
+              <!-- תוויות צירים ואזורים -->
+              <text x="495" y="155" fill="#34d399" font-size="12" font-weight="700" text-anchor="end">רווחים (+)</text>
+              <text x="45" y="155" fill="#fb7185" font-size="12" font-weight="700" text-anchor="start">הפסדים (-)</text>
+              <text x="278" y="45" fill="#94a3b8" font-size="11" font-weight="600">+ ערך פסיכולוגי</text>
+              <text x="278" y="290" fill="#94a3b8" font-size="11" font-weight="600">- כאב הפסד</text>
+              <text x="268" y="180" fill="#64748b" font-size="10" text-anchor="end">נקודת ייחוס (0)</text>
+
+              <!-- כיתובי הסבר על שיפוע העקומה -->
+              <text x="415" y="75" fill="#38bdf8" font-size="11" opacity="0.85" text-anchor="middle">שיפוע מתון (הנאה מרווח)</text>
+              <text x="125" y="260" fill="#f43f5e" font-size="11" font-weight="700" opacity="0.9" text-anchor="middle">שיפוע תלול פי 2.25! (כאב הפסד)</text>
+
+              <!-- מסלולי העקומה של תורת הסיכויים (מחושבים דינמית) -->
+              <path id="svgLossPath" d="" fill="none" stroke="url(#lossCurveGrad)" stroke-width="3.5" stroke-linecap="round" />
+              <path id="svgGainPath" d="" fill="none" stroke="url(#gainCurveGrad)" stroke-width="3.5" stroke-linecap="round" />
+
+              <!-- קווי עזר דינמיים לנקודה הפעילה -->
+              <line id="svgGuideX" x1="270" y1="165" x2="270" y2="165" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.7" />
+              <line id="svgGuideY" x1="270" y1="165" x2="270" y2="165" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.7" />
+
+              <!-- נקודת האפס (מרכז) -->
+              <circle cx="270" cy="165" r="3.5" fill="#94a3b8" />
+
+              <!-- הנקודה הפעילה הדינמית (Current State Point) -->
+              <g id="svgActivePointGroup" transform="translate(358, 123)">
+                <circle id="svgActiveDot" cx="0" cy="0" r="7" fill="#34d399" stroke="#ffffff" stroke-width="2" filter="url(#dotGlow)" />
+                <rect id="svgTooltipBg" x="-45" y="-32" width="90" height="22" rx="4" fill="#0f172a" stroke="#34d399" stroke-width="1" opacity="0.95" />
+                <text id="svgTooltipText" x="0" y="-17" fill="#ffffff" font-size="10.5" font-weight="700" text-anchor="middle">+ ₪ 200</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- סרגל נתונים מסכם בתחתית הגרף -->
+          <div class="graph-readout-row">
+            <div class="readout-box">
+              <span class="readout-label">סכום נבחר:</span>
+              <span class="readout-val" id="readoutAmount">+ ₪ 200</span>
+            </div>
+            <div class="readout-box">
+              <span class="readout-label">ערך סובייקטיבי:</span>
+              <span class="readout-val" id="readoutPsychVal">+ 105 נקודות</span>
+            </div>
+            <div class="readout-box highlight" id="readoutImpactBox">
+              <span class="readout-label">עוצמה יחסית:</span>
+              <span class="readout-val" id="readoutRatio">עוצמה מתונה (1.0x)</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -670,6 +852,7 @@
   <script src="js/audio.js"></script>
   <script src="js/brain3d.js"></script>
   <script src="js/python_runner.js"></script>
+  <script src="js/prospect_theory.js"></script>
   <script src="js/presentation.js"></script>
 </body>
 </html>

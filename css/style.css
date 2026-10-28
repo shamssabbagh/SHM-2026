@@ -1166,6 +1166,442 @@ bdi, .bidi-isolate {
 }
 
 /* ==========================================================================
+   שקופית 13 - תורת הסיכויים (Prospect Theory) - כהנמן וטברסקי
+   ========================================================================== */
+
+.prospect-notice {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(99, 102, 241, 0.4);
+  border-right-color: var(--accent-indigo);
+  margin-bottom: 16px;
+}
+
+.prospect-simulation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .prospect-simulation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prospect-control-card,
+.prospect-graph-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: border-color var(--transition-speed);
+}
+
+.prospect-control-card.mode-gain {
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.prospect-control-card.mode-loss {
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
+/* 1. מתג בחירה רווח / הפסד */
+.prospect-mode-toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prospect-field-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.prospect-toggle-pills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 5px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.prospect-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.prospect-pill:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.prospect-pill.active-gain {
+  background: rgba(52, 211, 153, 0.16);
+  color: var(--accent-emerald);
+  border-color: rgba(52, 211, 153, 0.45);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.25);
+}
+
+.prospect-pill.active-loss {
+  background: rgba(244, 63, 94, 0.16);
+  color: var(--accent-rose);
+  border-color: rgba(244, 63, 94, 0.45);
+  box-shadow: 0 0 12px rgba(244, 63, 94, 0.25);
+}
+
+.pill-badge-icon {
+  font-size: 0.85rem;
+}
+
+/* 2. סליידר סכום */
+.prospect-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prospect-amount-tag {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 6px;
+  direction: ltr;
+  display: inline-block;
+  transition: all 0.25s ease;
+}
+
+.prospect-amount-tag.gain {
+  color: var(--accent-emerald);
+  background: rgba(52, 211, 153, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
+}
+
+.prospect-amount-tag.loss {
+  color: var(--accent-rose);
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.2);
+}
+
+.prospect-range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #334155;
+  outline: none;
+  cursor: pointer;
+}
+
+.prospect-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.25s ease;
+}
+
+.prospect-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+}
+
+/* 3. כרטיס תוצאה: החוויה הפסיכולוגית */
+.prospect-experience-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.3s ease;
+}
+
+.prospect-experience-card.gain {
+  border-right: 4px solid var(--accent-emerald);
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
+}
+
+.prospect-experience-card.loss {
+  border-right: 4px solid var(--accent-rose);
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.08) 0%, rgba(15, 23, 42, 0.9) 100%);
+}
+
+.exp-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.exp-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.exp-face-icon {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  font-size: 1.1rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+.exp-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.exp-card-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.exp-message {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+/* השוואת עוצמה */
+.prospect-intensity-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.intensity-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.intensity-ratio-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.intensity-ratio-badge.gain {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.intensity-ratio-badge.loss {
+  background: rgba(244, 63, 94, 0.18);
+  color: var(--accent-rose);
+  border: 1px solid rgba(244, 63, 94, 0.4);
+}
+
+.intensity-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.intensity-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.intensity-bar-header .bar-name {
+  color: var(--text-muted);
+}
+
+.intensity-bar-header .bar-val-text {
+  font-weight: 700;
+  color: #ffffff;
+  direction: ltr;
+}
+
+.intensity-bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.intensity-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.intensity-bar-fill.monetary {
+  background: #94a3b8;
+}
+
+.intensity-bar-fill.psychological.gain {
+  background: linear-gradient(90deg, #06b6d4, #34d399);
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
+}
+
+.intensity-bar-fill.psychological.loss {
+  background: linear-gradient(90deg, #fb7185, #ef4444);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+/* 4. תיבת תובנה פסיכולוגית */
+.prospect-insight-box {
+  background: rgba(99, 102, 241, 0.09);
+  border-right: 3px solid var(--accent-indigo);
+  border-radius: var(--border-radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.prospect-insight-box .insight-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.prospect-insight-box strong {
+  color: #a5b4fc;
+}
+
+/* 5. עמודת גרף תורת הסיכויים */
+.graph-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.graph-card-header h4 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  color: var(--accent-cyan);
+}
+
+.graph-sub-badge {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.prospect-svg-container {
+  width: 100%;
+  background: rgba(11, 15, 25, 0.85);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.prospect-svg-graph {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+}
+
+/* סרגל נתונים תחתון */
+.graph-readout-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .graph-readout-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.readout-box {
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.readout-box.highlight {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.readout-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.readout-val {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  direction: ltr;
+  text-align: right;
+}
+
+/* ==========================================================================
    שקופית 14 - סימולציית Python (Pyodide) על אפקט העיגון
    ========================================================================== */
 
