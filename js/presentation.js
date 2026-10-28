@@ -9,7 +9,7 @@
   // מצב המערכת
   const state = {
     currentSlide: 1,
-    totalSlides: 19,
+    totalSlides: 20,
     storageKey: 'shm_2026_current_slide'
   };
 

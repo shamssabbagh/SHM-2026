@@ -70,6 +70,59 @@ def calculate_prospect_theory(amount, is_loss):
         "python_version": sys.version.split()[0],
         "executed_by": "Pyodide CPython WebAssembly"
     }
+
+def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
+    """
+    ניתוח השוואתי בין פרסומת ניטרלית (A) לפרסומת רגשית (B) (שקופית 20).
+    חישוב פערים, אחוזי שינוי ופער עמדה-התנהגות (Attitude-Behavior Gap).
+    """
+    try:
+        e_a = float(ad_a_ratings.get('emotion', 0))
+        b_a = float(ad_a_ratings.get('brand', 0))
+        i_a = float(ad_a_ratings.get('intent', 0))
+
+        e_b = float(ad_b_ratings.get('emotion', 0))
+        b_b = float(ad_b_ratings.get('brand', 0))
+        i_b = float(ad_b_ratings.get('intent', 0))
+    except Exception:
+        e_a, b_a, i_a = 4.0, 4.0, 3.0
+        e_b, b_b, i_b = 8.0, 8.0, 6.0
+
+    diff_emotion = round(e_b - e_a, 1)
+    diff_brand = round(b_b - b_a, 1)
+    diff_intent = round(i_b - i_a, 1)
+
+    pct_emotion = round(((e_b - e_a) / max(1.0, e_a)) * 100.0, 1)
+    pct_brand = round(((b_b - b_a) / max(1.0, b_a)) * 100.0, 1)
+    pct_intent = round(((i_b - i_a) / max(1.0, i_a)) * 100.0, 1)
+
+    avg_a = round((e_a + b_a + i_a) / 3.0, 1)
+    avg_b = round((e_b + b_b + i_b) / 3.0, 1)
+    diff_avg = round(avg_b - avg_a, 1)
+    pct_avg = round(((avg_b - avg_a) / max(1.0, avg_a)) * 100.0, 1)
+
+    # פער עמדה-התנהגות (Attitude-Behavior Gap)
+    attitude_gap = round(diff_brand - diff_intent, 1)
+
+    return {
+        "ad_a": {"emotion": e_a, "brand": b_a, "intent": i_a, "average": avg_a},
+        "ad_b": {"emotion": e_b, "brand": b_b, "intent": i_b, "average": avg_b},
+        "differences": {
+            "emotion": diff_emotion,
+            "brand": diff_brand,
+            "intent": diff_intent,
+            "overall": diff_avg
+        },
+        "percentages": {
+            "emotion": pct_emotion,
+            "brand": pct_brand,
+            "intent": pct_intent,
+            "overall": pct_avg
+        },
+        "attitude_intent_gap": attitude_gap,
+        "python_version": sys.version.split()[0],
+        "executed_by": "Pyodide CPython WebAssembly"
+    }
 `;
 
   // אלמנטי DOM
@@ -314,10 +367,10 @@ def calculate_prospect_theory(amount, is_loss):
       });
     }
 
-    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 13 או 14
+    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 13, 14 או 20
     document.addEventListener('slideChanged', (e) => {
       const slideNum = e.detail ? e.detail.slideNumber : 1;
-      if (slideNum === 13 || slideNum === 14) {
+      if (slideNum === 13 || slideNum === 14 || slideNum === 20) {
         if (state.status === 'idle') {
           initPyodide();
         }
@@ -344,6 +397,23 @@ def calculate_prospect_theory(amount, is_loss):
   };
 
   /**
+   * חישוב השוואת פרסומת רגשית מול ניטרלית באמצעות Python (שקופית 20)
+   */
+  window.calculateEmotionalAdPython = function (adA, adB) {
+    if (!state.pyodide || state.status !== 'ready') return null;
+    try {
+      const pyCmd = `calculate_emotional_ad_comparison(${JSON.stringify(adA)}, ${JSON.stringify(adB)})`;
+      const proxy = state.pyodide.runPython(pyCmd);
+      const res = proxy.toJs();
+      proxy.destroy();
+      return res;
+    } catch (e) {
+      console.warn('[Emotional Ad Python Runner] Python execution warning:', e);
+      return null;
+    }
+  };
+
+  /**
    * פונקציית אימות גלובלית המאפשרת לבודקים ומרצים לוודא בקונסול ש-Python מבצע את החישובים!
    */
   window.verifyPythonExecution = function () {
@@ -357,6 +427,7 @@ def calculate_prospect_theory(amount, is_loss):
     const anchoringResult = state.pyodide.runPython('calculate_anchoring(399, 850)').toJs();
     const prospectGain = state.pyodide.runPython('calculate_prospect_theory(200, False)').toJs();
     const prospectLoss = state.pyodide.runPython('calculate_prospect_theory(200, True)').toJs();
+    const emotionalAdResult = state.pyodide.runPython('calculate_emotional_ad_comparison({"emotion":4,"brand":4,"intent":3}, {"emotion":8,"brand":8,"intent":6})').toJs();
 
     return {
       isPythonRunning: true,
@@ -376,6 +447,14 @@ def calculate_prospect_theory(amount, is_loss):
         difference: anchoringResult.get('difference'),
         pctIncrease: anchoringResult.get('pct_increase'),
         executedBy: anchoringResult.get('executed_by')
+      },
+      slide20_emotional_advertising: {
+        formula: 'Comparative Multi-Dimensional Delta & Attitude-Behavior Gap',
+        emotionDiff: emotionalAdResult.get('differences').get('emotion'),
+        brandDiff: emotionalAdResult.get('differences').get('brand'),
+        intentDiff: emotionalAdResult.get('differences').get('intent'),
+        attitudeIntentGap: emotionalAdResult.get('attitude_intent_gap'),
+        executedBy: emotionalAdResult.get('executed_by')
       }
     };
   };
@@ -384,9 +463,9 @@ def calculate_prospect_theory(amount, is_loss):
   function setup() {
     cacheDOMElements();
     bindEvents();
-    // אם המשתמש כבר נמצא בשקופית 13 או 14 בעת רענון
+    // אם המשתמש כבר נמצא בשקופית 13, 14 או 20 בעת רענון
     const curSlide = window.PresentationController ? window.PresentationController.getCurrentSlide() : 1;
-    if (curSlide === 13 || curSlide === 14) {
+    if (curSlide === 13 || curSlide === 14 || curSlide === 20) {
       initPyodide();
     }
   }
