@@ -65,9 +65,7 @@ def calculate_anchoring(base_price, anchor_price):
       valBaseLabel: document.getElementById('valBaseLabel'),
       valAnchorLabel: document.getElementById('valAnchorLabel'),
       valEstLabel: document.getElementById('valEstLabel'),
-      pyVersionBadge: document.getElementById('pyVersionBadge'),
-      pyErrorBox: document.getElementById('pyErrorBox'),
-      pyCodeDisplay: document.getElementById('pyCodeDisplay')
+      pyErrorBox: document.getElementById('pyErrorBox')
     };
   }
 
@@ -146,6 +144,7 @@ def calculate_anchoring(base_price, anchor_price):
       if (elements.resultsContainer) {
         elements.resultsContainer.classList.add('disabled-dim');
       }
+      resetOutputsOnError();
       return;
     }
 
@@ -170,6 +169,17 @@ def calculate_anchoring(base_price, anchor_price):
       state.errorMessage = 'שגיאה במהלך ביצוע קוד ה-Python: ' + err.message;
       updateUIStatus();
     }
+  }
+
+  /**
+   * איפוס התוצאות במקרה של שגיאה או אי-זמינות
+   */
+  function resetOutputsOnError() {
+    if (elements.valOutput) elements.valOutput.textContent = '—';
+    if (elements.diffOutput) elements.diffOutput.textContent = '—';
+    if (elements.pctOutput) elements.pctOutput.textContent = '—';
+    if (elements.valEstLabel) elements.valEstLabel.textContent = '—';
+    if (elements.barEst) elements.barEst.style.height = '0%';
   }
 
   /**
@@ -210,7 +220,7 @@ def calculate_anchoring(base_price, anchor_price):
   }
 
   /**
-   * עדכון סטטוס טעינה/שגיאה בממשק המשתמש
+   * עדכון סטטוס טעינה/שגיאה בממשק המשתמש (נגיש לקהל ללא פרטים טכניים)
    */
   function updateUIStatus() {
     if (!elements.statusContainer) return;
@@ -219,7 +229,7 @@ def calculate_anchoring(base_price, anchor_price):
       elements.statusContainer.innerHTML = `
         <div class="py-badge loading">
           <span class="py-spinner"></span>
-          <span>טוען מנוע Python בדפדפן (Pyodide WebAssembly)...</span>
+          <span>טוען סימולציה...</span>
         </div>
       `;
       if (elements.resultsContainer) elements.resultsContainer.classList.add('disabled-dim');
@@ -228,28 +238,26 @@ def calculate_anchoring(base_price, anchor_price):
       elements.statusContainer.innerHTML = `
         <div class="py-badge ready">
           <span>✓</span>
-          <span>מנוע Python פעיל ומחובר (CPython v${state.pythonVersion})</span>
+          <span>הסימולציה מוכנה לפעולה</span>
         </div>
       `;
       if (elements.resultsContainer) elements.resultsContainer.classList.remove('disabled-dim');
       if (elements.pyErrorBox) elements.pyErrorBox.style.display = 'none';
-      if (elements.pyVersionBadge) elements.pyVersionBadge.textContent = `Python v${state.pythonVersion}`;
     } else if (state.status === 'error') {
       elements.statusContainer.innerHTML = `
         <div class="py-badge error">
           <span>⚠️</span>
-          <span>מנוע Python אינו זמין. החישוב לא בוצע.</span>
+          <span>מנוע החישוב אינו זמין כעת</span>
         </div>
       `;
       if (elements.resultsContainer) elements.resultsContainer.classList.add('disabled-dim');
       if (elements.pyErrorBox) {
         elements.pyErrorBox.style.display = 'block';
         elements.pyErrorBox.innerHTML = `
-          <strong>הודעת שגיאה:</strong> לא ניתן היה להריץ את סביבת Python בדפדפן (${state.errorMessage}).
-          <br>
-          <span style="font-size: 0.85rem; color: #94a3b8;">הערה: לשם הרצת Pyodide דרוש חיבור אינטרנט תקין לטעינת קובצי ה-WebAssembly. התוצאות ננעלות כדי למנוע הצגת נתונים שגויים.</span>
+          <strong>הודעה:</strong> מנוע החישוב אינו זמין כעת. אנא ודאו חיבור תקין לאינטרנט ורעננו את הדף.
         `;
       }
+      resetOutputsOnError();
     }
   }
 

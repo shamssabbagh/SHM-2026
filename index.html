@@ -391,10 +391,10 @@
     <section class="slide" id="slide-14">
       <header class="slide-header">
         <div class="slide-title-group">
-          <h2>הדגמת קוד <bdi>Python</bdi>: סימולציית אפקט העיגון</h2>
-          <div class="slide-subtitle"><bdi>Interactive Python Simulation: Anchoring Effect on Valuation</bdi></div>
+          <h2>אפקט העיגון: איך המחיר הראשון משפיע עלינו?</h2>
+          <div class="slide-subtitle"><bdi>Anchoring Effect: How Initial Prices Shape Consumer Value</bdi></div>
         </div>
-        <span class="slide-badge" id="pyVersionBadge">חישוב חי ב-Python (Pyodide)</span>
+        <span class="slide-badge">סימולציה אינטראקטיבית</span>
       </header>
 
       <!-- הערת שקיפות מדעית (לפי דרישה 4) -->
@@ -403,15 +403,15 @@
         הנוסחה המודגמת (<bdi>399 + 0.3 × (מחיר העוגן − 399)</bdi>) והמקדם <bdi>0.3</bdi> נבחרו <strong>לצורך המחשה והדגמה לימודית בלבד</strong>, ואינם מהווים מודל פסיכולוגי מאומת. עוצמת אפקט העיגון במציאות משתנה בהתאם למומחיות הצרכן, רמת המעורבות והקשר הרכישה.
       </div>
 
-      <!-- סטטוס מנוע Python (לפי דרישה 7) -->
+      <!-- סטטוס טעינת הסימולציה -->
       <div id="pyStatusContainer" class="py-status-wrap">
         <div class="py-badge loading">
           <span class="py-spinner"></span>
-          <span>טוען מנוע Python בדפדפן (Pyodide WebAssembly)...</span>
+          <span>טוען סימולציה...</span>
         </div>
       </div>
 
-      <!-- הודעת שגיאה אם Python אינו זמין (לפי דרישה 7) -->
+      <!-- הודעת שגיאה פשוטה אם מנוע החישוב אינו זמין -->
       <div id="pyErrorBox" class="py-error-banner" style="display: none;"></div>
 
       <!-- ממשק הסימולציה הדו-עמודי -->
@@ -430,7 +430,7 @@
           <!-- מחוון מחיר העוגן בין 400 ל-1,200 ש"ח (לפי דרישה 2) -->
           <div class="py-slider-group">
             <div class="slider-label-row">
-              <label for="anchorSlider">מחיר עוגן מוצג לצרכן (מחיר ייחוס / "מחיר קודם"):</label>
+              <label for="anchorSlider">מחיר עוגן מוצג לצרכן (מחיר ייחוס / "מחיר מקורי לפני הנחה"):</label>
               <span class="anchor-price-tag" id="anchorValDisplay">₪ 850</span>
             </div>
             <input type="range" id="anchorSlider" min="400" max="1200" step="10" value="850" class="py-range-slider">
@@ -441,43 +441,36 @@
             </div>
           </div>
 
-          <div style="margin-top: 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <div style="margin-top: 14px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
             <button type="button" class="btn-run-python" id="btnRunPythonAnchoring">
-              <span>⚡</span>
-              <span>הרץ חישוב ב-Python</span>
+              <span>🎯</span>
+              <span>בדקו את השפעת המחיר</span>
             </button>
-            <span style="font-size: 0.8rem; color: var(--text-muted);">החישוב מבוצע ב-Python גם בזמן אמת בהזזת המחוון</span>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">התוצאות והגרף מתעדכנים בזמן אמת עם הזזת המחוון</span>
           </div>
 
-          <!-- קוד Python הפעיל (לפי דרישה 3 ו-6) -->
-          <div class="py-code-snippet-box">
-            <div class="code-header">
-              <span>🐍 קוד Python שמבצע את החישוב (Pyodide):</span>
-            </div>
-            <pre class="py-code-text" id="pyCodeDisplay"><code>def calculate_anchoring(base=399, anchor):
-    # נוסחת המחשה לימודית (0.3 = משקל העוגן)
-    estimated_val = base + 0.3 * (anchor - base)
-    diff = estimated_val - base
-    pct = (diff / base) * 100
-    return round(estimated_val, 2)</code></pre>
+          <!-- תובנה התנהגותית נגישה לקהל במקום קוד טכני -->
+          <div class="py-consumer-insight">
+            <strong>💡 תובנה התנהגותית:</strong>
+            המחיר הראשון שהצרכן פוגש משמש כעוגן תודעתי (Anchor). גם כאשר ידוע שהמחיר האמיתי הוא 399 ₪, חשיפה לעוגן גבוה ממסגרת את המוצר כיוקרתי ואיכותי יותר ומעלה את הערכת השווי הסובייקטיבית שלו.
           </div>
         </div>
 
         <!-- עמודה שמאלית: תוצאות ויזואליות וגרף (לפי דרישה 5) -->
         <div class="py-results-card" id="pyResultsContainer">
-          <h4 style="font-size: 1.05rem; color: var(--accent-cyan); margin-bottom: 12px;">📊 תוצאת החישוב מתוך מנוע Python:</h4>
+          <h4 style="font-size: 1.05rem; color: var(--accent-cyan); margin-bottom: 12px;">📊 הערכת השווי של הצרכן:</h4>
 
           <!-- מדדים מרכזיים -->
           <div class="py-metrics-grid">
             <div class="py-metric-tile highlight">
-              <span class="metric-title">הערכת שווי הצרכן (מחושב ע"י Python)</span>
-              <span class="metric-val" id="pyValOutput">₪ 534.30</span>
+              <span class="metric-title">הערכת שווי משוערת</span>
+              <span class="metric-val" id="pyValOutput">—</span>
               <span class="metric-sub">השפעת העוגן על תפיסת המחיר</span>
             </div>
             <div class="py-metric-tile">
               <span class="metric-title">תוספת שווי מדומה</span>
-              <span class="metric-val" id="pyDiffOutput" style="color: var(--accent-amber);">+ ₪ 135.30</span>
-              <span class="metric-sub" id="pyPctOutput">+33.9% מעל מחיר הבסיס</span>
+              <span class="metric-val" id="pyDiffOutput" style="color: var(--accent-amber);">—</span>
+              <span class="metric-sub" id="pyPctOutput">—</span>
             </div>
           </div>
 
@@ -505,18 +498,14 @@
 
               <!-- עמודה 3: הערכת שווי מושפעת -->
               <div class="py-bar-col">
-                <span class="bar-val-text" id="valEstLabel" style="color: var(--accent-cyan);">₪ 534.30</span>
+                <span class="bar-val-text" id="valEstLabel" style="color: var(--accent-cyan);">—</span>
                 <div class="bar-track">
-                  <div class="bar-fill estimated" id="barEst" style="height: 43%;"></div>
+                  <div class="bar-fill estimated" id="barEst" style="height: 0%;"></div>
                 </div>
                 <span class="bar-col-label">הערכת שווי</span>
               </div>
             </div>
           </div>
-
-          <p style="font-size: 0.8rem; color: var(--text-subtle); margin-top: 10px; line-height: 1.4;">
-            * החישוב מבוצע בתוך סביבת WebAssembly מבודדת באמצעות Pyodide. פתחו את ה-DevTools Console והריצו <code style="color: var(--accent-cyan);">verifyPythonExecution()</code> לאימות ישיר.
-          </p>
         </div>
       </div>
     </section>
