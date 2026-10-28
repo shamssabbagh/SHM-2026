@@ -193,6 +193,7 @@
 13. [`13_Choice_Paradox.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/13_Choice_Paradox.md) – פיתוח ניסוי פרדוקס הבחירה והסטופר הדיגיטלי בשקופית 10.
 14. [`14_Ethical_Marketing_Dark_Patterns.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/14_Ethical_Marketing_Dark_Patterns.md) – פיתוח מעבדת שיווק אתי ודפוסי חושך בשקופית 16.
 15. [`15_Final_Project_Review.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/15_Final_Project_Review.md) – סקירה סופית ומקיפה, בקרת איכות (QA) ותיעוד פרויקט לקראת הגשה.
+16. [`16_PRD_Upgrade.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/16_PRD_Upgrade.md) – שדרוג מקיף ואקדמי של מסמך אפיון דרישות המוצר ([`PRD.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/PRD.md) גרסה 2.0).
 
 ---
 
