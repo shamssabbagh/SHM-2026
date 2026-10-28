@@ -1,10 +1,10 @@
-# תיעוד פרומפט 09: סימולציית פרסום רגשי מול ניטרלי (Emotional Advertising)
+# תיעוד פרומפט 10: סימולציית פרסום רגשי מול ניטרלי (Emotional Advertising)
 
 | פרט | מידע |
 | :--- | :--- |
 | **מזהה שלב** | שלב 9 – סימולציית מעבדה אינטראקטיבית מלאה בשקופית 20: "כשהפרסומת מעוררת רגש – האם אנחנו רוצים לקנות יותר?" |
 | **תאריך** | 28 באוקטובר 2026 |
-| **קבצים שנוצרו/נערכו** | `prompts/09_Emotional_Advertising.md`, `index.html`, `js/emotional_ad.js`, `js/python_runner.js`, `js/presentation.js`, `css/style.css`, `README.md`, `assets/images/perfume_neutral.jpg`, `assets/images/perfume_emotional.jpg` |
+| **קבצים שנוצרו/נערכו** | `prompts/10_Emotional_Advertising.md`, `index.html`, `js/emotional_ad.js`, `js/python_runner.js`, `js/presentation.js`, `css/style.css`, `README.md`, `assets/images/perfume_neutral.jpg`, `assets/images/perfume_emotional.jpg` |
 | **צוות** | סטודנטית לפסיכולוגיה (אוניברסיטת חיפה) & סטודנטית לתקשורת ושיווק |
 | **מסגרת** | מטלה מספר 1 \| קורס סוכני AI ו-Vibe Coding |
 
