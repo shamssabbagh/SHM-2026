@@ -1267,19 +1267,290 @@
       </div>
     </section>
 
-    <!-- ==================== שקופית 16: שיווק אתי ו-Nudge ==================== -->
+    <!-- ==================== שקופית 16: שיווק אתי ו-Dark Patterns ==================== -->
     <section class="slide" id="slide-16">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>שיווק מבוסס מדע ואתיקה מקצועית</h2>
-          <div class="slide-subtitle"><bdi>Ethical Marketing &amp; Behavioral Nudges</bdi></div>
+          <div class="slide-subtitle"><bdi>Ethical Marketing &amp; Dark Patterns: בין Nudge מיטיב למניפולציה מסחרית</bdi></div>
         </div>
-        <span class="slide-badge">אתיקה צרכנית</span>
+        <span class="slide-badge">אתיקה ואחריות</span>
       </header>
 
-      <div class="diagram-card">
-        <img src="assets/images/nudge_vs_darkpattern.svg" alt="דחיפה אתית מול תבנית אפלה">
-        <div class="diagram-caption">ההבחנה המוסרית: עיצוב בחירה שקוף ומיטיב (<bdi>Nudge</bdi>) מול מניפולציות ומלכודות הרשמה (<bdi>Dark Patterns</bdi>)</div>
+      <div class="ethical-sim-wrapper">
+        <!-- סרגל בקרה ומעבר בין גרסאות החנות -->
+        <div class="ethical-controls-bar">
+          <div class="ethical-tabs-group">
+            <button class="ethical-tab-btn compare-tab active" id="ethicalTabCompare" type="button">
+              <span>⚖️</span>
+              <span>השוואה זו לצד זו</span>
+            </button>
+            <button class="ethical-tab-btn fair-tab" id="ethicalTabFair" type="button">
+              <span>🛍️</span>
+              <span>גרסה א׳: חנות הוגנת (Fair UX)</span>
+            </button>
+            <button class="ethical-tab-btn dark-tab" id="ethicalTabDark" type="button">
+              <span>🚨</span>
+              <span>גרסה ב׳: דפוסי חושך (Dark Patterns)</span>
+            </button>
+          </div>
+          <div class="ethical-controls-right">
+            <span class="ethical-disclaimer-pill">
+              <span>🔒</span>
+              <span>סימולציה לימודית בלבד • ללא גביית תשלום</span>
+            </span>
+            <button class="ethical-reset-btn" id="ethicalResetBtn" type="button" title="איפוס הסימולציה">
+              <span>🔄</span>
+              <span>איפוס</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- מיכל שתי החנויות (חנות א׳ וחנות ב׳) -->
+        <div class="ethical-stores-container view-compare" id="ethicalStoresContainer">
+          
+          <!-- גרסה א׳ – חנות הוגנת ושקופה -->
+          <div class="ethical-store-card store-fair" id="ethicalStoreFair">
+            <div class="ethical-store-header">
+              <div class="ethical-store-title-box">
+                <h3>גרסה א׳: עיצוב הוגן ושקוף</h3>
+                <p>שמירה מלאה על אוטונומיית הצרכן ושקיפות מידע</p>
+              </div>
+              <span class="ethical-store-badge badge-fair">
+                <span>✓</span>
+                <span>Fair Design</span>
+              </span>
+            </div>
+
+            <!-- פרטי המוצר -->
+            <div class="ethical-product-row">
+              <img src="assets/images/luxury_handbag.jpg" alt="תיק עור שחור יוקרתי Maison Vendôme" class="ethical-product-thumb">
+              <div class="ethical-product-meta">
+                <span class="ethical-brand-tag">Maison Vendôme • Paris</span>
+                <h4 class="ethical-product-title">Le Sac Royal — תיק עור שחור ויוקרתי</h4>
+                <span class="ethical-product-specs">עור איטלקי מובחר • אבזמי פליז בציפוי זהב 24K</span>
+              </div>
+              <div class="ethical-product-price-tag">₪899</div>
+            </div>
+
+            <!-- תוספת ביטוח אופציונלית הוגנת (לא מסומנת מראש) -->
+            <div class="ethical-addon-box fair-addon">
+              <label class="ethical-checkbox-label">
+                <input type="checkbox" id="fairInsuranceCheckbox" class="ethical-checkbox">
+                <span><strong>הוספת ביטוח מקיף לשנתיים (+₪49)</strong> — כיסוי נזק ושחיקה</span>
+              </label>
+              <div class="ethical-addon-desc">
+                הבחירה בידיך בלבד. ניתן להוסיף או להסיר בכל עת בלחיצה חופשית, ללא שיפוטיות.
+              </div>
+            </div>
+
+            <!-- פירוט חשבון שקוף -->
+            <div class="ethical-price-summary-box">
+              <div class="ethical-price-row">
+                <span>מחיר תיק יוקרתי:</span>
+                <span>₪899</span>
+              </div>
+              <div class="ethical-price-row">
+                <span>ביטוח מקיף (אופציונלי):</span>
+                <span id="fairInsurancePriceDisplay">₪0 (לא נבחר)</span>
+              </div>
+              <div class="ethical-price-row total-row">
+                <span>סה"כ לתשלום:</span>
+                <span id="fairTotalPrice" style="color: #6ee7b7;">₪899</span>
+              </div>
+            </div>
+
+            <!-- כפתור צ'קאאוט הוגן -->
+            <button class="ethical-checkout-btn btn-fair" id="fairCheckoutBtn" type="button">
+              <span>🔒</span>
+              <span>המשך לתשלום שקוף (סימולציה)</span>
+            </button>
+            <div class="ethical-guarantee-note">
+              ✓ ללא עמלות נסתרות • ✓ ללא הודעות לחץ • ✓ ביטול חופשי
+            </div>
+          </div>
+
+          <!-- גרסה ב׳ – דפוסי עיצוב מניפולטיביים (Dark Patterns) -->
+          <div class="ethical-store-card store-dark" id="ethicalStoreDark">
+            <div class="ethical-store-header">
+              <div class="ethical-store-title-box">
+                <h3>גרסה ב׳: ארכיטקטורה מניפולטיבית</h3>
+                <p>ניצול הטיות קוגניטיביות, אינרציה ואשמה רגשית</p>
+              </div>
+              <span class="ethical-store-badge badge-dark">
+                <span>⚠️</span>
+                <span>Dark Patterns</span>
+              </span>
+            </div>
+
+            <!-- הודעת לחץ ודחיפות מלאכותית (FOMO) -->
+            <div class="ethical-urgency-banner">
+              <span>⚡</span>
+              <span><strong>אל תפספסי את ההגנה על התיק שלך!</strong> 94% מהרוכשות מוסיפות ביטוח פרימיום (רק עוד 2 במלאי).</span>
+            </div>
+
+            <!-- פרטי המוצר (אותו מוצר ואותו מחיר בסיס) -->
+            <div class="ethical-product-row">
+              <img src="assets/images/luxury_handbag.jpg" alt="תיק עור שחור יוקרתי Maison Vendôme" class="ethical-product-thumb">
+              <div class="ethical-product-meta">
+                <span class="ethical-brand-tag">Maison Vendôme • Paris</span>
+                <h4 class="ethical-product-title">Le Sac Royal — תיק עור שחור ויוקרתי</h4>
+                <span class="ethical-product-specs">עור איטלקי מובחר • אבזמי פליז בציפוי זהב 24K</span>
+              </div>
+              <div class="ethical-product-price-tag">₪899</div>
+            </div>
+
+            <!-- תוספת ביטוח מסומנת מראש (Default Effect) + ניסיון ביוש (Confirmshaming) -->
+            <div class="ethical-addon-box dark-addon">
+              <label class="ethical-checkbox-label">
+                <input type="checkbox" id="darkInsuranceCheckbox" class="ethical-checkbox dark-check" checked>
+                <span><strong>ביטוח פרימיום VIP לשנתיים (+₪49)</strong> <bdi style="color:#f87171;">[נוסף אוטומטית]</bdi></span>
+              </label>
+              <div class="ethical-addon-desc">
+                נבחר עבורך כברירת מחדל כדי להבטיח שקט נפשי מפני נזק בלתי הפיך.
+              </div>
+              <button class="ethical-faint-optout" id="darkOptOutLink" type="button">
+                להסרת ביטוח לחצי כאן
+              </button>
+              <div class="ethical-shamed-alert" id="darkWarningBadge" style="display: none;">
+                <span>⚠️</span>
+                <span>הסרת את ביטוח הפרימיום — התיק שלך אינו מוגן מנזקים ושריטות.</span>
+              </div>
+            </div>
+
+            <!-- פירוט חשבון מניפולטיבי (מתחיל ב-₪948) -->
+            <div class="ethical-price-summary-box">
+              <div class="ethical-price-row">
+                <span>מחיר תיק יוקרתי:</span>
+                <span>₪899</span>
+              </div>
+              <div class="ethical-price-row">
+                <span>ביטוח פרימיום VIP:</span>
+                <span id="darkInsurancePriceDisplay" style="color: #f87171;">₪49 (מסומן מראש)</span>
+              </div>
+              <div class="ethical-price-row total-row">
+                <span>סה"כ לתשלום:</span>
+                <span id="darkTotalPrice" style="color: #f87171;">₪948</span>
+              </div>
+            </div>
+
+            <!-- כפתור רכישה מהירה -->
+            <button class="ethical-checkout-btn btn-dark" id="darkCheckoutBtn" type="button">
+              <span>⚡</span>
+              <span>רכישה מהירה עכשיו (סימולציה)</span>
+            </button>
+            <div class="ethical-guarantee-note" style="color: #ef4444;">
+              ⚠️ שים לב: ברירת מחדל מסומנת מייצרת תוספת מחיר אוטומטית של ₪49
+            </div>
+          </div>
+        </div>
+
+        <!-- שאלת אבחון אינטראקטיבית: "בחנו את עצמכם" -->
+        <div class="ethical-quiz-card">
+          <div class="ethical-quiz-header">
+            <span>🧠</span>
+            <h4>בחנו את עצמכם: איזו חנות מפעילה מניפולציה פסיכולוגית (Dark Patterns)?</h4>
+          </div>
+          <div class="ethical-quiz-buttons">
+            <button class="ethical-quiz-btn" id="btnQuizFair" type="button">
+              🛍️ חנות א׳ (עיצוב שקוף והוגן)
+            </button>
+            <button class="ethical-quiz-btn" id="btnQuizDark" type="button">
+              🚨 חנות ב׳ (סימון מראש וביוש)
+            </button>
+          </div>
+          <div class="ethical-feedback-box" id="quizFeedbackBox" style="display: none;">
+            <div id="quizFeedbackTitle" style="font-weight: 700; margin-bottom: 6px;"></div>
+            <div id="quizFeedbackText"></div>
+            <div class="ethical-metrics-chips-row" id="quizMetricsRow"></div>
+          </div>
+        </div>
+
+        <!-- 4 כרטיסי תיאוריה פסיכולוגית ואתית (Nudge, Dark Patterns, Default Effect, Confirmshaming) -->
+        <div class="ethical-theory-grid">
+          <div class="ethical-theory-card">
+            <h5>
+              <span>🌱</span>
+              <span>Nudge (דחיפה עדינה)</span>
+            </h5>
+            <p>
+              ארכיטקטורת בחירה (Thaler &amp; Sunstein, 2008) המכוונת החלטות באופן צפוי מבלי לאסור חלופות או לשנות תמריצים כלכליים. 
+              <strong>דילמת האתיקה:</strong> נאדג' אינו בהכרח אתי! ההבחנה המוסרית תלויה במטרת העיצוב, בשקיפות ובשמירה על אוטונומיית הצרכן.
+            </p>
+            <span class="ethical-theory-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">אוטונומיה ושקיפות</span>
+          </div>
+
+          <div class="ethical-theory-card">
+            <h5>
+              <span>🕳️</span>
+              <span>Dark Patterns (דפוסי חושך)</span>
+            </h5>
+            <p>
+              ממשקי משתמש שעוצבו בכוונה תחילה (Harry Brignull, 2010) כדי לתמרן צרכנים לבצע פעולות שאינן משרתות את טובתם — כגון תשלום עודף, קושי בביטול או מסירת מידע פרטי.
+            </p>
+            <span class="ethical-theory-badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171;">מניפולציה דיגיטלית</span>
+          </div>
+
+          <div class="ethical-theory-card">
+            <h5>
+              <span>☑️</span>
+              <span>Default Effect (ברירת המחדל)</span>
+            </h5>
+            <p>
+              הנטייה הפסיכולוגית לדבוק באפשרות המסומנת מראש עקב אינרציה קוגניטיבית ותפיסת המחדל כהמלצה. בסימולציה: תיבת ה-₪49 המסומנת מקפיצה דרמטית את אחוז התשלום הלא מכוון.
+            </p>
+            <span class="ethical-theory-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">חיסכון במאמץ מנטלי</span>
+          </div>
+
+          <div class="ethical-theory-card">
+            <h5>
+              <span>😔</span>
+              <span>Confirmshaming (ביוש בסירוב)</span>
+            </h5>
+            <p>
+              טקטיקה רטורית המנסחת את כפתור הסירוב או הסרת המוצר באופן משפיל ומעורר אשמה (<em>"אני מעדיפה לקחת סיכון מיותר"</em>), במטרה ליצור לחץ רגשי שימנע מהצרכן לבטל.
+            </p>
+            <span class="ethical-theory-badge" style="background: rgba(192, 132, 252, 0.15); color: #c084fc;">רגשות אשמה ומניפולציה</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- מודאל Confirmshaming לחנות ב׳ -->
+      <div class="ethical-modal-overlay" id="ethicalShamingModalOverlay">
+        <div class="ethical-modal-card">
+          <button class="ethical-modal-close-btn" id="btnShamingClose" type="button">&times;</button>
+          <div class="ethical-shaming-icon-wrap">⚠️</div>
+          <h3 style="margin: 0; color: #f87171; font-size: 1.2rem;">רגע! את באמת בטוחה שאת רוצה לוותר על ההגנה?</h3>
+          <p style="margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.6;">
+            תיק יוקרתי בשווי <strong>₪899</strong> עלול להישרט, להינזק ממים או להיקרע ללא אפשרות תיקון. פוליסת הפרימיום מספקת לך שנתיים של שקט נפשי מלא בעלות של <strong>פחות מ-7 אגורות ליום בלבד</strong>!
+          </p>
+          <div class="ethical-shaming-actions">
+            <button class="btn-shaming-keep" id="btnShamingKeep" type="button">
+              <span>🛡️</span>
+              <span>כן, שמרי על התיק שלי מוגן (+₪49)</span>
+            </button>
+            <button class="btn-shaming-decline" id="btnShamingDecline" type="button">
+              לא תודה, אני מעדיפה להישאר ללא הגנה ולקחת סיכון מיותר על התיק שלי
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- מודאל רכישה חינוכי (לחיצה על קנייה) -->
+      <div class="ethical-modal-overlay" id="ethicalPurchaseModalOverlay">
+        <div class="ethical-purchase-modal-card">
+          <button class="ethical-modal-close-btn" id="btnPurchaseClose" type="button">&times;</button>
+          <div style="font-size: 2rem;">🛍️</div>
+          <h3 id="purchaseStoreName" style="margin: 0; font-size: 1.25rem;">סיום רכישה בסימולציה</h3>
+          <div style="background: rgba(30, 41, 59, 0.5); padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div style="font-size: 0.85rem; color: #94a3b8;">סה"כ לתשלום בעגלה:</div>
+            <div id="purchaseTotalPrice" style="font-size: 1.6rem; font-weight: 800; color: #fbbf24;">₪899</div>
+          </div>
+          <ul id="purchaseDetailsList" style="padding-right: 20px; margin: 0; line-height: 1.6; font-size: 0.9rem; color: #cbd5e1;"></ul>
+          <button class="btn-shaming-keep" id="btnPurchaseCloseConfirm" onclick="document.getElementById('ethicalPurchaseModalOverlay').classList.remove('active')" type="button" style="margin-top: 8px;">
+            הבנתי, סגור חלון
+          </button>
+        </div>
       </div>
     </section>
 
@@ -1725,6 +1996,7 @@
   <script src="js/choice_paradox.js"></script>
   <script src="js/prospect_theory.js"></script>
   <script src="js/emotional_ad.js"></script>
+  <script src="js/ethical_marketing.js"></script>
   <script src="js/presentation.js"></script>
 </body>
 </html>

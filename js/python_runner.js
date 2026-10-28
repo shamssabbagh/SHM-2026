@@ -210,6 +210,62 @@ def calculate_choice_paradox(round_1, round_2):
         "python_version": sys.version.split()[0],
         "executed_by": "Pyodide CPython WebAssembly"
     }
+
+def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
+    """
+    ניתוח מדדי אתיקה, שקיפות ודפוסי חושך (Dark Patterns) עבור שקופית 16.
+    מחשב ציוני אוטונומיה, שקיפות, פערי תשלום בלתי מכוונים והערכות הסתברות ברירת מחדל (Default Effect).
+    """
+    base_price = 899.0
+    insurance_fee = 49.0
+
+    # Store A (Fair UX)
+    price_a = base_price + (insurance_fee if store_a_insurance else 0.0)
+    autonomy_a = 100.0
+    transparency_a = 100.0
+
+    # Store B (Dark Patterns UX)
+    price_b = base_price + (insurance_fee if store_b_insurance else 0.0)
+    # Default Effect & Confirmshaming reduce real consumer autonomy
+    autonomy_b = 35.0 if store_b_insurance else 50.0
+    transparency_b = 40.0
+
+    manipulation_flags = [
+        "Pre-checked Default (Default Effect)",
+        "Confirmshaming Emotional Guilt",
+        "Artificial Scarcity & Social Urgency"
+    ]
+
+    return {
+        "store_a": {
+            "name": "חנות א׳: עיצוב הוגן",
+            "price": price_a,
+            "insurance_selected": bool(store_a_insurance),
+            "autonomy_score": autonomy_a,
+            "transparency_score": transparency_a,
+            "manipulation_count": 0,
+            "opt_in_probability": "22%",
+            "flags": [],
+            "rating": "A+ (Fully Ethical & Transparent)"
+        },
+        "store_b": {
+            "name": "חנות ב׳: דפוסי חושך",
+            "price": price_b,
+            "insurance_selected": bool(store_b_insurance),
+            "autonomy_score": autonomy_b,
+            "transparency_score": transparency_b,
+            "manipulation_count": len(manipulation_flags),
+            "opt_in_probability": "84%",
+            "flags": manipulation_flags,
+            "rating": "F (Deceptive Choice Architecture)"
+        },
+        "price_difference": round(price_b - price_a, 2),
+        "autonomy_gap": round(autonomy_a - autonomy_b, 1),
+        "insurance_fee": insurance_fee,
+        "nudge_distinction": "Nudge is not inherently ethical; its morality depends on transparency, consumer welfare, and preservation of true autonomy.",
+        "python_version": sys.version.split()[0],
+        "executed_by": "Pyodide CPython WebAssembly"
+    }
 `;
 
   // אלמנטי DOM
@@ -454,10 +510,10 @@ def calculate_choice_paradox(round_1, round_2):
       });
     }
 
-    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 9, 10, 13, 14 או 19
+    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 9, 10, 13, 14, 16 או 19
     document.addEventListener('slideChanged', (e) => {
       const slideNum = e.detail ? e.detail.slideNumber : 1;
-      if (slideNum === 9 || slideNum === 10 || slideNum === 13 || slideNum === 14 || slideNum === 19) {
+      if (slideNum === 9 || slideNum === 10 || slideNum === 13 || slideNum === 14 || slideNum === 16 || slideNum === 19) {
         if (state.status === 'idle') {
           initPyodide();
         }
@@ -535,6 +591,65 @@ def calculate_choice_paradox(round_1, round_2):
   };
 
   /**
+   * ניתוח מדדי אתיקה ודפוסי חושך (Dark Patterns) באמצעות Python (שקופית 16)
+   */
+  window.calculateDarkPatternsPython = function (storeAInsurance, storeBInsurance) {
+    if (!state.pyodide || state.status !== 'ready') {
+      // מנוע גיבוי מקומי ב-JS אם Pyodide טרם נטען
+      const basePrice = 899.0;
+      const fee = 49.0;
+      const priceA = basePrice + (storeAInsurance ? fee : 0.0);
+      const priceB = basePrice + (storeBInsurance ? fee : 0.0);
+      return {
+        store_a: {
+          name: "חנות א׳: עיצוב הוגן",
+          price: priceA,
+          insurance_selected: !!storeAInsurance,
+          autonomy_score: 100.0,
+          transparency_score: 100.0,
+          manipulation_count: 0,
+          opt_in_probability: "22%",
+          flags: [],
+          rating: "A+ (Fully Ethical & Transparent)"
+        },
+        store_b: {
+          name: "חנות ב׳: דפוסי חושך",
+          price: priceB,
+          insurance_selected: !!storeBInsurance,
+          autonomy_score: storeBInsurance ? 35.0 : 50.0,
+          transparency_score: 40.0,
+          manipulation_count: 3,
+          opt_in_probability: "84%",
+          flags: [
+            "Pre-checked Default (Default Effect)",
+            "Confirmshaming Emotional Guilt",
+            "Artificial Scarcity & Social Urgency"
+          ],
+          rating: "F (Deceptive Choice Architecture)"
+        },
+        price_difference: priceB - priceA,
+        autonomy_gap: 100.0 - (storeBInsurance ? 35.0 : 50.0),
+        insurance_fee: fee,
+        nudge_distinction: "Nudge is not inherently ethical; its morality depends on transparency, consumer welfare, and preservation of true autonomy.",
+        python_version: "Client-side JS Fallback",
+        executed_by: "JavaScript Engine (Fallback)"
+      };
+    }
+    try {
+      const boolA = storeAInsurance ? 'True' : 'False';
+      const boolB = storeBInsurance ? 'True' : 'False';
+      const pyCmd = `calculate_dark_patterns_ethics(${boolA}, ${boolB})`;
+      const proxy = state.pyodide.runPython(pyCmd);
+      const res = proxy.toJs();
+      proxy.destroy();
+      return res;
+    } catch (e) {
+      console.warn('[Dark Patterns Python Runner] Python execution warning:', e);
+      return null;
+    }
+  };
+
+  /**
    * פונקציית אימות גלובלית המאפשרת לבודקים ומרצים לוודא בקונסול ש-Python מבצע את החישובים!
    */
   window.verifyPythonExecution = function () {
@@ -551,6 +666,7 @@ def calculate_choice_paradox(round_1, round_2):
     const prospectGain = state.pyodide.runPython('calculate_prospect_theory(200, False)').toJs();
     const prospectLoss = state.pyodide.runPython('calculate_prospect_theory(200, True)').toJs();
     const emotionalAdResult = state.pyodide.runPython('calculate_emotional_ad_comparison({"emotion":4,"brand":4,"intent":3}, {"emotion":8,"brand":8,"intent":6})').toJs();
+    const darkPatternResult = state.pyodide.runPython('calculate_dark_patterns_ethics(False, True)').toJs();
 
     return {
       isPythonRunning: true,
@@ -588,6 +704,15 @@ def calculate_choice_paradox(round_1, round_2):
         pctIncrease: anchoringResult.get('pct_increase'),
         executedBy: anchoringResult.get('executed_by')
       },
+      slide16_dark_patterns: {
+        formula: 'Autonomy & Transparency Gap + Default Effect Delta (Johnson & Goldstein 2003)',
+        storeA_autonomy: darkPatternResult.get('store_a').get('autonomy_score'),
+        storeB_autonomy: darkPatternResult.get('store_b').get('autonomy_score'),
+        autonomyGap: darkPatternResult.get('autonomy_gap'),
+        defaultOptInProb: darkPatternResult.get('store_b').get('opt_in_probability'),
+        priceDifference: darkPatternResult.get('price_difference'),
+        executedBy: darkPatternResult.get('executed_by')
+      },
       slide19_emotional_advertising: {
         formula: 'Comparative Multi-Dimensional Delta & Attitude-Behavior Gap',
         emotionDiff: emotionalAdResult.get('differences').get('emotion'),
@@ -603,9 +728,9 @@ def calculate_choice_paradox(round_1, round_2):
   function setup() {
     cacheDOMElements();
     bindEvents();
-    // אם המשתמש כבר נמצא בשקופית 9, 10, 13, 14 או 19 בעת רענון
+    // אם המשתמש כבר נמצא בשקופית 9, 10, 13, 14, 16 או 19 בעת רענון
     const curSlide = window.PresentationController ? window.PresentationController.getCurrentSlide() : 1;
-    if (curSlide === 9 || curSlide === 10 || curSlide === 13 || curSlide === 14 || curSlide === 19) {
+    if (curSlide === 9 || curSlide === 10 || curSlide === 13 || curSlide === 14 || curSlide === 16 || curSlide === 19) {
       initPyodide();
     }
   }
