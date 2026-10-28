@@ -313,19 +313,321 @@
       </div>
     </section>
 
-    <!-- ==================== שקופית 9: הטיית העיגון ==================== -->
+    <!-- ==================== שקופית 9: אפקט המחסור ==================== -->
     <section class="slide" id="slide-9">
       <header class="slide-header">
         <div class="slide-title-group">
-          <h2>הטיית העיגון וההתאמה</h2>
-          <div class="slide-subtitle"><bdi>Anchoring &amp; Adjustment Heuristic</bdi></div>
+          <h2>אפקט המחסור: למה אנחנו ממהרים לקנות כשאומרים שנותרו רק 2 יחידות?</h2>
+          <div class="slide-subtitle"><bdi>The Scarcity Effect &amp; FOMO in Purchasing Decisions</bdi></div>
         </div>
-        <span class="slide-badge">הטיות שיפוט</span>
+        <span class="slide-badge gold-badge">הטיות שיפוט ומלאי</span>
       </header>
 
-      <div class="diagram-card">
-        <img src="assets/images/anchoring_effect.svg" alt="הטיית העיגון וההתאמה בתמחור">
-        <div class="diagram-caption">השפעת עוגן מחיר ראשוני על שיפוט שווי: התאמה בלתי מספקת (<bdi>Insufficient Adjustment</bdi>)</div>
+      <!-- הערת שקיפות מדעית ואתיקה שיווקית -->
+      <div class="scientific-notice gold-notice">
+        <strong>הבהרה לימודית ואתית:</strong>
+        סימולציה זו נועדה להמחשה פסיכולוגית של תחושת דחיפות ו-FOMO, ואינה מהווה ניסוי מדעי מבוקר. בשיווק אמיתי ואתי, חל איסור מוחלט להציג טענות מלאי כוזבות (<bdi>False Scarcity / Dark Patterns</bdi>), הפוגעות באמון הצרכן ובחוק הגנת הצרכן.
+      </div>
+
+      <!-- מכולת סימולציית המחסור -->
+      <div class="scarcity-sim-container" id="scarcitySimContainer">
+        <!-- סרגל מעקב צעדים (Wizard Progress Tracker) -->
+        <div class="scarcity-steps-tracker">
+          <div class="step-pill active" id="scarcityTrackerStepA">
+            <span class="step-num">1</span>
+            <span>מצב א׳ – זמינות מלאה</span>
+          </div>
+          <span class="tracker-arrow">←</span>
+          <div class="step-pill" id="scarcityTrackerStepB">
+            <span class="step-num">2</span>
+            <span>מצב ב׳ – מחסור ("נותרו 2 יחידות!")</span>
+          </div>
+          <span class="tracker-arrow">←</span>
+          <div class="step-pill" id="scarcityTrackerStepRes">
+            <span class="step-num">3</span>
+            <span>השוואת נתונים ותובנות פסיכולוגיות</span>
+          </div>
+        </div>
+
+        <!-- שלב 1: מצב א' - זמינות מלאה במלאי -->
+        <div class="scarcity-step-panel active" id="scarcityPanelStepA">
+          <div class="scarcity-layout-grid">
+            <!-- כרטיסיית מוצר יוקרתי (מלאי שוטף) -->
+            <div class="luxury-product-card">
+              <div class="luxury-badge in-stock">
+                <span class="stock-dot"></span>
+                <span>המוצר במלאי שוטף</span>
+              </div>
+              <div class="luxury-image-frame">
+                <img src="assets/images/luxury_handbag.jpg" alt="Maison Vendôme - תיק עור שחור יוקרתי לנשים" class="luxury-product-img">
+              </div>
+              <div class="luxury-details">
+                <div class="luxury-brand-row">
+                  <div>
+                    <span class="luxury-label-edition">קולקציית יוקרה &bull; הוט קוטור</span>
+                    <h3 class="luxury-product-title">MAISON VENDÔME — L'Élégance Noire</h3>
+                  </div>
+                  <span class="luxury-price">₪ 2,400</span>
+                </div>
+                <div class="luxury-specs">
+                  <span>עור עגל איטלקי נאפה מובחר</span>
+                  <span>פרזול זהב 24 קראט</span>
+                  <span>סגירה מגנטית מעוצבת</span>
+                </div>
+                <div class="stock-status-bar in-stock">
+                  <span class="status-icon">✓</span>
+                  <span>זמינות מיידית: המוצר במלאי (זמן אספקה שגרתי: 2–3 ימי עסקים)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- כרטיסיית דירוג למצב א' -->
+            <div class="scarcity-rating-card">
+              <h4>📝 דרגו את תחושתכם כאשר המוצר זמין במלאי שוטף:</h4>
+              <p class="rating-subtext">בחרו בכנות לפי התחושה הראשונית שלכם (סולם 1 עד 10):</p>
+
+              <!-- מדד 1: רצון לרכוש עכשיו -->
+              <div class="rating-slider-group">
+                <div class="rating-label-row">
+                  <label for="scarcityRatingDesireA">1. עד כמה אתם רוצים לרכוש את המוצר עכשיו?</label>
+                  <span class="rating-val-badge" id="scarcityValBadgeDesireA">4/10</span>
+                </div>
+                <input type="range" id="scarcityRatingDesireA" min="1" max="10" value="4" class="ad-range-slider neutral-slider" aria-label="רצון לרכוש עכשיו מצב א">
+                <div class="rating-ticks"><span>1 (כלל לא כרגע)</span><span>5 (בינוני)</span><span>10 (רוצה מיד)</span></div>
+              </div>
+
+              <!-- מדד 2: תחושת דחיפות -->
+              <div class="rating-slider-group">
+                <div class="rating-label-row">
+                  <label for="scarcityRatingUrgencyA">2. עד כמה אתם מרגישים תחושת דחיפות לבצע הזמנה?</label>
+                  <span class="rating-val-badge" id="scarcityValBadgeUrgencyA">3/10</span>
+                </div>
+                <input type="range" id="scarcityRatingUrgencyA" min="1" max="10" value="3" class="ad-range-slider neutral-slider" aria-label="תחושת דחיפות מצב א">
+                <div class="rating-ticks"><span>1 (רגוע לחלוטין)</span><span>5 (מתונה)</span><span>10 (דחיפות גבוהה)</span></div>
+              </div>
+
+              <!-- מדד 3: חשש לפספס (FOMO) -->
+              <div class="rating-slider-group">
+                <div class="rating-label-row">
+                  <label for="scarcityRatingFomoA">3. עד כמה אתם חוששים לפספס את ההזדמנות?</label>
+                  <span class="rating-val-badge" id="scarcityValBadgeFomoA">3/10</span>
+                </div>
+                <input type="range" id="scarcityRatingFomoA" min="1" max="10" value="3" class="ad-range-slider neutral-slider" aria-label="חשש לפספס מצב א">
+                <div class="rating-ticks"><span>1 (אין חשש, המוצר זמין)</span><span>5 (מעט)</span><span>10 (חשש עמוק)</span></div>
+              </div>
+
+              <button type="button" class="btn-step-next gold-btn" id="scarcityBtnGoToStepB">
+                <span>עבור למצב ב׳ (התרעת מלאי)</span>
+                <span>←</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- שלב 2: מצב ב' - מחסור דוחק (נותרו רק 2 יחידות!) -->
+        <div class="scarcity-step-panel" id="scarcityPanelStepB" style="display: none;">
+          <div class="scarcity-layout-grid">
+            <!-- כרטיסיית מוצר יוקרתי (מחסור) -->
+            <div class="luxury-product-card scarcity-active">
+              <!-- הודעת מלאי דוחקת ובולטת -->
+              <div class="luxury-badge scarce pulse-urgent">
+                <span class="urgent-flame">🔥</span>
+                <span>מהדורה מוגבלת: נותרו רק 2 יחידות במלאי!</span>
+              </div>
+              <div class="luxury-image-frame">
+                <img src="assets/images/luxury_handbag.jpg" alt="Maison Vendôme - אותו תיק בדיוק במצב מחסור של 2 יחידות" class="luxury-product-img">
+              </div>
+              <div class="luxury-details">
+                <div class="luxury-brand-row">
+                  <div>
+                    <span class="luxury-label-edition">קולקציית יוקרה &bull; הוט קוטור</span>
+                    <h3 class="luxury-product-title">MAISON VENDÔME — L'Élégance Noire</h3>
+                  </div>
+                  <span class="luxury-price gold-price">₪ 2,400</span>
+                </div>
+                <div class="luxury-specs">
+                  <span>עור עגל איטלקי נאפה מובחר</span>
+                  <span>פרזול זהב 24 קראט</span>
+                  <span>סגירה מגנטית מעוצבת</span>
+                </div>
+                <!-- סרגל דחיפות מלאי מוגבל -->
+                <div class="stock-status-bar scarce">
+                  <span class="status-icon">⚠️</span>
+                  <div class="stock-bar-content">
+                    <div class="stock-text-line"><strong>דרישה גבוהה:</strong> נותרו 2 יחידות אחרונות במחסן המרכזי. 14 צופים בפריט זה כעת.</div>
+                    <div class="stock-mini-indicator"><div class="stock-mini-fill" style="width: 15%;"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- כרטיסיית דירוג למצב ב' -->
+            <div class="scarcity-rating-card gold-border">
+              <h4>📝 דרגו את תחושתכם כעת כשמופיעה התרעת המחסור:</h4>
+              <p class="rating-subtext">שימו לב כיצד ההודעה שנותרו 2 יחידות בלבד משנה את שיקול הדעת:</p>
+
+              <!-- מדד 1: רצון לרכוש עכשיו -->
+              <div class="rating-slider-group">
+                <div class="rating-label-row">
+                  <label for="scarcityRatingDesireB">1. עד כמה אתם רוצים לרכוש את המוצר עכשיו?</label>
+                  <span class="rating-val-badge gold-val" id="scarcityValBadgeDesireB">8/10</span>
+                </div>
+                <input type="range" id="scarcityRatingDesireB" min="1" max="10" value="8" class="ad-range-slider scarcity-slider" aria-label="רצון לרכוש עכשיו מצב ב">
+                <div class="rating-ticks"><span>1 (כלל לא כרגע)</span><span>5 (בינוני)</span><span>10 (רוצה מיד)</span></div>
+              </div>
+
+              <!-- מדד 2: תחושת דחיפות -->
+              <div class="rating-slider-group">
+                <div class="rating-label-row">
+                  <label for="scarcityRatingUrgencyB">2. עד כמה אתם מרגישים תחושת דחיפות לבצע הזמנה?</label>
+                  <span class="rating-val-badge gold-val" id="scarcityValBadgeUrgencyB">9/10</span>
+                </div>
+                <input type="range" id="scarcityRatingUrgencyB" min="1" max="10" value="9" class="ad-range-slider scarcity-slider" aria-label="תחושת דחיפות מצב ב">
+                <div class="rating-ticks"><span>1 (רגוע לחלוטין)</span><span>5 (מתונה)</span><span>10 (דחיפות עליונה)</span></div>
+              </div>
+
+              <!-- מדד 3: חשש לפספס (FOMO) -->
+              <div class="rating-slider-group">
+                <div class="rating-label-row">
+                  <label for="scarcityRatingFomoB">3. עד כמה אתם חוששים לפספס את ההזדמנות?</label>
+                  <span class="rating-val-badge gold-val" id="scarcityValBadgeFomoB">8/10</span>
+                </div>
+                <input type="range" id="scarcityRatingFomoB" min="1" max="10" value="8" class="ad-range-slider scarcity-slider" aria-label="חשש לפספס מצב ב">
+                <div class="rating-ticks"><span>1 (אין חשש)</span><span>5 (מעט)</span><span>10 (חשש לפספס!)</span></div>
+              </div>
+
+              <div class="step-buttons-row">
+                <button type="button" class="btn-step-prev" id="scarcityBtnBackToStepA">
+                  <span>→</span>
+                  <span>חזרה למצב א׳</span>
+                </button>
+                <button type="button" class="btn-step-next primary gold-btn" id="scarcityBtnGoToResults">
+                  <span>השווה תוצאות ומסקנות 📊</span>
+                  <span>←</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- שלב 3: תוצאות, גרף השוואתי ותובנות פסיכולוגיות על Scarcity & FOMO -->
+        <div class="scarcity-step-panel" id="scarcityPanelStepResults" style="display: none;">
+          <div class="results-layout-grid">
+            <!-- עמודה ימנית: גרף השוואה ומדדים מחושבים -->
+            <div class="results-chart-card">
+              <div class="chart-header-row">
+                <h4>📊 השוואת תפיסת הצרכן: מלאי שוטף מול מחסור קיצוני</h4>
+                <span class="python-calculated-badge">מחושב במודל סטטיסטי ב-Python</span>
+              </div>
+
+              <!-- גרף עמודות השוואתי תלת-מדדי -->
+              <div class="chart-comparison-wrap">
+                <!-- קבוצה 1: רצון לרכוש עכשיו -->
+                <div class="metric-chart-group">
+                  <div class="metric-title-row">
+                    <span class="metric-group-name">🛍️ רצון לרכוש כעת (<bdi>Purchase Desire</bdi>)</span>
+                    <span class="scarcity-diff-badge positive" id="scarcityDiffDesireBadge">+4.0 נקודות (+100%)</span>
+                  </div>
+                  <div class="paired-bars">
+                    <div class="bar-item">
+                      <span class="bar-label">מלאי שוטף (א׳):</span>
+                      <div class="bar-track"><div class="bar-fill neutral" id="scarcityBarResDesireA" style="width: 40%;"></div></div>
+                      <span class="bar-val" id="scarcityValResDesireA">4/10</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-label">נותרו 2 בלבד (ב׳):</span>
+                      <div class="bar-track"><div class="bar-fill gold-fill" id="scarcityBarResDesireB" style="width: 80%;"></div></div>
+                      <span class="bar-val gold-text" id="scarcityValResDesireB">8/10</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- קבוצה 2: תחושת דחיפות -->
+                <div class="metric-chart-group">
+                  <div class="metric-title-row">
+                    <span class="metric-group-name">⚡ תחושת דחיפות (<bdi>Perceived Urgency</bdi>)</span>
+                    <span class="scarcity-diff-badge positive" id="scarcityDiffUrgencyBadge">+6.0 נקודות (+200%)</span>
+                  </div>
+                  <div class="paired-bars">
+                    <div class="bar-item">
+                      <span class="bar-label">מלאי שוטף (א׳):</span>
+                      <div class="bar-track"><div class="bar-fill neutral" id="scarcityBarResUrgencyA" style="width: 30%;"></div></div>
+                      <span class="bar-val" id="scarcityValResUrgencyA">3/10</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-label">נותרו 2 בלבד (ב׳):</span>
+                      <div class="bar-track"><div class="bar-fill gold-fill" id="scarcityBarResUrgencyB" style="width: 90%;"></div></div>
+                      <span class="bar-val gold-text" id="scarcityValResUrgencyB">9/10</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- קבוצה 3: חשש לפספס הזדמנות (FOMO) -->
+                <div class="metric-chart-group">
+                  <div class="metric-title-row">
+                    <span class="metric-group-name">⏳ חשש מהחמצה (<bdi>FOMO / Anticipated Regret</bdi>)</span>
+                    <span class="scarcity-diff-badge positive" id="scarcityDiffFomoBadge">+5.0 נקודות (+167%)</span>
+                  </div>
+                  <div class="paired-bars">
+                    <div class="bar-item">
+                      <span class="bar-label">מלאי שוטף (א׳):</span>
+                      <div class="bar-track"><div class="bar-fill neutral" id="scarcityBarResFomoA" style="width: 30%;"></div></div>
+                      <span class="bar-val" id="scarcityValResFomoA">3/10</span>
+                    </div>
+                    <div class="bar-item">
+                      <span class="bar-label">נותרו 2 בלבד (ב׳):</span>
+                      <div class="bar-track"><div class="bar-fill gold-fill" id="scarcityBarResFomoB" style="width: 80%;"></div></div>
+                      <span class="bar-val gold-text" id="scarcityValResFomoB">8/10</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- כפתור אתחול סימולציה -->
+              <div class="reset-button-wrap">
+                <button type="button" class="btn-retry" id="scarcityBtnRestartSim">
+                  <span>🔄</span>
+                  <span>נסה שוב (התחל סימולציה מחדש)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- עמודה שמאלית: ניתוח פסיכולוגי, אקדמי ואתי -->
+            <div class="results-insights-card">
+              <h4>🧠 ניתוח פסיכולוגי והתנהגותי: כוחו של המחסור</h4>
+
+              <div class="psych-concept-box gold-box">
+                <div class="concept-header">
+                  <span class="concept-icon">💎</span>
+                  <strong>אפקט המחסור (<bdi>Scarcity Effect</bdi> – Cialdini; Worchel et al., 1975)</strong>
+                </div>
+                <p>
+                  כאשר פריט נתפס כמוגבל או נדיר, המוח האנושי מייחס לו אוטומטית ערך גבוה ואיכות נעלה יותר. לפי תיאוריית ההתנגדות הפסיכולוגית (<bdi>Psychological Reactance - Brehm, 1966</bdi>), הידיעה שהמוצר עומד לאזול מאיימת על חופש הבחירה שלנו, ומעוררת דחף חזק להשיגו מיד.
+                </p>
+              </div>
+
+              <div class="psych-concept-box">
+                <div class="concept-header">
+                  <span class="concept-icon">⏳</span>
+                  <strong><bdi>FOMO</bdi> וחרטת החמצה צפויה (<bdi>Anticipated Regret &amp; Loss Aversion</bdi>)</strong>
+                </div>
+                <p>
+                  הודעת "נותרו 2 יחידות בלבד!" מפעילה את שנאת ההפסד (<bdi>Prospect Theory</bdi>). הכאב מפני החמצה אפשרית של התיק היוקרתי (תחושת פראייר או חרטה) גובר רגשית על שיקול המחיר (₪ 2,400). מערכת 1 האימפולסיבית עוקפת את שיקול הדעת המעמיק של מערכת 2.
+                </p>
+              </div>
+
+              <div class="psych-concept-box warning">
+                <div class="concept-header">
+                  <span class="concept-icon">⚖️</span>
+                  <strong>אתיקה שיווקית: מחסור אמיתי מול דפוסי הטעיה (<bdi>Dark Patterns</bdi>)</strong>
+                </div>
+                <p>
+                  הצגת התרעות מלאי פיקטיביות או שעוני עצר מזויפים נחשבת לפרקטיקה מניפולטיבית אסורה (<bdi>Deceptive Scarcity</bdi>). שיווק מקצועי ואתי מבוסס על שקיפות ואמת: שימוש בנתוני מלאי אמיתיים בלבד שומר על אמון הצרכן ומונע פגיעה במוניטין המותג.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1175,6 +1477,7 @@
   <script src="js/audio.js"></script>
   <script src="js/brain3d.js"></script>
   <script src="js/python_runner.js"></script>
+  <script src="js/scarcity_sim.js"></script>
   <script src="js/prospect_theory.js"></script>
   <script src="js/emotional_ad.js"></script>
   <script src="js/presentation.js"></script>

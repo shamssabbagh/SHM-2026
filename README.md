@@ -86,21 +86,35 @@
 - **שילוב מנוע Python (Pyodide WebAssembly):** חישוב ההפרשים הסטטיסטיים, אחוזי השינוי ומדד ה-Attitude-Behavior Gap ברקע.
 - **בסיס פסיכולוגי ואקדמי:** המשגה מדעית מבוססת מקורות (Zajonc 1980, Holbrook & Batra 1987, Petty & Cacioppo ELM, Ajzen & Fishbein) על הקשר בין אסוציאציות אפקטיביות לעמדה כלפי מותג ופער כוונת הרכישה.
 
+### שלב 10 - סימולציית אפקט המחסור ו-FOMO בשקופית 9 (The Scarcity Effect)
+- **החלפת שקופית 9 בסימולציית מעבדה חיה:** "אפקט המחסור: למה אנחנו ממהרים לקנות כשאומרים שנותרו רק 2 יחידות?".
+- **מוצר יוקרתי אחיד וסגנון Luxury:** תיק עור שחור יוקרתי של מותג דמיוני `MAISON VENDÔME — L'Élégance Noire` (₪ 2,400).
+- **תצלום אופנה מסחרי ברזולוציה גבוהה (`assets/images/luxury_handbag.jpg`):** תיק עור שחור מעוטר פרזול זהב 24K על פודיום אבן אובסידיאן כהה, ללא מודלים או מוצרים מרובים.
+- **אינטראקציה דו-שלבית להשוואה (A/B Scarcity):**
+  - מצב א׳: המוצר במלאי שוטף (זמינות רגילה, תגית ירוקה מאוזנת).
+  - מצב ב׳: התרעת מחסור דוחקת ומהבהבת ("מהדורה מוגבלת: נותרו רק 2 יחידות במלאי!").
+  - 3 מדדי דירוג אישיים (1 עד 10): רצון לרכוש כעת, תחושת דחיפות, וחשש מהחמצה (FOMO).
+- **גרף עמודות השוואתי דינמי ותובנות פסיכולוגיות:**
+  - חישוב פערים ואחוזי זינוק במדדי הדחיפות וה-FOMO באמצעות מנוע Python (Pyodide WebAssembly).
+  - המשגה מדעית מבוססת: <bdi>Scarcity Effect</bdi> (Cialdini, Worchel 1975), תיאוריית ההתנגדות הפסיכולוגית (<bdi>Brehm, 1966</bdi>), וחרטת החמצה צפויה (<bdi>Anticipated Regret</bdi>).
+- **שקיפות מדעית ואזהרה אתית:** הבהרה שמדובר בהדמיה לימודית ולא בניסוי מעבדה מבוקר, וציון איסור אתי וצרכני חמור על שימוש בהתרעות מלאי פיקטיביות (<bdi>False Scarcity / Dark Patterns</bdi>).
+
 ---
 
 ## כיצד לוודא ש-Python באמת מבצע את החישוב (לבדיקת מרצים ובודקים)
 על אף שהממשק החיצוני נקי לחלוטין מפרטים טכניים ומותאם לקהל הרחב, מנגנון האימות נגיש ישירות מתוך הדפדפן:
 1. פתחו את `index.html` בדפדפן (Chrome / Edge / Firefox).
-2. נווטו לשקופית 13 ("תורת הסיכויים"), שקופית 14 ("אפקט העיגון") או שקופית 19 ("פרסום רגשי").
+2. נווטו לשקופית 9 ("אפקט המחסור"), שקופית 13 ("תורת הסיכויים"), שקופית 14 ("אפקט העיגון") או שקופית 19 ("פרסום רגשי").
 3. פתחו את כלי המפתחים בלחיצה על מקש `F12` (או `Ctrl + Shift + I`) ועברו ללשונית **Console**.
 4. הריצו את הפקודה:
    ```javascript
    verifyPythonExecution()
    ```
-5. יוצג אובייקט JSON המאמת את פעולת ה-Python עבור שלושת מודלי המצגת:
+5. יוצג אובייקט JSON המאמת את פעולת ה-Python עבור ארבעת מודלי המצגת:
    - `isPythonRunning: true`
    - `runtime: "Pyodide WebAssembly (Client-side)"`
    - `pythonVersion: "3.11.3"`
+   - `slide9_scarcity_effect: { desireDiff: 4.0, urgencyDiff: 6.0, fomoDiff: 5.0, scarcityMultiplier: 2.6, executedBy: "Pyodide CPython WebAssembly" }`
    - `slide13_prospect_theory: { testGain200: 105.4, testLoss200: -237.2, lossAversionRatio: 2.25, executedBy: "Pyodide CPython WebAssembly" }`
    - `slide14_anchoring: { formula: "399 + 0.3 * (850 - 399)", result: 534.3, executedBy: "Pyodide CPython WebAssembly" }`
    - `slide19_emotional_advertising: { emotionDiff: 4.0, brandDiff: 4.0, intentDiff: 3.0, attitudeIntentGap: 1.0, executedBy: "Pyodide CPython WebAssembly" }`

@@ -123,6 +123,56 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
         "python_version": sys.version.split()[0],
         "executed_by": "Pyodide CPython WebAssembly"
     }
+
+def calculate_scarcity_comparison(ratings_a, ratings_b):
+    """
+    ניתוח השוואתי של אפקט המחסור (Scarcity Effect) בין מלאי רגיל (A) למלאי מוגבל של 2 יחידות (B) (שקופית 9).
+    חישוב פערים ברצון לרכוש, דחיפות ו-FOMO.
+    """
+    try:
+        d_a = float(ratings_a.get('desire', 0))
+        u_a = float(ratings_a.get('urgency', 0))
+        f_a = float(ratings_a.get('fomo', 0))
+
+        d_b = float(ratings_b.get('desire', 0))
+        u_b = float(ratings_b.get('urgency', 0))
+        f_b = float(ratings_b.get('fomo', 0))
+    except Exception:
+        d_a, u_a, f_a = 4.0, 3.0, 3.0
+        d_b, u_b, f_b = 8.0, 9.0, 8.0
+
+    diff_desire = round(d_b - d_a, 1)
+    diff_urgency = round(u_b - u_a, 1)
+    diff_fomo = round(f_b - f_a, 1)
+
+    pct_desire = round(((d_b - d_a) / max(1.0, d_a)) * 100.0, 1)
+    pct_urgency = round(((u_b - u_a) / max(1.0, u_a)) * 100.0, 1)
+    pct_fomo = round(((f_b - f_a) / max(1.0, f_a)) * 100.0, 1)
+
+    avg_a = round((d_a + u_a + f_a) / 3.0, 1)
+    avg_b = round((d_b + u_b + f_b) / 3.0, 1)
+    diff_avg = round(avg_b - avg_a, 1)
+    pct_avg = round(((avg_b - avg_a) / max(1.0, avg_a)) * 100.0, 1)
+
+    return {
+        "state_a": {"desire": d_a, "urgency": u_a, "fomo": f_a, "average": avg_a},
+        "state_b": {"desire": d_b, "urgency": u_b, "fomo": f_b, "average": avg_b},
+        "differences": {
+            "desire": diff_desire,
+            "urgency": diff_urgency,
+            "fomo": diff_fomo,
+            "overall": diff_avg
+        },
+        "percentages": {
+            "desire": pct_desire,
+            "urgency": pct_urgency,
+            "fomo": pct_fomo,
+            "overall": pct_avg
+        },
+        "scarcity_multiplier": round(avg_b / max(1.0, avg_a), 2),
+        "python_version": sys.version.split()[0],
+        "executed_by": "Pyodide CPython WebAssembly"
+    }
 `;
 
   // אלמנטי DOM
@@ -367,16 +417,33 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
       });
     }
 
-    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 13, 14 או 19
+    // טעינה עצלה (Lazy Loading) כאשר המשתמש מגיע לשקופית 9, 13, 14 או 19
     document.addEventListener('slideChanged', (e) => {
       const slideNum = e.detail ? e.detail.slideNumber : 1;
-      if (slideNum === 13 || slideNum === 14 || slideNum === 19) {
+      if (slideNum === 9 || slideNum === 13 || slideNum === 14 || slideNum === 19) {
         if (state.status === 'idle') {
           initPyodide();
         }
       }
     });
   }
+
+  /**
+   * חישוב אפקט המחסור באמצעות Python (שקופית 9)
+   */
+  window.calculateScarcityPython = function (stateA, stateB) {
+    if (!state.pyodide || state.status !== 'ready') return null;
+    try {
+      const pyCmd = `calculate_scarcity_comparison(${JSON.stringify(stateA)}, ${JSON.stringify(stateB)})`;
+      const proxy = state.pyodide.runPython(pyCmd);
+      const res = proxy.toJs();
+      proxy.destroy();
+      return res;
+    } catch (e) {
+      console.warn('[Scarcity Python Runner] Python execution warning:', e);
+      return null;
+    }
+  };
 
   /**
    * חישוב תורת הסיכויים באמצעות מנוע Python בדפדפן (Pyodide)
@@ -424,6 +491,7 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
         message: 'Python runtime is not ready.'
       };
     }
+    const scarcityResult = state.pyodide.runPython('calculate_scarcity_comparison({"desire":4,"urgency":3,"fomo":3}, {"desire":8,"urgency":9,"fomo":8})').toJs();
     const anchoringResult = state.pyodide.runPython('calculate_anchoring(399, 850)').toJs();
     const prospectGain = state.pyodide.runPython('calculate_prospect_theory(200, False)').toJs();
     const prospectLoss = state.pyodide.runPython('calculate_prospect_theory(200, True)').toJs();
@@ -433,6 +501,14 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
       isPythonRunning: true,
       runtime: 'Pyodide WebAssembly (Client-side)',
       pythonVersion: state.pythonVersion,
+      slide9_scarcity_effect: {
+        formula: 'Comparative Scarcity Delta (In Stock vs. Only 2 Left)',
+        desireDiff: scarcityResult.get('differences').get('desire'),
+        urgencyDiff: scarcityResult.get('differences').get('urgency'),
+        fomoDiff: scarcityResult.get('differences').get('fomo'),
+        scarcityMultiplier: scarcityResult.get('scarcity_multiplier'),
+        executedBy: scarcityResult.get('executed_by')
+      },
       slide13_prospect_theory: {
         formula: 'v(x) = x^0.88 for gain, -2.25 * (-x)^0.88 for loss (Kahneman & Tversky)',
         testGain200: prospectGain.get('psychological_value'),
@@ -463,9 +539,9 @@ def calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings):
   function setup() {
     cacheDOMElements();
     bindEvents();
-    // אם המשתמש כבר נמצא בשקופית 13, 14 או 19 בעת רענון
+    // אם המשתמש כבר נמצא בשקופית 9, 13, 14 או 19 בעת רענון
     const curSlide = window.PresentationController ? window.PresentationController.getCurrentSlide() : 1;
-    if (curSlide === 13 || curSlide === 14 || curSlide === 19) {
+    if (curSlide === 9 || curSlide === 13 || curSlide === 14 || curSlide === 19) {
       initPyodide();
     }
   }
