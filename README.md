@@ -333,6 +333,7 @@ def calculate_anchoring(base_price, anchor_price):
 15. [`15_Final_Project_Review.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/15_Final_Project_Review.md) – סקירה סופית ומקיפה, בקרת איכות (QA) ותיעוד פרויקט לקראת הגשה.
 16. [`16_PRD_Upgrade.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/16_PRD_Upgrade.md) – שדרוג מקיף ואקדמי של מסמך אפיון דרישות המוצר ([`PRD.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/PRD.md) גרסה 2.0).
 17. [`17_README_Visuals_Screenshots.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/17_README_Visuals_Screenshots.md) – שילוב צילומי מסך אמיתיים, המחשות ויזואליות, הסבר אנימציית Three.js ושמע, ותיעוד תוצרי Python ואימות CPython WebAssembly.
+18. [`18_Slide19_Improvement_Plan.md`](prompts/18_Slide19_Improvement_Plan.md) – תיעוד תוכנית השיפורים המדורגת לשקופית 19 ([תוכנית שיפור שקופית 19](docs/slide19-improvement-plan.md)).
 
 ---
 
