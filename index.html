@@ -213,58 +213,60 @@
       </div>
     </section>
 
-    <!-- ==================== שקופית 8: מודל תלת-ממדי אינטראקטיבי ==================== -->
-    <section class="slide" id="slide-8">
+    <!-- ==================== שקופית 8: מודל תלת-ממדי אנטומי אינטראקטיבי ==================== -->
+    <section class="slide editorial-pilot" id="slide-8">
       <header class="slide-header">
         <div class="slide-title-group">
-          <h2>הדמיה תלת-ממדית: מפת המוח הקונספטואלית</h2>
-          <div class="slide-subtitle"><bdi>Interactive 3D Brain: Key Conceptual Regions</bdi></div>
+          <h2>הדמיה תלת-ממדית: רשתות המוח בקבלת החלטות צרכניות</h2>
+          <div class="slide-subtitle"><bdi>Interactive 3D Neuroanatomy: Distributed Valuation, Salience &amp; Control Networks</bdi></div>
         </div>
-        <span class="slide-badge">הדמיה תלת-ממדית (Three.js)</span>
+        <span class="slide-badge">אטלס תלת-ממדי אינטראקטיבי (<bdi>Three.js</bdi>)</span>
       </header>
 
-      <!-- הערת שקיפות מדעית -->
+      <!-- הערת שקיפות מדעית תמציתית -->
       <div class="scientific-notice">
-        <strong>הבהרה מדעית קריטית:</strong>
-        מודל זה הינו <strong>הדמיה קונספטואלית-חינוכית</strong> של תהליכים פסיכולוגיים והתנהגותיים. אין לראות בו מיפוי אנטומי רפואי מדויק או מדידה מוחית ישירה (<bdi>fMRI / EEG</bdi>).
+        <strong>הבהרה מדעית ואנטומית:</strong>
+        החלטות קנייה נוצרות מתוך <strong>רשתות מוחיות מבוזרות</strong> הפועלות במקביל — אין במוח "כפתור קנייה" בודד, ומערכות 1 ו-2 (<bdi>Kahneman, 2011</bdi>) מתארות דפוסי חשיבה התנהגותיים ולא אזור אנטומי יחיד. מבנים עמוקים (אמיגדלה, אינסולה וגרעין האקומבנס) מוצגים במיקומם האנטומי הפנימי באמצעות <strong>שקיפות חתך (<bdi>Cutaway</bdi>)</strong>.
       </div>
 
-      <!-- ממשק תלת-ממדי: שתי עמודות (קנבס 3D + כרטיסיית הסבר אינטראקטיבית) -->
+      <!-- ממשק תלת-ממדי: צופה 3D גדול + כרטיסיית מידע עריכתית תמציתית -->
       <div class="brain3d-dashboard-grid">
         <!-- עמודת מודל ה-3D והפקדים -->
         <div class="brain3d-viewport-card">
           <!-- סרגל פקדים עליון -->
           <div class="brain3d-toolbar">
-            <button type="button" class="brain-ctrl-btn" id="btnToggleRotate" title="הפעל או עצור סיבוב אוטומטי">
-              <span>⏸</span>
-              <span>עצור סיבוב</span>
-            </button>
-            <button type="button" class="brain-ctrl-btn" id="btnResetView" title="אפס זווית מבט ומרכוז">
-              <span>🔄</span>
-              <span>אפס מבט</span>
-            </button>
-
-            <!-- קבוצת שליטת שמע מורחבת (Mute, מוזיקת רקע ואפקטים) -->
-            <div class="brain-sound-control-group">
-              <button type="button" class="brain-ctrl-btn" id="btnToggleSound" title="לחץ להפעלת מוזיקת רקע Ambient ואפקטים">
-                <span>🔇</span>
-                <span>צליל מושתק</span>
+            <div class="brain3d-primary-controls">
+              <button type="button" class="brain-ctrl-btn" id="btnToggleRotate" aria-pressed="true" title="הפעל או עצור סיבוב אוטומטי">
+                <span>⏸</span>
+                <span>עצור סיבוב</span>
               </button>
+              <button type="button" class="brain-ctrl-btn" id="btnToggleCutaway" aria-pressed="false" title="הצג או הסתר שקיפות של קליפת המוח לחשיפת מבנים תת-קורטיקליים עמוקים">
+                <span>🧠</span>
+                <span>מבט עומק (שקיפות חתך)</span>
+              </button>
+              <button type="button" class="brain-ctrl-btn" id="btnResetView" title="אפס זווית מבט ומרכוז">
+                <span>🔄</span>
+                <span>אפס מבט</span>
+              </button>
+            </div>
 
-              <div class="audio-volume-wrap" title="עוצמת מוזיקת רקע Ambient">
-                <span class="vol-icon">🎵</span>
-                <span class="vol-label">מוזיקה:</span>
-                <input type="range" id="musicVolumeSlider" min="0" max="100" value="70" class="audio-slider" aria-label="עוצמת מוזיקת רקע">
-                <span id="musicValText" class="vol-val-text">מושתק</span>
-              </div>
-
-              <div class="audio-volume-wrap" title="עוצמת אפקטים קוליים של אזורי המוח">
-                <span class="vol-icon">🔔</span>
-                <span class="vol-label">אפקטים:</span>
-                <input type="range" id="sfxVolumeSlider" min="0" max="100" value="85" class="audio-slider" aria-label="עוצמת אפקטים">
-                <span id="sfxValText" class="vol-val-text">מושתק</span>
+            <!-- שליטת שמע אופציונלית שקופה (כבוי כברירת מחדל, ללא צלילי אזורים) -->
+            <div class="brain-sound-control-group">
+              <button type="button" class="brain-ctrl-btn" id="btnToggleSound" aria-pressed="false" title="אופציונלי: הפעלת מוזיקת רקע סינתטית (Web Audio API — אינה תדר מוחי)">
+                <span>🔇</span>
+                <span>מוזיקת אווירה סינתטית: כבויה</span>
+              </button>
+              <div class="audio-volume-wrap" title="עוצמת מוזיקת אווירה סינתטית אופציונלית (Web Audio API)">
+                <label for="musicVolumeSlider" class="vol-label">עוצמה:</label>
+                <input type="range" id="musicVolumeSlider" min="0" max="100" value="0" class="audio-slider" aria-label="עוצמת מוזיקת אווירה סינתטית">
+                <span id="musicValText" class="vol-val-text">כבוי</span>
               </div>
             </div>
+          </div>
+
+          <!-- חיווי מצב תצוגה (קליפה חיצונית מול חתך שקוף למבנים עמוקים) -->
+          <div class="brain-view-mode-banner" id="brainViewModeBadge">
+            מבט אנטומי חיצוני: קליפת המוח המלאה (Desikan-Killiany Atlas)
           </div>
 
           <!-- מיכל הקנבס התלת-ממדי -->
@@ -282,33 +284,34 @@
             </div>
           </div>
 
-          <!-- כפתורי בחירה מהירה של 4 האזורים -->
-          <div class="brain-regions-selector">
-            <button type="button" class="brain-region-btn active" data-region="pfc">
+          <!-- כפתורי בחירה של 4 הרשתות והמבנים האנטומיים -->
+          <div class="brain-regions-selector" role="group" aria-label="בחירת אזור או רשת מוחית">
+            <button type="button" class="brain-region-btn active" data-region="pfc" aria-pressed="true">
               <span class="dot pfc"></span>
-              <span>קליפת המוח הקדם-מצחית (<bdi>PFC</bdi>)</span>
+              <span>הרשת הקדם-מצחית (<bdi>vmPFC / dlPFC</bdi>)</span>
             </button>
-            <button type="button" class="brain-region-btn" data-region="amygdala">
+            <button type="button" class="brain-region-btn" data-region="amygdala" aria-pressed="false">
               <span class="dot amygdala"></span>
-              <span>אמיגדלה (<bdi>Amygdala</bdi>)</span>
+              <span>אמיגדלה — בולטות רגשית (<bdi>Amygdala</bdi>)</span>
             </button>
-            <button type="button" class="brain-region-btn" data-region="insula">
+            <button type="button" class="brain-region-btn" data-region="insula" aria-pressed="false">
               <span class="dot insula"></span>
-              <span>אינסולה (<bdi>Insula</bdi>)</span>
+              <span>קליפת האינסולה — עלות (<bdi>Insula</bdi>)</span>
             </button>
-            <button type="button" class="brain-region-btn" data-region="nacc">
+            <button type="button" class="brain-region-btn" data-region="nacc" aria-pressed="false">
               <span class="dot nacc"></span>
-              <span>גרעין האקומבנס (<bdi>NAcc</bdi>)</span>
+              <span>גרעין האקומבנס — תגמול (<bdi>NAcc</bdi>)</span>
             </button>
           </div>
 
           <div class="brain-interaction-hint">
-            💡 גררו בעכבר או במגע לסיבוב 360°, גללו לזום, או הקליקו על נקודות העניין והכפתורים לקבלת הסבר.
+            <span>גררו בעכבר או במגע לסיבוב 360°, גללו לזום, או בחרו אזור להדגשה אנטומית.</span>
+            <span class="brain-model-credit">מודל תלת-ממדי: <bdi>Brainder.org (A. M. Winkler, FreeSurfer DK &amp; ASEG, CC BY-SA 3.0)</bdi></span>
           </div>
         </div>
 
-        <!-- עמודת פירוט האזור הנבחר -->
-        <div class="brain-info-card" id="brainRegionCard">
+        <!-- עמודת פירוט האזור הנבחר (כרטיסייה עריכתית תמציתית בעברית RTL) -->
+        <div class="brain-info-card" id="brainRegionCard" aria-live="polite">
           <!-- נטען דינמית ע"י brain3d.js -->
         </div>
       </div>
@@ -1984,15 +1987,20 @@
           <h4>ספרות מחקרית מובילה (מאומתת לפי APA)</h4>
           <ul class="ref-list">
             <li><bdi>Ariely, D. (2008). <em>Predictably Irrational: The Hidden Forces That Shape Our Decisions</em>. HarperCollins.</bdi></li>
+            <li><bdi>Bartra, O., McGuire, J. T., &amp; Kable, J. W. (2013). The valuation system: A coordinate-based meta-analysis of BOLD fMRI experiments examining neural correlates of subjective value. <em>NeuroImage</em>, 76, 412-427.</bdi></li>
             <li><bdi>Brignull, H. (2010). Dark Patterns: Deception vs. Honesty in UI Design. <em>A List Apart</em>, 318.</bdi></li>
             <li><bdi>Cialdini, R. B. (2006). <em>Influence: The Psychology of Persuasion</em>. Harper Business.</bdi></li>
             <li><bdi>Damasio, A. R. (1994). <em>Descartes' Error: Emotion, Reason, and the Human Brain</em>. Putnam.</bdi></li>
+            <li><bdi>Desikan, R. S., et al. (2006). An automated labeling system for subdividing the human cerebral cortex on MRI scans into gyral based regions of interest. <em>NeuroImage</em>, 31(3), 968-980.</bdi></li>
+            <li><bdi>Fischl, B. (2012). FreeSurfer. <em>NeuroImage</em>, 62(2), 774-781.</bdi></li>
             <li><bdi>Holbrook, M. B., &amp; Batra, R. (1987). Assessing the role of emotions in consumer response to advertising. <em>Journal of Consumer Research</em>, 14(3), 404-420.</bdi></li>
             <li><bdi>Iyengar, S. S., &amp; Lepper, M. R. (2000). When choice is demotivating: Can one desire too much of a good thing? <em>Journal of Personality and Social Psychology</em>, 79(6), 995-1006.</bdi></li>
             <li><bdi>Johnson, E. J., &amp; Goldstein, D. (2003). Do defaults save lives? <em>Science</em>, 302(5649), 1338-1339.</bdi></li>
             <li><bdi>Kahneman, D. (2011). <em>Thinking, Fast and Slow</em>. Farrar, Straus and Giroux.</bdi></li>
             <li><bdi>Kahneman, D., &amp; Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk. <em>Econometrica</em>, 47(2), 263-291.</bdi></li>
+            <li><bdi>Knutson, B., Rick, S., Wimmer, G. E., Prelec, D., &amp; Loewenstein, G. (2007). Neural predictors of purchases. <em>Neuron</em>, 53(1), 147-156.</bdi></li>
             <li><bdi>Petty, R. E., &amp; Cacioppo, J. T. (1986). The Elaboration Likelihood Model of persuasion. <em>Advances in Experimental Social Psychology</em>, 19, 123-205.</bdi></li>
+            <li><bdi>Phelps, E. A. (2006). Emotion and cognition: Insights from studies of the human amygdala. <em>Annual Review of Psychology</em>, 57, 27-53.</bdi></li>
             <li><bdi>Prelec, D., &amp; Loewenstein, G. (1998). The red and the black: Mental accounting of savings and debt. <em>Marketing Science</em>, 17(1), 4-28.</bdi></li>
             <li><bdi>Schwartz, B. (2004). <em>The Paradox of Choice: Why More Is Less</em>. Ecco / HarperCollins.</bdi></li>
             <li><bdi>Thaler, R. H., &amp; Sunstein, C. R. (2008). <em>Nudge: Improving Decisions About Health, Wealth, and Happiness</em>. Yale University Press.</bdi></li>
@@ -2006,13 +2014,14 @@
         <div class="ref-section">
           <h4>תיעוד אלמנטים חזותיים, מנועים ורישוי</h4>
           <ul class="ref-list">
+            <li><strong>מודל מוח תלת-ממדי אנטומי (שקופית 8):</strong> מבוסס על מאגר המודלים האנטומיים הפתוח <bdi><strong>Brainder.org ("Brain for Blender")</strong></bdi> מאת <bdi>Dr. Anderson M. Winkler, MD, PhD</bdi> (<bdi><code>https://brainder.org/research/brain-for-blender/</code></bdi>), ברישיון <bdi><strong>Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)</strong></bdi> (<bdi><code>https://creativecommons.org/licenses/by-sa/3.0/</code></bdi>). הגיאומטריה התלת-ממדית הופקה משחזור <bdi>MRI</bdi> אנושי בתוכנת <bdi>FreeSurfer</bdi> (<bdi>Fischl, 2012</bdi>) בחלוקה קורטיקלית לפי אטלס <bdi>Desikan-Killiany (Desikan et al., 2006)</bdi> וסגמנטציה תת-קורטיקלית <bdi>ASEG (Fischl et al., 2002)</bdi> (קבצים מקומיים: <bdi>js/vendor/brain_mesh_data.js</bdi>, <bdi>assets/models/brain_fsaverage_dk.json</bdi>).</li>
             <li><strong>תמונת מוח מרכזית (שקופית 1):</strong> איור דיגיטלי נוירו-גרפי מותאם אישית שנוצר עבור הפרויקט (<bdi>consumer_brain_hero.jpg</bdi>).</li>
             <li><strong>תצלום תיק יוקרה מסחרי (שקופיות 9 ו-16):</strong> תצלום סטודיו של תיק עור שחור ופרזול זהב עבור מותג דמיוני (<bdi>Maison Vendôme</bdi>, <bdi>luxury_handbag.jpg</bdi>) לשם השוואת אפקט המחסור ומעבדת השיווק האתי.</li>
             <li><strong>תצלומי קולקציות הבישום (שקופית 10):</strong> תצלומי סטודיו מקוריים של שלישיית בשמים (<bdi>perfume_trio.jpg</bdi>) וקטלוג 12 הבשמים (<bdi>perfumes_collection_12.jpg</bdi>) עבור ניסוי פרדוקס הבחירה ועומס יתר.</li>
             <li><strong>צילומי המוצר הרשמיים של הבושם <bdi>Gritti Tutù</bdi> (שקופיות 1 ו-19):</strong> צילומי מוצר רשמיים של <bdi>Gritti Tutù — Extrait de Parfum (100 ml, SKU: DGB00600)</bdi> מתוך הקולקציה הלבנה (<bdi>White Collection</bdi>), באדיבות האתר הרשמי של המותג <bdi>Gritti Fragrances (Gritti Venetia)</bdi>: <bdi><code>https://www.grittifragrances.com/products/tutu-dgb00600</code></bdi> (קבצים מקומיים: <bdi>gritti_tutu_01.jpg</bdi>, <bdi>gritti_tutu_02.jpg</bdi>, <bdi>gritti_tutu_03.jpg</bdi>; שימוש הוגן אקדמי-לימודי).</li>
             <li><strong>איורים ודיאגרמות קונספטואליות (שקופיות 3–17):</strong> איורים וקטוריים מקוריים בפורמט <bdi>SVG</bdi> שפותחו עבור המצגת (רישיון פרויקט <bdi>MIT / Creative Commons BY 4.0</bdi>).</li>
-            <li><strong>ספריות קוד ומנועי מחשוב:</strong> <bdi>Three.js WebGL Engine</bdi> (<bdi>three.min.js</bdi>), <bdi>Web Audio API Synthesizer</bdi> (<bdi>audio.js</bdi>), ו-<bdi>Pyodide WebAssembly CPython v3.11</bdi>.</li>
-            <li><strong>הערת רישוי ושימוש הוגן:</strong> כלל התכנים והאיורים נוצרו ונשמרו מקומית תחת תיקיית <bdi>assets/images/</bdi> לשם טעינה מלאה ועצמאית, ללא תלות ברשת חיצונית (<bdi>Offline-ready</bdi>).</li>
+            <li><strong>ספריות קוד ומנועי מחשוב:</strong> <bdi>Three.js WebGL Engine</bdi> (<bdi>three.min.js</bdi>), <bdi>Web Audio API Ambient Synthesizer</bdi> (<bdi>audio.js</bdi> — סינתזה מוזיקלית אופציונלית, כבויה כברירת מחדל), ו-<bdi>Pyodide WebAssembly CPython v3.11</bdi>.</li>
+            <li><strong>הערת רישוי ושימוש הוגן:</strong> כלל התכנים והאיורים נוצרו ונשמרו מקומית תחת תיקיות <bdi>assets/</bdi> ו-<bdi>js/vendor/</bdi> לשם טעינה מלאה ועצמאית, ללא תלות ברשת חיצונית (<bdi>Offline-ready</bdi>).</li>
           </ul>
         </div>
       </div>
@@ -2061,6 +2070,7 @@
 
   <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js" defer></script>
   <script src="js/vendor/three.min.js"></script>
+  <script src="js/vendor/brain_mesh_data.js"></script>
   <script src="js/audio.js"></script>
   <script src="js/brain3d.js"></script>
   <script src="js/python_runner.js"></script>

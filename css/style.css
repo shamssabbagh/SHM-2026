@@ -5100,8 +5100,395 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   margin-top: 4px;
 }
 
+/* ------------------ שקופית 8: מודל מוח אנטומי תלת-ממדי בעיצוב עריכתי (Editorial) ------------------ */
+
+#slide-8.editorial-pilot {
+  padding: 24px 36px;
+}
+
+#slide-8.editorial-pilot .slide-header {
+  border-bottom: 1px solid var(--ed-border);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#slide-8.editorial-pilot .slide-title-group h2 {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: var(--ed-burgundy);
+  font-size: 1.72rem;
+  font-weight: 900;
+}
+
+#slide-8.editorial-pilot .slide-subtitle {
+  color: var(--ed-muted);
+  font-size: 0.96rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+#slide-8.editorial-pilot .slide-badge {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  font-weight: 800;
+}
+
+#slide-8.editorial-pilot .scientific-notice {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  border-right: 4px solid var(--ed-burgundy);
+  color: var(--ed-charcoal);
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+#slide-8.editorial-pilot .scientific-notice strong {
+  color: var(--ed-burgundy);
+}
+
+#slide-8.editorial-pilot .brain3d-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.38fr 0.92fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 4px;
+}
+
+#slide-8.editorial-pilot .brain3d-viewport-card {
+  background: var(--ed-surface);
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 10px 28px rgba(80, 38, 56, 0.08);
+}
+
+#slide-8.editorial-pilot .brain3d-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--ed-border);
+  padding-bottom: 10px;
+}
+
+#slide-8.editorial-pilot .brain3d-primary-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#slide-8.editorial-pilot .brain-ctrl-btn {
+  background: var(--ed-bg);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+#slide-8.editorial-pilot .brain-ctrl-btn:hover {
+  background: var(--ed-blush);
+  border-color: var(--ed-burgundy);
+  color: var(--ed-burgundy);
+}
+
+#slide-8.editorial-pilot .brain-ctrl-btn.active-mode,
+#slide-8.editorial-pilot .brain-ctrl-btn.sound-active {
+  background: var(--ed-burgundy);
+  border-color: var(--ed-burgundy);
+  color: var(--ed-bg);
+}
+
+#slide-8.editorial-pilot .brain-sound-control-group {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  gap: 8px;
+}
+
+#slide-8.editorial-pilot .vol-label,
+#slide-8.editorial-pilot .vol-val-text {
+  color: var(--ed-charcoal);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+#slide-8.editorial-pilot .audio-slider {
+  background: #D9C6CE;
+  width: 64px;
+}
+
+#slide-8.editorial-pilot .audio-slider::-webkit-slider-thumb {
+  background: var(--ed-burgundy);
+  box-shadow: none;
+}
+
+#slide-8.editorial-pilot .audio-slider::-moz-range-thumb {
+  background: var(--ed-burgundy);
+  box-shadow: none;
+}
+
+#slide-8.editorial-pilot .brain-view-mode-banner {
+  background: var(--ed-blush-soft);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#slide-8.editorial-pilot .brain-view-mode-banner.cutaway-active {
+  background: rgba(216, 91, 73, 0.14);
+  color: var(--ed-coral-strong);
+  border-color: rgba(184, 61, 43, 0.35);
+}
+
+#slide-8.editorial-pilot .brain3d-canvas-container {
+  width: 100%;
+  height: clamp(290px, 38vh, 420px);
+  min-height: 290px;
+  background: radial-gradient(circle at 50% 46%, #FCF9F5 0%, #EFE6DC 65%, #E4D5C9 100%);
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 12px;
+  box-shadow: inset 0 2px 12px rgba(80, 38, 56, 0.06);
+}
+
+#slide-8.editorial-pilot .brain-regions-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+#slide-8.editorial-pilot .brain-region-btn {
+  background: var(--ed-bg);
+  border: 1px solid var(--ed-border);
+  color: var(--ed-charcoal);
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+#slide-8.editorial-pilot .brain-region-btn:hover {
+  background: var(--ed-blush-soft);
+  border-color: var(--ed-burgundy);
+}
+
+#slide-8.editorial-pilot .brain-region-btn.active {
+  background: var(--ed-burgundy);
+  border-color: var(--ed-burgundy);
+  color: var(--ed-bg);
+  box-shadow: 0 4px 12px rgba(80, 38, 56, 0.18);
+}
+
+#slide-8.editorial-pilot .brain-region-btn .dot {
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+#slide-8.editorial-pilot .brain-region-btn .dot.pfc { background-color: #6B2D46; }
+#slide-8.editorial-pilot .brain-region-btn .dot.amygdala { background-color: #D85B49; }
+#slide-8.editorial-pilot .brain-region-btn .dot.insula { background-color: #C26D2D; }
+#slide-8.editorial-pilot .brain-region-btn .dot.nacc { background-color: #9E3B66; }
+
+#slide-8.editorial-pilot .brain-interaction-hint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--ed-muted);
+  padding-top: 2px;
+}
+
+#slide-8.editorial-pilot .brain-model-credit {
+  font-weight: 600;
+  color: var(--ed-burgundy);
+}
+
+/* כרטיסיית המידע העריכתית מימין (שקופית 8) */
+#slide-8.editorial-pilot .brain-info-card {
+  background: var(--ed-surface);
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 10px 28px rgba(80, 38, 56, 0.08);
+  color: var(--ed-charcoal);
+}
+
+#slide-8.editorial-pilot .region-detail-header {
+  border-right: 4px solid var(--ed-burgundy);
+  padding-right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#slide-8.editorial-pilot .region-title-wrap h3 {
+  color: var(--ed-burgundy);
+  font-size: 1.38rem;
+  font-weight: 900;
+}
+
+#slide-8.editorial-pilot .region-sub-en {
+  color: var(--ed-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#slide-8.editorial-pilot .region-badge-pill {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 12px;
+}
+
+#slide-8.editorial-pilot .region-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--ed-charcoal);
+}
+
+#slide-8.editorial-pilot .region-block h5 {
+  color: var(--ed-burgundy);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+#slide-8.editorial-pilot .region-desc-summary {
+  background: var(--ed-bg);
+  color: var(--ed-charcoal);
+  border: 1px solid var(--ed-border);
+  border-right: 3px solid var(--ed-burgundy);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+#slide-8.editorial-pilot .consumer-example-block {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  border-right: 3px solid var(--ed-coral);
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+#slide-8.editorial-pilot .consumer-example-block p {
+  color: var(--ed-charcoal);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+/* מגירת הפירוט המדעי והמקורות בשקופית 8 */
+#slide-8.editorial-pilot .brain-sci-drawer {
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 10px;
+  background: var(--ed-bg);
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .editorial-theory-summary {
+  padding: 11px 14px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--ed-burgundy);
+  background: var(--ed-blush);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .editorial-theory-summary::-webkit-details-marker {
+  display: none;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .editorial-theory-summary::after {
+  content: '+ הצג פירוט ומקורות';
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ed-coral-strong);
+  white-space: nowrap;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer[open] .editorial-theory-summary::after {
+  content: '− הסתר פירוט';
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .editorial-theory-content {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .psych-concept-box {
+  background: var(--ed-surface);
+  border: 1px solid var(--ed-border);
+  border-right: 3px solid var(--ed-burgundy);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .psych-concept-box.warning {
+  border-right-color: var(--ed-coral);
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .psych-concept-box strong {
+  color: var(--ed-burgundy);
+  font-size: 0.85rem;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .psych-concept-box p {
+  color: var(--ed-charcoal);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+#slide-8.editorial-pilot .brain-sci-sources-list {
+  margin: 6px 0 0 0;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78rem;
+  line-height: 1.42;
+  color: var(--ed-charcoal);
+}
+
 @media (max-width: 950px) {
   #slide-1.editorial-pilot .editorial-cover-grid,
+  #slide-8.editorial-pilot .brain3d-dashboard-grid,
   #slide-19.editorial-pilot .emot-ad-grid {
     grid-template-columns: 1fr;
   }
