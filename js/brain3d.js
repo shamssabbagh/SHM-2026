@@ -37,6 +37,17 @@
     return;
   }
 
+  // גבולות זום הגיוניים ובטוחים
+  const DEFAULT_ZOOM_Z = 4.05;
+  const MIN_ZOOM_Z = 2.65;
+  const MAX_ZOOM_Z = 6.20;
+  const ZOOM_STEP = 0.42;
+
+  // זווית התחלתית אנטומית ברורה (מבט תלת-רבעי קדמי-עליון-צידי החושף את שתי ההמיספרות והקמטים)
+  const INITIAL_ROT_X = 0.24;
+  const INITIAL_ROT_Y = -0.54;
+  const MAX_PITCH_RAD = 1.15;
+
   /**
    * נתוני 4 האזורים / הרשתות המוחיות — מנוסחים לפי ספרות מדעי המוח ונוירו-כלכלה מבוקרת עמיתים.
    * כל אזור מוצג כחלק מרשת מוחית מבוזרת (ולא כ"כפתור קנייה" בודד או כזהות של מערכת 1 / מערכת 2).
@@ -47,14 +58,15 @@
       id: 'pfc',
       nameHe: 'הרשת הקדם-מצחית',
       nameEn: 'Prefrontal Network (vmPFC / OFC & dlPFC)',
-      colorHex: '#6B2D46',
-      colorNum: 0x6b2d46,
-      emissiveNum: 0x3a1524,
+      colorHex: '#502638',
+      highlightHex: '#7A2E4D',
+      colorNum: 0x7a2e4d,
+      emissiveNum: 0x381222,
       isDeep: false,
       depthBadge: 'קליפת המוח הקדמית (מבט חיצוני)',
       position: { x: 0.572, y: -0.428, z: 1.177 },
       altPosition: { x: -0.535, y: -0.473, z: 1.159 },
-      defaultView: { rotX: 0.14, rotY: -0.38 },
+      defaultView: { rotX: 0.20, rotY: -0.36 },
       shortExplanation:
         'אזורים קדם-מצחיים אינם פועלים לבדם כ"מערכת 2", אלא משתתפים ברשתות מבוזרות של אינטגרציית ערך סובייקטיבי (vmPFC/OFC) ושל בקרה קוגניטיבית ווויסות קשב (dlPFC) המשקללות תועלת, מחיר ומטרות ארוכות טווח.',
       consumerExample:
@@ -74,13 +86,14 @@
       nameHe: 'האמיגדלה (רשת הבולטות הרגשית)',
       nameEn: 'Amygdala (Salience & Affective Network)',
       colorHex: '#D85B49',
+      highlightHex: '#E0533C',
       colorNum: 0xd85b49,
       emissiveNum: 0x5c1f16,
       isDeep: true,
       depthBadge: 'מבנה תת-קורטיקלי עמוק (מוצג בשקיפות חתך)',
       position: { x: 0.530, y: -0.690, z: 0.114 },
       altPosition: { x: -0.557, y: -0.662, z: 0.104 },
-      defaultView: { rotX: 0.18, rotY: -0.45 },
+      defaultView: { rotX: 0.22, rotY: -0.58 },
       shortExplanation:
         'האמיגדלה אינה "כפתור פחד" מבודד, אלא צומת מרכזי ברשת הבולטות (Salience Network) המזהה במהירות גירויים בעלי חשיבות רגשית — חיובית או שלילית — ומווסת קשב ועוררות בשיתוף עם קליפת המוח הקדם-מצחית והאינסולה.',
       consumerExample:
@@ -99,14 +112,15 @@
       id: 'insula',
       nameHe: 'קליפת האינסולה (אינטרוספציה ועלות)',
       nameEn: 'Insular Cortex (Interoception & Salience Network)',
-      colorHex: '#C26D2D',
-      colorNum: 0xc26d2d,
-      emissiveNum: 0x4f280b,
+      colorHex: '#B85A2B',
+      highlightHex: '#CC6835',
+      colorNum: 0xcc6835,
+      emissiveNum: 0x4f240d,
       isDeep: true,
       depthBadge: 'קליפה פנימית קבורה במעמקי החריץ הצידי (שקיפות חתך)',
       position: { x: 0.827, y: -0.395, z: 0.402 },
       altPosition: { x: -0.836, y: -0.323, z: 0.341 },
-      defaultView: { rotX: 0.12, rotY: -0.62 },
+      defaultView: { rotX: 0.16, rotY: -0.78 },
       shortExplanation:
         'האינסולה משלבת אותות גופניים פנימיים (אינטרוספציה) עם הערכה רגשית של אי-ודאות, סיכון וחוסר הוגנות, ומהווה צומת מרכזי ברשת הבולטות המאזנת מול אותות התגמול.',
       consumerExample:
@@ -126,13 +140,14 @@
       nameHe: 'גרעין האקומבנס (הסטריאטום הגחוני)',
       nameEn: 'Nucleus Accumbens (NAcc / Ventral Striatum)',
       colorHex: '#9E3B66',
-      colorNum: 0x9e3b66,
-      emissiveNum: 0x421327,
+      highlightHex: '#B84376',
+      colorNum: 0xb84376,
+      emissiveNum: 0x451229,
       isDeep: true,
       depthBadge: 'גרעין תת-קורטיקלי עמוק (מוצג בשקיפות חתך)',
       position: { x: 0.198, y: -0.487, z: 0.486 },
       altPosition: { x: -0.207, y: -0.453, z: 0.470 },
-      defaultView: { rotX: 0.16, rotY: -0.32 },
+      defaultView: { rotX: 0.20, rotY: -0.28 },
       shortExplanation:
         'גרעין האקומבנס הוא צומת מרכזי במסלול המזולימבי הדופמינרגי המקודד ציפייה לתגמול, טעות חיזוי תגמול (Reward Prediction Error) ובולטות תמריצית ("רצייה" / Wanting) — אך אינו פועל כ"כפתור קנייה" עצמאי.',
       consumerExample:
@@ -150,27 +165,42 @@
   };
 
   // משתני Three.js ומצב הסצנה
-  let scene, camera, renderer, brainGroup;
+  let scene, camera, renderer, orbitPitchGroup, brainGroup;
   let lhMesh = null;
   let rhMesh = null;
   const regionMeshes = {};
   const hotspotMeshes = [];
   const interactiveMeshes = [];
+  const pathwayPulses = [];
   let animationFrameId = null;
   let isRotating = true;
   let isCutawayMode = false;
-  let manualCutawayOverride = null; // null = אוטומטי לפי אזור עמוק/חיצוני, boolean = בחירה ידנית של המשתמש
+  let manualCutawayOverride = null;
   let isPointerDown = false;
+  let isPinching = false;
+  let pinchStartDist = 0;
+  let pinchStartZoomZ = DEFAULT_ZOOM_Z;
   let pointerMovedDistance = 0;
   let pointerStart = { x: 0, y: 0 };
-  let currentRotation = { x: 0.14, y: -0.38 };
-  let targetRotation = { x: 0.14, y: -0.38 };
+  let currentRotation = { x: INITIAL_ROT_X, y: INITIAL_ROT_Y };
+  let targetRotation = { x: INITIAL_ROT_X, y: INITIAL_ROT_Y };
+  let currentZoomZ = DEFAULT_ZOOM_Z;
+  let targetZoomZ = DEFAULT_ZOOM_Z;
   let selectedRegionId = 'pfc';
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
   // אלמנטי DOM
-  let container, infoCardEl, btnRotate, btnCutaway, btnReset, viewModeBadgeEl, fallbackEl;
+  let container,
+    infoCardEl,
+    btnRotate,
+    btnCutaway,
+    btnReset,
+    btnZoomIn,
+    btnZoomOut,
+    zoomReadoutEl,
+    viewModeBadgeEl,
+    fallbackEl;
 
   function showFallback(message) {
     fallbackEl = document.getElementById('brain3d-fallback');
@@ -182,6 +212,41 @@
     const canvasContainer = document.getElementById('brain3d-canvas-container');
     if (canvasContainer) {
       canvasContainer.style.display = 'none';
+    }
+  }
+
+  /**
+   * טעינת גיבוי אוטומטית של נתוני המודל האנטומי אם הקובץ לא נטען מראש ב-HTML
+   */
+  function ensureAnatomyDataLoaded(callback) {
+    if (window.BRAIN_ANATOMY_DATA && window.BRAIN_ANATOMY_DATA.hemispheres) {
+      callback();
+      return;
+    }
+    if (typeof document !== 'undefined' && document.createElement) {
+      const script = document.createElement('script');
+      script.src = 'js/vendor/brain_mesh_data.js?v=20261030_s8_v2';
+      script.onload = () => callback();
+      script.onerror = () => {
+        if (typeof fetch === 'function') {
+          fetch('assets/models/brain_fsaverage_dk.json')
+            .then((r) => r.json())
+            .then((data) => {
+              window.BRAIN_ANATOMY_DATA = data;
+              callback();
+            })
+            .catch((err) => showFallback('שגיאה בטעינת מודל המוח התלת-ממדי: ' + err.message));
+        } else {
+          showFallback('נתוני המודל האנטומי (js/vendor/brain_mesh_data.js) לא נטענו.');
+        }
+      };
+      if (document.head) {
+        document.head.appendChild(script);
+      } else {
+        callback();
+      }
+    } else {
+      callback();
     }
   }
 
@@ -203,18 +268,18 @@
       positions[i3 + 1] = posQuant[i3 + 1] / 1000.0;
       positions[i3 + 2] = posQuant[i3 + 2] / 1000.0;
 
-      // חישוב צבע אנטומי לפי עומק החריצים (Sulci) והקמטים (Gyri)
+      // חישוב צבע אנטומי עם ניגודיות תלת-ממדית ברורה בין חריצים (Sulci) לקמטים (Gyri)
       const s = sulcQuant ? sulcQuant[i] / 100.0 : 0;
       if (colorMode === 'cortex') {
-        // t=0 בעומק החריץ (Sulcus), t=1 בראש הקמט (Gyrus)
-        const t = Math.max(0, Math.min(1, (s + 0.85) / 1.7));
-        // גווני שנהב-אנטומי חם על הקמטים (Gyri) וטאופ-ורדרד עמוק בחריצים (Sulci)
-        colors[i3] = 0.62 + 0.32 * t;     // R: 0.62 -> 0.94
-        colors[i3 + 1] = 0.52 + 0.36 * t; // G: 0.52 -> 0.88
-        colors[i3 + 2] = 0.50 + 0.34 * t; // B: 0.50 -> 0.84
+        const t = Math.max(0, Math.min(1, (s + 0.78) / 1.56));
+        const smoothT = t * t * (3 - 2 * t); // Smoothstep להדגשת עומק החריצים הקורטיקליים
+        // בחריצים העמוקים (Sulci): גוון בורגונדי-טאופ מוצל (#7D5A62); בראשי הקמטים (Gyri): שנהב-אנטומי חם (#F3E7DD)
+        colors[i3] = 0.49 + 0.46 * smoothT;     // R: 0.49 -> 0.95
+        colors[i3 + 1] = 0.35 + 0.55 * smoothT; // G: 0.35 -> 0.90
+        colors[i3 + 2] = 0.38 + 0.48 * smoothT; // B: 0.38 -> 0.86
       } else {
-        const t = Math.max(0, Math.min(1, (s + 0.9) / 1.8));
-        const shade = 0.78 + 0.22 * t;
+        const t = Math.max(0, Math.min(1, (s + 0.85) / 1.7));
+        const shade = 0.72 + 0.28 * t;
         colors[i3] = shade;
         colors[i3 + 1] = shade;
         colors[i3 + 2] = shade;
@@ -233,9 +298,6 @@
     return geometry;
   }
 
-  /**
-   * יצירת חומר תלת-ממדי מותאם לתאורה רכה (עם גיבוי לסביבות בדיקה ללא MeshPhongMaterial)
-   */
   function createLitMaterial(opts) {
     const MaterialCtor =
       THREE.MeshPhongMaterial || THREE.MeshLambertMaterial || THREE.MeshBasicMaterial;
@@ -251,63 +313,76 @@
     btnRotate = document.getElementById('btnToggleRotate');
     btnCutaway = document.getElementById('btnToggleCutaway');
     btnReset = document.getElementById('btnResetView');
+    btnZoomIn = document.getElementById('btnZoomIn');
+    btnZoomOut = document.getElementById('btnZoomOut');
+    zoomReadoutEl = document.getElementById('brainZoomReadout');
     viewModeBadgeEl = document.getElementById('brainViewModeBadge');
 
     if (!container) return;
 
-    try {
-      scene = new THREE.Scene();
+    ensureAnatomyDataLoaded(() => {
+      try {
+        scene = new THREE.Scene();
 
-      const initWidth = container.clientWidth || 720;
-      const initHeight = container.clientHeight || 430;
-      const aspect = initWidth / initHeight;
-      camera = new THREE.PerspectiveCamera(40, aspect, 0.1, 100);
-      camera.position.set(0, 0.15, 4.75);
+        const initWidth = container.clientWidth || 760;
+        const initHeight = container.clientHeight || 430;
+        const aspect = initWidth / initHeight;
+        camera = new THREE.PerspectiveCamera(38, aspect, 0.1, 100);
+        camera.position.set(0, 0.08, DEFAULT_ZOOM_Z);
 
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(initWidth, initHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.setClearColor(0x000000, 0);
-      container.appendChild(renderer.domElement);
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(initWidth, initHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setClearColor(0x000000, 0);
+        container.appendChild(renderer.domElement);
 
-      // תאורה אנטומית רכה (Soft Studio Anatomical Lighting)
-      const ambientLight = new THREE.AmbientLight(0xfff8f2, 0.72);
-      scene.add(ambientLight);
+        // מערך תאורה תלת-ממדית עשיר להדגשת נפח הקמטים והחריצים הקורטיקליים
+        const ambientLight = new THREE.AmbientLight(0xfff6ee, 0.58);
+        scene.add(ambientLight);
 
-      if (THREE.HemisphereLight) {
-        const hemiLight = new THREE.HemisphereLight(0xfffaf5, 0x6d4c56, 0.55);
-        hemiLight.position.set(0, 6, 0);
-        scene.add(hemiLight);
+        if (THREE.HemisphereLight) {
+          const hemiLight = new THREE.HemisphereLight(0xfffaf4, 0x502638, 0.62);
+          hemiLight.position.set(0, 7, 0);
+          scene.add(hemiLight);
+        }
+
+        const DirLightCtor = THREE.DirectionalLight || THREE.PointLight;
+        const keyLight = new DirLightCtor(0xfff7ef, 0.92);
+        keyLight.position.set(4.8, 6.2, 5.8);
+        scene.add(keyLight);
+
+        const fillLight = new DirLightCtor(0xf4dce3, 0.48);
+        fillLight.position.set(-5.5, 1.8, 3.8);
+        scene.add(fillLight);
+
+        const rimLight = new DirLightCtor(0xd85b49, 0.36);
+        rimLight.position.set(0.5, -4.5, -5.5);
+        scene.add(rimLight);
+
+        // קבוצת הטיה אנכית (Pitch) העוטפת את קבוצת הסיבוב האופקי (Yaw) לגרירה אינטואיטיבית לכל כיוון
+        orbitPitchGroup = new THREE.Group();
+        orbitPitchGroup.name = 'orbit_pitch_group';
+        scene.add(orbitPitchGroup);
+
+        brainGroup = new THREE.Group();
+        brainGroup.name = 'brain_yaw_group';
+        orbitPitchGroup.add(brainGroup);
+
+        createBrainGeometry(brainGroup);
+        createNetworkPathways(brainGroup);
+        createHotspots(brainGroup);
+        bindEvents();
+        updateZoomUI();
+
+        // בחירת אזור ברירת מחדל (הרשת הקדם-מצחית) ללא הפעלת צליל כלשהו
+        selectRegion('pfc', false);
+
+        startAnimation();
+      } catch (err) {
+        console.error('Failed to initialize Three.js brain scene:', err);
+        showFallback('אירעה שגיאה באתחול המנוע הגרפי: ' + err.message);
       }
-
-      const DirLightCtor = THREE.DirectionalLight || THREE.PointLight;
-      const keyLight = new DirLightCtor(0xfff6ed, 0.78);
-      keyLight.position.set(4.5, 5.5, 5.5);
-      scene.add(keyLight);
-
-      const fillLight = new DirLightCtor(0xf5e1e6, 0.42);
-      fillLight.position.set(-5.0, 2.0, 3.5);
-      scene.add(fillLight);
-
-      const rimLight = new DirLightCtor(0xd85b49, 0.25);
-      rimLight.position.set(0.0, -4.0, -5.0);
-      scene.add(rimLight);
-
-      brainGroup = new THREE.Group();
-      scene.add(brainGroup);
-
-      createBrainGeometry(brainGroup);
-      createHotspots(brainGroup);
-      bindEvents();
-
-      // בחירת אזור ברירת מחדל (הרשת הקדם-מצחית) ללא הפעלת צליל כלשהו
-      selectRegion('pfc');
-
-      startAnimation();
-    } catch (err) {
-      console.error('Failed to initialize Three.js brain scene:', err);
-      showFallback('אירעה שגיאה באתחול המנוע הגרפי: ' + err.message);
-    }
+    });
   }
 
   /**
@@ -321,23 +396,22 @@
       );
     }
 
-    // 1. שתי ההמיספרות של קליפת המוח (Left & Right Cerebral Cortex)
     const lhGeo = buildBufferGeometryFromData(anatomy.hemispheres.lh, 'cortex');
     const rhGeo = buildBufferGeometryFromData(anatomy.hemispheres.rh, 'cortex');
 
     const lhMat = createLitMaterial({
       vertexColors: true,
-      transparent: true,
-      opacity: 0.96,
-      shininess: 18,
-      specular: 0x2a1e22
+      transparent: false,
+      opacity: 1.0,
+      shininess: 34,
+      specular: 0x3d2830
     });
     const rhMat = createLitMaterial({
       vertexColors: true,
-      transparent: true,
-      opacity: 0.96,
-      shininess: 18,
-      specular: 0x2a1e22
+      transparent: false,
+      opacity: 1.0,
+      shininess: 34,
+      specular: 0x3d2830
     });
 
     lhMesh = new THREE.Mesh(lhGeo, lhMat);
@@ -348,13 +422,11 @@
     parentGroup.add(lhMesh);
     parentGroup.add(rhMesh);
 
-    // 2. ארבעת האזורים / הרשתות האנטומיות באותו מרחב קואורדינטות סטריאוטקסי
     Object.keys(BRAIN_REGIONS).forEach((regionId) => {
       const regionCfg = BRAIN_REGIONS[regionId];
       const regionMeshData = anatomy.regions[regionId];
       if (!regionMeshData) return;
 
-      // עדכון מיקומי סיכות האינטראקציה לפי הצנטרואידים האנטומיים המדויקים מהאטלס
       if (regionMeshData.rightCentroid) {
         regionCfg.position = {
           x: regionMeshData.rightCentroid[0],
@@ -376,8 +448,9 @@
         emissive: regionCfg.emissiveNum,
         vertexColors: true,
         transparent: true,
-        opacity: 0.88,
-        shininess: 28,
+        opacity: 0.9,
+        shininess: 42,
+        specular: 0x664450,
         polygonOffset: true,
         polygonOffsetFactor: -1,
         polygonOffsetUnits: -1
@@ -394,17 +467,111 @@
   }
 
   /**
+   * יצירת מסלולים עצביים תלת-ממדיים ופולסים נעים בין צומתי הרשת (להמחשת רשתות מבוזרות ועומק תלת-ממדי)
+   */
+  function createNetworkPathways(parentGroup) {
+    pathwayPulses.length = 0;
+    if (!THREE.CatmullRomCurve3 || !THREE.TubeGeometry) return;
+
+    const pairs = [
+      // מסלול מזולימבי-קורטיקלי: NAcc <-> vmPFC (ימין ושמאל)
+      {
+        from: BRAIN_REGIONS.nacc.position,
+        to: BRAIN_REGIONS.pfc.position,
+        midOffset: { x: 0.12, y: 0.15, z: 0.08 },
+        color: 0x9e3b66
+      },
+      {
+        from: BRAIN_REGIONS.nacc.altPosition,
+        to: BRAIN_REGIONS.pfc.altPosition,
+        midOffset: { x: -0.12, y: 0.15, z: 0.08 },
+        color: 0x9e3b66
+      },
+      // מסלול בולטות רגשית: Amygdala <-> vmPFC
+      {
+        from: BRAIN_REGIONS.amygdala.position,
+        to: BRAIN_REGIONS.pfc.position,
+        midOffset: { x: 0.16, y: 0.10, z: 0.05 },
+        color: 0xd85b49
+      },
+      {
+        from: BRAIN_REGIONS.amygdala.altPosition,
+        to: BRAIN_REGIONS.pfc.altPosition,
+        midOffset: { x: -0.16, y: 0.10, z: 0.05 },
+        color: 0xd85b49
+      },
+      // מסלול אינטרוספציה ובולטות: Insula <-> PFC
+      {
+        from: BRAIN_REGIONS.insula.position,
+        to: BRAIN_REGIONS.pfc.position,
+        midOffset: { x: 0.18, y: 0.18, z: 0.05 },
+        color: 0xcc6835
+      },
+      {
+        from: BRAIN_REGIONS.insula.altPosition,
+        to: BRAIN_REGIONS.pfc.altPosition,
+        midOffset: { x: -0.18, y: 0.18, z: 0.05 },
+        color: 0xcc6835
+      }
+    ];
+
+    pairs.forEach((pair, idx) => {
+      const p0 = new THREE.Vector3(pair.from.x, pair.from.y, pair.from.z);
+      const p2 = new THREE.Vector3(pair.to.x, pair.to.y, pair.to.z);
+      const p1 = new THREE.Vector3(
+        (p0.x + p2.x) * 0.5 + pair.midOffset.x,
+        (p0.y + p2.y) * 0.5 + pair.midOffset.y,
+        (p0.z + p2.z) * 0.5 + pair.midOffset.z
+      );
+
+      const curve = new THREE.CatmullRomCurve3([p0, p1, p2]);
+      const tubeGeo = new THREE.TubeGeometry(curve, 20, 0.014, 8, false);
+      const tubeMat = new THREE.MeshBasicMaterial({
+        color: pair.color,
+        transparent: true,
+        opacity: 0.42,
+        depthWrite: false
+      });
+      const tubeMesh = new THREE.Mesh(tubeGeo, tubeMat);
+      tubeMesh.name = `pathway_tube_${idx}`;
+      tubeMesh.renderOrder = 3;
+      parentGroup.add(tubeMesh);
+
+      // כדור פולס נע לאורך המסלול התלת-ממדי
+      const pulseGeo = new THREE.SphereGeometry(0.036, 10, 10);
+      const pulseMat = new THREE.MeshBasicMaterial({
+        color: 0xfff5eb,
+        transparent: true,
+        opacity: 0.92,
+        depthTest: false
+      });
+      const pulseMesh = new THREE.Mesh(pulseGeo, pulseMat);
+      pulseMesh.name = `pathway_pulse_${idx}`;
+      pulseMesh.renderOrder = 8;
+      parentGroup.add(pulseMesh);
+
+      pathwayPulses.push({
+        curve,
+        mesh: pulseMesh,
+        tube: tubeMesh,
+        phase: (idx * 0.19) % 1.0,
+        speed: 0.0045 + (idx % 3) * 0.0008
+      });
+    });
+  }
+
+  /**
    * יצירת סמני מיקום אנטומיים דו-צדדיים (Hotspots) ללחיצה קלה בעכבר ובמגע
    */
   function createHotspots(parentGroup) {
     hotspotMeshes.length = 0;
 
     Object.values(BRAIN_REGIONS).forEach((region) => {
-      const sphereGeo = new THREE.SphereGeometry(0.085, 16, 16);
+      const sphereGeo = new THREE.SphereGeometry(0.088, 16, 16);
       const sphereMat = new THREE.MeshBasicMaterial({
         color: region.colorNum,
         transparent: true,
-        opacity: 0.95,
+        opacity: 0.96,
         depthTest: false
       });
       const mesh = new THREE.Mesh(sphereGeo, sphereMat);
@@ -412,19 +579,19 @@
       mesh.renderOrder = 10;
       mesh.userData = { regionId: region.id, isHotspot: true };
 
-      const ringGeo = new THREE.RingGeometry(0.115, 0.15, 24);
+      const ringGeo = new THREE.RingGeometry(0.12, 0.16, 24);
       const ringMat = new THREE.MeshBasicMaterial({
         color: region.colorNum,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.75,
+        opacity: 0.8,
         depthTest: false
       });
       const ringMesh = new THREE.Mesh(ringGeo, ringMat);
       mesh.add(ringMesh);
       mesh.userData.ring = ringMesh;
 
-      const hitSphereGeo = new THREE.SphereGeometry(0.24, 8, 8);
+      const hitSphereGeo = new THREE.SphereGeometry(0.26, 8, 8);
       const hitSphereMat = new THREE.MeshBasicMaterial({ visible: false });
       const hitMesh = new THREE.Mesh(hitSphereGeo, hitSphereMat);
       mesh.add(hitMesh);
@@ -454,6 +621,41 @@
   }
 
   /**
+   * עדכון מצב הסיבוב האוטומטי והכפתור הגלוי
+   */
+  function setAutoRotate(enabled) {
+    isRotating = !!enabled;
+    if (btnRotate) {
+      btnRotate.setAttribute('aria-pressed', isRotating ? 'true' : 'false');
+      btnRotate.classList.toggle('active-mode', isRotating);
+      btnRotate.innerHTML = isRotating
+        ? '<span>⏸</span><span>עצור סיבוב</span>'
+        : '<span>▶</span><span>הפעל סיבוב</span>';
+    }
+  }
+
+  /**
+   * שינוי זום בגבולות בטוחים ועדכון החיווי בממשק
+   */
+  function setTargetZoom(newZoomZ) {
+    targetZoomZ = Math.max(MIN_ZOOM_Z, Math.min(MAX_ZOOM_Z, newZoomZ));
+    updateZoomUI();
+  }
+
+  function updateZoomUI() {
+    const pct = Math.round((DEFAULT_ZOOM_Z / targetZoomZ) * 100);
+    if (zoomReadoutEl) {
+      zoomReadoutEl.textContent = `${pct}%`;
+    }
+    if (btnZoomIn) {
+      btnZoomIn.disabled = targetZoomZ <= MIN_ZOOM_Z + 0.05;
+    }
+    if (btnZoomOut) {
+      btnZoomOut.disabled = targetZoomZ >= MAX_ZOOM_Z - 0.05;
+    }
+  }
+
+  /**
    * עדכון שקיפות קליפת המוח (Cutaway / Cortical Transparency) לחשיפת מבנים עמוקים
    */
   function applyCutawayVisibility(enableCutaway) {
@@ -464,6 +666,7 @@
 
     [lhMesh, rhMesh].forEach((hemiMesh) => {
       if (hemiMesh && hemiMesh.material) {
+        hemiMesh.material.transparent = true;
         hemiMesh.material.opacity = cortexOpacity;
         hemiMesh.material.depthWrite = cortexDepthWrite;
         hemiMesh.material.needsUpdate = true;
@@ -480,8 +683,8 @@
 
     if (viewModeBadgeEl) {
       viewModeBadgeEl.textContent = isCutawayMode
-        ? 'מבט חתך שקוף: קליפת המוח שקופה לחשיפת מבנים תת-קורטיקליים וקליפת האינסולה בעומק המוח'
-        : 'מבט אנטומי חיצוני: קליפת המוח המלאה (Desikan-Killiany Atlas)';
+        ? 'מבט חתך שקוף פעיל: קליפת המוח שקופה לחשיפת האמיגדלה, האינסולה וגרעין האקומבנס בעומק המוח'
+        : 'מבט אנטומי חיצוני: קליפת המוח המלאה (Desikan-Killiany Atlas) — לחצו על מבנה עמוק או על "מבט עומק" לשקיפות';
       viewModeBadgeEl.classList.toggle('cutaway-active', isCutawayMode);
     }
   }
@@ -489,18 +692,21 @@
   /**
    * בחירת אזור, עדכון הדגשת ה-Mesh התלת-ממדי, הפעלת שקיפות חתך לאזורים עמוקים והצגת הכרטיסייה
    */
-  function selectRegion(regionId) {
+  function selectRegion(regionId, focusCamera = true) {
     const region = BRAIN_REGIONS[regionId];
     if (!region) return;
 
     selectedRegionId = regionId;
 
-    // אם המשתמש לא כפה מצב ידני, מפעילים שקיפות חתך אוטומטית עבור מבנים עמוקים (אמיגדלה, אינסולה, אקומבנס)
     const shouldUseCutaway =
       manualCutawayOverride !== null ? manualCutawayOverride : region.isDeep;
     applyCutawayVisibility(shouldUseCutaway);
 
-    // הדגשת ה-Mesh האנטומי התלת-ממדי של האזור הנבחר
+    if (focusCamera && region.defaultView) {
+      targetRotation.x = region.defaultView.rotX;
+      targetRotation.y = region.defaultView.rotY;
+    }
+
     Object.keys(regionMeshes).forEach((id) => {
       const rMesh = regionMeshes[id];
       const rCfg = BRAIN_REGIONS[id];
@@ -510,11 +716,11 @@
         rMesh.material.opacity = 0.98;
         rMesh.material.emissive = new THREE.Color(rCfg.colorNum);
         if (typeof rMesh.material.emissiveIntensity === 'number') {
-          rMesh.material.emissiveIntensity = 0.35;
+          rMesh.material.emissiveIntensity = 0.42;
         }
-        rMesh.renderOrder = 5;
+        rMesh.renderOrder = 6;
       } else {
-        rMesh.material.opacity = isCutawayMode ? 0.32 : 0.18;
+        rMesh.material.opacity = isCutawayMode ? 0.36 : 0.20;
         rMesh.material.emissive = new THREE.Color(rCfg.emissiveNum);
         if (typeof rMesh.material.emissiveIntensity === 'number') {
           rMesh.material.emissiveIntensity = 0.12;
@@ -524,11 +730,10 @@
       rMesh.material.needsUpdate = true;
     });
 
-    // הדגשת סיכות המיקום הדו-צדדיות
     hotspotMeshes.forEach((mesh) => {
       const isSelected = mesh.userData.regionId === regionId;
       if (isSelected) {
-        mesh.scale.set(1.32, 1.32, 1.32);
+        mesh.scale.set(1.36, 1.36, 1.36);
         mesh.material.opacity = 1.0;
         if (mesh.userData.ring) {
           mesh.userData.ring.material.opacity = 0.95;
@@ -542,7 +747,6 @@
       }
     });
 
-    // עדכון כפתורי הבחירה
     document.querySelectorAll('.brain-region-btn').forEach((btn) => {
       const bId = btn.getAttribute('data-region');
       const isActive = bId === regionId;
@@ -550,7 +754,6 @@
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    // עדכון כרטיס המידע העריכתי התמציתי (RTL)
     if (infoCardEl) {
       const sourcesHtml = region.sources
         .map((src) => `<li><bdi>${src}</bdi></li>`)
@@ -604,7 +807,7 @@
    * טיפול בלחיצה על אזור בסצנה התלת-ממדית (Raycasting על סיכות ועל ה-Mesh האנטומי)
    */
   function onPointerClick(event) {
-    if (!renderer || !camera || pointerMovedDistance > 6) return;
+    if (!renderer || !camera || pointerMovedDistance > 7) return;
 
     const rect = renderer.domElement.getBoundingClientRect();
     if (!rect.width || !rect.height) return;
@@ -621,7 +824,7 @@
         hitObj = hitObj.parent;
       }
       if (hitObj && hitObj.userData.regionId) {
-        selectRegion(hitObj.userData.regionId);
+        selectRegion(hitObj.userData.regionId, true);
       }
     }
   }
@@ -629,13 +832,21 @@
   function animate() {
     animationFrameId = requestAnimationFrame(animate);
 
-    if (isRotating && !isPointerDown) {
+    if (isRotating && !isPointerDown && !isPinching) {
       targetRotation.y += 0.0042;
     }
 
-    currentRotation.x += (targetRotation.x - currentRotation.x) * 0.08;
-    currentRotation.y += (targetRotation.y - currentRotation.y) * 0.08;
+    currentRotation.x += (targetRotation.x - currentRotation.x) * 0.12;
+    currentRotation.y += (targetRotation.y - currentRotation.y) * 0.12;
+    currentZoomZ += (targetZoomZ - currentZoomZ) * 0.14;
 
+    if (camera) {
+      camera.position.z = currentZoomZ;
+    }
+
+    if (orbitPitchGroup) {
+      orbitPitchGroup.rotation.x = currentRotation.x;
+    }
     if (brainGroup) {
       brainGroup.rotation.x = currentRotation.x;
       brainGroup.rotation.y = currentRotation.y;
@@ -643,11 +854,20 @@
       const time = performance.now() * 0.003;
       hotspotMeshes.forEach((mesh) => {
         if (mesh.userData.ring && camera) {
-          const scale = 1.0 + 0.12 * Math.sin(time * 2.0);
+          const scale = 1.0 + 0.14 * Math.sin(time * 2.1);
           mesh.userData.ring.scale.set(scale, scale, scale);
           if (typeof mesh.userData.ring.lookAt === 'function') {
             mesh.userData.ring.lookAt(camera.position);
           }
+        }
+      });
+
+      // עדכון תנועת פולסים עצביים תלת-ממדיים לאורך מסלולי הרשת
+      pathwayPulses.forEach((p) => {
+        p.phase = (p.phase + p.speed) % 1.0;
+        const pos = p.curve.getPointAt(p.phase);
+        if (pos && p.mesh) {
+          p.mesh.position.set(pos.x, pos.y, pos.z);
         }
       });
     }
@@ -673,115 +893,162 @@
   function bindEvents() {
     const domEl = renderer.domElement;
 
-    domEl.addEventListener('mousedown', (e) => {
+    const handleDragStart = (clientX, clientY, event) => {
+      if (event && typeof event.preventDefault === 'function') {
+        event.preventDefault();
+      }
       isPointerDown = true;
       pointerMovedDistance = 0;
-      pointerStart.x = e.clientX;
-      pointerStart.y = e.clientY;
+      pointerStart.x = clientX;
+      pointerStart.y = clientY;
+      if (container && container.classList) {
+        container.classList.add('is-dragging');
+      }
+    };
+
+    const handleDragMove = (clientX, clientY) => {
+      if (!isPointerDown || isPinching) return;
+      const dx = clientX - pointerStart.x;
+      const dy = clientY - pointerStart.y;
+      const stepDist = Math.abs(dx) + Math.abs(dy);
+      pointerMovedDistance += stepDist;
+      pointerStart.x = clientX;
+      pointerStart.y = clientY;
+
+      // אם המשתמש גורר בפועל, עוצרים סיבוב אוטומטי כדי לאפשר בחינה חופשית של הזווית הנבחרת
+      if (pointerMovedDistance > 5 && isRotating) {
+        setAutoRotate(false);
+      }
+
+      targetRotation.y += dx * 0.0095;
+      targetRotation.x += dy * 0.0095;
+      targetRotation.x = Math.max(-MAX_PITCH_RAD, Math.min(MAX_PITCH_RAD, targetRotation.x));
+    };
+
+    const handleDragEnd = () => {
+      isPointerDown = false;
+      isPinching = false;
+      if (container && container.classList) {
+        container.classList.remove('is-dragging');
+      }
+    };
+
+    // אירועי עכבר (Mouse Drag)
+    domEl.addEventListener('mousedown', (e) => {
+      handleDragStart(e.clientX, e.clientY, e);
     });
 
     window.addEventListener('mousemove', (e) => {
-      if (!isPointerDown) return;
-      const dx = e.clientX - pointerStart.x;
-      const dy = e.clientY - pointerStart.y;
-      pointerMovedDistance += Math.abs(dx) + Math.abs(dy);
-      pointerStart.x = e.clientX;
-      pointerStart.y = e.clientY;
-
-      targetRotation.y += dx * 0.008;
-      targetRotation.x += dy * 0.008;
-      targetRotation.x = Math.max(-0.85, Math.min(0.85, targetRotation.x));
+      handleDragMove(e.clientX, e.clientY);
     });
 
     window.addEventListener('mouseup', () => {
-      isPointerDown = false;
+      handleDragEnd();
     });
 
+    // אירועי מגע לטלפונים וטאבלטים (1-Finger Drag + 2-Finger Pinch Zoom)
     domEl.addEventListener(
       'touchstart',
       (e) => {
         if (e.touches.length === 1) {
-          isPointerDown = true;
-          pointerMovedDistance = 0;
-          pointerStart.x = e.touches[0].clientX;
-          pointerStart.y = e.touches[0].clientY;
+          isPinching = false;
+          handleDragStart(e.touches[0].clientX, e.touches[0].clientY, e);
+        } else if (e.touches.length === 2) {
+          if (typeof e.preventDefault === 'function') e.preventDefault();
+          isPointerDown = false;
+          isPinching = true;
+          const dx = e.touches[0].clientX - e.touches[1].clientX;
+          const dy = e.touches[0].clientY - e.touches[1].clientY;
+          pinchStartDist = Math.hypot(dx, dy) || 1;
+          pinchStartZoomZ = targetZoomZ;
         }
-      },
-      { passive: true }
-    );
-
-    window.addEventListener(
-      'touchmove',
-      (e) => {
-        if (!isPointerDown || e.touches.length !== 1) return;
-        const dx = e.touches[0].clientX - pointerStart.x;
-        const dy = e.touches[0].clientY - pointerStart.y;
-        pointerMovedDistance += Math.abs(dx) + Math.abs(dy);
-        pointerStart.x = e.touches[0].clientX;
-        pointerStart.y = e.touches[0].clientY;
-
-        targetRotation.y += dx * 0.01;
-        targetRotation.x += dy * 0.01;
-        targetRotation.x = Math.max(-0.85, Math.min(0.85, targetRotation.x));
-      },
-      { passive: true }
-    );
-
-    window.addEventListener('touchend', () => {
-      isPointerDown = false;
-    });
-
-    domEl.addEventListener('click', onPointerClick);
-
-    domEl.addEventListener(
-      'wheel',
-      (e) => {
-        e.preventDefault();
-        camera.position.z += e.deltaY * 0.003;
-        camera.position.z = Math.max(3.1, Math.min(7.0, camera.position.z));
       },
       { passive: false }
     );
 
-    if (btnRotate) {
-      btnRotate.addEventListener('click', () => {
-        isRotating = !isRotating;
-        btnRotate.setAttribute('aria-pressed', isRotating ? 'true' : 'false');
-        btnRotate.innerHTML = isRotating
-          ? '<span>⏸</span><span>עצור סיבוב</span>'
-          : '<span>▶</span><span>הפעל סיבוב</span>';
+    domEl.addEventListener(
+      'touchmove',
+      (e) => {
+        if (e.touches.length === 1 && isPointerDown && !isPinching) {
+          if (typeof e.preventDefault === 'function') e.preventDefault();
+          handleDragMove(e.touches[0].clientX, e.touches[0].clientY);
+        } else if (e.touches.length === 2 && isPinching) {
+          if (typeof e.preventDefault === 'function') e.preventDefault();
+          const dx = e.touches[0].clientX - e.touches[1].clientX;
+          const dy = e.touches[0].clientY - e.touches[1].clientY;
+          const dist = Math.hypot(dx, dy) || 1;
+          const scaleRatio = pinchStartDist / dist;
+          setTargetZoom(pinchStartZoomZ * scaleRatio);
+        }
+      },
+      { passive: false }
+    );
+
+    domEl.addEventListener('touchend', () => {
+      handleDragEnd();
+    });
+
+    domEl.addEventListener('click', onPointerClick);
+
+    // זום באמצעות גלגלת עכבר או משטח מגע (Trackpad)
+    domEl.addEventListener(
+      'wheel',
+      (e) => {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        const delta = e.deltaY * 0.0035;
+        setTargetZoom(targetZoomZ + delta);
+      },
+      { passive: false }
+    );
+
+    // כפתורי זום גלויים (+ / -)
+    if (btnZoomIn) {
+      btnZoomIn.addEventListener('click', () => {
+        setTargetZoom(targetZoomZ - ZOOM_STEP);
       });
     }
 
+    if (btnZoomOut) {
+      btnZoomOut.addEventListener('click', () => {
+        setTargetZoom(targetZoomZ + ZOOM_STEP);
+      });
+    }
+
+    // כפתור עצור / הפעל סיבוב אוטומטי
+    if (btnRotate) {
+      btnRotate.addEventListener('click', () => {
+        setAutoRotate(!isRotating);
+      });
+    }
+
+    // כפתור שקיפות חתך (Cutaway)
     if (btnCutaway) {
       btnCutaway.addEventListener('click', () => {
         const nextState = !isCutawayMode;
         manualCutawayOverride = nextState;
         applyCutawayVisibility(nextState);
-        // רענון שקיפות ה-Meshes הפנימיים בהתאם למצב החדש
-        selectRegion(selectedRegionId);
+        selectRegion(selectedRegionId, false);
       });
     }
 
+    // כפתור איפוס מבט, זום וסיבוב
     if (btnReset) {
       btnReset.addEventListener('click', () => {
         manualCutawayOverride = null;
-        targetRotation.x = 0.14;
-        targetRotation.y = -0.38;
-        camera.position.set(0, 0.15, 4.75);
-        selectRegion('pfc');
+        targetRotation.x = INITIAL_ROT_X;
+        targetRotation.y = INITIAL_ROT_Y;
+        setTargetZoom(DEFAULT_ZOOM_Z);
+        setAutoRotate(true);
+        selectRegion('pfc', false);
       });
     }
 
+    // כפתורי בחירת 4 האזורים / הרשתות המוחיות
     document.querySelectorAll('.brain-region-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const regionId = btn.getAttribute('data-region');
         manualCutawayOverride = null;
-        const regionCfg = BRAIN_REGIONS[regionId];
-        if (regionCfg && regionCfg.defaultView) {
-          targetRotation.x = regionCfg.defaultView.rotX;
-        }
-        selectRegion(regionId);
+        selectRegion(regionId, true);
       });
     });
 

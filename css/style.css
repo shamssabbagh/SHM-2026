@@ -904,15 +904,21 @@ bdi, .bidi-isolate {
 }
 
 /* ==========================================================================
-   שקופית 8 - ממשק מודל Three.js תלת-ממדי אינטראקטיבי
+   שקופית 8 - ממשק מודל Three.js תלת-ממדי אינטראקטיבי (ערכת צבעים עריכתית חמה)
+   Palette: #F7F3ED (Ivory), #502638 (Burgundy), #EBD9DF (Blush), #D85B49 (Coral), #252329 (Charcoal)
    ========================================================================== */
+
+#slide-8 {
+  background: #F7F3ED;
+  color: #252329;
+}
 
 .brain3d-dashboard-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 22px;
-  align-items: stretch;
-  margin-top: 14px;
+  grid-template-columns: 1.38fr 0.92fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 8px;
 }
 
 @media (max-width: 950px) {
@@ -922,92 +928,136 @@ bdi, .bidi-isolate {
 }
 
 .brain3d-viewport-card {
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-lg);
-  padding: 16px;
+  background: #FCF9F5;
+  border: 1px solid rgba(80, 38, 56, 0.24);
+  border-radius: 16px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  gap: 8px;
+  box-shadow: 0 10px 28px rgba(80, 38, 56, 0.08);
   position: relative;
+  color: #252329;
 }
 
 .brain3d-toolbar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 8px;
   flex-wrap: wrap;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(80, 38, 56, 0.14);
   padding-bottom: 10px;
 }
 
+.brain3d-primary-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
 .brain-ctrl-btn {
-  background: var(--bg-card);
-  color: var(--text-main);
-  border: 1px solid var(--border-color);
-  padding: 7px 14px;
+  background: #F7F3ED;
+  color: #502638;
+  border: 1px solid rgba(80, 38, 56, 0.28);
+  padding: 6px 12px;
   border-radius: 9999px;
   font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: all var(--transition-speed);
+  gap: 5px;
+  transition: all 0.2s ease;
+  box-shadow: none;
 }
 
-.brain-ctrl-btn:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
+.brain-ctrl-btn:hover:not(:disabled) {
+  background: #EBD9DF;
+  border-color: #502638;
+  color: #502638;
 }
 
+.brain-ctrl-btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.brain-ctrl-btn.active-mode,
 .brain-ctrl-btn.sound-active {
-  background: rgba(52, 211, 153, 0.15);
-  border-color: rgba(52, 211, 153, 0.4);
-  color: var(--accent-emerald);
+  background: #502638;
+  border-color: #502638;
+  color: #F7F3ED;
+}
+
+/* קבוצת פקדי תקריב גלויים (+ / - / אחוז תקריב) */
+.brain-zoom-control-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #F3E8EC;
+  border: 1px solid rgba(80, 38, 56, 0.22);
+  border-radius: 9999px;
+  padding: 2px 6px;
+}
+
+.brain-ctrl-btn.zoom-btn {
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  background: #FCF9F5;
+}
+
+.brain-zoom-readout {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #502638;
+  min-width: 44px;
+  text-align: center;
+  direction: ltr;
+  user-select: none;
 }
 
 /* קבוצת פקדי סאונד מורחבת (Mute וסליידרים נפרדים) */
 .brain-sound-control-group {
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: rgba(30, 41, 59, 0.6);
-  padding: 4px 12px;
+  gap: 8px;
+  background: #F3E8EC;
+  padding: 4px 10px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(80, 38, 56, 0.16);
   flex-wrap: wrap;
 }
 
 .audio-volume-wrap {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 0 4px;
+  gap: 5px;
+  padding: 0 3px;
 }
 
 .vol-icon {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   user-select: none;
 }
 
 .vol-label {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  font-weight: 600;
+  font-size: 0.76rem;
+  color: #252329;
+  font-weight: 700;
   white-space: nowrap;
 }
 
 .audio-slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 75px;
+  width: 60px;
   height: 5px;
   border-radius: 5px;
-  background: #334155;
+  background: #D9C6CE;
   outline: none;
   cursor: pointer;
   transition: background 0.2s;
@@ -1019,47 +1069,94 @@ bdi, .bidi-isolate {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--accent-cyan);
+  background: #502638;
   cursor: pointer;
-  box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
+  box-shadow: none;
   transition: transform 0.15s ease;
 }
 
 .audio-slider::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
+  transform: scale(1.18);
+  background: #D85B49;
 }
 
 .audio-slider::-moz-range-thumb {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--accent-cyan);
+  background: #502638;
   cursor: pointer;
-  box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
+  box-shadow: none;
 }
 
 .vol-val-text {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-muted);
-  min-width: 44px;
+  font-weight: 700;
+  color: #502638;
+  min-width: 40px;
   text-align: left;
   direction: ltr;
   display: inline-block;
 }
 
-.brain3d-canvas-container {
-  width: 100%;
-  height: 380px;
-  position: relative;
-  background: radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.5) 0%, rgba(11, 15, 25, 0.95) 100%);
-  border-radius: var(--border-radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  overflow: hidden;
-  cursor: grab;
+/* שורת חיווי מצב תצוגה והנחיית גרירה/זום בעברית */
+.brain-status-and-guide-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-.brain3d-canvas-container:active {
+.brain-view-mode-banner {
+  background: #F3E8EC;
+  color: #502638;
+  border: 1px solid rgba(80, 38, 56, 0.16);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.brain-view-mode-banner.cutaway-active {
+  background: rgba(216, 91, 73, 0.14);
+  color: #B83D2B;
+  border-color: rgba(184, 61, 43, 0.35);
+}
+
+.brain-drag-zoom-guide {
+  background: #F7F3ED;
+  color: #252329;
+  border: 1px dashed rgba(80, 38, 56, 0.28);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 0.79rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.brain-drag-zoom-guide strong {
+  color: #502638;
+}
+
+.brain3d-canvas-container {
+  width: 100%;
+  height: clamp(295px, 39vh, 425px);
+  min-height: 295px;
+  position: relative;
+  background: radial-gradient(circle at 50% 46%, #FCF9F5 0%, #EFE6DC 65%, #E4D5C9 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(80, 38, 56, 0.24);
+  box-shadow: inset 0 2px 12px rgba(80, 38, 56, 0.06);
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.brain3d-canvas-container:active,
+.brain3d-canvas-container.is-dragging {
   cursor: grabbing;
 }
 
@@ -1067,30 +1164,35 @@ bdi, .bidi-isolate {
   width: 100% !important;
   height: 100% !important;
   display: block;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 .brain3d-fallback {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: var(--border-radius-md);
-  padding: 24px;
+  background: #F3E8EC;
+  border: 1px solid rgba(216, 91, 73, 0.45);
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
+  color: #252329;
 }
 
 .brain3d-fallback .fallback-icon {
-  font-size: 2.2rem;
-  margin-bottom: 8px;
+  font-size: 2rem;
+  margin-bottom: 6px;
 }
 
 .brain3d-fallback h4 {
   font-family: var(--font-heading);
-  color: #fca5a5;
+  color: #502638;
   margin-bottom: 6px;
 }
 
 .brain3d-fallback p {
-  font-size: 0.9rem;
-  color: #fecdd3;
+  font-size: 0.88rem;
+  color: #252329;
 }
 
 .brain-regions-selector {
@@ -1106,32 +1208,33 @@ bdi, .bidi-isolate {
 }
 
 .brain-region-btn {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  padding: 8px 12px;
-  border-radius: var(--border-radius-md);
-  color: var(--text-main);
+  background: #F7F3ED;
+  border: 1px solid rgba(80, 38, 56, 0.18);
+  padding: 9px 12px;
+  border-radius: 10px;
+  color: #252329;
   font-family: var(--font-heading);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: all var(--transition-speed);
+  transition: all 0.2s ease;
   text-align: right;
+  box-shadow: none;
 }
 
 .brain-region-btn:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: #F3E8EC;
+  border-color: #502638;
 }
 
 .brain-region-btn.active {
-  background: rgba(56, 189, 248, 0.15);
-  border-color: var(--accent-cyan);
-  color: #ffffff;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+  background: #502638;
+  border-color: #502638;
+  color: #F7F3ED;
+  box-shadow: 0 4px 12px rgba(80, 38, 56, 0.18);
 }
 
 .brain-region-btn .dot {
@@ -1139,34 +1242,46 @@ bdi, .bidi-isolate {
   height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: none;
 }
 
-.brain-region-btn .dot.pfc { background-color: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
-.brain-region-btn .dot.amygdala { background-color: var(--accent-rose); box-shadow: 0 0 8px var(--accent-rose); }
-.brain-region-btn .dot.insula { background-color: var(--accent-amber); box-shadow: 0 0 8px var(--accent-amber); }
-.brain-region-btn .dot.nacc { background-color: var(--accent-purple); box-shadow: 0 0 8px var(--accent-purple); }
+.brain-region-btn .dot.pfc { background-color: #6B2D46; }
+.brain-region-btn .dot.amygdala { background-color: #D85B49; }
+.brain-region-btn .dot.insula { background-color: #C26D2D; }
+.brain-region-btn .dot.nacc { background-color: #9E3B66; }
 
 .brain-interaction-hint {
-  font-size: 0.8rem;
-  color: var(--text-subtle);
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #5E5258;
   line-height: 1.4;
+}
+
+.brain-model-credit {
+  font-weight: 700;
+  color: #502638;
 }
 
 /* כרטיסיית המידע המפורטת מימין */
 .brain-info-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-lg);
-  padding: 24px;
+  background: #FCF9F5;
+  border: 1px solid rgba(80, 38, 56, 0.24);
+  border-radius: 16px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  gap: 14px;
+  box-shadow: 0 10px 28px rgba(80, 38, 56, 0.08);
+  color: #252329;
 }
 
 .region-detail-header {
-  border-right: 4px solid var(--accent-cyan);
+  border-right: 4px solid #502638;
   padding-right: 14px;
   display: flex;
   flex-direction: column;
@@ -1175,66 +1290,72 @@ bdi, .bidi-isolate {
 
 .region-title-wrap h3 {
   font-family: var(--font-heading);
-  font-size: 1.45rem;
-  font-weight: 800;
+  font-size: 1.38rem;
+  font-weight: 900;
   line-height: 1.25;
+  color: #502638;
 }
 
 .region-sub-en {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  font-weight: 500;
+  font-size: 0.9rem;
+  color: #5E5258;
+  font-weight: 600;
 }
 
 .region-badge-pill {
   align-self: flex-start;
   padding: 4px 12px;
   border-radius: 9999px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.78rem;
+  font-weight: 800;
   margin-top: 4px;
+  background: #EBD9DF;
+  color: #502638;
+  border: 1px solid rgba(80, 38, 56, 0.24);
 }
 
 .region-detail-body {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: #252329;
 }
 
 .region-desc-summary {
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 12px;
-  border-radius: var(--border-radius-sm);
-  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  color: #252329;
+  background: #F7F3ED;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(80, 38, 56, 0.14);
+  border-right: 3px solid #502638;
 }
 
 .region-block h5 {
   font-size: 0.95rem;
-  color: var(--accent-cyan);
-  margin-bottom: 4px;
-  font-weight: 700;
+  color: #502638;
+  margin-bottom: 6px;
+  font-weight: 800;
 }
 
 .region-block p {
-  color: var(--text-muted);
+  color: #252329;
 }
 
 .region-academic-disclaimer {
-  background: rgba(251, 191, 36, 0.08);
-  border: 1px dashed rgba(251, 191, 36, 0.35);
+  background: #F3E8EC;
+  border: 1px dashed rgba(80, 38, 56, 0.28);
   padding: 10px 14px;
-  border-radius: var(--border-radius-sm);
+  border-radius: 8px;
   font-size: 0.82rem;
-  color: #fef08a;
+  color: #252329;
   line-height: 1.45;
   margin-top: auto;
 }
 
 .region-academic-disclaimer strong {
-  color: var(--accent-amber);
+  color: #502638;
 }
 
 /* ==========================================================================
@@ -4206,51 +4327,61 @@ bdi, .bidi-isolate {
 }
 
 /* התאמת רקע הדף וסרגל הניווט כאשר שקופית פיילוט פעילה */
+body.editorial-active,
 body:has(.slide.editorial-pilot.active) {
   background: #EFE9E0;
   color: #252329;
 }
 
+body.editorial-active .progress-container,
 body:has(.slide.editorial-pilot.active) .progress-container {
   background-color: rgba(80, 38, 56, 0.12);
 }
 
+body.editorial-active .progress-bar,
 body:has(.slide.editorial-pilot.active) .progress-bar {
   background: linear-gradient(90deg, #502638 0%, #D85B49 100%);
   box-shadow: none;
 }
 
+body.editorial-active .navigation-bar,
 body:has(.slide.editorial-pilot.active) .navigation-bar {
   background: rgba(247, 243, 237, 0.95);
   border-top: 1px solid rgba(80, 38, 56, 0.16);
 }
 
+body.editorial-active .slide-counter,
 body:has(.slide.editorial-pilot.active) .slide-counter {
   color: #502638;
 }
 
+body.editorial-active .slide-hint,
 body:has(.slide.editorial-pilot.active) .slide-hint {
   color: #5A5258;
 }
 
+body.editorial-active .nav-btn,
 body:has(.slide.editorial-pilot.active) .nav-btn {
   background: #EBD9DF;
   color: #502638;
   border: 1px solid rgba(80, 38, 56, 0.22);
 }
 
+body.editorial-active .nav-btn:hover:not(:disabled),
 body:has(.slide.editorial-pilot.active) .nav-btn:hover:not(:disabled) {
   background: #e2cad3;
   color: #502638;
   border-color: #502638;
 }
 
+body.editorial-active .nav-btn.primary,
 body:has(.slide.editorial-pilot.active) .nav-btn.primary {
   background: #502638;
   color: #F7F3ED;
   border: 1px solid #502638;
 }
 
+body.editorial-active .nav-btn.primary:hover:not(:disabled),
 body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   background: #673249;
   color: #FFFFFF;
@@ -5102,16 +5233,21 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
 
 /* ------------------ שקופית 8: מודל מוח אנטומי תלת-ממדי בעיצוב עריכתי (Editorial) ------------------ */
 
+#slide-8,
 #slide-8.editorial-pilot {
   padding: 24px 36px;
+  background: var(--ed-bg);
+  color: var(--ed-charcoal);
 }
 
+#slide-8 .slide-header,
 #slide-8.editorial-pilot .slide-header {
   border-bottom: 1px solid var(--ed-border);
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
 
+#slide-8 .slide-title-group h2,
 #slide-8.editorial-pilot .slide-title-group h2 {
   background: none;
   -webkit-text-fill-color: initial;
@@ -5120,6 +5256,7 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   font-weight: 900;
 }
 
+#slide-8 .slide-subtitle,
 #slide-8.editorial-pilot .slide-subtitle {
   color: var(--ed-muted);
   font-size: 0.96rem;
@@ -5127,6 +5264,7 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   margin-top: 2px;
 }
 
+#slide-8 .slide-badge,
 #slide-8.editorial-pilot .slide-badge {
   background: var(--ed-blush);
   color: var(--ed-burgundy);
@@ -5134,6 +5272,7 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   font-weight: 800;
 }
 
+#slide-8 .scientific-notice,
 #slide-8.editorial-pilot .scientific-notice {
   background: var(--ed-blush-soft);
   border: 1px solid var(--ed-border);
@@ -5145,6 +5284,7 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   margin-bottom: 12px;
 }
 
+#slide-8 .scientific-notice strong,
 #slide-8.editorial-pilot .scientific-notice strong {
   color: var(--ed-burgundy);
 }
@@ -5181,7 +5321,7 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
 #slide-8.editorial-pilot .brain3d-primary-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
@@ -5196,10 +5336,15 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   box-shadow: none;
 }
 
-#slide-8.editorial-pilot .brain-ctrl-btn:hover {
+#slide-8.editorial-pilot .brain-ctrl-btn:hover:not(:disabled) {
   background: var(--ed-blush);
   border-color: var(--ed-burgundy);
   color: var(--ed-burgundy);
+}
+
+#slide-8.editorial-pilot .brain-ctrl-btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
 }
 
 #slide-8.editorial-pilot .brain-ctrl-btn.active-mode,
@@ -5207,6 +5352,33 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   background: var(--ed-burgundy);
   border-color: var(--ed-burgundy);
   color: var(--ed-bg);
+}
+
+#slide-8.editorial-pilot .brain-zoom-control-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 9999px;
+  padding: 2px 6px;
+}
+
+#slide-8.editorial-pilot .brain-ctrl-btn.zoom-btn {
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  background: var(--ed-surface);
+}
+
+#slide-8.editorial-pilot .brain-zoom-readout {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--ed-burgundy);
+  min-width: 44px;
+  text-align: center;
+  direction: ltr;
+  user-select: none;
 }
 
 #slide-8.editorial-pilot .brain-sound-control-group {
@@ -5239,13 +5411,19 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   box-shadow: none;
 }
 
+#slide-8.editorial-pilot .brain-status-and-guide-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 #slide-8.editorial-pilot .brain-view-mode-banner {
   background: var(--ed-blush-soft);
   color: var(--ed-burgundy);
   border: 1px solid var(--ed-border);
   border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 0.82rem;
+  padding: 5px 12px;
+  font-size: 0.8rem;
   font-weight: 700;
   text-align: center;
 }
@@ -5256,14 +5434,32 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   border-color: rgba(184, 61, 43, 0.35);
 }
 
+#slide-8.editorial-pilot .brain-drag-zoom-guide {
+  background: var(--ed-bg);
+  color: var(--ed-charcoal);
+  border: 1px dashed var(--ed-border-strong);
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 0.79rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+#slide-8.editorial-pilot .brain-drag-zoom-guide strong {
+  color: var(--ed-burgundy);
+}
+
 #slide-8.editorial-pilot .brain3d-canvas-container {
   width: 100%;
-  height: clamp(290px, 38vh, 420px);
-  min-height: 290px;
+  height: clamp(295px, 39vh, 425px);
+  min-height: 295px;
   background: radial-gradient(circle at 50% 46%, #FCF9F5 0%, #EFE6DC 65%, #E4D5C9 100%);
   border: 1px solid var(--ed-border-strong);
   border-radius: 12px;
   box-shadow: inset 0 2px 12px rgba(80, 38, 56, 0.06);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 #slide-8.editorial-pilot .brain-regions-selector {
