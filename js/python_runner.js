@@ -574,6 +574,30 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
   };
 
   /**
+   * המרת מילוני Python (Map מ-Pyodide) לאובייקטי JavaScript רגילים באופן רקורסיבי
+   */
+  function mapToPlainObject(value) {
+    if (value instanceof Map) {
+      const plain = {};
+      value.forEach((val, key) => {
+        plain[key] = mapToPlainObject(val);
+      });
+      return plain;
+    }
+    if (Array.isArray(value)) {
+      return value.map(mapToPlainObject);
+    }
+    if (value !== null && typeof value === 'object') {
+      const plain = {};
+      Object.keys(value).forEach((key) => {
+        plain[key] = mapToPlainObject(value[key]);
+      });
+      return plain;
+    }
+    return value;
+  }
+
+  /**
    * חישוב השוואת פרסומת רגשית מול ניטרלית באמצעות Python (שקופית 19)
    */
   window.calculateEmotionalAdPython = function (adA, adB) {
@@ -581,9 +605,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
     try {
       const pyCmd = `calculate_emotional_ad_comparison(${JSON.stringify(adA)}, ${JSON.stringify(adB)})`;
       const proxy = state.pyodide.runPython(pyCmd);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Emotional Ad Python Runner] Python execution warning:', e);
       return null;
