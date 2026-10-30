@@ -1,78 +1,138 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" width="100%" height="100%">
   <defs>
-    <linearGradient id="sys1-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.1"/>
+    <!-- רקע כללי בעיצוב עריכתי חם -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCF9F5"/>
+      <stop offset="100%" stop-color="#F7F3ED"/>
     </linearGradient>
-    <linearGradient id="sys2-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.1"/>
+
+    <!-- גרדיאנט כרטיס מערכת 1 (קורל חם - אינטואיטיבית ומהירה) -->
+    <linearGradient id="sys1Card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDF4F2"/>
+      <stop offset="100%" stop-color="#FCF9F5"/>
     </linearGradient>
-    <filter id="glow-sys" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+
+    <!-- גרדיאנט כרטיס מערכת 2 (בורגונדי עמוק - אנליטית ומבוקרת) -->
+    <linearGradient id="sys2Card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F6EEF1"/>
+      <stop offset="100%" stop-color="#FCF9F5"/>
+    </linearGradient>
+
+    <!-- צללית עדינה לכרטיסים -->
+    <filter id="cardShadow" x="-4%" y="-4%" width="108%" height="110%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#502638" flood-opacity="0.08"/>
     </filter>
   </defs>
 
-  <!-- Background Canvas -->
-  <rect width="800" height="420" rx="16" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <!-- רקע -->
+  <rect width="1100" height="560" rx="22" fill="url(#bgGrad)" stroke="#DEC7D0" stroke-width="2"/>
 
-  <!-- Grid lines -->
-  <line x1="400" y1="30" x2="400" y2="390" stroke="#334155" stroke-width="2" stroke-dasharray="6,6"/>
-
-  <!-- System 1 Left Box -->
-  <rect x="30" y="30" width="350" height="360" rx="12" fill="url(#sys1-grad)" stroke="#f59e0b" stroke-width="1.5"/>
-  <circle cx="80" cy="80" r="28" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
-  <text x="80" y="88" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle" fill="#fbbf24">⚡</text>
-
-  <text x="125" y="75" font-family="'Heebo', system-ui, sans-serif" font-size="20" font-weight="800" fill="#fef3c7">מערכת 1 (System 1)</text>
-  <text x="125" y="98" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#f59e0b">עיבוד אינטואיטיבי, רגשי ואוטומטי</text>
-
-  <!-- System 1 features -->
-  <g transform="translate(50, 130)">
-    <rect width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <text x="290" y="26" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מהירות: מיידית (מילישניות)</text>
-    <circle cx="25" cy="21" r="5" fill="#f59e0b"/>
-
-    <rect y="52" width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <text x="290" y="78" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מאמץ מנטלי: כמעט אפסי (ברירת מחדל)</text>
-    <circle cx="25" cy="73" r="5" fill="#f59e0b"/>
-
-    <rect y="104" width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <text x="290" y="130" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מניע: אסוציאציות, הרגלים ורגשות</text>
-    <circle cx="25" cy="125" r="5" fill="#f59e0b"/>
-
-    <rect y="156" width="310" height="74" rx="8" fill="rgba(245, 158, 11, 0.12)" stroke="#f59e0b" stroke-width="1"/>
-    <text x="295" y="180" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#fbbf24" text-anchor="end">יישום שיווקי: קניות אימפולסיביות</text>
-    <text x="295" y="202" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#fed7aa" text-anchor="end">רכישה בלחיצת כפתור (1-Click), מיתוג מושך, אריזות בולטות</text>
-    <text x="295" y="218" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#fed7aa" text-anchor="end">ומבצעים מעוררי דחיפות (Urgency Cues)</text>
+  <!-- רשת עדינה ברקע -->
+  <g stroke="#EBD9DF" stroke-width="1" opacity="0.55">
+    <line x1="0" y1="110" x2="1100" y2="110"/>
+    <line x1="0" y1="280" x2="1100" y2="280"/>
+    <line x1="0" y1="450" x2="1100" y2="450"/>
+    <line x1="550" y1="90" x2="550" y2="500" stroke-dasharray="6,6"/>
   </g>
 
-  <!-- System 2 Right Box -->
-  <rect x="420" y="30" width="350" height="360" rx="12" fill="url(#sys2-grad)" stroke="#38bdf8" stroke-width="1.5"/>
-  <circle cx="470" cy="80" r="28" fill="#38bdf8" fill-opacity="0.2" stroke="#38bdf8" stroke-width="2"/>
-  <text x="470" y="88" font-family="system-ui, sans-serif" font-size="24" text-anchor="middle" fill="#38bdf8">🔍</text>
+  <!-- כותרת עליונה של האיור -->
+  <text x="550" y="46" text-anchor="middle" fill="#502638" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="23" font-weight="800">
+    ארכיטקטורת קבלת ההחלטות: מערכת 1 מול מערכת 2 (Stanovich &amp; West, 2000; Kahneman, 2011)
+  </text>
+  <text x="550" y="74" text-anchor="middle" fill="#5A5258" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600">
+    השוואה תפקודית בין מסלול עיבוד אוטומטי-אסוציאטיבי למסלול בקרה רפלקטיבי ומאומץ בהתנהגות צרכנים
+  </text>
 
-  <text x="515" y="75" font-family="'Heebo', system-ui, sans-serif" font-size="20" font-weight="800" fill="#f0f9ff">מערכת 2 (System 2)</text>
-  <text x="515" y="98" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#38bdf8">עיבוד איטי, מבוקר, מודע ואנליטי</text>
+  <!-- ==================== צד ימין: מערכת 1 ==================== -->
+  <g transform="translate(585, 98)" filter="url(#cardShadow)">
+    <rect width="465" height="390" rx="18" fill="url(#sys1Card)" stroke="#D85B49" stroke-width="2.2"/>
+    
+    <!-- תגית עליונה -->
+    <rect x="295" y="20" width="145" height="34" rx="17" fill="#FADCD6" stroke="#D85B49" stroke-width="1.5"/>
+    <text x="367" y="42" text-anchor="middle" fill="#B83D2B" font-family="sans-serif" font-size="14" font-weight="800">דומיננטית בשגרה</text>
 
-  <!-- System 2 features -->
-  <g transform="translate(440, 130)">
-    <rect width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <text x="290" y="26" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מהירות: איטית, שקולה ומדורגת</text>
-    <circle cx="25" cy="21" r="5" fill="#38bdf8"/>
+    <!-- אייקון ברק / מהירות -->
+    <circle cx="60" cy="48" r="26" fill="#FADCD6" stroke="#D85B49" stroke-width="2"/>
+    <path d="M64 30 L47 50 L59 50 L55 66 L73 45 L61 45 Z" fill="#D85B49"/>
 
-    <rect y="52" width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <text x="290" y="78" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מאמץ מנטלי: גבוה, דורש ריכוז מלא</text>
-    <circle cx="25" cy="73" r="5" fill="#38bdf8"/>
+    <text x="440" y="88" text-anchor="end" fill="#502638" font-family="sans-serif" font-size="25" font-weight="800">מערכת 1 (System 1)</text>
+    <text x="440" y="114" text-anchor="end" fill="#B83D2B" font-family="sans-serif" font-size="16" font-weight="700">הטייס האוטומטי האינטואיטיבי</text>
 
-    <rect y="104" width="310" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="0.8"/>
-    <text x="290" y="130" font-family="'Heebo', system-ui, sans-serif" font-size="14" fill="#f8fafc" text-anchor="end">מניע: לוגיקה, השוואת מחירים, תועלת</text>
-    <circle cx="25" cy="125" r="5" fill="#38bdf8"/>
+    <line x1="25" y1="132" x2="440" y2="132" stroke="#E5B8B0" stroke-width="1.5"/>
 
-    <rect y="156" width="310" height="74" rx="8" fill="rgba(56, 189, 248, 0.12)" stroke="#38bdf8" stroke-width="1"/>
-    <text x="295" y="180" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#7dd3fc" text-anchor="end">יישום שיווקי: מעורבות גבוהה</text>
-    <text x="295" y="202" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#bae6fd" text-anchor="end">מפרטים טכניים מפורטים, טבלאות השוואת תכונות,</text>
-    <text x="295" y="218" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#bae6fd" text-anchor="end">ביקורות מומחים והוכחת כדאיות כלכלית ארוכת טווח</text>
+    <!-- מדדי מהירות ומאמץ -->
+    <text x="440" y="162" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="14" font-weight="700">מהירות תגובה קוגניטיבית:</text>
+    <rect x="25" y="149" width="230" height="14" rx="7" fill="#EFE6DC"/>
+    <rect x="35" y="149" width="220" height="14" rx="7" fill="#D85B49"/>
+
+    <text x="440" y="194" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="14" font-weight="700">צריכת אנרגיה וקשב מכוון:</text>
+    <rect x="25" y="181" width="230" height="14" rx="7" fill="#EFE6DC"/>
+    <rect x="210" y="181" width="45" height="14" rx="7" fill="#2E6B56"/>
+
+    <!-- רשימת מאפיינים -->
+    <g fill="#252329" font-family="sans-serif" font-size="15" text-anchor="end">
+      <text x="420" y="234">• פועלת באופן אוטומטי, מהיר וללא תחושת מאמץ מכוון</text>
+      <text x="420" y="264">• נשענת על רגשות, אסוציאציות מיידיות וזיכרון חווייתי</text>
+      <text x="420" y="294">• מונעת על ידי גירויים חזותיים בולטים (צבע, פנים, תנועה)</text>
+      <text x="420" y="324">• חשופה להטיות קוגניטיביות (עיגון, מסגור, היוריסטיקת זמינות)</text>
+    </g>
+
+    <!-- קופסת דוגמה צרכנית -->
+    <rect x="25" y="340" width="415" height="36" rx="10" fill="#FADCD6" stroke="#D85B49" stroke-width="1"/>
+    <text x="232" y="363" text-anchor="middle" fill="#8A2516" font-family="sans-serif" font-size="13.5" font-weight="700">
+      דוגמה: הוספת חטיף בסל הקופה או משיכה מיידית לתווית "מבצע 50%"
+    </text>
   </g>
+
+  <!-- ==================== צד שמאל: מערכת 2 ==================== -->
+  <g transform="translate(50, 98)" filter="url(#cardShadow)">
+    <rect width="465" height="390" rx="18" fill="url(#sys2Card)" stroke="#502638" stroke-width="2.2"/>
+
+    <!-- תגית עליונה -->
+    <rect x="295" y="20" width="145" height="34" rx="17" fill="#EBD9DF" stroke="#502638" stroke-width="1.5"/>
+    <text x="367" y="42" text-anchor="middle" fill="#502638" font-family="sans-serif" font-size="14" font-weight="800">בקרה רפלקטיבית</text>
+
+    <!-- אייקון גלגל שיניים / אנליזה -->
+    <circle cx="60" cy="48" r="26" fill="#EBD9DF" stroke="#502638" stroke-width="2"/>
+    <circle cx="60" cy="48" r="10" fill="none" stroke="#502638" stroke-width="3.5" stroke-dasharray="6,3"/>
+    <circle cx="60" cy="48" r="4" fill="#502638"/>
+
+    <text x="440" y="88" text-anchor="end" fill="#502638" font-family="sans-serif" font-size="25" font-weight="800">מערכת 2 (System 2)</text>
+    <text x="440" y="114" text-anchor="end" fill="#6B2D46" font-family="sans-serif" font-size="16" font-weight="700">המבקר האנליטי והרציונלי</text>
+
+    <line x1="25" y1="132" x2="440" y2="132" stroke="#DEC7D0" stroke-width="1.5"/>
+
+    <!-- מדדי מהירות ומאמץ -->
+    <text x="440" y="162" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="14" font-weight="700">מהירות תגובה קוגניטיבית:</text>
+    <rect x="25" y="149" width="230" height="14" rx="7" fill="#EFE6DC"/>
+    <rect x="195" y="149" width="60" height="14" rx="7" fill="#502638"/>
+
+    <text x="440" y="194" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="14" font-weight="700">צריכת אנרגיה וקשב מכוון:</text>
+    <rect x="25" y="181" width="230" height="14" rx="7" fill="#EFE6DC"/>
+    <rect x="45" y="181" width="210" height="14" rx="7" fill="#B83D2B"/>
+
+    <!-- רשימת מאפיינים -->
+    <g fill="#252329" font-family="sans-serif" font-size="15" text-anchor="end">
+      <text x="420" y="234">• פועלת באופן איטי, סדרתי ודורשת ריכוז קשבי מכוון</text>
+      <text x="420" y="264">• מבצעת חישובים, השוואת מפרטים ושקילת עלות מול תועלת</text>
+      <text x="420" y="294">• מתעוררת כשמערכת 1 נתקלת בהפתעה, מורכבות או סיכון גבוה</text>
+      <text x="420" y="324">• נוטה ל"חסכנות קוגניטיבית" ומתעייפת תחת עומס מידע</text>
+    </g>
+
+    <!-- קופסת דוגמה צרכנית -->
+    <rect x="25" y="340" width="415" height="36" rx="10" fill="#EBD9DF" stroke="#502638" stroke-width="1"/>
+    <text x="232" y="363" text-anchor="middle" fill="#502638" font-family="sans-serif" font-size="13.5" font-weight="700">
+      דוגמה: השוואת תנאי משכנתא, פוליסות ביטוח או מפרט טכני של מחשב
+    </text>
+  </g>
+
+  <!-- צומת מרכזי ביניהן -->
+  <circle cx="550" cy="293" r="32" fill="#502638" stroke="#FCF9F5" stroke-width="3"/>
+  <text x="550" y="299" text-anchor="middle" fill="#FCF9F5" font-family="sans-serif" font-size="16" font-weight="800">VS</text>
+
+  <!-- שורת סיכום תחתונה -->
+  <rect x="130" y="504" width="840" height="40" rx="20" fill="#EBD9DF" stroke="#502638" stroke-width="1.5"/>
+  <text x="550" y="529" text-anchor="middle" fill="#252329" font-family="sans-serif" font-size="14.5" font-weight="700">
+    תובנת מפתח: מערכת 1 מנסחת הצעת החלטה מהירה — מערכת 2 לרוב מאשרת אותה, ומתערבת בעיקר כשעולה קושי או סיכון כספי
+  </text>
 </svg>

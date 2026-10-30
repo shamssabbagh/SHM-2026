@@ -1090,13 +1090,14 @@ bdi, .bidi-isolate {
 }
 
 .vol-val-text {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
   font-weight: 700;
   color: #502638;
-  min-width: 40px;
-  text-align: left;
-  direction: ltr;
+  min-width: 38px;
+  text-align: right;
+  direction: rtl;
+  unicode-bidi: plaintext;
   display: inline-block;
 }
 
@@ -1104,16 +1105,16 @@ bdi, .bidi-isolate {
 .brain-status-and-guide-row {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .brain-view-mode-banner {
   background: #F3E8EC;
   color: #502638;
   border: 1px solid rgba(80, 38, 56, 0.16);
-  border-radius: 8px;
-  padding: 5px 12px;
-  font-size: 0.8rem;
+  border-radius: 7px;
+  padding: 4px 10px;
+  font-size: 0.77rem;
   font-weight: 700;
   text-align: center;
 }
@@ -1128,10 +1129,10 @@ bdi, .bidi-isolate {
   background: #F7F3ED;
   color: #252329;
   border: 1px dashed rgba(80, 38, 56, 0.28);
-  border-radius: 8px;
-  padding: 5px 12px;
-  font-size: 0.79rem;
-  line-height: 1.4;
+  border-radius: 7px;
+  padding: 4px 10px;
+  font-size: 0.76rem;
+  line-height: 1.35;
   text-align: center;
 }
 
@@ -1141,8 +1142,8 @@ bdi, .bidi-isolate {
 
 .brain3d-canvas-container {
   width: 100%;
-  height: clamp(295px, 39vh, 425px);
-  min-height: 295px;
+  height: clamp(225px, 27.5vh, 280px);
+  min-height: 225px;
   position: relative;
   background: radial-gradient(circle at 50% 46%, #FCF9F5 0%, #EFE6DC 65%, #E4D5C9 100%);
   border-radius: 12px;
@@ -5235,7 +5236,7 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
 
 #slide-8,
 #slide-8.editorial-pilot {
-  padding: 24px 36px;
+  padding: 18px 30px;
   background: var(--ed-bg);
   color: var(--ed-charcoal);
 }
@@ -5243,8 +5244,8 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
 #slide-8 .slide-header,
 #slide-8.editorial-pilot .slide-header {
   border-bottom: 1px solid var(--ed-border);
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 #slide-8 .slide-title-group h2,
@@ -5252,14 +5253,14 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   background: none;
   -webkit-text-fill-color: initial;
   color: var(--ed-burgundy);
-  font-size: 1.72rem;
+  font-size: 1.6rem;
   font-weight: 900;
 }
 
 #slide-8 .slide-subtitle,
 #slide-8.editorial-pilot .slide-subtitle {
   color: var(--ed-muted);
-  font-size: 0.96rem;
+  font-size: 0.9rem;
   font-weight: 600;
   margin-top: 2px;
 }
@@ -5278,10 +5279,10 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   border: 1px solid var(--ed-border);
   border-right: 4px solid var(--ed-burgundy);
   color: var(--ed-charcoal);
-  padding: 8px 14px;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  margin-bottom: 12px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
 }
 
 #slide-8 .scientific-notice strong,
@@ -5292,19 +5293,19 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
 #slide-8.editorial-pilot .brain3d-dashboard-grid {
   display: grid;
   grid-template-columns: 1.38fr 0.92fr;
-  gap: 20px;
+  gap: 16px;
   align-items: start;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 #slide-8.editorial-pilot .brain3d-viewport-card {
   background: var(--ed-surface);
   border: 1px solid var(--ed-border-strong);
   border-radius: 16px;
-  padding: 14px 16px;
+  padding: 10px 14px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   box-shadow: 0 10px 28px rgba(80, 38, 56, 0.08);
 }
 
@@ -5312,16 +5313,16 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
   border-bottom: 1px solid var(--ed-border);
-  padding-bottom: 10px;
+  padding-bottom: 6px;
 }
 
 #slide-8.editorial-pilot .brain3d-primary-controls {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   flex-wrap: wrap;
 }
 
@@ -5329,9 +5330,9 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
   background: var(--ed-bg);
   color: var(--ed-burgundy);
   border: 1px solid var(--ed-border-strong);
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 9999px;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   box-shadow: none;
 }
@@ -5451,8 +5452,8 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
 
 #slide-8.editorial-pilot .brain3d-canvas-container {
   width: 100%;
-  height: clamp(295px, 39vh, 425px);
-  min-height: 295px;
+  height: clamp(225px, 27.5vh, 280px);
+  min-height: 225px;
   background: radial-gradient(circle at 50% 46%, #FCF9F5 0%, #EFE6DC 65%, #E4D5C9 100%);
   border: 1px solid var(--ed-border-strong);
   border-radius: 12px;
@@ -5465,14 +5466,14 @@ body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
 #slide-8.editorial-pilot .brain-regions-selector {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 6px;
 }
 
 #slide-8.editorial-pilot .brain-region-btn {
   background: var(--ed-bg);
   border: 1px solid var(--ed-border);
   color: var(--ed-charcoal);
-  padding: 9px 12px;
+  padding: 7px 10px;
   border-radius: 10px;
   font-size: 0.86rem;
   font-weight: 700;

@@ -271,15 +271,16 @@
       // חישוב צבע אנטומי עם ניגודיות תלת-ממדית ברורה בין חריצים (Sulci) לקמטים (Gyri)
       const s = sulcQuant ? sulcQuant[i] / 100.0 : 0;
       if (colorMode === 'cortex') {
-        const t = Math.max(0, Math.min(1, (s + 0.78) / 1.56));
+        const t = Math.max(0, Math.min(1, (s + 0.65) / 1.30));
         const smoothT = t * t * (3 - 2 * t); // Smoothstep להדגשת עומק החריצים הקורטיקליים
-        // בחריצים העמוקים (Sulci): גוון בורגונדי-טאופ מוצל (#7D5A62); בראשי הקמטים (Gyri): שנהב-אנטומי חם (#F3E7DD)
-        colors[i3] = 0.49 + 0.46 * smoothT;     // R: 0.49 -> 0.95
-        colors[i3 + 1] = 0.35 + 0.55 * smoothT; // G: 0.35 -> 0.90
-        colors[i3 + 2] = 0.38 + 0.48 * smoothT; // B: 0.38 -> 0.86
+        // בחריצים העמוקים (Sulci): גוון בורגונדי-רוז מוצל; בראשי הקמטים (Gyri): שנהב-סומק אנטומי חם
+        colors[i3] = 0.38 + 0.50 * smoothT;     // R: 0.38 -> 0.88
+        colors[i3 + 1] = 0.23 + 0.53 * smoothT; // G: 0.23 -> 0.76
+        colors[i3 + 2] = 0.27 + 0.46 * smoothT; // B: 0.27 -> 0.73
       } else {
-        const t = Math.max(0, Math.min(1, (s + 0.85) / 1.7));
-        const shade = 0.72 + 0.28 * t;
+        const t = Math.max(0, Math.min(1, (s + 0.65) / 1.30));
+        const smoothT = t * t * (3 - 2 * t);
+        const shade = 0.46 + 0.54 * smoothT;
         colors[i3] = shade;
         colors[i3 + 1] = shade;
         colors[i3 + 2] = shade;
@@ -330,32 +331,32 @@
         camera = new THREE.PerspectiveCamera(38, aspect, 0.1, 100);
         camera.position.set(0, 0.08, DEFAULT_ZOOM_Z);
 
-        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
         renderer.setSize(initWidth, initHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
         renderer.setClearColor(0x000000, 0);
         container.appendChild(renderer.domElement);
 
-        // מערך תאורה תלת-ממדית עשיר להדגשת נפח הקמטים והחריצים הקורטיקליים
-        const ambientLight = new THREE.AmbientLight(0xfff6ee, 0.58);
+        // מערך תאורה תלת-ממדית מכויל להדגשת נפח הקמטים והחריצים הקורטיקליים (ללא רוויית יתר לבנה)
+        const ambientLight = new THREE.AmbientLight(0xf3e4dc, 0.26);
         scene.add(ambientLight);
 
         if (THREE.HemisphereLight) {
-          const hemiLight = new THREE.HemisphereLight(0xfffaf4, 0x502638, 0.62);
+          const hemiLight = new THREE.HemisphereLight(0xfff5ed, 0x3d1a28, 0.26);
           hemiLight.position.set(0, 7, 0);
           scene.add(hemiLight);
         }
 
         const DirLightCtor = THREE.DirectionalLight || THREE.PointLight;
-        const keyLight = new DirLightCtor(0xfff7ef, 0.92);
+        const keyLight = new DirLightCtor(0xfff6ee, 0.50);
         keyLight.position.set(4.8, 6.2, 5.8);
         scene.add(keyLight);
 
-        const fillLight = new DirLightCtor(0xf4dce3, 0.48);
+        const fillLight = new DirLightCtor(0xe8cdd6, 0.20);
         fillLight.position.set(-5.5, 1.8, 3.8);
         scene.add(fillLight);
 
-        const rimLight = new DirLightCtor(0xd85b49, 0.36);
+        const rimLight = new DirLightCtor(0xd85b49, 0.16);
         rimLight.position.set(0.5, -4.5, -5.5);
         scene.add(rimLight);
 
@@ -714,16 +715,16 @@
 
       if (id === regionId) {
         rMesh.material.opacity = 0.98;
-        rMesh.material.emissive = new THREE.Color(rCfg.colorNum);
+        rMesh.material.emissive = new THREE.Color(rCfg.emissiveNum);
         if (typeof rMesh.material.emissiveIntensity === 'number') {
-          rMesh.material.emissiveIntensity = 0.42;
+          rMesh.material.emissiveIntensity = 0.22;
         }
         rMesh.renderOrder = 6;
       } else {
-        rMesh.material.opacity = isCutawayMode ? 0.36 : 0.20;
+        rMesh.material.opacity = isCutawayMode ? 0.38 : 0.22;
         rMesh.material.emissive = new THREE.Color(rCfg.emissiveNum);
         if (typeof rMesh.material.emissiveIntensity === 'number') {
-          rMesh.material.emissiveIntensity = 0.12;
+          rMesh.material.emissiveIntensity = 0.06;
         }
         rMesh.renderOrder = 2;
       }
@@ -800,6 +801,10 @@
           </details>
         </div>
       `;
+    }
+
+    if (renderer && scene && camera) {
+      renderer.render(scene, camera);
     }
   }
 
@@ -1074,6 +1079,9 @@
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
+    if (scene && camera) {
+      renderer.render(scene, camera);
+    }
   }
 
   if (document.readyState === 'loading') {
