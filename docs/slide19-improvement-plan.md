@@ -3,7 +3,7 @@
 - **Project:** The Consumer Brain (`SHM-2026`)
 - **Branch:** `malak-improvments`
 - **Overall Status:** `IMPLEMENTED (Stages 1–5 implemented in code & verified via automated Node.js + Python 3.11 harness; manual browser check open on local server)`
-- **Related Documents:** [`docs/visual-redesign-plan.md`](visual-redesign-plan.md) | [`docs/content-audit.md`](content-audit.md) | [`docs/video-ad-production-plan.md`](video-ad-production-plan.md)
+- **Related Documents:** [`docs/visual-redesign-plan.md`](visual-redesign-plan.md) | [`docs/content-audit.md`](content-audit.md) | [`docs/video-ad-production-plan.md`](video-ad-production-plan.md) | [`docs/lecturer-requirements-checklist.md`](lecturer-requirements-checklist.md)
 
 ---
 
@@ -95,7 +95,11 @@
 
 ---
 
-## Session Saving & Checkpoint Workflow
-- Save files continuously during work and record every user prompt verbatim in `prompts/`.
-- Clearly separate **completed**, **planned/in-production**, and **untested** work across `README.md`, `docs/`, and `prompts/`.
-- After each completed, verified milestone, run quality/diff checks and create a clearly named checkpoint commit on `malak-improvments` (pushing normally to `origin/malak-improvments` without force-pushing or merging into `main`).
+## Session Saving & Checkpoint Workflow (Project Agent Instructions)
+- **Autonomous Execution Within Agreed Scope:** Work autonomously within the agreed project scope without repeatedly asking for routine confirmation. Read and edit project files, run relevant local checks, update documentation, and create meaningful commits and normal pushes to `malak-improvments` (while respecting application permission controls). Ask only for essential missing information or before destructive actions, paid purchases, exposing credentials, force-pushing, or merging into `main`.
+- **Continuous Saving & Verbatim Prompt Logging:** Save files continuously during work and record every user prompt verbatim in `prompts/`.
+- **Honest Status Separation:** Clearly separate **completed**, **planned/in-production**, and **untested** work across `README.md`, `PRD.md`, `docs/`, and `prompts/`.
+- **Post-Milestone Workflow:** After each meaningful completed milestone:
+  1. Test the changes (explicitly distinguishing Python execution from the JavaScript fallback, and automated checks from manual browser checks).
+  2. Update `README.md` and the chronological prompt history in `prompts/`.
+  3. Commit on `malak-improvments` with a meaningful commit message (never create empty or artificial commits) and push normally to `origin/malak-improvments` (never force-push or merge into `main`).
