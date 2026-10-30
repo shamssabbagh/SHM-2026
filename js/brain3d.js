@@ -141,15 +141,17 @@
       // 1. הגדרת Scene
       scene = new THREE.Scene();
 
-      // 2. הגדרת Camera
-      const aspect = container.clientWidth / container.clientHeight;
+      // 2. הגדרת Camera (עם ממדי ברירת מחדל בטוחים כאשר שקופית 8 עדיין מוסתרת)
+      const initWidth = container.clientWidth || 640;
+      const initHeight = container.clientHeight || 420;
+      const aspect = initWidth / initHeight;
       camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 100);
       camera.position.set(0, 0, 5.2);
 
       // 3. הגדרת Renderer
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(initWidth, initHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setClearColor(0x000000, 0); // רקע שקוף
       container.appendChild(renderer.domElement);
 
@@ -595,6 +597,7 @@
     document.addEventListener('slideChanged', (e) => {
       if (e.detail && e.detail.slideNumber === 8) {
         onWindowResize();
+        setTimeout(onWindowResize, 0);
         startAnimation();
       } else {
         stopAnimation();

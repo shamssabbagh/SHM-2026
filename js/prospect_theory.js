@@ -162,15 +162,30 @@
   function updateUI() {
     const isLoss = state.mode === 'loss';
     const amount = state.amount;
-    const calc = calculateProspectValue(amount, isLoss);
+    let calc = null;
 
-    // קריאה לרקע ב-Python WebAssembly אם זמין
+    // קריאה לחישוב ב-Python WebAssembly אם זמין, עם גיבוי מקומי מדויק
     if (typeof window.calculateProspectPython === 'function') {
       try {
-        window.calculateProspectPython(amount, isLoss);
+        const pyRes = window.calculateProspectPython(amount, isLoss);
+        if (pyRes && typeof pyRes.psychological_value === 'number') {
+          calc = {
+            amount: pyRes.amount,
+            isLoss: Boolean(pyRes.is_loss),
+            value: pyRes.psychological_value,
+            intensity: pyRes.intensity,
+            ratio: pyRes.ratio,
+            message: pyRes.message,
+            executedBy: pyRes.executed_by
+          };
+        }
       } catch (e) {
-        // שגיאה שקטה ברקע
+        // שגיאה שקטה ברקע – מעבר לחישוב מקומי
       }
+    }
+
+    if (!calc) {
+      calc = calculateProspectValue(amount, isLoss);
     }
 
     // 1. עדכון כפתורי המצב

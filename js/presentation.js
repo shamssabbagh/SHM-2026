@@ -40,7 +40,7 @@
    * אתחול המצגת
    */
   function init() {
-    state.totalSlides = elements.slides.length || 19;
+    state.totalSlides = elements.slides.length || 20;
 
     const hashSlide = getSlideFromHash();
     const savedSlide = parseInt(sessionStorage.getItem(state.storageKey), 10);
@@ -235,6 +235,20 @@
           closeToc();
           return;
         }
+      }
+
+      // מניעת חטיפת מקשי חצים/רווח כאשר המשתמש מתפעל סליידר, כפתור או שדה קלט
+      const activeTag = e.target && e.target.tagName ? e.target.tagName.toUpperCase() : '';
+      if (
+        activeTag === 'INPUT' ||
+        activeTag === 'TEXTAREA' ||
+        activeTag === 'SELECT' ||
+        activeTag === 'BUTTON' ||
+        activeTag === 'SUMMARY' ||
+        activeTag === 'A' ||
+        (e.target && e.target.isContentEditable)
+      ) {
+        return;
       }
 
       // חצים ומקשים למעבר שקופיות

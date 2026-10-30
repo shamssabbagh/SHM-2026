@@ -529,9 +529,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
     try {
       const pyCmd = `calculate_scarcity_comparison(${JSON.stringify(stateA)}, ${JSON.stringify(stateB)})`;
       const proxy = state.pyodide.runPython(pyCmd);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Scarcity Python Runner] Python execution warning:', e);
       return null;
@@ -546,9 +546,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
     try {
       const pyCmd = `calculate_choice_paradox(${JSON.stringify(round1)}, ${JSON.stringify(round2)})`;
       const proxy = state.pyodide.runPython(pyCmd);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Choice Paradox Python Runner] Python execution warning:', e);
       return null;
@@ -564,9 +564,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
       const amt = parseFloat(amount) || 0;
       const pyBool = isLoss ? 'True' : 'False';
       const proxy = state.pyodide.runPython(`calculate_prospect_theory(${amt}, ${pyBool})`);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Prospect Python Runner] Python execution warning:', e);
       return null;
@@ -664,9 +664,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
       const boolB = storeBInsurance ? 'True' : 'False';
       const pyCmd = `calculate_dark_patterns_ethics(${boolA}, ${boolB})`;
       const proxy = state.pyodide.runPython(pyCmd);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Dark Patterns Python Runner] Python execution warning:', e);
       return null;
