@@ -1,23 +1,32 @@
 /**
  * המוח הצרכני – הפסיכולוגיה שמאחורי החלטות קנייה
- * מודל מוח תלת-ממדי אינטראקטיבי באמצעות Three.js (שקופית 8)
+ * מודל מוח תלת-ממדי אנטומי אינטראקטיבי באמצעות Three.js (שקופית 8)
+ *
+ * מקור המודל התלת-ממדי ורישוי:
+ * - Brainder.org ("Brain for Blender" מאת Dr. Anderson M. Winkler, MD, PhD)
+ *   https://brainder.org/research/brain-for-blender/
+ * - רישיון: Creative Commons Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+ *   https://creativecommons.org/licenses/by-sa/3.0/
+ * - מבוסס על שחזור MRI אנושי ב-FreeSurfer (Fischl, 2012), חלוקת קליפת המוח לפי אטלס
+ *   Desikan-Killiany (Desikan et al., 2006) וסגמנטציה תת-קורטיקלית ASEG (Fischl et al., 2002).
  */
 
 (function () {
   'use strict';
 
-  // בדיקת קיום Three.js
   if (typeof THREE === 'undefined') {
     console.error('Three.js library is not loaded.');
     showFallback('ספריית Three.js לא אותרה. יש לוודא טעינת js/vendor/three.min.js.');
     return;
   }
 
-  // בדיקת תמיכת WebGL
   function isWebGLAvailable() {
     try {
       const canvas = document.createElement('canvas');
-      return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+      return !!(
+        window.WebGLRenderingContext &&
+        (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+      );
     } catch (e) {
       return false;
     }
@@ -28,90 +37,141 @@
     return;
   }
 
-  // נתוני 4 האזורים הקונספטואליים
+  /**
+   * נתוני 4 האזורים / הרשתות המוחיות — מנוסחים לפי ספרות מדעי המוח ונוירו-כלכלה מבוקרת עמיתים.
+   * כל אזור מוצג כחלק מרשת מוחית מבוזרת (ולא כ"כפתור קנייה" בודד או כזהות של מערכת 1 / מערכת 2).
+   * מבנים עמוקים (אמיגדלה, אינסולה, גרעין האקומבנס) ממוקמים בעומק המוח האנטומי ומוצגים באמצעות שקיפות חתך (Cutaway).
+   */
   const BRAIN_REGIONS = {
     pfc: {
       id: 'pfc',
-      nameHe: 'קליפת המוח הקדם-מצחית',
-      nameEn: 'Prefrontal Cortex (PFC)',
-      colorHex: '#38bdf8',
-      colorNum: 0x38bdf8,
-      position: { x: 0, y: 0.65, z: 1.55 },
-      toneFreq: 523.25, // C5
-      badge: 'בקרה רציונלית, חישוב ערך ותכנון',
-      summary: 'אזור קורטיקלי מרכזי המקושר לחשיבה אנליטית (מערכת 2), ויסות דחפים ושקילת רווח והפסד.',
-      consumerRole: 'בזמן קנייה, ה-PFC משמש כ"מבוגר האחראי" – שוקל כדאיות מחיר, מעכב רכישות אימפולסיביות ומחשב עלות-תועלת ותקציב ארוך טווח.',
-      marketingImplication: 'אסטרטגיות שיווק לקניות מורכבות (כגון רכבים או מוצרי השקעה) מספקות ל-PFC טיעונים הגיוניים, מפרטים טכניים והשוואת מחירים.',
-      academicNote: 'מודל קונספטואלי בלבד: בקרה רציונלית היא תולדה של רשת רחבה ולא של אזור בודד ומבודד.'
+      nameHe: 'הרשת הקדם-מצחית',
+      nameEn: 'Prefrontal Network (vmPFC / OFC & dlPFC)',
+      colorHex: '#6B2D46',
+      colorNum: 0x6b2d46,
+      emissiveNum: 0x3a1524,
+      isDeep: false,
+      depthBadge: 'קליפת המוח הקדמית (מבט חיצוני)',
+      position: { x: 0.572, y: -0.428, z: 1.177 },
+      altPosition: { x: -0.535, y: -0.473, z: 1.159 },
+      defaultView: { rotX: 0.14, rotY: -0.38 },
+      shortExplanation:
+        'אזורים קדם-מצחיים אינם פועלים לבדם כ"מערכת 2", אלא משתתפים ברשתות מבוזרות של אינטגרציית ערך סובייקטיבי (vmPFC/OFC) ושל בקרה קוגניטיבית ווויסות קשב (dlPFC) המשקללות תועלת, מחיר ומטרות ארוכות טווח.',
+      consumerExample:
+        'כאשר צרכן משווה בין בושם יוקרה במחיר 260€ לחלופה זולה יותר, הרשת הקדם-מצחית משלבת בין אותות החשק והרגש לבין אילוצי התקציב וההצדקה הצרכנית.',
+      anatomicalLocation:
+        'ממוקמת בחלק הקדמי של האונות המצחיות בשתי ההמיספרות: האזור הגחוני-אמצעי והארובותי (vmPFC / mOFC) בבסיס האונה המצחית, והאזור הגבי-צידי (dlPFC) על הקמטים המצחיים החיצוניים.',
+      scientificDetail:
+        'מחקרי הדמיה תפקודית (fMRI) מראים כי ה-vmPFC מקודד "מטבע משותף" של ערך סובייקטיבי משוקלל על בסיס קלט מאזורי תגמול, זיכרון ורגש, בעוד ה-dlPFC תומך בשליטה עצמית ועיכוב תגובה. מערכות 1 ו-2 של כהנמן הן מודל קוגניטיבי-התנהגותי של דפוסי חשיבה ואינן ממופות למבנה אנטומי בודד.',
+      sources: [
+        'Bartra, O., McGuire, J. T., & Kable, J. W. (2013). The valuation system: A coordinate-based meta-analysis of BOLD fMRI experiments examining neural correlates of subjective value. NeuroImage, 76, 412–427.',
+        'Hare, T. A., Camerer, C. F., & Rangel, A. (2009). Self-control in decision-making involves modulation of the vmPFC valuation system. Science, 324(5927), 646–648.',
+        'Miller, E. K., & Cohen, J. D. (2001). An integrative theory of prefrontal cortex function. Annual Review of Neuroscience, 24, 167–202.'
+      ]
     },
     amygdala: {
       id: 'amygdala',
-      nameHe: 'אמיגדלה',
-      nameEn: 'Amygdala (Limbic System)',
-      colorHex: '#fb7185',
-      colorNum: 0xfb7185,
-      position: { x: -0.65, y: -0.4, z: 0.25 },
-      altPosition: { x: 0.65, y: -0.4, z: 0.25 }, // דו-צדדי
-      toneFreq: 392.00, // G4
-      badge: 'עיבוד רגשי מהיר, דחיפות ו-FOMO',
-      summary: 'מבנה עמוק במערכת הלימבית המגיב במהירות לגירויים מאיימים, מעוררי חרדה או בעלי דחיפות קיומית.',
-      consumerRole: 'מגיבה בעוצמה למסרי מחסור ("נשארו רק 2 פריטים במלאי!"), ספירות לאחור במבצעים ותחושת החמצה (Fear of Missing Out).',
-      marketingImplication: 'טקטיקות דחיפות מייצרות תגובה לימבית מהירה (מערכת 1) שעוקפת את הבקרה הרציונלית האיטית של ה-PFC ומאיצה המרה מיידית.',
-      academicNote: 'מודל קונספטואלי בלבד: האמיגדלה אינה "כפתור פחד" בלבד אלא מעבדת משמעות רגשית ובולטות של גירויים שונים.'
+      nameHe: 'האמיגדלה (רשת הבולטות הרגשית)',
+      nameEn: 'Amygdala (Salience & Affective Network)',
+      colorHex: '#D85B49',
+      colorNum: 0xd85b49,
+      emissiveNum: 0x5c1f16,
+      isDeep: true,
+      depthBadge: 'מבנה תת-קורטיקלי עמוק (מוצג בשקיפות חתך)',
+      position: { x: 0.530, y: -0.690, z: 0.114 },
+      altPosition: { x: -0.557, y: -0.662, z: 0.104 },
+      defaultView: { rotX: 0.18, rotY: -0.45 },
+      shortExplanation:
+        'האמיגדלה אינה "כפתור פחד" מבודד, אלא צומת מרכזי ברשת הבולטות (Salience Network) המזהה במהירות גירויים בעלי חשיבות רגשית — חיובית או שלילית — ומווסת קשב ועוררות בשיתוף עם קליפת המוח הקדם-מצחית והאינסולה.',
+      consumerExample:
+        'התראה על מלאי אוזל ("נותרו 2 יחידות בלבד") או מסגור של הפסד פוטנציאלי מעוררים קשב רגשי מוגבר ברשת הבולטות, המגביר את תחושת הדחיפות לפני הערכה אנליטית מלאה.',
+      anatomicalLocation:
+        'מבנה תת-קורטיקלי עמוק בצורת שקד הממוקם בעומק האונה הרקתית התיכונה (Medial Temporal Lobe), קדמית להיפוקמפוס — ולכן אינו נמצא על פני קליפת המוח החיצונית ומוצג כאן דרך שקיפות ההמיספרות.',
+      scientificDetail:
+        'האמיגדלה מקיימת קשרים דו-כיווניים הדוקים עם ה-vmPFC, האינסולה והסטריאטום. בנוירו-כלכלה נמצא כי היא תורמת לאפקט המסגור (Framing Effect) ולזיהוי רלוונטיות רגשית של גירויים, אך ההחלטה הסופית מתגבשת מתוך האינטראקציה הרשתית עם אזורי הבקרה והערך הקורטיקליים.',
+      sources: [
+        'Phelps, E. A. (2006). Emotion and cognition: Insights from studies of the human amygdala. Annual Review of Psychology, 57, 27–53.',
+        'De Martino, B., Kumaran, D., Seymour, B., & Dolan, R. J. (2006). Frames, biases, and rational decision-making in the human brain. Science, 313(5787), 684–687.',
+        'Janak, P. H., & Tye, K. M. (2015). From circuits to behaviour in the amygdala. Nature, 517(7534), 284–292.'
+      ]
     },
     insula: {
       id: 'insula',
-      nameHe: 'אינסולה',
-      nameEn: 'Insula (Anterior Insular Cortex)',
-      colorHex: '#fbbf24',
-      colorNum: 0xfbbf24,
-      position: { x: 1.15, y: 0.05, z: 0.35 },
-      altPosition: { x: -1.15, y: 0.05, z: 0.35 },
-      toneFreq: 329.63, // E4
-      badge: 'כאב התשלום ודחיית מחירים מופקעים',
-      summary: 'קפל קורטיקלי פנימי המעבד תחושות גופניות פנימיות (אינטרוספציה), גועל פיזי וסלידה חברתית.',
-      consumerRole: 'במחקרי נוירו-כלכלה (Prelec & Loewenstein), האינסולה מופעלת בעת חשיפה למחיר בלתי הוגן או מופקע – תופעה המכונה "כאב התשלום".',
-      marketingImplication: 'תשלומים דיגיטליים (Apple Pay, 1-Click Checkout) מנטרלים את החיכוך הפיזי של מזומן ומרדימים את תגובת האינסולה, דבר המגדיל את סל הקנייה.',
-      academicNote: 'מודל קונספטואלי בלבד: פעילות באינסולה מעידה על עוררות גופנית רחבה ולא על כאב תשלום מבודד כשלעצמו.'
+      nameHe: 'קליפת האינסולה (אינטרוספציה ועלות)',
+      nameEn: 'Insular Cortex (Interoception & Salience Network)',
+      colorHex: '#C26D2D',
+      colorNum: 0xc26d2d,
+      emissiveNum: 0x4f280b,
+      isDeep: true,
+      depthBadge: 'קליפה פנימית קבורה במעמקי החריץ הצידי (שקיפות חתך)',
+      position: { x: 0.827, y: -0.395, z: 0.402 },
+      altPosition: { x: -0.836, y: -0.323, z: 0.341 },
+      defaultView: { rotX: 0.12, rotY: -0.62 },
+      shortExplanation:
+        'האינסולה משלבת אותות גופניים פנימיים (אינטרוספציה) עם הערכה רגשית של אי-ודאות, סיכון וחוסר הוגנות, ומהווה צומת מרכזי ברשת הבולטות המאזנת מול אותות התגמול.',
+      consumerExample:
+        'חשיפה למחיר שנתפס כמופקע או לדמי משלוח מפתיעים בקופה מעוררת תגובת דחייה רגשית המכונה בנוירו-כלכלה "כאב התשלום" (Pain of Paying), שעשויה לבלום את הרכישה.',
+      anatomicalLocation:
+        'קליפת מוח "איית" (Insular Cortex) הקבורה עמוק בתוך החריץ הצידי (Lateral / Sylvian Sulcus) ומוסתרת מבחוץ על ידי קפלי האונות המצחית, הקודקודית והרקתית (Opercula) — לכן היא נחשפת במודל באמצעות שקיפות קליפת המוח.',
+      scientificDetail:
+        'מחקרי קנייה ב-fMRI (כגון Knutson et al., 2007) הראו כי פעילות מוגברת באינסולה הקדמית בזמן הצגת המחיר מנבאת ויתור על קנייה, כחלק משקלול רשתי מול ה-NAcc וה-vmPFC. עם זאת, האינסולה מופעלת במגוון רחב של מצבי עוררות גופנית ובולטות, ואינה אזור ייעודי לתמחור בלבד.',
+      sources: [
+        'Knutson, B., Rick, S., Wimmer, G. E., Prelec, D., & Loewenstein, G. (2007). Neural predictors of purchases. Neuron, 53(1), 147–156.',
+        'Craig, A. D. (2009). How do you feel—now? The anterior insula and human awareness. Nature Reviews Neuroscience, 10(1), 59–70.',
+        'Prelec, D., & Loewenstein, G. (1998). The red and the black: Mental accounting of savings and debt. Marketing Science, 17(1), 4–28.'
+      ]
     },
     nacc: {
       id: 'nacc',
-      nameHe: 'גרעין האקומבנס',
+      nameHe: 'גרעין האקומבנס (הסטריאטום הגחוני)',
       nameEn: 'Nucleus Accumbens (NAcc / Ventral Striatum)',
-      colorHex: '#c084fc',
-      colorNum: 0xc084fc,
-      position: { x: 0, y: -0.25, z: 0.65 },
-      toneFreq: 659.25, // E5
-      badge: 'ציפייה לתגמול, דופמין ועונג רכישה',
-      summary: 'רכיב מפתח בציר התגמול הדופמינרגי של המוח המופעל בציפייה להנאה, תועלת או רווח עתידי.',
-      consumerRole: 'ה-NAcc נדלק כאשר הצרכן רואה מוצר נחשק, מבצע הנחה משמעותי או פריט המשדר יוקרה ומעמד חברתי.',
-      marketingImplication: 'צילום מושך של מוצרים, הבטחה לחוויה מהנה ומועדוני לקוחות מייצרים ציפייה לתגמול המניעה את הצרכן לעבר רכישה.',
-      academicNote: 'מודל קונספטואלי בלבד: מופעל מתוך ציפייה לתגמול (Wanting) ולא בהכרח משביעות רצון בפועל מאיכות המוצר לאחר השימוש.'
+      colorHex: '#9E3B66',
+      colorNum: 0x9e3b66,
+      emissiveNum: 0x421327,
+      isDeep: true,
+      depthBadge: 'גרעין תת-קורטיקלי עמוק (מוצג בשקיפות חתך)',
+      position: { x: 0.198, y: -0.487, z: 0.486 },
+      altPosition: { x: -0.207, y: -0.453, z: 0.470 },
+      defaultView: { rotX: 0.16, rotY: -0.32 },
+      shortExplanation:
+        'גרעין האקומבנס הוא צומת מרכזי במסלול המזולימבי הדופמינרגי המקודד ציפייה לתגמול, טעות חיזוי תגמול (Reward Prediction Error) ובולטות תמריצית ("רצייה" / Wanting) — אך אינו פועל כ"כפתור קנייה" עצמאי.',
+      consumerExample:
+        'חשיפה לאריזת בושם יוקרתית או להצעה מפתיעה לטובה מעוררת ציפייה לתגמול בסטריאטום הגחוני, המועברת להערכה משוקללת ברשת הקדם-מצחית בטרם קבלת החלטה.',
+      anatomicalLocation:
+        'ממוקם עמוק בסטריאטום הגחוני (Ventral Striatum) בבסיס המוח הקדמי, סמוך לקו האמצע משני צידי המחיצה הבין-חדרית — עמוק מתחת לקליפת המוח החיצונית.',
+      scientificDetail:
+        'מחקרי נוירו-מדעי ההחלטה מבחינים בין "רצייה" תמריצית (Incentive Salience / Wanting) המתווכת על ידי מערכות דופמינרגיות בסטריאטום הגחוני, לבין "הנאה" חושית בפועל (Liking) ולהערכת כדאיות ב-vmPFC. פעילות ב-NAcc משקפת ציפייה לתועלת חיובית כחלק מרשת הערך המוחית.',
+      sources: [
+        'Knutson, B., Adams, C. M., Fong, G. W., & Hommer, D. (2001). Anticipation of increasing monetary reward selectively recruits nucleus accumbens. Journal of Neuroscience, 21(16), RC159.',
+        'Berridge, K. C., & Robinson, T. E. (2016). Liking, wanting, and the incentive-sensitization theory of addiction. American Psychologist, 71(8), 670–679.',
+        'Schultz, W., Dayan, P., & Montague, P. R. (1997). A neural substrate of prediction and reward. Science, 275(5306), 1593–1599.'
+      ]
     }
   };
 
-  // ניהול צלילים מבוצע במודול הייעודי js/audio.js דרך window.AudioEngine
-
-  // משתני Three.js
+  // משתני Three.js ומצב הסצנה
   let scene, camera, renderer, brainGroup;
+  let lhMesh = null;
+  let rhMesh = null;
+  const regionMeshes = {};
+  const hotspotMeshes = [];
+  const interactiveMeshes = [];
   let animationFrameId = null;
   let isRotating = true;
+  let isCutawayMode = false;
+  let manualCutawayOverride = null; // null = אוטומטי לפי אזור עמוק/חיצוני, boolean = בחירה ידנית של המשתמש
   let isPointerDown = false;
+  let pointerMovedDistance = 0;
   let pointerStart = { x: 0, y: 0 };
-  let pointerDelta = { x: 0, y: 0 };
-  let currentRotation = { x: 0.15, y: -0.4 };
-  let targetRotation = { x: 0.15, y: -0.4 };
-  let selectedRegionId = null;
-  const hotspotMeshes = [];
+  let currentRotation = { x: 0.14, y: -0.38 };
+  let targetRotation = { x: 0.14, y: -0.38 };
+  let selectedRegionId = 'pfc';
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
   // אלמנטי DOM
-  let container, infoCardEl, btnRotate, btnReset, btnSound, fallbackEl;
+  let container, infoCardEl, btnRotate, btnCutaway, btnReset, viewModeBadgeEl, fallbackEl;
 
-  /**
-   * הצגת הודעת שגיאה / Fallback
-   */
   function showFallback(message) {
     fallbackEl = document.getElementById('brain3d-fallback');
     if (fallbackEl) {
@@ -126,62 +186,123 @@
   }
 
   /**
+   * בניית BufferGeometry מנתוני ה-Mesh המכווצים (Brainder / FreeSurfer CC BY-SA 3.0)
+   */
+  function buildBufferGeometryFromData(meshData, colorMode) {
+    const posQuant = meshData.positions;
+    const sulcQuant = meshData.sulc;
+    const indices = meshData.indices;
+    const vCount = meshData.vertexCount;
+
+    const positions = new Float32Array(vCount * 3);
+    const colors = new Float32Array(vCount * 3);
+
+    for (let i = 0; i < vCount; i++) {
+      const i3 = i * 3;
+      positions[i3] = posQuant[i3] / 1000.0;
+      positions[i3 + 1] = posQuant[i3 + 1] / 1000.0;
+      positions[i3 + 2] = posQuant[i3 + 2] / 1000.0;
+
+      // חישוב צבע אנטומי לפי עומק החריצים (Sulci) והקמטים (Gyri)
+      const s = sulcQuant ? sulcQuant[i] / 100.0 : 0;
+      if (colorMode === 'cortex') {
+        // t=0 בעומק החריץ (Sulcus), t=1 בראש הקמט (Gyrus)
+        const t = Math.max(0, Math.min(1, (s + 0.85) / 1.7));
+        // גווני שנהב-אנטומי חם על הקמטים (Gyri) וטאופ-ורדרד עמוק בחריצים (Sulci)
+        colors[i3] = 0.62 + 0.32 * t;     // R: 0.62 -> 0.94
+        colors[i3 + 1] = 0.52 + 0.36 * t; // G: 0.52 -> 0.88
+        colors[i3 + 2] = 0.50 + 0.34 * t; // B: 0.50 -> 0.84
+      } else {
+        const t = Math.max(0, Math.min(1, (s + 0.9) / 1.8));
+        const shade = 0.78 + 0.22 * t;
+        colors[i3] = shade;
+        colors[i3 + 1] = shade;
+        colors[i3 + 2] = shade;
+      }
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    if (typeof geometry.setIndex === 'function') {
+      geometry.setIndex(indices);
+    }
+    if (typeof geometry.computeVertexNormals === 'function') {
+      geometry.computeVertexNormals();
+    }
+    return geometry;
+  }
+
+  /**
+   * יצירת חומר תלת-ממדי מותאם לתאורה רכה (עם גיבוי לסביבות בדיקה ללא MeshPhongMaterial)
+   */
+  function createLitMaterial(opts) {
+    const MaterialCtor =
+      THREE.MeshPhongMaterial || THREE.MeshLambertMaterial || THREE.MeshBasicMaterial;
+    return new MaterialCtor(opts);
+  }
+
+  /**
    * אתחול הסצנה התלת-ממדית
    */
   function init() {
     container = document.getElementById('brain3d-canvas-container');
     infoCardEl = document.getElementById('brainRegionCard');
     btnRotate = document.getElementById('btnToggleRotate');
+    btnCutaway = document.getElementById('btnToggleCutaway');
     btnReset = document.getElementById('btnResetView');
-    btnSound = document.getElementById('btnToggleSound');
+    viewModeBadgeEl = document.getElementById('brainViewModeBadge');
 
     if (!container) return;
 
     try {
-      // 1. הגדרת Scene
       scene = new THREE.Scene();
 
-      // 2. הגדרת Camera
-      const aspect = container.clientWidth / container.clientHeight;
-      camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 100);
-      camera.position.set(0, 0, 5.2);
+      const initWidth = container.clientWidth || 720;
+      const initHeight = container.clientHeight || 430;
+      const aspect = initWidth / initHeight;
+      camera = new THREE.PerspectiveCamera(40, aspect, 0.1, 100);
+      camera.position.set(0, 0.15, 4.75);
 
-      // 3. הגדרת Renderer
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setClearColor(0x000000, 0); // רקע שקוף
+      renderer.setSize(initWidth, initHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setClearColor(0x000000, 0);
       container.appendChild(renderer.domElement);
 
-      // 4. תאורה
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      // תאורה אנטומית רכה (Soft Studio Anatomical Lighting)
+      const ambientLight = new THREE.AmbientLight(0xfff8f2, 0.72);
       scene.add(ambientLight);
 
-      const pointLight1 = new THREE.PointLight(0x38bdf8, 2, 20);
-      pointLight1.position.set(5, 5, 5);
-      scene.add(pointLight1);
+      if (THREE.HemisphereLight) {
+        const hemiLight = new THREE.HemisphereLight(0xfffaf5, 0x6d4c56, 0.55);
+        hemiLight.position.set(0, 6, 0);
+        scene.add(hemiLight);
+      }
 
-      const pointLight2 = new THREE.PointLight(0xc084fc, 2, 20);
-      pointLight2.position.set(-5, -3, 3);
-      scene.add(pointLight2);
+      const DirLightCtor = THREE.DirectionalLight || THREE.PointLight;
+      const keyLight = new DirLightCtor(0xfff6ed, 0.78);
+      keyLight.position.set(4.5, 5.5, 5.5);
+      scene.add(keyLight);
 
-      // 5. קבוצת המוח (Brain Group)
+      const fillLight = new DirLightCtor(0xf5e1e6, 0.42);
+      fillLight.position.set(-5.0, 2.0, 3.5);
+      scene.add(fillLight);
+
+      const rimLight = new DirLightCtor(0xd85b49, 0.25);
+      rimLight.position.set(0.0, -4.0, -5.0);
+      scene.add(rimLight);
+
       brainGroup = new THREE.Group();
       scene.add(brainGroup);
 
-      // בניית שתי ההמיספרות ומודל החלקיקים
       createBrainGeometry(brainGroup);
-
-      // בניית 4 נקודות העניין (Hotspots)
       createHotspots(brainGroup);
-
-      // 6. חיבור אירועי עכבר, מגע ורספונסיביות
       bindEvents();
 
-      // בחירת אזור ברירת מחדל (PFC) לתצוגה ראשונית עשירה
-      selectRegion('pfc', false);
+      // בחירת אזור ברירת מחדל (הרשת הקדם-מצחית) ללא הפעלת צליל כלשהו
+      selectRegion('pfc');
 
-      // התחלת לולאת הרנדור
       startAnimation();
     } catch (err) {
       console.error('Failed to initialize Three.js brain scene:', err);
@@ -190,252 +311,309 @@
   }
 
   /**
-   * בניית מודל המוח הפרוצדורלי (Particles & Wireframe)
+   * בניית ההמיספרות הקורטיקליות ו-4 האזורים האנטומיים מתוך נתוני FreeSurfer / Brainder
    */
   function createBrainGeometry(parentGroup) {
-    const particleCount = 1400;
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-
-    const baseColor1 = new THREE.Color(0x38bdf8); // Cyan
-    const baseColor2 = new THREE.Color(0x818cf8); // Indigo
-    const baseColor3 = new THREE.Color(0xc084fc); // Purple
-
-    let index = 0;
-    for (let i = 0; i < particleCount; i++) {
-      // קביעת המיספרה: ימין (1) או שמאל (-1)
-      const hemisphere = Math.random() > 0.5 ? 1 : -1;
-
-      // קואורדינטות כדוריות עם חריץ אורך וקפלים קורטיקליים
-      const u = Math.random();
-      const v = Math.random();
-      const theta = u * 2.0 * Math.PI;
-      const phi = Math.acos(2.0 * v - 1.0);
-
-      // צורת אליפסואיד של חצי מוח
-      let r = 1.35 + 0.12 * Math.sin(theta * 5.0) * Math.cos(phi * 4.0);
-      
-      let x = r * Math.sin(phi) * Math.cos(theta) * 0.85;
-      let y = r * Math.sin(phi) * Math.sin(theta) * 0.95;
-      let z = r * Math.cos(phi) * 1.25;
-
-      // הזזת ההמיספרה לצד שלה ליצירת החריץ האורכי (Longitudinal Fissure)
-      x = hemisphere * (Math.abs(x) + 0.08);
-
-      // חידוד החלק הקדמי (Frontal) ועיגול האחורי (Occipital)
-      if (z > 0) {
-        y *= 1.05;
-      } else {
-        y *= 0.9;
-        x *= 1.05;
-      }
-
-      positions[index * 3] = x;
-      positions[index * 3 + 1] = y;
-      positions[index * 3 + 2] = z;
-
-      // ערבוב צבעים הרמוני לפי עומק וגובה
-      const mixRatio = (z + 1.5) / 3.0;
-      const pointColor = baseColor1.clone().lerp(baseColor3, mixRatio);
-      if (y < 0) pointColor.lerp(baseColor2, 0.4);
-
-      colors[index * 3] = pointColor.r;
-      colors[index * 3 + 1] = pointColor.g;
-      colors[index * 3 + 2] = pointColor.b;
-
-      index++;
+    const anatomy = window.BRAIN_ANATOMY_DATA;
+    if (!anatomy || !anatomy.hemispheres || !anatomy.regions) {
+      throw new Error(
+        'נתוני המודל האנטומי (js/vendor/brain_mesh_data.js) לא נטענו.'
+      );
     }
 
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    // 1. שתי ההמיספרות של קליפת המוח (Left & Right Cerebral Cortex)
+    const lhGeo = buildBufferGeometryFromData(anatomy.hemispheres.lh, 'cortex');
+    const rhGeo = buildBufferGeometryFromData(anatomy.hemispheres.rh, 'cortex');
 
-    // יצירת טקסטורת נקודה זוהרת רכה (Canvas procedural circle)
-    const particleTexture = createGlowTexture();
-
-    const pMaterial = new THREE.PointsMaterial({
-      size: 0.085,
-      map: particleTexture,
+    const lhMat = createLitMaterial({
       vertexColors: true,
       transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
+      opacity: 0.96,
+      shininess: 18,
+      specular: 0x2a1e22
     });
-
-    const particles = new THREE.Points(geometry, pMaterial);
-    parentGroup.add(particles);
-
-    // הוספת רשת פנימית דקה של קווים המחברים סינפסות
-    const wireGeo = new THREE.IcosahedronGeometry(1.2, 2);
-    const wireMat = new THREE.MeshBasicMaterial({
-      color: 0x38bdf8,
-      wireframe: true,
+    const rhMat = createLitMaterial({
+      vertexColors: true,
       transparent: true,
-      opacity: 0.12
+      opacity: 0.96,
+      shininess: 18,
+      specular: 0x2a1e22
     });
-    const innerWire = new THREE.Mesh(wireGeo, wireMat);
-    innerWire.scale.set(0.9, 0.9, 1.25);
-    parentGroup.add(innerWire);
+
+    lhMesh = new THREE.Mesh(lhGeo, lhMat);
+    rhMesh = new THREE.Mesh(rhGeo, rhMat);
+    lhMesh.name = 'left_cerebral_hemisphere';
+    rhMesh.name = 'right_cerebral_hemisphere';
+
+    parentGroup.add(lhMesh);
+    parentGroup.add(rhMesh);
+
+    // 2. ארבעת האזורים / הרשתות האנטומיות באותו מרחב קואורדינטות סטריאוטקסי
+    Object.keys(BRAIN_REGIONS).forEach((regionId) => {
+      const regionCfg = BRAIN_REGIONS[regionId];
+      const regionMeshData = anatomy.regions[regionId];
+      if (!regionMeshData) return;
+
+      // עדכון מיקומי סיכות האינטראקציה לפי הצנטרואידים האנטומיים המדויקים מהאטלס
+      if (regionMeshData.rightCentroid) {
+        regionCfg.position = {
+          x: regionMeshData.rightCentroid[0],
+          y: regionMeshData.rightCentroid[1],
+          z: regionMeshData.rightCentroid[2]
+        };
+      }
+      if (regionMeshData.leftCentroid) {
+        regionCfg.altPosition = {
+          x: regionMeshData.leftCentroid[0],
+          y: regionMeshData.leftCentroid[1],
+          z: regionMeshData.leftCentroid[2]
+        };
+      }
+
+      const regGeo = buildBufferGeometryFromData(regionMeshData, 'region');
+      const regMat = createLitMaterial({
+        color: regionCfg.colorNum,
+        emissive: regionCfg.emissiveNum,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.88,
+        shininess: 28,
+        polygonOffset: true,
+        polygonOffsetFactor: -1,
+        polygonOffsetUnits: -1
+      });
+
+      const regMesh = new THREE.Mesh(regGeo, regMat);
+      regMesh.name = `region_mesh_${regionId}`;
+      regMesh.userData = { regionId: regionId, isRegionMesh: true };
+
+      parentGroup.add(regMesh);
+      regionMeshes[regionId] = regMesh;
+      interactiveMeshes.push(regMesh);
+    });
   }
 
   /**
-   * יצירת טקסטורה מעגלית רכה עם זוהר לנקודות החלקיקים
-   */
-  function createGlowTexture() {
-    const canvas = document.createElement('canvas');
-    canvas.width = 64;
-    canvas.height = 64;
-    const ctx = canvas.getContext('2d');
-
-    const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    grad.addColorStop(0.3, 'rgba(56, 189, 248, 0.8)');
-    grad.addColorStop(0.8, 'rgba(129, 140, 248, 0.2)');
-    grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, 64, 64);
-
-    return new THREE.CanvasTexture(canvas);
-  }
-
-  /**
-   * יצירת 4 נקודות העניין (Hotspots) האינטראקטיביות
+   * יצירת סמני מיקום אנטומיים דו-צדדיים (Hotspots) ללחיצה קלה בעכבר ובמגע
    */
   function createHotspots(parentGroup) {
     hotspotMeshes.length = 0;
 
     Object.values(BRAIN_REGIONS).forEach((region) => {
-      // כדור מרכזי זוהר
-      const sphereGeo = new THREE.SphereGeometry(0.12, 16, 16);
+      const sphereGeo = new THREE.SphereGeometry(0.085, 16, 16);
       const sphereMat = new THREE.MeshBasicMaterial({
         color: region.colorNum,
         transparent: true,
-        opacity: 0.95
+        opacity: 0.95,
+        depthTest: false
       });
       const mesh = new THREE.Mesh(sphereGeo, sphereMat);
       mesh.position.set(region.position.x, region.position.y, region.position.z);
+      mesh.renderOrder = 10;
       mesh.userData = { regionId: region.id, isHotspot: true };
 
-      // טבעת פולס מסביב לנקודה
-      const ringGeo = new THREE.RingGeometry(0.16, 0.20, 24);
+      const ringGeo = new THREE.RingGeometry(0.115, 0.15, 24);
       const ringMat = new THREE.MeshBasicMaterial({
         color: region.colorNum,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.7
+        opacity: 0.75,
+        depthTest: false
       });
       const ringMesh = new THREE.Mesh(ringGeo, ringMat);
       mesh.add(ringMesh);
       mesh.userData.ring = ringMesh;
 
-      // כדור פגיעה מוגדל בלתי נראה כדי להקל על לחיצה בעכבר ובמגע
-      const hitSphereGeo = new THREE.SphereGeometry(0.28, 8, 8);
+      const hitSphereGeo = new THREE.SphereGeometry(0.24, 8, 8);
       const hitSphereMat = new THREE.MeshBasicMaterial({ visible: false });
       const hitMesh = new THREE.Mesh(hitSphereGeo, hitSphereMat);
       mesh.add(hitMesh);
 
       parentGroup.add(mesh);
       hotspotMeshes.push(mesh);
+      interactiveMeshes.push(mesh);
 
-      // אם יש מיקום דו-צדדי משני (כמו באמיגדלה ואינסולה)
       if (region.altPosition) {
         const altMesh = mesh.clone();
-        altMesh.position.set(region.altPosition.x, region.altPosition.y, region.altPosition.z);
-        altMesh.userData = { regionId: region.id, isHotspot: true, isAlt: true };
+        altMesh.position.set(
+          region.altPosition.x,
+          region.altPosition.y,
+          region.altPosition.z
+        );
+        altMesh.userData = {
+          regionId: region.id,
+          isHotspot: true,
+          isAlt: true,
+          ring: altMesh.children[0]
+        };
         parentGroup.add(altMesh);
         hotspotMeshes.push(altMesh);
+        interactiveMeshes.push(altMesh);
       }
     });
   }
 
   /**
-   * בחירת אזור והצגת המידע בכרטיסייה
+   * עדכון שקיפות קליפת המוח (Cutaway / Cortical Transparency) לחשיפת מבנים עמוקים
    */
-  function selectRegion(regionId, playAudio = true) {
+  function applyCutawayVisibility(enableCutaway) {
+    isCutawayMode = !!enableCutaway;
+
+    const cortexOpacity = isCutawayMode ? 0.22 : 0.96;
+    const cortexDepthWrite = !isCutawayMode;
+
+    [lhMesh, rhMesh].forEach((hemiMesh) => {
+      if (hemiMesh && hemiMesh.material) {
+        hemiMesh.material.opacity = cortexOpacity;
+        hemiMesh.material.depthWrite = cortexDepthWrite;
+        hemiMesh.material.needsUpdate = true;
+      }
+    });
+
+    if (btnCutaway) {
+      btnCutaway.setAttribute('aria-pressed', isCutawayMode ? 'true' : 'false');
+      btnCutaway.classList.toggle('active-mode', isCutawayMode);
+      btnCutaway.innerHTML = isCutawayMode
+        ? '<span>🔍</span><span>מבט חתך שקוף: פעיל</span>'
+        : '<span>🧠</span><span>מבט עומק (שקיפות חתך)</span>';
+    }
+
+    if (viewModeBadgeEl) {
+      viewModeBadgeEl.textContent = isCutawayMode
+        ? 'מבט חתך שקוף: קליפת המוח שקופה לחשיפת מבנים תת-קורטיקליים וקליפת האינסולה בעומק המוח'
+        : 'מבט אנטומי חיצוני: קליפת המוח המלאה (Desikan-Killiany Atlas)';
+      viewModeBadgeEl.classList.toggle('cutaway-active', isCutawayMode);
+    }
+  }
+
+  /**
+   * בחירת אזור, עדכון הדגשת ה-Mesh התלת-ממדי, הפעלת שקיפות חתך לאזורים עמוקים והצגת הכרטיסייה
+   */
+  function selectRegion(regionId) {
     const region = BRAIN_REGIONS[regionId];
     if (!region) return;
 
     selectedRegionId = regionId;
 
-    // הפעלת צליל (אם המשתמש ביטל השתקה)
-    if (playAudio && window.AudioEngine) {
-      window.AudioEngine.playRegionTone(region.toneFreq);
-    }
+    // אם המשתמש לא כפה מצב ידני, מפעילים שקיפות חתך אוטומטית עבור מבנים עמוקים (אמיגדלה, אינסולה, אקומבנס)
+    const shouldUseCutaway =
+      manualCutawayOverride !== null ? manualCutawayOverride : region.isDeep;
+    applyCutawayVisibility(shouldUseCutaway);
 
-    // הדגשה ויזואלית של נקודות העניין
+    // הדגשת ה-Mesh האנטומי התלת-ממדי של האזור הנבחר
+    Object.keys(regionMeshes).forEach((id) => {
+      const rMesh = regionMeshes[id];
+      const rCfg = BRAIN_REGIONS[id];
+      if (!rMesh || !rMesh.material) return;
+
+      if (id === regionId) {
+        rMesh.material.opacity = 0.98;
+        rMesh.material.emissive = new THREE.Color(rCfg.colorNum);
+        if (typeof rMesh.material.emissiveIntensity === 'number') {
+          rMesh.material.emissiveIntensity = 0.35;
+        }
+        rMesh.renderOrder = 5;
+      } else {
+        rMesh.material.opacity = isCutawayMode ? 0.32 : 0.18;
+        rMesh.material.emissive = new THREE.Color(rCfg.emissiveNum);
+        if (typeof rMesh.material.emissiveIntensity === 'number') {
+          rMesh.material.emissiveIntensity = 0.12;
+        }
+        rMesh.renderOrder = 2;
+      }
+      rMesh.material.needsUpdate = true;
+    });
+
+    // הדגשת סיכות המיקום הדו-צדדיות
     hotspotMeshes.forEach((mesh) => {
       const isSelected = mesh.userData.regionId === regionId;
       if (isSelected) {
-        mesh.scale.set(1.4, 1.4, 1.4);
+        mesh.scale.set(1.32, 1.32, 1.32);
+        mesh.material.opacity = 1.0;
         if (mesh.userData.ring) {
-          mesh.userData.ring.material.opacity = 1.0;
+          mesh.userData.ring.material.opacity = 0.95;
         }
       } else {
-        mesh.scale.set(1.0, 1.0, 1.0);
+        mesh.scale.set(0.88, 0.88, 0.88);
+        mesh.material.opacity = 0.55;
         if (mesh.userData.ring) {
-          mesh.userData.ring.material.opacity = 0.5;
+          mesh.userData.ring.material.opacity = 0.35;
         }
       }
     });
 
-    // עדכון כפתורי האזורים
+    // עדכון כפתורי הבחירה
     document.querySelectorAll('.brain-region-btn').forEach((btn) => {
       const bId = btn.getAttribute('data-region');
-      if (bId === regionId) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      const isActive = bId === regionId;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    // עדכון כרטיס המידע
+    // עדכון כרטיס המידע העריכתי התמציתי (RTL)
     if (infoCardEl) {
+      const sourcesHtml = region.sources
+        .map((src) => `<li><bdi>${src}</bdi></li>`)
+        .join('');
+
       infoCardEl.innerHTML = `
         <div class="region-detail-header" style="border-right-color: ${region.colorHex};">
           <div class="region-title-wrap">
-            <h3 style="color: ${region.colorHex};">${region.nameHe}</h3>
+            <h3>${region.nameHe}</h3>
             <span class="region-sub-en"><bdi>${region.nameEn}</bdi></span>
           </div>
-          <span class="region-badge-pill" style="background: rgba(255,255,255,0.08); color: ${region.colorHex}; border: 1px solid ${region.colorHex}55;">
-            ${region.badge}
-          </span>
+          <span class="region-badge-pill">${region.depthBadge}</span>
         </div>
 
         <div class="region-detail-body">
-          <p class="region-desc-summary">${region.summary}</p>
-          
           <div class="region-block">
-            <h5>🛒 השפעה על החלטות קנייה:</h5>
-            <p>${region.consumerRole}</p>
+            <h5>תרומה לרשת המוחית המבוזרת</h5>
+            <p class="region-desc-summary">${region.shortExplanation}</p>
           </div>
 
-          <div class="region-block">
-            <h5>📊 יישום שיווקי ואסטרטגי:</h5>
-            <p>${region.marketingImplication}</p>
+          <div class="region-block consumer-example-block">
+            <h5>דוגמה בהחלטת קנייה</h5>
+            <p>${region.consumerExample}</p>
           </div>
 
-          <div class="region-academic-disclaimer">
-            <strong>הערה מתודולוגית:</strong> ${region.academicNote}
-          </div>
+          <details class="editorial-theory-drawer brain-sci-drawer">
+            <summary class="editorial-theory-summary">
+              <span>פירוט מדעי, מיקום אנטומי ומקורות</span>
+            </summary>
+            <div class="editorial-theory-content">
+              <div class="psych-concept-box">
+                <strong>מיקום אנטומי ואופן הצגה במודל:</strong>
+                <p>${region.anatomicalLocation}</p>
+              </div>
+              <div class="psych-concept-box warning">
+                <strong>הקשר מחקרי ורשתי (ללא "כפתור קנייה" בודד):</strong>
+                <p>${region.scientificDetail}</p>
+              </div>
+              <div class="psych-concept-box">
+                <strong>מקורות מדעיים (Peer-Reviewed):</strong>
+                <ul class="brain-sci-sources-list">${sourcesHtml}</ul>
+              </div>
+            </div>
+          </details>
         </div>
       `;
     }
   }
 
   /**
-   * טיפול בלחיצה על אזור בסצנה התלת-ממדית (Raycasting)
+   * טיפול בלחיצה על אזור בסצנה התלת-ממדית (Raycasting על סיכות ועל ה-Mesh האנטומי)
    */
   function onPointerClick(event) {
-    if (!renderer || !camera) return;
+    if (!renderer || !camera || pointerMovedDistance > 6) return;
 
     const rect = renderer.domElement.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+
     mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
     mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(hotspotMeshes, true);
+    const intersects = raycaster.intersectObjects(interactiveMeshes, true);
 
     if (intersects.length > 0) {
       let hitObj = intersects[0].object;
@@ -443,23 +621,18 @@
         hitObj = hitObj.parent;
       }
       if (hitObj && hitObj.userData.regionId) {
-        selectRegion(hitObj.userData.regionId, true);
+        selectRegion(hitObj.userData.regionId);
       }
     }
   }
 
-  /**
-   * לולאת האנימציה (Render Loop)
-   */
   function animate() {
     animationFrameId = requestAnimationFrame(animate);
 
-    // סיבוב אוטומטי עדין
     if (isRotating && !isPointerDown) {
-      targetRotation.y += 0.005;
+      targetRotation.y += 0.0042;
     }
 
-    // החלקת סיבוב (Inertia Damping)
     currentRotation.x += (targetRotation.x - currentRotation.x) * 0.08;
     currentRotation.y += (targetRotation.y - currentRotation.y) * 0.08;
 
@@ -467,12 +640,14 @@
       brainGroup.rotation.x = currentRotation.x;
       brainGroup.rotation.y = currentRotation.y;
 
-      // אנימציית פולס לטבעות הנקודות
       const time = performance.now() * 0.003;
       hotspotMeshes.forEach((mesh) => {
-        if (mesh.userData.ring) {
-          const scale = 1.0 + 0.15 * Math.sin(time * 2.0);
+        if (mesh.userData.ring && camera) {
+          const scale = 1.0 + 0.12 * Math.sin(time * 2.0);
           mesh.userData.ring.scale.set(scale, scale, scale);
+          if (typeof mesh.userData.ring.lookAt === 'function') {
+            mesh.userData.ring.lookAt(camera.position);
+          }
         }
       });
     }
@@ -495,15 +670,12 @@
     }
   }
 
-  /**
-   * חיבור מאזיני אירועים
-   */
   function bindEvents() {
-    // אירועי עכבר בגרירה על הקנבס
     const domEl = renderer.domElement;
 
     domEl.addEventListener('mousedown', (e) => {
       isPointerDown = true;
+      pointerMovedDistance = 0;
       pointerStart.x = e.clientX;
       pointerStart.y = e.clientY;
     });
@@ -512,89 +684,113 @@
       if (!isPointerDown) return;
       const dx = e.clientX - pointerStart.x;
       const dy = e.clientY - pointerStart.y;
+      pointerMovedDistance += Math.abs(dx) + Math.abs(dy);
       pointerStart.x = e.clientX;
       pointerStart.y = e.clientY;
 
       targetRotation.y += dx * 0.008;
       targetRotation.x += dy * 0.008;
-      // הגבלת זווית אנכית
-      targetRotation.x = Math.max(-0.8, Math.min(0.8, targetRotation.x));
+      targetRotation.x = Math.max(-0.85, Math.min(0.85, targetRotation.x));
     });
 
     window.addEventListener('mouseup', () => {
       isPointerDown = false;
     });
 
-    // אירועי מגע (Mobile / Touch)
-    domEl.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1) {
-        isPointerDown = true;
+    domEl.addEventListener(
+      'touchstart',
+      (e) => {
+        if (e.touches.length === 1) {
+          isPointerDown = true;
+          pointerMovedDistance = 0;
+          pointerStart.x = e.touches[0].clientX;
+          pointerStart.y = e.touches[0].clientY;
+        }
+      },
+      { passive: true }
+    );
+
+    window.addEventListener(
+      'touchmove',
+      (e) => {
+        if (!isPointerDown || e.touches.length !== 1) return;
+        const dx = e.touches[0].clientX - pointerStart.x;
+        const dy = e.touches[0].clientY - pointerStart.y;
+        pointerMovedDistance += Math.abs(dx) + Math.abs(dy);
         pointerStart.x = e.touches[0].clientX;
         pointerStart.y = e.touches[0].clientY;
-      }
-    }, { passive: true });
 
-    window.addEventListener('touchmove', (e) => {
-      if (!isPointerDown || e.touches.length !== 1) return;
-      const dx = e.touches[0].clientX - pointerStart.x;
-      const dy = e.touches[0].clientY - pointerStart.y;
-      pointerStart.x = e.touches[0].clientX;
-      pointerStart.y = e.touches[0].clientY;
-
-      targetRotation.y += dx * 0.01;
-      targetRotation.x += dy * 0.01;
-      targetRotation.x = Math.max(-0.8, Math.min(0.8, targetRotation.x));
-    }, { passive: true });
+        targetRotation.y += dx * 0.01;
+        targetRotation.x += dy * 0.01;
+        targetRotation.x = Math.max(-0.85, Math.min(0.85, targetRotation.x));
+      },
+      { passive: true }
+    );
 
     window.addEventListener('touchend', () => {
       isPointerDown = false;
     });
 
-    // לחיצה על נקודת עניין
     domEl.addEventListener('click', onPointerClick);
 
-    // זום עם גלגלת עכבר
-    domEl.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      camera.position.z += e.deltaY * 0.003;
-      camera.position.z = Math.max(3.0, Math.min(7.5, camera.position.z));
-    }, { passive: false });
+    domEl.addEventListener(
+      'wheel',
+      (e) => {
+        e.preventDefault();
+        camera.position.z += e.deltaY * 0.003;
+        camera.position.z = Math.max(3.1, Math.min(7.0, camera.position.z));
+      },
+      { passive: false }
+    );
 
-    // כפתור הפעלת / עצירת סיבוב
     if (btnRotate) {
       btnRotate.addEventListener('click', () => {
         isRotating = !isRotating;
-        btnRotate.innerHTML = isRotating ? '<span>⏸</span><span>עצור סיבוב</span>' : '<span>▶</span><span>הפעל סיבוב</span>';
+        btnRotate.setAttribute('aria-pressed', isRotating ? 'true' : 'false');
+        btnRotate.innerHTML = isRotating
+          ? '<span>⏸</span><span>עצור סיבוב</span>'
+          : '<span>▶</span><span>הפעל סיבוב</span>';
       });
     }
 
-    // כפתור איפוס מבט
+    if (btnCutaway) {
+      btnCutaway.addEventListener('click', () => {
+        const nextState = !isCutawayMode;
+        manualCutawayOverride = nextState;
+        applyCutawayVisibility(nextState);
+        // רענון שקיפות ה-Meshes הפנימיים בהתאם למצב החדש
+        selectRegion(selectedRegionId);
+      });
+    }
+
     if (btnReset) {
       btnReset.addEventListener('click', () => {
-        targetRotation.x = 0.15;
-        targetRotation.y = -0.4;
-        camera.position.set(0, 0, 5.2);
-        selectRegion('pfc', true);
+        manualCutawayOverride = null;
+        targetRotation.x = 0.14;
+        targetRotation.y = -0.38;
+        camera.position.set(0, 0.15, 4.75);
+        selectRegion('pfc');
       });
     }
 
-    // כפתור השתקת / הפעלת סאונד מנוהל כעת ישירות ב-js/audio.js למניעת כפילויות
-
-    // כפתורי בחירת אזורים
     document.querySelectorAll('.brain-region-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const regionId = btn.getAttribute('data-region');
-        selectRegion(regionId, true);
+        manualCutawayOverride = null;
+        const regionCfg = BRAIN_REGIONS[regionId];
+        if (regionCfg && regionCfg.defaultView) {
+          targetRotation.x = regionCfg.defaultView.rotX;
+        }
+        selectRegion(regionId);
       });
     });
 
-    // שינוי גודל חלון רספונסיבי
     window.addEventListener('resize', onWindowResize);
 
-    // האזנה למעבר שקופיות: אם שקופית 8 פעילה - מפעילים רנדור; אחרת - משהים לשמירת ביצועים
     document.addEventListener('slideChanged', (e) => {
       if (e.detail && e.detail.slideNumber === 8) {
         onWindowResize();
+        setTimeout(onWindowResize, 0);
         startAnimation();
       } else {
         stopAnimation();
@@ -613,7 +809,6 @@
     renderer.setSize(width, height);
   }
 
-  // אתחול כשה-DOM מוכן
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

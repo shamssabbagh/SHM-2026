@@ -27,14 +27,26 @@
   };
 
   /**
+   * קריאת מספר שקופית מתוך ה-Hash בכתובת (למשל #slide-19)
+   */
+  function getSlideFromHash() {
+    const match = (window.location.hash || '').match(/^#slide-(\d+)$/);
+    if (!match) return null;
+    const num = parseInt(match[1], 10);
+    return (!isNaN(num) && num >= 1 && num <= state.totalSlides) ? num : null;
+  }
+
+  /**
    * אתחול המצגת
    */
   function init() {
-    state.totalSlides = elements.slides.length || 19;
+    state.totalSlides = elements.slides.length || 20;
 
-    // טעינת שקופית אחרונה משמירה מקומית או ברירת מחדל לשקופית 1
+    const hashSlide = getSlideFromHash();
     const savedSlide = parseInt(sessionStorage.getItem(state.storageKey), 10);
-    if (!isNaN(savedSlide) && savedSlide >= 1 && savedSlide <= state.totalSlides) {
+    if (hashSlide) {
+      state.currentSlide = hashSlide;
+    } else if (!isNaN(savedSlide) && savedSlide >= 1 && savedSlide <= state.totalSlides) {
       state.currentSlide = savedSlide;
     } else {
       state.currentSlide = 1;
@@ -43,6 +55,13 @@
     buildTocGrid();
     bindEvents();
     renderSlide(state.currentSlide);
+
+    window.addEventListener('hashchange', () => {
+      const target = getSlideFromHash();
+      if (target && target !== state.currentSlide) {
+        renderSlide(target);
+      }
+    });
   }
 
   /**
@@ -216,6 +235,20 @@
           closeToc();
           return;
         }
+      }
+
+      // מניעת חטיפת מקשי חצים/רווח כאשר המשתמש מתפעל סליידר, כפתור או שדה קלט
+      const activeTag = e.target && e.target.tagName ? e.target.tagName.toUpperCase() : '';
+      if (
+        activeTag === 'INPUT' ||
+        activeTag === 'TEXTAREA' ||
+        activeTag === 'SELECT' ||
+        activeTag === 'BUTTON' ||
+        activeTag === 'SUMMARY' ||
+        activeTag === 'A' ||
+        (e.target && e.target.isContentEditable)
+      ) {
+        return;
       }
 
       // חצים ומקשים למעבר שקופיות

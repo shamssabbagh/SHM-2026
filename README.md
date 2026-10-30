@@ -75,26 +75,24 @@
 
 ---
 
-## 🎬 אנימציית התלת-ממד והשמע הסינתטי (3D WebGL & Web Audio API)
+## 🎬 אנימציית התלת-ממד האנטומית והשמע הסינתטי האופציונלי (3D WebGL & Web Audio API)
 
-### 1. מנגנון האנימציה ב-Three.js WebGL (שקופית 8)
-- **רינדור חלקיקים בזמן אמת:** האנימציה אינה קובץ וידאו מוקלט מראש אלא **סביבת תלת-ממד חיה (Interactive WebGL Canvas)** המרונדרת בזמן אמת ב-60 פריימים לשנייה באמצעות ספריית Three.js המקומית (`js/vendor/three.min.js`).
-- **מבנה גיאומטרי:** המוח מורכב מ-2,800 נקודות גיאומטריות (`THREE.BufferGeometry` עם חלקיקי `THREE.Points`) המפוזרות בהתפלגות אליפטית המדמה את שתי המיספרות המוח והקורטקס.
+### 1. מודל המוח האנטומי התלת-ממדי ב-Three.js WebGL (שקופית 8)
+- **מקור המודל, ייחוס ורישוי פתוח מאומת:**
+  - המודל התלת-ממדי בשקופית 8 מבוסס על המאגר האנטומי הפתוח **Brainder.org ("Brain for Blender")** מאת **Dr. Anderson M. Winkler, MD, PhD** (`https://brainder.org/research/brain-for-blender/`).
+  - **רישיון:** **Creative Commons Attribution-ShareAlike 3.0 Unported (`CC BY-SA 3.0`)** (`https://creativecommons.org/licenses/by-sa/3.0/`).
+  - **ביסוס אנטומי ומדעי:** הגיאומטריה התלת-ממדית (`js/vendor/brain_mesh_data.js`, `assets/models/brain_fsaverage_dk.json`) הופקה משחזור MRI אנושי בתוכנת **FreeSurfer** (*Fischl, 2012*), בחלוקה קורטיקלית לפי אטלס **Desikan-Killiany** (*Desikan et al., 2006*) וסגמנטציה תת-קורטיקלית **ASEG** (*Fischl et al., 2002*).
+- **מבנה גיאומטרי ושקיפות חתך (`Cutaway Transparency`):**
+  - **שתי המיספרות קורטיקליות (`lh` = `6,654` קודקודים / `15,866` משולשים; `rh` = `6,710` קודקודים / `16,190` משולשים):** מרונדרות ב-`THREE.BufferGeometry` עם נורמלים מוחלקים וצביעת עומק אנטומית של הקמטים (`Gyri`) והחריצים (`Sulci`).
+  - **4 רשתות ומבנים אנטומיים באותו מרחב סטריאוטקסי:** הרשת הקדם-מצחית (`vmPFC / OFC & dlPFC`), האמיגדלה (`Amygdala`), קליפת האינסולה (`Insular Cortex`), וגרעין האקומבנס (`Nucleus Accumbens / Ventral Striatum`).
+  - **הצגת מבנים עמוקים באמצעות שקיפות חתך (`Cutaway`):** מבנים עמוקים (אמיגדלה, אינסולה וגרעין האקומבנס) אינם מוצבים על קליפת המוח החיצונית, אלא במיקומם האנטומי הפנימי; בעת בחירתם (או בלחיצה על כפתור `"מבט עומק (שקיפות חתך)"`), קליפת המוח החיצונית עוברת לשקיפות (`opacity: 0.22`) החושפת את המבנים בעומק המוח.
 - **תנועה ואינטראקטיביות:**
-  - סיבוב אוטונומי עדין המגיב לגרירת עכבר ומגע (OrbitControls אלגנטי).
-  - בלחיצה על כפתורי 4 האזורים (PFC, אמיגדלה, אינסולה, NAcc), המצלמה מתמקדת באזור הנבחר, החלקיקים באותו מוקד משנים את צבעם וזוהרים בעוצמה גבוהה, ונפתחת כרטיסיית מידע פסיכולוגית מפורטת.
-- **הבהרה מתודולוגית לגבי סרטון (Video Clarification):**  
-  > [!NOTE]  
-  > המצגת מבוססת על **אנימציה אינטראקטיבית מלאה בקוד (In-Browser Live WebGL Animation)** ולא על קובץ וידאו שטוח (MP4/WebM). הבחירה ברינדור חי מאפשרת לכל צופה, מרצה ובודק לסובב את המוח, לבחור אזורים בחופשיות ולשמוע את הצלילים הייחודיים ישירות בדפדפן.
+  - סיבוב אוטומטי חלק, גרירת עכבר ומגע ב-360°, זום בגלגלת, כפתור עצור/הפעל סיבוב (`#btnToggleRotate`), כפתור שקיפות חתך (`#btnToggleCutaway`) וכפתור איפוס מבט (`#btnResetView`).
 
-### 2. סינתזת סאונד פרוצדורלית ב-Web Audio API (`js/audio.js`)
-- **ללא קובצי MP3 חיצוניים:** כלל הצלילים במצגת מופקים באופן מתמטי וסינתטי בזמן אמת באמצעות ה-Web Audio API של הדפדפן (אוסצילטורים, מסננים ומעטפות Gain).
-- **תדרי האזורים המוחיים:** בלחיצה על מוקד מוחי מושמע צליל בתדר המותאם לפונקציה הפסיכולוגית שלו:
-  - **PFC (קליפת המוח הקדם-מצחית):** גל סינוס הרמוני צלול (528 Hz - "תדר הבהירות") המבטא ניתוח רציונלי.
-  - **Amygdala (אמיגדלה):** גל מסור (Sawtooth) חד ומודולציית רטט (180 Hz) המבטא דחיפות ואזעקה.
-  - **Insula (אינסולה):** תדר נמוך מהדהד (110 Hz) עם פילטר Low-Pass המבטא עומס וכאב תשלום.
-  - **NAcc (גרעין האקומבנס):** ארפג'יו משולש עולה (440–660–880 Hz) המבטא דופמין ועונג תגמול.
-- **מוזיקת רקע Ambient:** מוזיקת אווירה עתידנית, רגועה ופרוצדורלית המופעלת בלחיצה על אייקון הרמקול בסרגל העליון (או במודעת הבושם הרגשית בשקופית 19), המשלבת פדים חמים והד מרחבי ללא הפרעה לרצף ההרצאה.
+### 2. סינתזת סאונד אופציונלית ב-Web Audio API (`js/audio.js`) — שקיפות מדעית
+- **מה הקוד מפיק בפועל:** הקובץ `js/audio.js` מממש סינתיסייזר מוזיקלי פרוצדורלי ב-`Web Audio API` המנגן אקורד `A-Minor` הרמוני מתמשך (`110 Hz`, `164.81 Hz`, `220 Hz`, `261.63 Hz`, `329.63 Hz`) וצלילי פעמון פנטטוניים עדינים (`440 Hz`–`880 Hz`).
+- **הבהרה מדעית מפורשת:** צלילים סינתטיים אלו **אינם** הקלטה של פעילות מוחית (`EEG / fMRI`) ו**אינם** "תדרי מוח" מאומתים מדעית.
+- **שקט כברירת מחדל והסרת צלילי אזורים:** שקופית 8 **שקטה לחלוטין כברירת מחדל** (`isMuted: true`). צלילי האזורים הסינתטיים שליוו בעבר לחיצה על אזורי המוח הוסרו לחלוטין, ומוזיקת האווירה הסינתטית ניתנת להפעלה אך ורק בלחיצה יזומה של המשתמש על הכפתור המסומן בבירור בעברית: **`🔇 מוזיקת אווירה סינתטית: כבויה`**.
 
 ---
 
@@ -223,7 +221,7 @@ def calculate_anchoring(base_price, anchor_price):
 | **5** | **תפיסה ועיבוד חושי** | <bdi>Sensory Marketing</bdi> – השפעת חושים על תפיסת איכות | גלגל חושים (`sensory_wheel.svg`) | המחשת התאמה רב-חושית במיתוג |
 | **6** | **רגשות וסמנים סומטיים בהחלטות** | תיאוריית הסמנים הסומטיים (<bdi>Antonio Damasio</bdi>) | תרשים וקטורי (`somatic_marker.svg`) | ניתוח תגובות גופניות מקדימות |
 | **7** | **זיכרון ואסוציאציות מותג** | רשתות אסוציאטיביות ושליפה מהזיכרון הסמנטי | מפת רשת (`brand_associative_network.svg`) | ניתוח עוצמת קשרים מותגיים |
-| **8** | **הדמיה תלת-ממדית: מפת המוח הקונספטואלית** | מיפוי אזורי מוח מרכזיים בקבלת החלטות צרכניות | **מודל תלת-ממדי אינטראקטיבי (Three.js WebGL)** + תרשים (`hero_brain_diagram.jpg`) | סיבוב חופשי 360°, כפתורי שליטה, מיקוד ב-4 אזורים (PFC, אמיגדלה, אינסולה, NAcc) |
+| **8** | **הדמיה תלת-ממדית: רשתות המוח בקבלת החלטות צרכניות** | רשתות הערך, הבולטות והבקרה המוחיות בקבלת החלטות | **מודל מוח אנטומי תלת-ממדי אינטראקטיבי (`Three.js WebGL`)** מבוסס על `Brainder.org` (`FreeSurfer DK & ASEG`, `CC BY-SA 3.0`) | סיבוב 360°, שקיפות חתך (`Cutaway`) לחשיפת מבנים עמוקים (`Amygdala`, `Insula`, `NAcc`), כרטיסיית מידע עריכתית תמציתית ומגירת מקורות מתקפלת |
 | **9** | **אפקט המחסור: למה אנחנו ממהרים לקנות?** | <bdi>Scarcity Effect, FOMO</bdi> ותיאוריית ההתנגדות | תצלום יוקרה מסחרי (`luxury_handbag.jpg`) | **מעבדת A/B אינטראקטיבית** + 3 מחווני דירוג + גרף השוואה + **מנוע Python (Pyodide)** |
 | **10** | **פרדוקס הבחירה: האם יותר אפשרויות משמחות יותר?** | <bdi>Choice Overload & Analysis Paralysis</bdi> (שוורץ, איינגאר) | תצלומי בישום (`perfume_trio.jpg`, `perfumes_collection_12.jpg`) | **ניסוי שעון עצר דיגיטלי חי (Live Stopwatch)** (3 מול 12 אפשרויות) + דירוגי קושי + **מנוע Python** |
 | **11** | **אפקט הפיתיון ופרדוקס הבחירה** | <bdi>The Decoy Effect (Asymmetric Dominance)</bdi> | דיאגרמה וקטורית (`decoy_effect.svg`) | ניתוח הוספת חלופה נחותה להטיית העדפה |
@@ -234,7 +232,7 @@ def calculate_anchoring(base_price, anchor_price):
 | **16** | **שיווק מבוסס מדע ואתיקה מקצועית** | <bdi>Ethical Marketing vs. Dark Patterns</bdi> | תצלום יוקרה אחיד (`luxury_handbag.jpg`) | **מעבדת Checkout השוואתית** (חנות הוגנת מול מניפולטיבית) + מודאל Confirmshaming + שאלת אבחון + **מנוע Python** |
 | **17** | **סוכני AI ועתיד ההחלטות הצרכניות** | <bdi>AI Agents, Machine Customers & Hyper-Personalization</bdi> | דיאגרמת מעגל החלטה (`ai_decision_loop.svg`) | ניתוח עתידני של סוכנים אוטונומיים |
 | **18** | **סיכום ותובנות יישומיות** | אינטגרציה מעשית לאנשי שיווק ולצרכנים ביקורתיים | כרטיסיות סיכום מודולריות | עקרונות יישומיים להגברת מודעות ואמון |
-| **19** | **כשהפרסומת מעוררת רגש – האם נקנה יותר?** | פרסום רגשי מול ניטרלי, <bdi>Attitude-Behavior Gap</bdi> | תצלומי בושם מקוריים (`perfume_neutral.jpg`, `perfume_emotional.jpg`) | **מעבדת A/B תלת-שלבית** + מוזיקת אווירה ייעודית (Web Audio) + 3 מחווני דירוג + גרף השוואה + **מנוע Python** |
+| **19** | **כשהפרסומת מעוררת רגש – האם נקנה יותר?** | פרסום רגשי מול עובדתי, <bdi>Attitude-Behavior Gap</bdi> | צילומי מוצר רשמיים של <bdi>Gritti Tutù</bdi> (`gritti_tutu_01.jpg`, `gritti_tutu_03.jpg`) *(סרטוני הפרסומת עדיין בהפקה וטרם שולבו במצגת)* | **מעבדת A/B דו-שלבית ("דרגו את הרושם")** + תוויות ניטרליות לפני דירוג + הגרלת סדר אקראי + אישור דירוג מפורש (כולל אמצע `5/10`) + גרף השוואה + **מנוע Python** |
 | **20** | **ביבליוגרפיה, קרדיטים ומקורות** | מקורות מחקריים מאומתים, רישוי חזותי וקרדיטים | כרטיסיות ביבליוגרפיה מובנות | סקירת ספרות אקדמית מלאה ורישוי נכסים |
 
 ---
@@ -306,8 +304,8 @@ def calculate_anchoring(base_price, anchor_price):
 - [`luxury_handbag.jpg`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/assets/images/luxury_handbag.jpg) – תצלום מסחרי יוקרתי של תיק עור שחור ופרזול זהב עבור שקופיות 9 ו-16.
 - [`perfume_trio.jpg`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/assets/images/perfume_trio.jpg) – שלישיית בשמי יוקרה על שיש כהה לסבב 1 של פרדוקס הבחירה (שקופית 10).
 - [`perfumes_collection_12.jpg`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/assets/images/perfumes_collection_12.jpg) – קטלוג 12 בשמים יוקרתיים לסבב 2 של פרדוקס הבחירה (שקופית 10).
-- [`perfume_neutral.jpg`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/assets/images/perfume_neutral.jpg) – פרסומת עובדתית ומינימליסטית לשקופית 19.
-- [`perfume_emotional.jpg`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/assets/images/perfume_emotional.jpg) – פרסומת רגשית רומנטית עם תאורת שקיעה ואווירה קולנועית לשקופית 19.
+- [`gritti_tutu_01.jpg`](assets/images/gritti_tutu_01.jpg), [`gritti_tutu_02.jpg`](assets/images/gritti_tutu_02.jpg), [`gritti_tutu_03.jpg`](assets/images/gritti_tutu_03.jpg) – צילומי המוצר הרשמיים של **Gritti Tutù (`Extrait de Parfum, 100 ml, SKU: DGB00600`)** מתוך הקולקציה הלבנה (*White Collection*) של בית הבישום **Gritti Fragrances (Gritti Venetia)**, שהורדו מהגלריה הרשמית (`https://www.grittifragrances.com/products/tutu-dgb00600`) ומשמשים בשקופית 1 ובשקופית 19 תוך שמירה מלאה על פרופורציות הבקבוק והתווית המקורית.
+- [`perfume_neutral.jpg`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/assets/images/perfume_neutral.jpg) ו-[`perfume_emotional.jpg`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/assets/images/perfume_emotional.jpg) – קובצי ארכיון מהגרסה הקודמת (הוחלפו בשקופיות 1 ו-19 בצילומי המוצר הרשמיים של `Gritti Tutù`).
 - דיאגרמות וקטוריות מקוריות בפורמט SVG לשקופיות 3, 4, 5, 6, 7, 11, 12, 15, 17.
 
 ---
@@ -334,6 +332,15 @@ def calculate_anchoring(base_price, anchor_price):
 16. [`16_PRD_Upgrade.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/16_PRD_Upgrade.md) – שדרוג מקיף ואקדמי של מסמך אפיון דרישות המוצר ([`PRD.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/PRD.md) גרסה 2.0).
 17. [`17_README_Visuals_Screenshots.md`](file:///c:/Users/shams/OneDrive/Documents/GitHub/SHM-2026/prompts/17_README_Visuals_Screenshots.md) – שילוב צילומי מסך אמיתיים, המחשות ויזואליות, הסבר אנימציית Three.js ושמע, ותיעוד תוצרי Python ואימות CPython WebAssembly.
 18. [`18_Slide19_Improvement_Plan.md`](prompts/18_Slide19_Improvement_Plan.md) – תיעוד תוכנית השיפורים המדורגת לשקופית 19 ([תוכנית שיפור שקופית 19](docs/slide19-improvement-plan.md)).
+19. [`19_Stage1_Slide19_Python_Conversion.md`](prompts/19_Stage1_Slide19_Python_Conversion.md) – שלב 1 בתוכנית השיפור לשקופית 19: המרת תוצאות ה-Python (`Map`) לאובייקטי JavaScript רגילים ב-`calculateEmotionalAdPython` ואימות מול מנגנון הגיבוי.
+20. [`20_Visual_Redesign_Pilot_Slides1_And_19.md`](prompts/20_Visual_Redesign_Pilot_Slides1_And_19.md) – תכנון הכיוון העיצובי העריכתי החדש ([תוכנית עיצוב מחדש ל-20 השקופיות](docs/visual-redesign-plan.md)) ומימוש פיילוט בשקופיות 1 ו-19 בלבד (פלטת שנהב חם `#F7F3ED`, בורדו עמוק `#502638`, סומק בהיר `#EBD9DF`, קורל `#D85B49` ופחם `#252329`; שקופיות 2–18 ו-20 מתוכננות ומסומנות כ-`PLANNED`).
+21. [`21_Gritti_Tutu_Slide19_And_Content_Audit.md`](prompts/21_Gritti_Tutu_Slide19_And_Content_Audit.md) – עדכון שקופית 19 לבושם האמיתי והמאומת **Gritti Tutù (`Extrait de Parfum, 100 ml, € 260`)** (עם סימון מפורש של התמונות הקיימות כממלאי מקום זמניים לפיתוח), מימוש זרימת החשיפה הדו-שלבית (`"דרגו את הרושם"`), תוויות ניטרליות לפני דירוג (`מודעה א׳` / `מודעה ב׳`), הגרלת סדר הצגה אקראי, דרישת אישור מפורש לכל דירוג (כולל בחירת נקודת האמצע `5/10` ללא הזזת מחוון), תוכנית 3 קונספטים לצילום המודעה הרגשית, וביקורת דיוק עובדתי ומחקרי לכל 20 השקופיות ([`docs/content-audit.md`](docs/content-audit.md)).
+22. [`22_Slide19_Hybrid_Video_And_3D_Plan.md`](prompts/22_Slide19_Hybrid_Video_And_3D_Plan.md) – תכנון חוויה היברידית לשקופית 19 ([`docs/video-ad-production-plan.md`](docs/video-ad-production-plan.md), סטטוס: `PLANNED — AWAITING BOTTLE REFERENCE ASSETS`): שני סרטוני פרסומת פוטוריאליסטיים בנקודת מבט קבועה (~25 שניות כל אחד: מודעה עובדתית מול מודעה רגשית *"Before they call your name"* עבור **Gritti Tutù**) לצד מציג מוצר תלת-ממדי אינטראקטיבי נפרד ב-Three.js עם בקרת סיבוב (`OrbitControls`). המסמך מפרט בכנות כי סביבת העבודה הנוכחית אינה מייצרת קובצי וידאו (`.mp4`) או מודלים תלת-ממדיים (`.glb`) מאומתים בעצמה, מגדיר את צילומי הייחוס הנדרשים של הבקבוק המקורי, ושומר על פעולתה התקינה של שקופית 19 הקיימת עד להפקת הנכסים.
+23. [`23_Official_Gritti_Tutu_Images_Integration.md`](prompts/23_Official_Gritti_Tutu_Images_Integration.md) – הורדת צילומי המוצר הרשמיים של **Gritti Tutù (`Extrait de Parfum, 100 ml, SKU: DGB00600`)** מתוך עמוד המוצר הרשמי (`https://www.grittifragrances.com/products/tutu-dgb00600`) אל `assets/images/gritti_tutu_01.jpg`, `assets/images/gritti_tutu_02.jpg` ו-`assets/images/gritti_tutu_03.jpg`, החלפת תמונות ממלא המקום (`AURA`) בשקופית 1 ובשקופית 19 תוך שמירה מלאה על פרופורציות הבקבוק והתווית (`object-fit: contain`), תיעוד הקרדיט בשקופית 20, ודחיית מודל ה-3D של הבקבוק עד להשגת זוויות ייחוס מספקות (תוך שימור מלא של סצנת המוח התלת-ממדית בשקופית 8).
+24. [`24_Workflow_Audit_And_Checkpoint.md`](prompts/24_Workflow_Audit_And_Checkpoint.md) – ביקורת תהליך השמירה, התיעוד ודרישות המטלה הזמינות במאגר, הפרדה ברורה בין עבודה שהושלמה, עבודה מתוכננת ועבודה שטרם נבדקה, תיעוד כי סרטוני הפרסומת לשקופית 19 עדיין בתהליך הפקה וטרם שולבו במצגת, ויצירת Checkpoint מתועד בענף `malak-improvments`.
+25. [`25_Lecturer_Requirements_Audit.md`](prompts/25_Lecturer_Requirements_Audit.md) – ביקורת מקיפה של הפרויקט מול 9 דרישות המרצה בסיכום שיעור 2 (סעיף 11, עמודים 21–23) במסמך [`docs/lecturer-requirements-checklist.md`](docs/lecturer-requirements-checklist.md), אימות האנימציה התלת-ממדית ב-Three.js (`js/brain3d.js`) וביצוע קוד ה-Python האמיתי (`js/python_runner.js`) בהבחנה ממנגנון הגיבוי ב-JavaScript, עדכון [`PRD.md`](PRD.md) (גרסה 2.1), ותיעוד נוהל העבודה האוטונומי והמחייב לכל אבן דרך.
+26. [`26_Mandatory_Technical_Foundation_Verification.md`](prompts/26_Mandatory_Technical_Foundation_Verification.md) – בדיקה ואימות אוטומטי של התשתית הטכנית המחייבת בכל 20 השקופיות (`js/presentation.js`), סצנת ה-Three.js התלת-ממדית בשקופית 8 (`js/brain3d.js`), והרצת Python אמיתית (`Python 3.11.9`) בכל 6 השקופיות המבוססות על Python (`9, 10, 13, 14, 16, 19`); תיקון המרת תוצאות Pyodide (`Map` לאובייקטי JS רגילים) גם בשקופיות 9, 10, 13 ו-16 (`js/python_runner.js`, `js/prospect_theory.js`), תיקון יחס רוחב-גובה (`aspect`) התחלתי של המצלמה ב-`js/brain3d.js` כששקופית 8 מוסתרת בטעינה, ומניעת חטיפת מקשי חצים/רווח על ידי מנוע הניווט בזמן הזזת סליידרים ב-`js/presentation.js`.
+27. [`27_Slide8_Anatomical_3D_Brain_And_Editorial_Upgrade.md`](prompts/27_Slide8_Anatomical_3D_Brain_And_Editorial_Upgrade.md) – שדרוג שקופית 8 למודל מוח אנטומי תלת-ממדי ברישיון פתוח (**Brainder.org — "Brain for Blender"** מאת Dr. Anderson M. Winkler, MD, PhD, ברישיון **CC BY-SA 3.0**, מבוסס על **FreeSurfer** `Desikan-Killiany` + `ASEG`), הוספת שקיפות חתך (`Cutaway`) לחשיפת מבנים עמוקים (`Amygdala`, `Insula`, `NAcc`) במיקומם האנטומי הפנימי, דיוק מדעי של ההסברים כרשתות מבוזרות ללא "כפתור קנייה" בודד, הפיכת שקופית 8 לשקטה כברירת מחדל והסרת צלילי אזורים בלתי מוסברים (`js/audio.js`), והחלת הזהות העריכתית המאושרת (`#slide-8.editorial-pilot`).
 
 ---
 
@@ -345,6 +352,12 @@ def calculate_anchoring(base_price, anchor_price):
    - דפדפנים מודרניים חוסמים השמעת אודיו אוטומטית לפני אינטראקציה יזומה. לכן, כלל הצלילים ומוזיקת הרקע מושתקים כברירת מחדל ומופעלים אך ורק בלחיצה מפורשת של המשתמש.
 3. **הבחנה בין סימולציה לימודית למחקר מעבדה:**
    - הדירוגים והמדידות בסימולציות (מחסור, פרדוקס הבחירה, פרסום רגשי) נועדו להמחיש עקרונות פסיכולוגיים למשתתף יחיד, ואינם מהווים ניסוי אמפירי מבוקר בעל מובהקות סטטיסטית. הדבר מצוין בהבלטה בכל שקופית אינטראקטיבית.
+4. **סטטוס עבודה נוכחי בענף `malak-improvments` (הבחנה בין מה שהושלם לבין מה שבתהליך/מתוכנן/טרם נבדק בדפדפן חי):**
+   - **אומת ידנית בדפדפן חי (Safari — על ידי המשתמשת):** שקופית 8 מסתובבת אוטומטית (`Auto-Rotation`).
+   - **הושלם ואומת אוטומטית (Node.js + Local HTTP + Real Python 3.11.9):** ניווט מלא בכל 20 השקופיות וטעינת כל 28 הנכסים המקומיים (`HTTP 200`); מודל המוח האנטומי התלת-ממדי ב-Three.js בשקופית 8 (`Brainder.org`, `CC BY-SA 3.0`), שקיפות חתך (`Cutaway`) למבנים עמוקים, השתקת ברירת מחדל והסרת צלילי אזורים, והעיצוב העריכתי החם (`#F7F3ED` / `#502638`) בשקופיות 1, 8 ו-19; הרצת Python אמיתית והזנת הפלט לממשק בכל 6 השקופיות המבוססות על Python (`9, 10, 13, 14, 16, 19`); שילוב צילומי המוצר הרשמיים של **Gritti Tutù (`Extrait de Parfum, 100 ml, € 260, SKU: DGB00600`)** (`gritti_tutu_01.jpg`, `gritti_tutu_02.jpg`, `gritti_tutu_03.jpg`); ואימות חישובי שקופית 19 עבור דירוגים שווים, דירוג גבוה יותר למודעה העובדתית ודירוג גבוה יותר למודעה הרגשית.
+   - **דורש אימות ידני בדפדפן חי (Live Browser Check):** בדיקה ידנית בדפדפן של גרירת המוח התלת-ממדי בעכבר/מגע (`Dragging`), לחיצה על אזורי המוח ומעבר שקיפות החתך בשקופית 8 (`Region Interaction & Cutaway`), ואימות טעינת Pyodide מהרשת בקונסול הדפדפן (`verifyPythonExecution()`).
+   - **בהפקה / מתוכנן (טרם שולב במצגת):** שני סרטוני הפרסומת לשקופית 19 (~25 שניות כל אחד, המפורטים ב-[`docs/video-ad-production-plan.md`](docs/video-ad-production-plan.md)) **עדיין נמצאים בהפקה וטרם שולבו בקוד המצגת**. מציג הבקבוק התלת-ממדי ב-Three.js נדחה עד להשגת זוויות ייחוס מספקות של הבקבוק (ללא טענה לדיוק מילימטרי ללא מדידות מאומתות). כמו כן, החלת העיצוב העריכתי החדש ותיקוני ביקורת התוכן ([`docs/content-audit.md`](docs/content-audit.md)) על שקופיות 2–7, 9–18 ו-20, וכן לכידת צילומי מסך חדשים ב-`docs/screenshots/` עבור שקופיות 1, 8 ו-19 המעודכנות, מסומנים כ-`PLANNED`.
+   - **נוהל עבודה ו-Checkpoints:** במהלך העבודה נשמרים כל הקבצים והפרומפטים בזמן אמת, ולאחר כל אבן דרך (Milestone) שהושלמה ונבדקה נוצר Checkpoint מתועד ב-Git בענף `malak-improvments`.
 
 ---
 

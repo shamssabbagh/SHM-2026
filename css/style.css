@@ -4176,3 +4176,1333 @@ bdi, .bidi-isolate {
     display: none;
   }
 }
+
+/* ==========================================================================
+   כיוון עיצובי עריכתי חדש (Editorial Pilot — שקופיות 1 ו-19 בלבד)
+   Warm Ivory (#F7F3ED), Deep Burgundy (#502638), Pale Blush (#EBD9DF),
+   Coral Accents (#D85B49 / #B83D2B), Charcoal Body Text (#252329)
+   ========================================================================== */
+
+.slide.editorial-pilot {
+  --ed-bg: #F7F3ED;
+  --ed-blush: #EBD9DF;
+  --ed-blush-soft: #F2E7EB;
+  --ed-surface: #FCF9F5;
+  --ed-burgundy: #502638;
+  --ed-coral: #D85B49;
+  --ed-coral-strong: #B83D2B;
+  --ed-charcoal: #252329;
+  --ed-muted: #5A5258;
+  --ed-border: rgba(80, 38, 56, 0.16);
+  --ed-border-strong: rgba(80, 38, 56, 0.3);
+
+  background: var(--ed-bg);
+  color: var(--ed-charcoal);
+  border: 1px solid var(--ed-border);
+  box-shadow: 0 18px 48px rgba(37, 35, 41, 0.12);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 36px 48px;
+}
+
+/* התאמת רקע הדף וסרגל הניווט כאשר שקופית פיילוט פעילה */
+body:has(.slide.editorial-pilot.active) {
+  background: #EFE9E0;
+  color: #252329;
+}
+
+body:has(.slide.editorial-pilot.active) .progress-container {
+  background-color: rgba(80, 38, 56, 0.12);
+}
+
+body:has(.slide.editorial-pilot.active) .progress-bar {
+  background: linear-gradient(90deg, #502638 0%, #D85B49 100%);
+  box-shadow: none;
+}
+
+body:has(.slide.editorial-pilot.active) .navigation-bar {
+  background: rgba(247, 243, 237, 0.95);
+  border-top: 1px solid rgba(80, 38, 56, 0.16);
+}
+
+body:has(.slide.editorial-pilot.active) .slide-counter {
+  color: #502638;
+}
+
+body:has(.slide.editorial-pilot.active) .slide-hint {
+  color: #5A5258;
+}
+
+body:has(.slide.editorial-pilot.active) .nav-btn {
+  background: #EBD9DF;
+  color: #502638;
+  border: 1px solid rgba(80, 38, 56, 0.22);
+}
+
+body:has(.slide.editorial-pilot.active) .nav-btn:hover:not(:disabled) {
+  background: #e2cad3;
+  color: #502638;
+  border-color: #502638;
+}
+
+body:has(.slide.editorial-pilot.active) .nav-btn.primary {
+  background: #502638;
+  color: #F7F3ED;
+  border: 1px solid #502638;
+}
+
+body:has(.slide.editorial-pilot.active) .nav-btn.primary:hover:not(:disabled) {
+  background: #673249;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(80, 38, 56, 0.22);
+}
+
+/* ------------------ שקופית 1: פתיחה עריכתית (Pilot) ------------------ */
+
+#slide-1.editorial-pilot .editorial-cover-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+  min-height: calc(100vh - var(--nav-height) - 140px);
+}
+
+#slide-1.editorial-pilot .editorial-cover-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+#slide-1.editorial-pilot .editorial-kicker {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border);
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+#slide-1.editorial-pilot .editorial-kicker .badge-uni {
+  color: var(--ed-burgundy);
+  font-weight: 800;
+}
+
+#slide-1.editorial-pilot .editorial-kicker .badge-divider {
+  color: var(--ed-coral-strong);
+}
+
+#slide-1.editorial-pilot .editorial-kicker .badge-course {
+  color: var(--ed-charcoal);
+}
+
+#slide-1.editorial-pilot .editorial-headline-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#slide-1.editorial-pilot .cover-title {
+  font-family: var(--font-heading);
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 1.08;
+  color: var(--ed-burgundy);
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  letter-spacing: -0.5px;
+}
+
+#slide-1.editorial-pilot .cover-subtitle {
+  font-size: 1.38rem;
+  color: var(--ed-charcoal);
+  font-weight: 600;
+  line-height: 1.45;
+  max-width: 34ch;
+}
+
+#slide-1.editorial-pilot .cover-subtitle-en {
+  font-size: 0.96rem;
+  color: var(--ed-muted);
+  font-weight: 500;
+}
+
+#slide-1.editorial-pilot .btn-start-presentation {
+  background: var(--ed-coral-strong);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.12rem;
+  padding: 14px 36px;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 20px rgba(184, 61, 43, 0.22);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#slide-1.editorial-pilot .btn-start-presentation:hover {
+  background: var(--ed-burgundy);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(80, 38, 56, 0.25);
+}
+
+#slide-1.editorial-pilot .btn-start-presentation:focus-visible {
+  outline: 3px solid var(--ed-burgundy);
+  outline-offset: 3px;
+}
+
+#slide-1.editorial-pilot .editorial-byline {
+  border-top: 1px solid var(--ed-border);
+  padding-top: 18px;
+  margin-top: 4px;
+  gap: 12px;
+}
+
+#slide-1.editorial-pilot .team-institution-header {
+  background: transparent;
+  border-right: 3px solid var(--ed-coral);
+  color: var(--ed-muted);
+  padding: 2px 10px;
+  border-radius: 0;
+  font-size: 0.88rem;
+}
+
+#slide-1.editorial-pilot .team-institution-header strong {
+  color: var(--ed-burgundy);
+}
+
+#slide-1.editorial-pilot .team-equal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+#slide-1.editorial-pilot .team-card-box {
+  background: var(--ed-blush);
+  border: 1px solid var(--ed-border);
+  border-right: 4px solid var(--ed-burgundy);
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+#slide-1.editorial-pilot .team-card-box.comm {
+  border-right-color: var(--ed-coral);
+}
+
+#slide-1.editorial-pilot .team-card-box:hover {
+  transform: none;
+  border-color: var(--ed-border-strong);
+  box-shadow: 0 4px 14px rgba(80, 38, 56, 0.08);
+}
+
+#slide-1.editorial-pilot .team-info h4 {
+  color: var(--ed-coral-strong);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+#slide-1.editorial-pilot .team-name {
+  color: var(--ed-burgundy);
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+#slide-1.editorial-pilot .team-info p {
+  color: var(--ed-charcoal);
+  font-size: 0.82rem;
+}
+
+#slide-1.editorial-pilot .editorial-hero-frame {
+  max-width: 470px;
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--ed-border-strong);
+  background: var(--ed-surface);
+  box-shadow: 0 20px 44px rgba(80, 38, 56, 0.14);
+  overflow: hidden;
+  position: relative;
+}
+
+#slide-1.editorial-pilot .editorial-hero-frame img {
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+  object-position: center center;
+  background: #FFFFFF;
+  padding: 10px;
+  display: block;
+}
+
+#slide-1.editorial-pilot .editorial-hero-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.92rem;
+  border-top: 1px solid var(--ed-border);
+}
+
+#slide-1.editorial-pilot .editorial-hero-caption {
+  color: var(--ed-muted);
+  font-size: 0.86rem;
+  margin-top: 10px;
+  max-width: 42ch;
+  line-height: 1.45;
+}
+
+/* ------------------ שקופית 19: מעבדת פרסום עריכתית (Pilot) ------------------ */
+
+#slide-19.editorial-pilot {
+  padding: 26px 38px;
+}
+
+#slide-19.editorial-pilot .editorial-slide-header {
+  border-bottom: 1px solid var(--ed-border);
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+#slide-19.editorial-pilot .slide-title-group h2 {
+  color: var(--ed-burgundy);
+  font-size: 1.95rem;
+  font-weight: 900;
+}
+
+#slide-19.editorial-pilot .slide-subtitle {
+  color: var(--ed-muted);
+  font-size: 0.95rem;
+}
+
+#slide-19.editorial-pilot .slide-badge {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  font-weight: 700;
+}
+
+#slide-19.editorial-pilot .editorial-method-note {
+  background: var(--ed-blush);
+  border: 1px solid var(--ed-border);
+  border-right: 4px solid var(--ed-burgundy);
+  color: var(--ed-charcoal);
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  font-size: 0.86rem;
+}
+
+#slide-19.editorial-pilot .editorial-method-note strong {
+  color: var(--ed-burgundy);
+}
+
+#slide-19.editorial-pilot .emot-sim-container {
+  gap: 12px;
+}
+
+#slide-19.editorial-pilot .emot-steps-tracker {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  align-self: center;
+}
+
+#slide-19.editorial-pilot .step-pill {
+  color: var(--ed-muted);
+  background: transparent;
+  font-size: 0.84rem;
+  padding: 5px 14px;
+}
+
+#slide-19.editorial-pilot .step-pill .step-num {
+  background: rgba(80, 38, 56, 0.12);
+  color: var(--ed-burgundy);
+}
+
+#slide-19.editorial-pilot .step-pill.active {
+  background: var(--ed-burgundy);
+  color: #FFFFFF;
+  border-color: var(--ed-burgundy);
+  box-shadow: none;
+}
+
+#slide-19.editorial-pilot .step-pill.active .step-num {
+  background: var(--ed-coral);
+  color: #FFFFFF;
+}
+
+#slide-19.editorial-pilot .tracker-arrow {
+  color: var(--ed-burgundy);
+}
+
+/* באנר סימון מפורש לתמונות ממלא מקום זמניות לפיתוח */
+.slide.editorial-pilot .placeholder-dev-banner {
+  background: var(--ed-burgundy);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#slide-19.editorial-pilot .ad-image-frame {
+  position: relative;
+  height: 250px;
+  background: #FFFFFF;
+  border: 1px solid var(--ed-border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#slide-19.editorial-pilot .ad-image-frame .ad-img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* פריסה דו-שלבית: מודעה מוצגת במרכז תחילה, ושאלות הדירוג נחשפות בלחיצה */
+#slide-19.editorial-pilot .emot-ad-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 20px;
+  align-items: start;
+}
+
+#slide-19.editorial-pilot .emot-ad-grid.rating-collapsed {
+  grid-template-columns: minmax(0, 700px);
+  justify-content: center;
+}
+
+#slide-19.editorial-pilot .ad-display-card,
+#slide-19.editorial-pilot .ad-rating-card,
+#slide-19.editorial-pilot .results-chart-card,
+#slide-19.editorial-pilot .results-insights-card {
+  background: var(--ed-surface);
+  border: 1px solid var(--ed-border);
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-shadow: 0 8px 24px rgba(80, 38, 56, 0.06);
+  color: var(--ed-charcoal);
+}
+
+#slide-19.editorial-pilot .ad-copy-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#slide-19.editorial-pilot .ad-body-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#slide-19.editorial-pilot .ad-exposure-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ed-border);
+}
+
+#slide-19.editorial-pilot .btn-reveal-rating {
+  background: var(--ed-coral-strong);
+  color: #FFFFFF;
+  border: 1px solid var(--ed-coral-strong);
+  border-radius: 9999px;
+  padding: 10px 24px;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
+  box-shadow: 0 4px 14px rgba(184, 61, 43, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#slide-19.editorial-pilot .btn-reveal-rating:hover {
+  background: var(--ed-burgundy);
+  border-color: var(--ed-burgundy);
+  transform: translateY(-1px);
+}
+
+#slide-19.editorial-pilot .btn-reveal-rating:focus-visible {
+  outline: 3px solid var(--ed-burgundy);
+  outline-offset: 3px;
+}
+
+#slide-19.editorial-pilot .btn-reveal-rating.is-revealed {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border-color: var(--ed-border-strong);
+  box-shadow: none;
+  cursor: default;
+}
+
+#slide-19.editorial-pilot .ad-badge,
+#slide-19.editorial-pilot .ad-badge.neutral,
+#slide-19.editorial-pilot .ad-badge.emotional {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 9999px;
+}
+
+#slide-19.editorial-pilot .ad-volume-spec {
+  font-size: 0.8rem;
+  color: var(--ed-muted);
+  font-weight: 600;
+}
+
+#slide-19.editorial-pilot .ad-headline-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+#slide-19.editorial-pilot .ad-headline-row h3 {
+  color: var(--ed-burgundy);
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+
+#slide-19.editorial-pilot .ad-price-tag,
+#slide-19.editorial-pilot .ad-price-tag.emotional {
+  color: var(--ed-burgundy);
+  background: var(--ed-blush);
+  border: 1px solid var(--ed-border-strong);
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 2px 12px;
+  border-radius: 6px;
+}
+
+#slide-19.editorial-pilot .ad-specs-list {
+  background: var(--ed-bg);
+  border: 1px solid var(--ed-border);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+#slide-19.editorial-pilot .spec-label {
+  color: var(--ed-burgundy);
+  font-weight: 700;
+}
+
+#slide-19.editorial-pilot .spec-val {
+  color: var(--ed-charcoal);
+}
+
+#slide-19.editorial-pilot .ad-neutral-note {
+  color: var(--ed-muted);
+  font-style: normal;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+#slide-19.editorial-pilot .ad-story-quote {
+  background: var(--ed-blush-soft);
+  border-right: 3px solid var(--ed-coral);
+  color: var(--ed-charcoal);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  padding: 9px 12px;
+  margin: 0;
+}
+
+/* בקרות דירוג אחידות, אישור נקודת האמצע ונגישות מקלדת */
+#slide-19.editorial-pilot .ad-rating-card {
+  gap: 10px;
+}
+
+#slide-19.editorial-pilot .ad-rating-card h4 {
+  color: var(--ed-burgundy);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+#slide-19.editorial-pilot .rating-subtext {
+  color: var(--ed-muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+#slide-19.editorial-pilot .rating-slider-group {
+  gap: 4px;
+}
+
+#slide-19.editorial-pilot .rating-label-row {
+  color: var(--ed-charcoal);
+  font-size: 0.85rem;
+  font-weight: 700;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#slide-19.editorial-pilot .rating-status-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#slide-19.editorial-pilot .rating-val-badge {
+  color: var(--ed-burgundy);
+  background: var(--ed-blush);
+  border: 1px solid var(--ed-border-strong);
+  font-weight: 800;
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+#slide-19.editorial-pilot .rating-val-badge.unconfirmed {
+  background: #EFE9E0;
+  color: var(--ed-muted);
+  border-style: dashed;
+}
+
+#slide-19.editorial-pilot .rating-val-badge.confirmed {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border-style: solid;
+}
+
+#slide-19.editorial-pilot .btn-confirm-midpoint {
+  background: var(--ed-surface);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#slide-19.editorial-pilot .btn-confirm-midpoint:hover {
+  background: var(--ed-blush);
+}
+
+#slide-19.editorial-pilot .btn-confirm-midpoint:focus-visible {
+  outline: 2px solid var(--ed-coral-strong);
+  outline-offset: 2px;
+}
+
+#slide-19.editorial-pilot .btn-confirm-midpoint.is-confirmed {
+  background: var(--ed-burgundy);
+  color: #FFFFFF;
+  border-color: var(--ed-burgundy);
+}
+
+#slide-19.editorial-pilot .rating-gate-hint {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ed-coral-strong);
+  background: rgba(216, 91, 73, 0.1);
+  border: 1px solid rgba(184, 61, 43, 0.28);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin: 2px 0;
+}
+
+#slide-19.editorial-pilot .rating-gate-hint.ready {
+  color: var(--ed-burgundy);
+  background: var(--ed-blush-soft);
+  border-color: var(--ed-border-strong);
+}
+
+#slide-19.editorial-pilot .ad-range-slider {
+  background: #D9C6CE;
+  height: 8px;
+  border-radius: 9999px;
+}
+
+#slide-19.editorial-pilot .ad-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ed-burgundy);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 2px 6px rgba(80, 38, 56, 0.3);
+  cursor: pointer;
+}
+
+#slide-19.editorial-pilot .ad-range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ed-burgundy);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 2px 6px rgba(80, 38, 56, 0.3);
+  cursor: pointer;
+}
+
+#slide-19.editorial-pilot .ad-range-slider:focus-visible {
+  outline: 3px solid var(--ed-coral-strong);
+  outline-offset: 4px;
+}
+
+#slide-19.editorial-pilot .rating-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.74rem;
+  color: var(--ed-muted);
+}
+
+#slide-19.editorial-pilot .btn-step-next,
+#slide-19.editorial-pilot .btn-step-next.primary {
+  background: var(--ed-burgundy);
+  color: #FFFFFF;
+  border: 1px solid var(--ed-burgundy);
+  box-shadow: none;
+  padding: 10px 18px;
+}
+
+#slide-19.editorial-pilot .btn-step-next:disabled,
+#slide-19.editorial-pilot .btn-step-next.primary:disabled {
+  background: #D5C8CE;
+  color: #6B6267;
+  border-color: #C3B3BA;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#slide-19.editorial-pilot .btn-step-next:hover:not(:disabled),
+#slide-19.editorial-pilot .btn-step-next.primary:hover:not(:disabled) {
+  background: var(--ed-coral-strong);
+  border-color: var(--ed-coral-strong);
+  color: #FFFFFF;
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+#slide-19.editorial-pilot .btn-step-prev,
+#slide-19.editorial-pilot .btn-retry {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  font-weight: 700;
+}
+
+#slide-19.editorial-pilot .btn-step-prev:hover,
+#slide-19.editorial-pilot .btn-retry:hover {
+  background: #e1cad2;
+  color: var(--ed-burgundy);
+}
+
+/* שלב 3: תוצאות, חשיפת הגישות הפרסומיות והשוואה בשקופית 19 */
+#slide-19.editorial-pilot .order-reveal-banner {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  border-right: 4px solid var(--ed-burgundy);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.83rem;
+  color: var(--ed-charcoal);
+}
+
+#slide-19.editorial-pilot .order-reveal-banner strong {
+  color: var(--ed-burgundy);
+}
+
+#slide-19.editorial-pilot .bar-item {
+  grid-template-columns: 120px 1fr 45px;
+}
+#slide-19.editorial-pilot .chart-header-row h4,
+#slide-19.editorial-pilot .results-insights-card h4 {
+  color: var(--ed-burgundy);
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+#slide-19.editorial-pilot .python-calculated-badge {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  font-weight: 700;
+}
+
+#slide-19.editorial-pilot .metric-chart-group {
+  background: var(--ed-bg);
+  border: 1px solid var(--ed-border);
+  padding: 12px 16px;
+}
+
+#slide-19.editorial-pilot .metric-group-name {
+  color: var(--ed-burgundy);
+  font-weight: 800;
+}
+
+#slide-19.editorial-pilot .metric-diff-badge {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+}
+
+#slide-19.editorial-pilot .metric-diff-badge.positive {
+  background: rgba(216, 91, 73, 0.15);
+  color: var(--ed-coral-strong);
+  border-color: rgba(184, 61, 43, 0.4);
+}
+
+#slide-19.editorial-pilot .metric-diff-badge.negative {
+  background: rgba(80, 38, 56, 0.12);
+  color: var(--ed-burgundy);
+  border-color: rgba(80, 38, 56, 0.35);
+}
+
+#slide-19.editorial-pilot .bar-label {
+  color: var(--ed-charcoal);
+  font-weight: 600;
+}
+
+#slide-19.editorial-pilot .bar-track {
+  background: #E4D6DC;
+  height: 11px;
+  border-radius: 9999px;
+}
+
+#slide-19.editorial-pilot .bar-fill.neutral {
+  background: var(--ed-burgundy);
+  border-radius: 9999px;
+}
+
+#slide-19.editorial-pilot .bar-fill.emotional {
+  background: var(--ed-coral);
+  box-shadow: none;
+  border-radius: 9999px;
+}
+
+#slide-19.editorial-pilot .bar-val {
+  color: var(--ed-burgundy);
+}
+
+#slide-19.editorial-pilot .bar-val.emotional {
+  color: var(--ed-coral-strong);
+}
+
+#slide-19.editorial-pilot .editorial-dynamic-summary {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  border-right: 4px solid var(--ed-coral);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ed-charcoal);
+}
+
+#slide-19.editorial-pilot .editorial-dynamic-summary strong {
+  color: var(--ed-burgundy);
+}
+
+/* מגירת תיאוריה ומקורות מתקפלת ונגישה */
+#slide-19.editorial-pilot .editorial-theory-drawer {
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 10px;
+  background: var(--ed-bg);
+  overflow: hidden;
+}
+
+#slide-19.editorial-pilot .editorial-theory-summary {
+  padding: 12px 16px;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--ed-burgundy);
+  background: var(--ed-blush);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+#slide-19.editorial-pilot .editorial-theory-summary::-webkit-details-marker {
+  display: none;
+}
+
+#slide-19.editorial-pilot .editorial-theory-summary::after {
+  content: '+ הצג פירוט';
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ed-coral-strong);
+  white-space: nowrap;
+}
+
+#slide-19.editorial-pilot .editorial-theory-drawer[open] .editorial-theory-summary::after {
+  content: '− הסתר פירוט';
+}
+
+#slide-19.editorial-pilot .editorial-theory-summary:focus-visible {
+  outline: 3px solid var(--ed-coral-strong);
+  outline-offset: -3px;
+}
+
+#slide-19.editorial-pilot .editorial-theory-content {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#slide-19.editorial-pilot .psych-concept-box {
+  background: var(--ed-surface);
+  border: 1px solid var(--ed-border);
+  border-right: 3px solid var(--ed-burgundy);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+#slide-19.editorial-pilot .psych-concept-box.warning {
+  border-right-color: var(--ed-coral);
+}
+
+#slide-19.editorial-pilot .psych-concept-box strong {
+  color: var(--ed-burgundy);
+  font-size: 0.88rem;
+}
+
+#slide-19.editorial-pilot .psych-concept-box p {
+  color: var(--ed-charcoal);
+  font-size: 0.83rem;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* ------------------ שקופית 8: מודל מוח אנטומי תלת-ממדי בעיצוב עריכתי (Editorial) ------------------ */
+
+#slide-8.editorial-pilot {
+  padding: 24px 36px;
+}
+
+#slide-8.editorial-pilot .slide-header {
+  border-bottom: 1px solid var(--ed-border);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#slide-8.editorial-pilot .slide-title-group h2 {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: var(--ed-burgundy);
+  font-size: 1.72rem;
+  font-weight: 900;
+}
+
+#slide-8.editorial-pilot .slide-subtitle {
+  color: var(--ed-muted);
+  font-size: 0.96rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+#slide-8.editorial-pilot .slide-badge {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  font-weight: 800;
+}
+
+#slide-8.editorial-pilot .scientific-notice {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  border-right: 4px solid var(--ed-burgundy);
+  color: var(--ed-charcoal);
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+#slide-8.editorial-pilot .scientific-notice strong {
+  color: var(--ed-burgundy);
+}
+
+#slide-8.editorial-pilot .brain3d-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.38fr 0.92fr;
+  gap: 20px;
+  align-items: start;
+  margin-top: 4px;
+}
+
+#slide-8.editorial-pilot .brain3d-viewport-card {
+  background: var(--ed-surface);
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 10px 28px rgba(80, 38, 56, 0.08);
+}
+
+#slide-8.editorial-pilot .brain3d-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--ed-border);
+  padding-bottom: 10px;
+}
+
+#slide-8.editorial-pilot .brain3d-primary-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#slide-8.editorial-pilot .brain-ctrl-btn {
+  background: var(--ed-bg);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+#slide-8.editorial-pilot .brain-ctrl-btn:hover {
+  background: var(--ed-blush);
+  border-color: var(--ed-burgundy);
+  color: var(--ed-burgundy);
+}
+
+#slide-8.editorial-pilot .brain-ctrl-btn.active-mode,
+#slide-8.editorial-pilot .brain-ctrl-btn.sound-active {
+  background: var(--ed-burgundy);
+  border-color: var(--ed-burgundy);
+  color: var(--ed-bg);
+}
+
+#slide-8.editorial-pilot .brain-sound-control-group {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  gap: 8px;
+}
+
+#slide-8.editorial-pilot .vol-label,
+#slide-8.editorial-pilot .vol-val-text {
+  color: var(--ed-charcoal);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+#slide-8.editorial-pilot .audio-slider {
+  background: #D9C6CE;
+  width: 64px;
+}
+
+#slide-8.editorial-pilot .audio-slider::-webkit-slider-thumb {
+  background: var(--ed-burgundy);
+  box-shadow: none;
+}
+
+#slide-8.editorial-pilot .audio-slider::-moz-range-thumb {
+  background: var(--ed-burgundy);
+  box-shadow: none;
+}
+
+#slide-8.editorial-pilot .brain-view-mode-banner {
+  background: var(--ed-blush-soft);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+#slide-8.editorial-pilot .brain-view-mode-banner.cutaway-active {
+  background: rgba(216, 91, 73, 0.14);
+  color: var(--ed-coral-strong);
+  border-color: rgba(184, 61, 43, 0.35);
+}
+
+#slide-8.editorial-pilot .brain3d-canvas-container {
+  width: 100%;
+  height: clamp(290px, 38vh, 420px);
+  min-height: 290px;
+  background: radial-gradient(circle at 50% 46%, #FCF9F5 0%, #EFE6DC 65%, #E4D5C9 100%);
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 12px;
+  box-shadow: inset 0 2px 12px rgba(80, 38, 56, 0.06);
+}
+
+#slide-8.editorial-pilot .brain-regions-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+#slide-8.editorial-pilot .brain-region-btn {
+  background: var(--ed-bg);
+  border: 1px solid var(--ed-border);
+  color: var(--ed-charcoal);
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+#slide-8.editorial-pilot .brain-region-btn:hover {
+  background: var(--ed-blush-soft);
+  border-color: var(--ed-burgundy);
+}
+
+#slide-8.editorial-pilot .brain-region-btn.active {
+  background: var(--ed-burgundy);
+  border-color: var(--ed-burgundy);
+  color: var(--ed-bg);
+  box-shadow: 0 4px 12px rgba(80, 38, 56, 0.18);
+}
+
+#slide-8.editorial-pilot .brain-region-btn .dot {
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+#slide-8.editorial-pilot .brain-region-btn .dot.pfc { background-color: #6B2D46; }
+#slide-8.editorial-pilot .brain-region-btn .dot.amygdala { background-color: #D85B49; }
+#slide-8.editorial-pilot .brain-region-btn .dot.insula { background-color: #C26D2D; }
+#slide-8.editorial-pilot .brain-region-btn .dot.nacc { background-color: #9E3B66; }
+
+#slide-8.editorial-pilot .brain-interaction-hint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--ed-muted);
+  padding-top: 2px;
+}
+
+#slide-8.editorial-pilot .brain-model-credit {
+  font-weight: 600;
+  color: var(--ed-burgundy);
+}
+
+/* כרטיסיית המידע העריכתית מימין (שקופית 8) */
+#slide-8.editorial-pilot .brain-info-card {
+  background: var(--ed-surface);
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 10px 28px rgba(80, 38, 56, 0.08);
+  color: var(--ed-charcoal);
+}
+
+#slide-8.editorial-pilot .region-detail-header {
+  border-right: 4px solid var(--ed-burgundy);
+  padding-right: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#slide-8.editorial-pilot .region-title-wrap h3 {
+  color: var(--ed-burgundy);
+  font-size: 1.38rem;
+  font-weight: 900;
+}
+
+#slide-8.editorial-pilot .region-sub-en {
+  color: var(--ed-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#slide-8.editorial-pilot .region-badge-pill {
+  background: var(--ed-blush);
+  color: var(--ed-burgundy);
+  border: 1px solid var(--ed-border-strong);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 12px;
+}
+
+#slide-8.editorial-pilot .region-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--ed-charcoal);
+}
+
+#slide-8.editorial-pilot .region-block h5 {
+  color: var(--ed-burgundy);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+#slide-8.editorial-pilot .region-desc-summary {
+  background: var(--ed-bg);
+  color: var(--ed-charcoal);
+  border: 1px solid var(--ed-border);
+  border-right: 3px solid var(--ed-burgundy);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+#slide-8.editorial-pilot .consumer-example-block {
+  background: var(--ed-blush-soft);
+  border: 1px solid var(--ed-border);
+  border-right: 3px solid var(--ed-coral);
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+#slide-8.editorial-pilot .consumer-example-block p {
+  color: var(--ed-charcoal);
+  font-size: 0.92rem;
+  line-height: 1.58;
+}
+
+/* מגירת הפירוט המדעי והמקורות בשקופית 8 */
+#slide-8.editorial-pilot .brain-sci-drawer {
+  border: 1px solid var(--ed-border-strong);
+  border-radius: 10px;
+  background: var(--ed-bg);
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .editorial-theory-summary {
+  padding: 11px 14px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--ed-burgundy);
+  background: var(--ed-blush);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .editorial-theory-summary::-webkit-details-marker {
+  display: none;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .editorial-theory-summary::after {
+  content: '+ הצג פירוט ומקורות';
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ed-coral-strong);
+  white-space: nowrap;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer[open] .editorial-theory-summary::after {
+  content: '− הסתר פירוט';
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .editorial-theory-content {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .psych-concept-box {
+  background: var(--ed-surface);
+  border: 1px solid var(--ed-border);
+  border-right: 3px solid var(--ed-burgundy);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .psych-concept-box.warning {
+  border-right-color: var(--ed-coral);
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .psych-concept-box strong {
+  color: var(--ed-burgundy);
+  font-size: 0.85rem;
+}
+
+#slide-8.editorial-pilot .brain-sci-drawer .psych-concept-box p {
+  color: var(--ed-charcoal);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+#slide-8.editorial-pilot .brain-sci-sources-list {
+  margin: 6px 0 0 0;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.78rem;
+  line-height: 1.42;
+  color: var(--ed-charcoal);
+}
+
+@media (max-width: 950px) {
+  #slide-1.editorial-pilot .editorial-cover-grid,
+  #slide-8.editorial-pilot .brain3d-dashboard-grid,
+  #slide-19.editorial-pilot .emot-ad-grid {
+    grid-template-columns: 1fr;
+  }
+  #slide-1.editorial-pilot .cover-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* כיבוד העדפת הפחתת תנועה (Reduced Motion) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -529,9 +529,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
     try {
       const pyCmd = `calculate_scarcity_comparison(${JSON.stringify(stateA)}, ${JSON.stringify(stateB)})`;
       const proxy = state.pyodide.runPython(pyCmd);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Scarcity Python Runner] Python execution warning:', e);
       return null;
@@ -546,9 +546,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
     try {
       const pyCmd = `calculate_choice_paradox(${JSON.stringify(round1)}, ${JSON.stringify(round2)})`;
       const proxy = state.pyodide.runPython(pyCmd);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Choice Paradox Python Runner] Python execution warning:', e);
       return null;
@@ -564,14 +564,38 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
       const amt = parseFloat(amount) || 0;
       const pyBool = isLoss ? 'True' : 'False';
       const proxy = state.pyodide.runPython(`calculate_prospect_theory(${amt}, ${pyBool})`);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Prospect Python Runner] Python execution warning:', e);
       return null;
     }
   };
+
+  /**
+   * המרת מילוני Python (Map מ-Pyodide) לאובייקטי JavaScript רגילים באופן רקורסיבי
+   */
+  function mapToPlainObject(value) {
+    if (value instanceof Map) {
+      const plain = {};
+      value.forEach((val, key) => {
+        plain[key] = mapToPlainObject(val);
+      });
+      return plain;
+    }
+    if (Array.isArray(value)) {
+      return value.map(mapToPlainObject);
+    }
+    if (value !== null && typeof value === 'object') {
+      const plain = {};
+      Object.keys(value).forEach((key) => {
+        plain[key] = mapToPlainObject(value[key]);
+      });
+      return plain;
+    }
+    return value;
+  }
 
   /**
    * חישוב השוואת פרסומת רגשית מול ניטרלית באמצעות Python (שקופית 19)
@@ -581,9 +605,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
     try {
       const pyCmd = `calculate_emotional_ad_comparison(${JSON.stringify(adA)}, ${JSON.stringify(adB)})`;
       const proxy = state.pyodide.runPython(pyCmd);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Emotional Ad Python Runner] Python execution warning:', e);
       return null;
@@ -640,9 +664,9 @@ def calculate_dark_patterns_ethics(store_a_insurance, store_b_insurance):
       const boolB = storeBInsurance ? 'True' : 'False';
       const pyCmd = `calculate_dark_patterns_ethics(${boolA}, ${boolB})`;
       const proxy = state.pyodide.runPython(pyCmd);
-      const res = proxy.toJs();
+      const raw = proxy.toJs({ dict_converter: Object.fromEntries });
       proxy.destroy();
-      return res;
+      return mapToPlainObject(raw);
     } catch (e) {
       console.warn('[Dark Patterns Python Runner] Python execution warning:', e);
       return null;
