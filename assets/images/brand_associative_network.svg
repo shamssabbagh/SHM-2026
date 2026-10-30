@@ -1,57 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" width="100%" height="100%">
   <defs>
-    <radialGradient id="net-center" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#1e293b" stop-opacity="0.9"/>
+    <linearGradient id="bgNet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCF9F5"/>
+      <stop offset="100%" stop-color="#F7F3ED"/>
+    </linearGradient>
+
+    <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#502638" stop-opacity="0.20"/>
+      <stop offset="65%" stop-color="#D85B49" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
     </radialGradient>
+
+    <filter id="netShadow" x="-4%" y="-4%" width="108%" height="110%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#502638" flood-opacity="0.08"/>
+    </filter>
   </defs>
 
-  <rect width="720" height="360" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+  <rect width="1100" height="560" rx="22" fill="url(#bgNet)" stroke="#DEC7D0" stroke-width="2"/>
 
-  <!-- Network Graph Connections -->
-  <g stroke="#475569" stroke-width="2">
-    <!-- Lines from Center (Brand Node) -->
-    <line x1="360" y1="180" x2="200" y2="90" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6,3"/>
-    <line x1="360" y1="180" x2="520" y2="90" stroke="#818cf8" stroke-width="3"/>
-    <line x1="360" y1="180" x2="160" y2="240" stroke="#34d399" stroke-width="2.5"/>
-    <line x1="360" y1="180" x2="560" y2="240" stroke="#fbbf24" stroke-width="2.5"/>
-    <line x1="360" y1="180" x2="360" y2="300" stroke="#c084fc" stroke-width="2"/>
+  <!-- כותרת -->
+  <text x="550" y="42" text-anchor="middle" fill="#502638" font-family="sans-serif" font-size="22" font-weight="800">
+    מודל הפצת ההפעלה ברשת סמנטית (Spreading Activation — Collins &amp; Loftus, 1975; Keller, 1993)
+  </text>
+  <text x="550" y="68" text-anchor="middle" fill="#5A5258" font-family="sans-serif" font-size="14" font-weight="600">
+    חוזק ומהירות הקישורים האסוציאטיביים בזיכרון קובעים את הבולטות המנטלית (Mental Availability) ברגע הקנייה
+  </text>
 
-    <!-- Interconnections -->
-    <line x1="200" y1="90" x2="160" y2="240" stroke="#334155" stroke-width="1.5"/>
-    <line x1="520" y1="90" x2="560" y2="240" stroke="#334155" stroke-width="1.5"/>
+  <!-- הילה סביב צומת המותג המרכזי -->
+  <circle cx="550" cy="285" r="215" fill="url(#hubGlow)"/>
+
+  <!-- ==================== קשתות קישור (Synaptic / Semantic Links) ==================== -->
+  <!-- קשרים חזקים (עבים ורציפים) -->
+  <g stroke-linecap="round">
+    <!-- למורשת ויוקרה (ימין למעלה) -->
+    <line x1="550" y1="285" x2="830" y2="155" stroke="#502638" stroke-width="6"/>
+    <!-- לרגש וחגיגה (שמאל למעלה) -->
+    <line x1="550" y1="285" x2="270" y2="155" stroke="#D85B49" stroke-width="6"/>
+    <!-- לעיצוב החזותי (ימין למטה) -->
+    <line x1="550" y1="285" x2="835" y2="395" stroke="#9E3B66" stroke-width="5"/>
+    <!-- לסיטואציית השימוש / מתנה (שמאל למטה) -->
+    <line x1="550" y1="285" x2="265" y2="395" stroke="#2E6B56" stroke-width="5"/>
+
+    <!-- קשרים משניים (מעגל שני) -->
+    <line x1="830" y1="155" x2="985" y2="265" stroke="#502638" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <line x1="270" y1="155" x2="115" y2="265" stroke="#D85B49" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <line x1="550" y1="285" x2="550" y2="118" stroke="#6B2D46" stroke-width="3.5"/>
   </g>
 
-  <!-- Central Brand Node -->
-  <circle cx="360" cy="180" r="50" fill="url(#net-center)" stroke="#38bdf8" stroke-width="3"/>
-  <text x="360" y="176" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">צומת מותג</text>
-  <text x="360" y="196" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#bae6fd" text-anchor="middle">Brand Core</text>
+  <!-- נקודות פולס על גבי הקווים -->
+  <circle cx="690" cy="220" r="7" fill="#502638" stroke="#FCF9F5" stroke-width="2"/>
+  <circle cx="410" cy="220" r="7" fill="#D85B49" stroke="#FCF9F5" stroke-width="2"/>
+  <circle cx="692" cy="340" r="6" fill="#9E3B66" stroke="#FCF9F5" stroke-width="2"/>
+  <circle cx="408" cy="340" r="6" fill="#2E6B56" stroke="#FCF9F5" stroke-width="2"/>
 
-  <!-- Node 1: Quality / Innovation (Top Left) -->
-  <circle cx="200" cy="90" r="38" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-  <text x="200" y="88" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#e0f2fe" text-anchor="middle">חדשנות</text>
-  <text x="200" y="104" font-family="'Assistant', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">אסוציאציה ראשית</text>
+  <!-- ==================== צומת המותג המרכזי (Central Brand Node) ==================== -->
+  <circle cx="550" cy="285" r="74" fill="#502638" stroke="#FCF9F5" stroke-width="4" filter="url(#netShadow)"/>
+  <text x="550" y="274" text-anchor="middle" fill="#FCF9F5" font-family="sans-serif" font-size="19" font-weight="800">צומת המותג</text>
+  <text x="550" y="298" text-anchor="middle" fill="#FADCD6" font-family="sans-serif" font-size="14" font-weight="700">(Brand Node)</text>
+  <text x="550" y="318" text-anchor="middle" fill="#EBD9DF" font-family="sans-serif" font-size="11.5">מוקד הפצת ההפעלה</text>
 
-  <!-- Node 2: Emotional Belonging (Top Right) -->
-  <circle cx="520" cy="90" r="38" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
-  <text x="520" y="88" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#e0e7ff" text-anchor="middle">שייכות חברתית</text>
-  <text x="520" y="104" font-family="'Assistant', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">סטטוס וקהילה</text>
+  <!-- צומת עליון: קטגוריית המוצר (Category Entry Point) -->
+  <g transform="translate(430, 82)" filter="url(#netShadow)">
+    <rect width="240" height="58" rx="29" fill="#EBD9DF" stroke="#502638" stroke-width="2"/>
+    <text x="120" y="28" text-anchor="middle" fill="#502638" font-family="sans-serif" font-size="14.5" font-weight="800">נקודת כניסה לקטגוריה (CEP)</text>
+    <text x="120" y="46" text-anchor="middle" fill="#252329" font-family="sans-serif" font-size="12">"אני מחפש/ת בושם יוקרתי לערב"</text>
+  </g>
 
-  <!-- Node 3: Design / Aesthetics (Bottom Left) -->
-  <circle cx="160" cy="240" r="36" fill="#1e293b" stroke="#34d399" stroke-width="2"/>
-  <text x="160" y="238" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#d1fae5" text-anchor="middle">עיצוב מינימליסטי</text>
-  <text x="160" y="254" font-family="'Assistant', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">חוויית משתמש</text>
+  <!-- אשכול 1 (ימין למעלה): איכות, יוקרה ומורשת -->
+  <g transform="translate(720, 108)" filter="url(#netShadow)">
+    <rect width="235" height="92" rx="16" fill="#FCF9F5" stroke="#502638" stroke-width="2.2"/>
+    <text x="215" y="28" text-anchor="end" fill="#502638" font-family="sans-serif" font-size="15.5" font-weight="800">✨ תפיסת איכות ויוקרה</text>
+    <text x="215" y="50" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="12.5">• ריכוז גבוה (Extrait de Parfum)</text>
+    <text x="215" y="68" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="12.5">• מורשת אמנותית איטלקית (Venetia)</text>
+    <text x="215" y="84" text-anchor="end" fill="#6B2D46" font-family="sans-serif" font-size="11.5" font-weight="700">קשר סמנטי חזק (0.88)</text>
+  </g>
 
-  <!-- Node 4: Trust & Reliability (Bottom Right) -->
-  <circle cx="560" cy="240" r="36" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
-  <text x="560" y="238" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#fef3c7" text-anchor="middle">אמינות וביטחון</text>
-  <text x="560" y="254" font-family="'Assistant', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle">הפחתת סיכון</text>
+  <!-- אשכול 2 (שמאל למעלה): חוויה רגשית וזיכרון אוטוביוגרפי -->
+  <g transform="translate(145, 108)" filter="url(#netShadow)">
+    <rect width="235" height="92" rx="16" fill="#FCF9F5" stroke="#D85B49" stroke-width="2.2"/>
+    <text x="215" y="28" text-anchor="end" fill="#B83D2B" font-family="sans-serif" font-size="15.5" font-weight="800">❤️ אסוציאציות רגשיות</text>
+    <text x="215" y="50" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="12.5">• אלגנטיות, רוך, ביטחון עצמי</text>
+    <text x="215" y="68" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="12.5">• נוכחות בלתי נשכחת באירוע</text>
+    <text x="215" y="84" text-anchor="end" fill="#B83D2B" font-family="sans-serif" font-size="11.5" font-weight="700">קשר אפקטיבי מיידי (0.91)</text>
+  </g>
 
-  <!-- Node 5: Premium Price (Bottom Center) -->
-  <circle cx="360" cy="300" r="30" fill="#1e293b" stroke="#c084fc" stroke-width="2"/>
-  <text x="360" y="304" font-family="'Heebo', system-ui, sans-serif" font-size="12" font-weight="700" fill="#f3e8ff" text-anchor="middle">מחיר פרימיום</text>
+  <!-- אשכול 3 (ימין למטה): סמלים חזותיים וחושיים -->
+  <g transform="translate(725, 350)" filter="url(#netShadow)">
+    <rect width="235" height="92" rx="16" fill="#FCF9F5" stroke="#9E3B66" stroke-width="2.2"/>
+    <text x="215" y="28" text-anchor="end" fill="#7A244B" font-family="sans-serif" font-size="15.5" font-weight="800">🎨 נכסי מותג מובחנים</text>
+    <text x="215" y="50" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="12.5">• פקק שיש עם גידי זהב ייחודיים</text>
+    <text x="215" y="68" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="12.5">• קופסת קטיפה לבנה וגופן המותג</text>
+    <text x="215" y="84" text-anchor="end" fill="#7A244B" font-family="sans-serif" font-size="11.5" font-weight="700">זיהוי חזותי מהיר (Distinctive Assets)</text>
+  </g>
 
-  <!-- Header explanation -->
-  <text x="680" y="35" font-family="'Heebo', system-ui, sans-serif" font-size="17" font-weight="800" fill="#38bdf8" text-anchor="end">מודל הפצת ההפעלה (Spreading Activation)</text>
-  <text x="680" y="55" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="end">עירור של מושג אחד מציף רשת עשירה של אסוציאציות בזיכרון לטווח ארוך</text>
+  <!-- אשכול 4 (שמאל למטה): הקשר שימוש ורכישה -->
+  <g transform="translate(140, 350)" filter="url(#netShadow)">
+    <rect width="235" height="92" rx="16" fill="#FCF9F5" stroke="#2E6B56" stroke-width="2.2"/>
+    <text x="215" y="28" text-anchor="end" fill="#235745" font-family="sans-serif" font-size="15.5" font-weight="800">🎁 הקשר סיטואציוני</text>
+    <text x="215" y="50" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="12.5">• מתנה יוקרתית / פינוק אישי</text>
+    <text x="215" y="68" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="12.5">• שליפה מהירה ברגע ההחלטה</text>
+    <text x="215" y="84" text-anchor="end" fill="#235745" font-family="sans-serif" font-size="11.5" font-weight="700">נגישות בזיכרון (Top-of-Mind)</text>
+  </g>
+
+  <!-- צמתים משניים בצדדים -->
+  <g filter="url(#netShadow)">
+    <rect x="935" y="242" width="130" height="46" rx="23" fill="#F6EEF1" stroke="#502638" stroke-width="1.5"/>
+    <text x="1000" y="270" text-anchor="middle" fill="#502638" font-family="sans-serif" font-size="12.5" font-weight="700">נכונות לשלם פרימיום</text>
+
+    <rect x="35" y="242" width="130" height="46" rx="23" fill="#FADCD6" stroke="#D85B49" stroke-width="1.5"/>
+    <text x="100" y="270" text-anchor="middle" fill="#B83D2B" font-family="sans-serif" font-size="12.5" font-weight="700">נאמנות והעדפה חוזרת</text>
+  </g>
+
+  <!-- שורת סיכום תחתונה -->
+  <rect x="125" y="492" width="850" height="44" rx="22" fill="#EBD9DF" stroke="#502638" stroke-width="1.5"/>
+  <text x="550" y="519" text-anchor="middle" fill="#252329" font-family="sans-serif" font-size="14" font-weight="700">
+    ניכוס מנטלי (Keller, 1993): פרסום עקבי מחזק את הקשרים הסינפטיים בין צומת המותג לבין צורכי הצרכן ורגשותיו
+  </text>
 </svg>
