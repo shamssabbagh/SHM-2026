@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>המוח הצרכני – הפסיכולוגיה שמאחורי החלטות קנייה</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261030_s8_v2">
 </head>
-<body>
+<body class="editorial-active">
 
   <!-- פס התקדמות עליון -->
   <div class="progress-container">
@@ -214,7 +217,7 @@
     </section>
 
     <!-- ==================== שקופית 8: מודל תלת-ממדי אנטומי אינטראקטיבי ==================== -->
-    <section class="slide editorial-pilot" id="slide-8">
+    <section class="slide editorial-pilot" id="slide-8" style="background-color: #F7F3ED; color: #252329;">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>הדמיה תלת-ממדית: רשתות המוח בקבלת החלטות צרכניות</h2>
@@ -233,18 +236,29 @@
       <div class="brain3d-dashboard-grid">
         <!-- עמודת מודל ה-3D והפקדים -->
         <div class="brain3d-viewport-card">
-          <!-- סרגל פקדים עליון -->
+          <!-- סרגל פקדים עליון: סיבוב, זום, שקיפות חתך, איפוס ושמע אופציונלי -->
           <div class="brain3d-toolbar">
             <div class="brain3d-primary-controls">
-              <button type="button" class="brain-ctrl-btn" id="btnToggleRotate" aria-pressed="true" title="הפעל או עצור סיבוב אוטומטי">
+              <button type="button" class="brain-ctrl-btn active-mode" id="btnToggleRotate" aria-pressed="true" title="הפעל או עצור סיבוב אוטומטי">
                 <span>⏸</span>
                 <span>עצור סיבוב</span>
               </button>
+              <div class="brain-zoom-control-group" role="group" aria-label="בקרת זום למודל המוח">
+                <button type="button" class="brain-ctrl-btn zoom-btn" id="btnZoomIn" title="זום פנימה (הגדלת המוח)">
+                  <span>➕</span>
+                  <span>זום פנימה</span>
+                </button>
+                <span class="brain-zoom-readout" id="brainZoomReadout" aria-live="polite">100%</span>
+                <button type="button" class="brain-ctrl-btn zoom-btn" id="btnZoomOut" title="זום החוצה (הקטנת המוח)">
+                  <span>➖</span>
+                  <span>זום החוצה</span>
+                </button>
+              </div>
               <button type="button" class="brain-ctrl-btn" id="btnToggleCutaway" aria-pressed="false" title="הצג או הסתר שקיפות של קליפת המוח לחשיפת מבנים תת-קורטיקליים עמוקים">
                 <span>🧠</span>
                 <span>מבט עומק (שקיפות חתך)</span>
               </button>
-              <button type="button" class="brain-ctrl-btn" id="btnResetView" title="אפס זווית מבט ומרכוז">
+              <button type="button" class="brain-ctrl-btn" id="btnResetView" title="אפס זווית מבט, זום וסיבוב">
                 <span>🔄</span>
                 <span>אפס מבט</span>
               </button>
@@ -264,13 +278,18 @@
             </div>
           </div>
 
-          <!-- חיווי מצב תצוגה (קליפה חיצונית מול חתך שקוף למבנים עמוקים) -->
-          <div class="brain-view-mode-banner" id="brainViewModeBadge">
-            מבט אנטומי חיצוני: קליפת המוח המלאה (Desikan-Killiany Atlas)
+          <!-- חיווי מצב תצוגה והנחיית גרירה וזום בעברית -->
+          <div class="brain-status-and-guide-row">
+            <div class="brain-view-mode-banner" id="brainViewModeBadge">
+              מבט אנטומי חיצוני: קליפת המוח המלאה (Desikan-Killiany Atlas)
+            </div>
+            <div class="brain-drag-zoom-guide" id="brainInteractionGuide">
+              💡 <strong>הנחיית גרירה וזום:</strong> לחצו וגררו בעכבר או במגע לסיבוב חופשי לכל כיוון • גללו או לחצו על <strong>+ / −</strong> לזום
+            </div>
           </div>
 
           <!-- מיכל הקנבס התלת-ממדי -->
-          <div id="brain3d-canvas-container" class="brain3d-canvas-container">
+          <div id="brain3d-canvas-container" class="brain3d-canvas-container" aria-label="מודל מוח תלת-ממדי אינטראקטיבי — גררו לסיבוב וגללו לזום">
             <!-- Three.js מזריק לכאן את הקנבס -->
           </div>
 
@@ -305,7 +324,7 @@
           </div>
 
           <div class="brain-interaction-hint">
-            <span>גררו בעכבר או במגע לסיבוב 360°, גללו לזום, או בחרו אזור להדגשה אנטומית.</span>
+            <span>לחצו על אזור בכפתורים או ישירות על המוח התלת-ממדי להדגשה אנטומית ולצפייה במבנים עמוקים.</span>
             <span class="brain-model-credit">מודל תלת-ממדי: <bdi>Brainder.org (A. M. Winkler, FreeSurfer DK &amp; ASEG, CC BY-SA 3.0)</bdi></span>
           </div>
         </div>
@@ -2069,16 +2088,16 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js" defer></script>
-  <script src="js/vendor/three.min.js"></script>
-  <script src="js/vendor/brain_mesh_data.js"></script>
-  <script src="js/audio.js"></script>
-  <script src="js/brain3d.js"></script>
-  <script src="js/python_runner.js"></script>
-  <script src="js/scarcity_sim.js"></script>
-  <script src="js/choice_paradox.js"></script>
-  <script src="js/prospect_theory.js"></script>
-  <script src="js/emotional_ad.js"></script>
-  <script src="js/ethical_marketing.js"></script>
-  <script src="js/presentation.js"></script>
+  <script src="js/vendor/three.min.js?v=20261030_s8_v2"></script>
+  <script src="js/vendor/brain_mesh_data.js?v=20261030_s8_v2"></script>
+  <script src="js/audio.js?v=20261030_s8_v2"></script>
+  <script src="js/brain3d.js?v=20261030_s8_v2"></script>
+  <script src="js/python_runner.js?v=20261030_s8_v2"></script>
+  <script src="js/scarcity_sim.js?v=20261030_s8_v2"></script>
+  <script src="js/choice_paradox.js?v=20261030_s8_v2"></script>
+  <script src="js/prospect_theory.js?v=20261030_s8_v2"></script>
+  <script src="js/emotional_ad.js?v=20261030_s8_v2"></script>
+  <script src="js/ethical_marketing.js?v=20261030_s8_v2"></script>
+  <script src="js/presentation.js?v=20261030_s8_v2"></script>
 </body>
 </html>
