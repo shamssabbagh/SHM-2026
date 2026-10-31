@@ -1,103 +1,103 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" width="100%" height="100%">
   <defs>
     <linearGradient id="bgSensory" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FCF9F5"/>
-      <stop offset="100%" stop-color="#F7F3ED"/>
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="100%" stop-color="#020617"/>
     </linearGradient>
 
     <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#502638" stop-opacity="0.18"/>
-      <stop offset="65%" stop-color="#D85B49" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#FCF9F5" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18"/>
+      <stop offset="65%" stop-color="#818cf8" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
     </radialGradient>
 
     <filter id="nodeShadow" x="-4%" y="-4%" width="108%" height="110%">
-      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#502638" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.6"/>
     </filter>
   </defs>
 
-  <rect width="1100" height="560" rx="22" fill="url(#bgSensory)" stroke="#DEC7D0" stroke-width="2"/>
+  <rect width="1100" height="560" rx="22" fill="url(#bgSensory)" stroke="#1e293b" stroke-width="1.8"/>
 
   <!-- כותרת -->
-  <text x="550" y="42" text-anchor="middle" fill="#502638" font-family="sans-serif" font-size="22" font-weight="800">
+  <text x="550" y="42" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="22" font-weight="800">
     אינטגרציה רב-חושית בשיווק (Multisensory Integration — Krishna, 2012; Spence, 2011)
   </text>
-  <text x="550" y="68" text-anchor="middle" fill="#5A5258" font-family="sans-serif" font-size="14" font-weight="600">
+  <text x="550" y="68" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="14" font-weight="600">
     חמשת הערוצים החושיים מתמזגים במוח ליצירת תפיסת איכות, זיכרון רגשי וערך מותגי נתפס
   </text>
 
   <!-- הילה מרכזית וטבעות קישור -->
   <circle cx="550" cy="300" r="210" fill="url(#centerGlow)"/>
-  <circle cx="550" cy="300" r="150" fill="none" stroke="#C9AEBA" stroke-width="1.5" stroke-dasharray="6,6"/>
-  <circle cx="550" cy="300" r="105" fill="none" stroke="#EBD9DF" stroke-width="1.5"/>
+  <circle cx="550" cy="300" r="150" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="6,6"/>
+  <circle cx="550" cy="300" r="105" fill="none" stroke="#1e293b" stroke-width="1.5"/>
 
   <!-- קווי חיבור מהחושים למרכז -->
   <g stroke-width="3" stroke-linecap="round">
     <!-- ראייה (למעלה) -->
-    <line x1="550" y1="155" x2="550" y2="225" stroke="#502638"/>
+    <line x1="550" y1="155" x2="550" y2="225" stroke="#38bdf8"/>
     <!-- ריח (ימין למעלה) -->
-    <line x1="760" y1="215" x2="620" y2="270" stroke="#D85B49"/>
+    <line x1="760" y1="215" x2="620" y2="270" stroke="#f43f5e"/>
     <!-- מגע (ימין למטה) -->
-    <line x1="750" y1="415" x2="615" y2="340" stroke="#B85D19"/>
+    <line x1="750" y1="415" x2="615" y2="340" stroke="#f59e0b"/>
     <!-- שמיעה (שמאל למעלה) -->
-    <line x1="340" y1="215" x2="480" y2="270" stroke="#7A3150"/>
+    <line x1="340" y1="215" x2="480" y2="270" stroke="#c084fc"/>
     <!-- טעם (שמאל למטה) -->
-    <line x1="350" y1="415" x2="485" y2="340" stroke="#2E6B56"/>
+    <line x1="350" y1="415" x2="485" y2="340" stroke="#10b981"/>
   </g>
 
   <!-- צומת המוח המרכזי -->
-  <circle cx="550" cy="300" r="76" fill="#502638" stroke="#FCF9F5" stroke-width="4" filter="url(#nodeShadow)"/>
-  <text x="550" y="290" text-anchor="middle" fill="#FCF9F5" font-family="sans-serif" font-size="17" font-weight="800">תפיסת ערך</text>
-  <text x="550" y="313" text-anchor="middle" fill="#FADCD6" font-family="sans-serif" font-size="15" font-weight="700">וחוויית מותג</text>
-  <text x="550" y="334" text-anchor="middle" fill="#EBD9DF" font-family="sans-serif" font-size="11.5">(Cross-Modal Transfer)</text>
+  <circle cx="550" cy="300" r="76" fill="#0f172a" stroke="#38bdf8" stroke-width="3.5" filter="url(#nodeShadow)"/>
+  <text x="550" y="290" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="17" font-weight="800">תפיסת ערך</text>
+  <text x="550" y="313" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-size="15" font-weight="700">וחוויית מותג</text>
+  <text x="550" y="334" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="11.5">(Cross-Modal Transfer)</text>
 
   <!-- 1. חוש הראייה (למעלה במרכז) -->
   <g transform="translate(410, 82)" filter="url(#nodeShadow)">
-    <rect width="280" height="76" rx="14" fill="#FCF9F5" stroke="#502638" stroke-width="2"/>
-    <text x="140" y="28" text-anchor="middle" fill="#502638" font-family="sans-serif" font-size="16" font-weight="800">👁️ ראייה (Visual Packaging)</text>
-    <text x="140" y="49" text-anchor="middle" fill="#252329" font-family="sans-serif" font-size="12.5">צבע, סימטריה וטיפוגרפיה מעצבים ציפיות</text>
-    <text x="140" y="66" text-anchor="middle" fill="#5A5258" font-family="sans-serif" font-size="12">ראשוניות בתוך שבריר שנייה על המדף</text>
+    <rect width="280" height="76" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+    <text x="140" y="28" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-size="16" font-weight="800">👁️ ראייה (Visual Packaging)</text>
+    <text x="140" y="49" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="12.5">צבע, סימטריה וטיפוגרפיה מעצבים ציפיות</text>
+    <text x="140" y="66" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="12">ראשוניות בתוך שבריר שנייה על המדף</text>
   </g>
 
   <!-- 2. חוש הריח (ימין למעלה) -->
   <g transform="translate(760, 165)" filter="url(#nodeShadow)">
-    <rect width="295" height="108" rx="14" fill="#FCF9F5" stroke="#D85B49" stroke-width="2"/>
-    <text x="275" y="30" text-anchor="end" fill="#B83D2B" font-family="sans-serif" font-size="16" font-weight="800">🌸 ריח (Olfactory Direct Path)</text>
-    <text x="275" y="54" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="13">החוש היחיד בעל מסלול ישיר למערכת</text>
-    <text x="275" y="73" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="13">הלימבית (אמיגדלה והיפוקמפוס) — מעורר</text>
-    <text x="275" y="92" text-anchor="end" fill="#5A5258" font-family="sans-serif" font-size="12.5" font-weight="600">זיכרון נוסטלגי ומאריך שהייה בחנות</text>
+    <rect width="295" height="108" rx="14" fill="#0f172a" stroke="#f43f5e" stroke-width="2"/>
+    <text x="275" y="30" text-anchor="end" fill="#fb7185" font-family="sans-serif" font-size="16" font-weight="800">🌸 ריח (Olfactory Direct Path)</text>
+    <text x="275" y="54" text-anchor="end" fill="#cbd5e1" font-family="sans-serif" font-size="13">החוש היחיד בעל מסלול ישיר למערכת</text>
+    <text x="275" y="73" text-anchor="end" fill="#cbd5e1" font-family="sans-serif" font-size="13">הלימבית (אמיגדלה והיפוקמפוס) — מעורר</text>
+    <text x="275" y="92" text-anchor="end" fill="#94a3b8" font-family="sans-serif" font-size="12.5" font-weight="600">זיכרון נוסטלגי ומאריך שהייה בחנות</text>
   </g>
 
   <!-- 3. חוש המגע (ימין למטה) -->
   <g transform="translate(750, 365)" filter="url(#nodeShadow)">
-    <rect width="305" height="108" rx="14" fill="#FCF9F5" stroke="#B85D19" stroke-width="2"/>
-    <text x="285" y="30" text-anchor="end" fill="#9A4B10" font-family="sans-serif" font-size="16" font-weight="800">✋ מגע ומישוש (Haptic Perception)</text>
-    <text x="285" y="54" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="13">משקל בקבוק זכוכית כבד או טקסטורה יוקרתית</text>
-    <text x="285" y="73" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="13">מתורגמים במוח לאיכות גבוהה ויוצרים</text>
-    <text x="285" y="92" text-anchor="end" fill="#5A5258" font-family="sans-serif" font-size="12.5" font-weight="600">"תחושת בעלות מוקדמת" (Endowment Effect)</text>
+    <rect width="305" height="108" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+    <text x="285" y="30" text-anchor="end" fill="#fbbf24" font-family="sans-serif" font-size="16" font-weight="800">✋ מגע ומישוש (Haptic Perception)</text>
+    <text x="285" y="54" text-anchor="end" fill="#cbd5e1" font-family="sans-serif" font-size="13">משקל בקבוק זכוכית כבד או טקסטורה יוקרתית</text>
+    <text x="285" y="73" text-anchor="end" fill="#cbd5e1" font-family="sans-serif" font-size="13">מתורגמים במוח לאיכות גבוהה ויוצרים</text>
+    <text x="285" y="92" text-anchor="end" fill="#94a3b8" font-family="sans-serif" font-size="12.5" font-weight="600">"תחושת בעלות מוקדמת" (Endowment Effect)</text>
   </g>
 
   <!-- 4. חוש השמיעה (שמאל למעלה) -->
   <g transform="translate(45, 165)" filter="url(#nodeShadow)">
-    <rect width="295" height="108" rx="14" fill="#FCF9F5" stroke="#7A3150" stroke-width="2"/>
-    <text x="275" y="30" text-anchor="end" fill="#502638" font-family="sans-serif" font-size="16" font-weight="800">🎵 שמיעה (Sonic Branding)</text>
-    <text x="275" y="54" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="13">קצב המוזיקה בחנות מכתיב את קצב ההליכה;</text>
-    <text x="275" y="73" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="13">צליל פתיחת אריזה ("קליק" או תסיסה)</text>
-    <text x="275" y="92" text-anchor="end" fill="#5A5258" font-family="sans-serif" font-size="12.5" font-weight="600">מאותת על טריות, דיוק הנדסי ויוקרה</text>
+    <rect width="295" height="108" rx="14" fill="#0f172a" stroke="#c084fc" stroke-width="2"/>
+    <text x="275" y="30" text-anchor="end" fill="#c084fc" font-family="sans-serif" font-size="16" font-weight="800">🎵 שמיעה (Sonic Branding)</text>
+    <text x="275" y="54" text-anchor="end" fill="#cbd5e1" font-family="sans-serif" font-size="13">קצב המוזיקה בחנות מכתיב את קצב ההליכה;</text>
+    <text x="275" y="73" text-anchor="end" fill="#cbd5e1" font-family="sans-serif" font-size="13">צליל פתיחת אריזה ("קליק" או תסיסה)</text>
+    <text x="275" y="92" text-anchor="end" fill="#94a3b8" font-family="sans-serif" font-size="12.5" font-weight="600">מאותת על טריות, דיוק הנדסי ויוקרה</text>
   </g>
 
   <!-- 5. חוש הטעם (שמאל למטה) -->
   <g transform="translate(45, 365)" filter="url(#nodeShadow)">
-    <rect width="305" height="108" rx="14" fill="#FCF9F5" stroke="#2E6B56" stroke-width="2"/>
-    <text x="285" y="30" text-anchor="end" fill="#235745" font-family="sans-serif" font-size="16" font-weight="800">🍷 טעם וסינסתזיה (Gustatory Fusion)</text>
-    <text x="285" y="54" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="13">חוויית הטעם מושפעת דרמטית מצבע הכוס,</text>
-    <text x="285" y="73" text-anchor="end" fill="#252329" font-family="sans-serif" font-size="13">מעיצוב האריזה, מרעש הפריכות (Crunch)</text>
-    <text x="285" y="92" text-anchor="end" fill="#5A5258" font-family="sans-serif" font-size="12.5" font-weight="600">ומהמחיר המוצג לצרכן טרם הטעימה</text>
+    <rect width="305" height="108" rx="14" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+    <text x="285" y="30" text-anchor="end" fill="#34d399" font-family="sans-serif" font-size="16" font-weight="800">🍷 טעם וסינסתזיה (Gustatory Fusion)</text>
+    <text x="285" y="54" text-anchor="end" fill="#cbd5e1" font-family="sans-serif" font-size="13">חוויית הטעם מושפעת דרמטית מצבע הכוס,</text>
+    <text x="285" y="73" text-anchor="end" fill="#cbd5e1" font-family="sans-serif" font-size="13">מעיצוב האריזה, מרעש הפריכות (Crunch)</text>
+    <text x="285" y="92" text-anchor="end" fill="#94a3b8" font-family="sans-serif" font-size="12.5" font-weight="600">ומהמחיר המוצג לצרכן טרם הטעימה</text>
   </g>
 
   <!-- תובנה מסכמת למטה -->
-  <rect x="170" y="502" width="760" height="38" rx="19" fill="#EBD9DF" stroke="#502638" stroke-width="1.5"/>
-  <text x="550" y="526" text-anchor="middle" fill="#252329" font-family="sans-serif" font-size="14" font-weight="700">
+  <rect x="170" y="502" width="760" height="38" rx="19" fill="rgba(15, 23, 42, 0.9)" stroke="#334155" stroke-width="1.5"/>
+  <text x="550" y="526" text-anchor="middle" fill="#f1f5f9" font-family="sans-serif" font-size="14" font-weight="700">
     אפקט העברה בין-חושית (Spence, 2011): שינוי במשקל או בצבע האריזה משנה את הטעם והניחוח שהצרכן חווה בפועל
   </text>
 </svg>
