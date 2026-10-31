@@ -1,4 +1,4 @@
-# מסמך דרישות מוצר (PRD) — גרסה 2.2 (סופית ומאושרת)
+# מסמך דרישות מוצר (PRD) — גרסה 3.0 (סופית ומאושרת)
 ## פרויקט: המוח הצרכני – הפסיכולוגיה שמאחורי החלטות קנייה
 ### (The Consumer Brain: The Psychology Behind Purchasing Decisions)
 
@@ -12,9 +12,9 @@
 | **שם באנגלית** | The Consumer Brain: The Psychology Behind Purchasing Decisions |
 | **קוד מאגר וצוות** | `SHM-2026` |
 | **מוסד אקדמי** | אוניברסיטת חיפה |
-| **מסגרת אקדמית** | מטלה מספר 1 \| קורס סוכני AI ו-Vibe Coding |
+| **מסגרת אקדמית** | מטלה מספר 1 \| קורס סוכני <bdi>AI</bdi> ו-<bdi>Vibe Coding</bdi> |
 | **צוות המגישות** | **שמס סבאג** (סטודנטית לפסיכולוגיה, אוניברסיטת חיפה) & **מלאק פרוג'ה** (סטודנטית לתקשורת ושיווק, אוניברסיטת חיפה) |
-| **גרסת מסמך** | **גרסה 2.2 (סופית ומאושרת - אוקטובר 2026)** — אפיון מלא וסופי המשקף את המערכת השלמה: 20 שקופיות, 7 מעבדות אינטראקטיביות, מנוע Python (Pyodide), מודל מוח תלת-ממדי משודרג, 27 צילומי מסך מאומתים, ו-89 בדיקות איכות שעברו בהצלחה מלאה. |
+| **גרסת מסמך** | **גרסה 3.0 (סופית ומאושרת - מהדורת Warm Editorial)** — אפיון שלם, סופי ומאומת המשקף את המערכת בפועל: 20 שקופיות מעוצבות בפלטה עריכתית חמה, 7 מעבדות אינטראקטיביות, מנוע חישוב מדעי ב-Python (Pyodide WebAssembly), מודל מוח תלת-ממדי אנטומי ב-Three.js, 27 צילומי מסך מאומתים, ו-89 בדיקות איכות שעברו בהצלחה מלאה (100% Pass). |
 | **תאריך עדכון** | 31 באוקטובר 2026 |
 
 ### היסטוריית גרסאות המסמך (Document Revision History)
@@ -23,9 +23,10 @@
 | :---: | :---: | :--- | :--- |
 | **1.0** | 27 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | אפיון ראשוני: סילבוס של 19 שקופיות, שלד HTML/CSS/JS, תכנון מודל Three.js ושילוב מנוע Pyodide. |
 | **1.1** | 27 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | שדרוג אסטרטגיה חזותית, הטמעת נכסי מדיה מקומיים, שוויון שמות הצוות ושיוך לאוניברסיטת חיפה. |
-| **2.0** | 28 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | **אפיון סופי מקיף:** התאמה למערך 20 השקופיות המלא, אפיון מפורט של 7 הסימולציות האינטראקטיביות, מנוע Python (Pyodide) ב-6 מודלים, סינתזת Web Audio API מקורית, טבלאות FR/NFR, תוכנית QA וניהול סיכונים. |
-| **2.1** | 30 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | **עדכון ענף `malak-improvments` וביקורת דרישות המרצה:** תיקון המרת `Map` ב-Python לשקופית 19, פיילוט עריכתי, תיעוד תוכניות עבודה ב-`docs/`. |
-| **2.2** | 31 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | **גרסת הגשה סופית ומאושרת (Final Verified Release):**<br>1. שחזור מדויק של ערכת העיצוב היוקרתית הכהה (Dark Luxury Glassmorphism) בשקופיות 1–8.<br>2. שחזור תמונת השער הנוירו-גרפית המקורית (`consumer_brain_hero.jpg`) בשקופית 1.<br>3. שחזור מעבדת הנוירו-מרקטינג המקורית והמאומתת של בושם היוקרה `AURA Privée` בשקופית 19 (כולל נגן שמע Web Audio, 3 סליידרים, גרף השוואה ומנוע Python לחישוב פער עמדה-התנהגות).<br>4. שימור מלא של דיאגרמות ה-SVG המשודרגות ברזולוציה גבוהה (1100x560) בשקופיות 3–7 תוך התאמת פלטת הצבעים ל-Dark Luxury.<br>5. שימור מלא של מודל המוח התלת-ממדי האנטומי (CC BY-SA 3.0, כ-85,000 מצולעים) וכל פקדי השליטה המתקדמים בשקופית 8 (גרירה בשני צירים, מחוות מגע, כפתורי זום `+`/`-`, תצוגת אחוז זום, מצב חתך Cutaway, כפתורי 4 אזורים ותדרי שמע פרוצדורליים).<br>6. שימור כל השיפורים והמעבדות בשקופיות 9–18 ו-20.<br>7. יצירת גלריית 27 צילומי מסך אותנטיים ברזולוציית 1440x900 בתיקיית `docs/screenshots/` המכסה את כל 20 השקופיות ומצבי האינטראקציה המרכזיים.<br>8. הפעלת חבילת אימות אוטומטית מלאה (`run_verification_suite.js`) עם מעבר של **89 מתוך 89 בדיקות (100% Pass)**. |
+| **2.0** | 28 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | אפיון סופי מקיף למערך 20 השקופיות, 7 סימולציות, 6 מודלי Python ב-Pyodide, סינתזת Web Audio API מקורית, וטבלאות FR/NFR. |
+| **2.1** | 30 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | עדכון ענף `malak-improvments` וביקורת דרישות המרצה: תיקון המרת Map ב-Python לשקופית 19, פיילוט עריכתי, תיעוד תוכניות עבודה ב-`docs/`. |
+| **2.2** | 31 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | גרסת ייצוב ביניים: שחזור תמונת שקופית 1 ומעבדת AURA Privée בשקופית 19, שימור דיאגרמות ה-SVG המשודרגות ופקדי ה-3D בשקופית 8. |
+| **3.0** | 31 באוקטובר 2026 | שמס סבאג & מלאק פרוג'ה | **גרסת שחרור סופית ומאושרת (Warm Editorial Release):**<br>1. הטמעת מערכת העיצוב החמה האקדמית (<bdi>Warm Editorial Academic Design</bdi>) באופן אחיד ומלא בכל 20 השקופיות (`#F7F3ED`, `#FCF9F5`, `#502638`, `#D85B49`, `#252329`).<br>2. שילוב מלא של נכסי מלאק המשודרגים בשקופיות 9 ו-10: תיק היוקרה של Maison Vendôme (`handbag_editorial.png`), קטלוג 12 הבשמים (`perfume_catalog_editorial.png`), ושעון עצר דיגיטלי חי.<br>3. שימור מלא של תמונת השער הנוירו-גרפית המקורית (`consumer_brain_hero.jpg`) בשקופית 1 ומעבדת הבישום המקורית של `AURA Privée` בשקופית 19.<br>4. שימור מודל המוח התלת-ממדי האנטומי (CC BY-SA 3.0) וכל פקדי השליטה המתקדמים בשקופית 8 (גרירה בשני צירים, מחוות מגע, זום, מצב חתך Cutaway, 4 אזורים ותדרי קול ב-Web Audio).<br>5. תיקון סיומות קבצים, 0 שגיאות קונסול, 30 מתוך 30 קישורים ונכסים מאומתים, ו-89 מתוך 89 תנאי בדיקה אוטומטיים שעברו בהצלחה (100% Pass). |
 
 ---
 
@@ -45,9 +46,9 @@
 
 ### 1.3 מטרת העל והערך החינוכי
 מטרת הפרויקט היא לספק **פלטפורמת למידה אינטראקטיבית, חווייתית ואקדמית** (<bdi>Experiential Active Learning</bdi>) בפורמט Web מתקדם, המאפשרת למשתמש לא רק לקרוא על פסיכולוגיה צרכנית – אלא **להתנסות בה בזמן אמת**:
-* המשתמש חווה באופן אישי כיצד הוספת אפשרויות בחירה מעכבת את זמן קבלת ההחלטה (ניסוי סטופר חי).
+* המשתמש חווה באופן אישי כיצד הוספת אפשרויות בחירה מעכבת את זמן קבלת ההחלטה (ניסוי סטופר דיגיטלי חי).
 * המשתמש רואה כיצד כאב ההפסד הנתפס חזק פי 2.25 מעונג הרווח המקביל (עקומת S אינטראקטיבית).
-* המשתמש נחשף למחיר עוגן ורואה כיצד שינויו מטה מיידית את הערכת השווי של המוצר.
+* המשתמש נחשף למחיר עוגן ורואה כיצד שינויו מטה מיידית את הערכת השווי של המוצר ב-Python.
 * המשתמש בוחן שתי חנויות Checkout ומתנסה באופן בלתי-אמצעי בהבדל בין עיצוב הוגן ל-Confirmshaming ו-Default Effect.
 * המשתמש מפעיל מודל מוח תלת-ממדי חי, בוחן את האזורים המוחיים הפעילים בהחלטות ומאזין לתדרי שמע פרוצדורליים.
 
@@ -61,11 +62,16 @@
 3. **מרצים, חוקרים ומעריכים אקדמיים:** דורשים דיוק מושגי, עמידה בתקני ציטוט אקדמיים (APA), שקיפות מתודולוגית מלאה והפרדה ברורה בין הדמיה חינוכית למחקר מעבדה מבוקר.
 4. **צרכנים ואנשי מקצוע בדיגיטל:** המבקשים לפתח אוריינות צרכנית ביקורתית, להכיר דפוסי חושך מסחריים וללמוד כיצד לעצב ממשקים אתיים המכבדים את אוטונומיית הלקוח.
 
-### 2.2 צורכי המשתמש וחוויית השימוש הרצויה (UX Principles)
-* **אפס חיכוך והפעלה מיידית (Zero-Friction Access):** המערכת פועלת 100% בצד הלקוח (Client-side), נפתחת ישירות מקובץ `index.html` בכל דפדפן מודרני, ללא צורך בהתקנת שרת מקומי.
-* **שפה חזותית יוקרתית (Dark Luxury Glassmorphism):** רקע כהה מעמיק (`#070a14`), שכבות זכוכית שקופה עם טשטוש (`backdrop-filter: blur`), הדגשות ניאון וזהב עדינות, וטיפוגרפיה מודרנית (גופן Heebo).
-* **בידוד מוחלט של קוד טכני מהקהל:** המשתתף אינו נחשף לקוד Python גולמי, מספרי גרסאות או הודעות קונסול טכניות במהלך הצגת המצגת. ממשק האימות הטכני שמור לקונסול הדפדפן (`F12`) עבור מרצים ובודקים בלבד.
-* **תמיכה מלאה וטבעית בעברית (Native RTL & BIDI):** יישור ימין טבעי, שילוב חלק של מושגים באנגלית ללא שיבושי פיסוק, ושימוש קפדני בתגיות `<bdi>`.
+### 2.2 מערכת העיצוב החזותית: Warm Editorial Academic System
+בגרסה 3.0 הוטמעה מערכת עיצוב חמה ואחידה בכל 20 השקופיות:
+* **קנבס ורקע ראשי:** גון שמנת בהיר וחם (`#F7F3ED` / `#EFE9E0`) המעניק מראה של כתב-עת מדעי מודרני.
+* **משטחים וכרטיסיות:** גון נייר חם (`#FCF9F5`) עם מסגרות יין עדינות (`rgba(80, 38, 56, 0.16)`).
+* **כותרות וסמכותיות:** בורגונדי / יין עמוק ועשיר (`#502638`).
+* **צבעי הדגשה ופעולה:** אלמוג חם (`#D85B49` / `#B83D2B`), ירוק מרווה (`#32705C`), וענבר מוזהב (`#C87A28`).
+* **טקסט גוף:** פחם רך וקריא (`#252329`) עם טקסט משני בגון גרפיט חם (`#5A5258`).
+* **טיפוגרפיה:** שילוב הרמוני של Heebo (כותרות), Assistant (טקסט רץ) ו-JetBrains Mono (מספרים וקוד).
+* **בידוד לשוני מלא (Native RTL & BIDI):** יישור ימין טבעי, שילוב חלק של מושגים באנגלית ללא שיבושי פיסוק, ושימוש קפדני בתגיות `<bdi>`.
+* **בידוד מוחלט של קוד טכני מהקהל:** המשתתף אינו נחשף לקוד Python גולמי או להודעות טכניות במהלך הצגת המצגת; אימות הקוד מתבצע דרך קונסול הדפדפן (`F12`).
 
 ---
 
@@ -80,6 +86,7 @@
 | **G-05** | **חוסן ואמינות במצב לא-מקוון (Offline Resilience)** | כל נכסי המדיה מאוחסנים מקומית ב-`assets/images/`. לכל מודל Python קיים מנוע גיבוי מקומי ב-JS למקרה של ניתוק רשת. |
 | **G-06** | **מערכת שמע מקורית ותואמת דפדפנים** | סינתזת מוזיקת רקע ואפקטים מבוססת **100% Web Audio API** ללא קובצי MP3 חיצוניים, עם השתקה כברירת מחדל ושליטה נפרדת בעוצמות. |
 | **G-07** | **שקיפות ודיוק אקדמי** | 16 מקורות מחקריים מאומתים לפי תקן APA בשקופית 20 וב-README, עם הצהרות שקיפות מדעיות המבדילות בין הדמיה למחקר מבוקר. |
+| **G-08** | **אחידות חזותית Warm Editorial** | כל 20 השקופיות מעוצבות באופן אחיד ועקבי בפלטת Warm Editorial, עם 0 שגיאות קונסול ו-0 קישורים שבורים. |
 
 ---
 
@@ -89,24 +96,24 @@
 
 | # | כותרת ותת-כותרת | מושג פסיכולוגי / שיווקי | אלמנטים חזותיים | רכיבי אינטראקציה | טכנולוגיה | מודל חישוב Python | צילום מסך מאומת | קריטריון קבלה (Acceptance Criteria) |
 | :-: | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **1** | **המוח הצרכני: הפסיכולוגיה שמאחורי החלטות קנייה**<br>`The Consumer Brain` | מבוא לפסיכולוגיה צרכנית ונוירו-שיווק מדעי | תמונת Hero נוירו-גרפית מקורית (`consumer_brain_hero.jpg`), כרטיסיית צוות שוויונית | כפתור "התחל במצגת", מקלדת, מגע | HTML5, CSS Dark Luxury, Glassmorphism | — | [`slide01_welcome.png`](docs/screenshots/slide01_welcome.png) | שמות שתי המגישות (שמס סבאג ומלאק פרוג'ה) מוצגים בשוויון, שיוך לאוניברסיטת חיפה, רקע שחור יוקרתי, לחיצה מעבירה לשקופית 2. |
-| **2** | **מבוא וגבולות המדע: מיתוס מול מציאות**<br>`Myths vs. Science` | <bdi>Scientific Methodology & Bounded Rationality</bdi> | 3 כרטיסיות השוואת "מיתוס מול עובדה", תיבת הצהרת שקיפות אקדמית | קריאה מובנית, הדגשות צבע | HTML5, CSS Glassmorphism | — | [`slide02_foundations.png`](docs/screenshots/slide02_foundations.png) | מופיעות 3 כרטיסיות מיתוס/עובדה, מודגש שהדמיות מוח אינן דימות רפואי (fMRI/EEG), ציטוט Knutson et al. 2007. |
-| **3** | **מודל שתי המערכות: אינטואיציה מול שיקול דעת**<br>`Dual-Process Theory` | <bdi>System 1 & System 2 (Kahneman & Tversky)</bdi> | דיאגרמה וקטורית משודרגת 1100x560 (`dual_system.svg`) בפלטת Dark Luxury | הסבר תהליכי וקטורי מובנה, צמתים זוהרים | SVG, CSS | — | [`slide03_dual_system.png`](docs/screenshots/slide03_dual_system.png) | התרשים הווקטורי נטען בחדות, כולל מראי מקום אקדמיים (Stanovich & West 2000; Kahneman 2011), רקע כהה תואם. |
-| **4** | **קשב חזותי וסלקטיביות**<br>`Visual Attention & Saliency` | <bdi>Visual Saliency & F-Pattern Eye-Tracking</bdi> | מפת חום וקטורית משודרגת 1100x560 (`visual_attention_heatmap.svg`) | שכבות מפת חום זוהרת, כרטיס מוצר מדגים | SVG, CSS | — | [`slide04_visual_attention.png`](docs/screenshots/slide04_visual_attention.png) | מפת החום מוצגת בצבעוניות זוהרת על רקע כהה, כוללת מראי מקום (Rayner 1998; Itti & Koch 2001). |
-| **5** | **תפיסה ועיבוד חושי**<br>`Sensory Marketing` | <bdi>Cross-Modal Congruence & Sensory Perception</bdi> | גלגל חושים וקטורי משודרג 1100x560 (`sensory_wheel.svg`) בפלטת Dark Luxury | 5 מקטעי חושים מעגליים עם יישומים שיווקיים | SVG, CSS | — | [`slide05_sensory_marketing.png`](docs/screenshots/slide05_sensory_marketing.png) | מוצגים כל 5 החושים עם יישומים שיווקיים ומראי מקום (Krishna 2012; Spence 2015), רקע כהה הרמוני. |
-| **6** | **רגשות וסמנים סומטיים בהחלטות**<br>`Emotions & Somatic Markers` | <bdi>Somatic Marker Hypothesis (Antonio Damasio)</bdi> | תרשים זרימה וקטורי משודרג 1100x560 (`somatic_marker.svg`) | מסלול עיבוד רגשי מקדים לבחירה צרכנית | SVG, CSS | — | [`slide06_somatic_markers.png`](docs/screenshots/slide06_somatic_markers.png) | מודגש הקשר בין קלט חושי, תגובה גופנית והחלטה, כולל מראי מקום (Damasio 1994; Bechara et al. 1997). |
-| **7** | **זיכרון ואסוציאציות מותג**<br>`Memory Retrieval` | <bdi>Spreading Activation & Associative Networks</bdi> | רשת אסוציאציות נוירונלית משודרגת 1100x560 (`brand_associative_network.svg`) | צמתים זוהרים וקשרי אסוציאציה מבוססי משקל | SVG, CSS | — | [`slide07_associative_networks.png`](docs/screenshots/slide07_associative_networks.png) | מוצגת רשת זיכרון סמנטית סביב מותג יוקרה, כולל מראי מקום (Collins & Loftus 1975; Keller 1993). |
+| **1** | **המוח הצרכני: הפסיכולוגיה שמאחורי החלטות קנייה**<br>`The Consumer Brain` | מבוא לפסיכולוגיה צרכנית ונוירו-שיווק מדעי | תמונת Hero נוירו-גרפית מקורית (`consumer_brain_hero.jpg`), כרטיסיית צוות שוויונית | כפתור "התחל במצגת", מקלדת, מגע | HTML5, CSS Warm Editorial | — | [`slide01_welcome.png`](docs/screenshots/slide01_welcome.png) | שמות שתי המגישות (שמס סבאג ומלאק פרוג'ה) מוצגים בשוויון, שיוך לאוניברסיטת חיפה, רקע שמנת חם, לחיצה מעבירה לשקופית 2. |
+| **2** | **מבוא וגבולות המדע: מיתוס מול מציאות**<br>`Myths vs. Science` | <bdi>Scientific Methodology & Bounded Rationality</bdi> | 3 כרטיסיות השוואת "מיתוס מול עובדה", תיבת הצהרת שקיפות אקדמית | קריאה מובנית, הדגשות צבע | HTML5, CSS Warm Editorial | — | [`slide02_foundations.png`](docs/screenshots/slide02_foundations.png) | מופיעות 3 כרטיסיות מיתוס/עובדה, מודגש שהדמיות מוח אינן דימות רפואי (fMRI/EEG), ציטוט Knutson et al. 2007. |
+| **3** | **מודל שתי המערכות: אינטואיציה מול שיקול דעת**<br>`Dual-Process Theory` | <bdi>System 1 & System 2 (Kahneman & Tversky)</bdi> | דיאגרמה וקטורית משודרגת 1100x560 (`dual_system.svg`) בפלטת Warm Editorial | הסבר תהליכי וקטורי מובנה, צמתים חמים | SVG, CSS | — | [`slide03_dual_system.png`](docs/screenshots/slide03_dual_system.png) | התרשים הווקטורי נטען בחדות, כולל מראי מקום אקדמיים (Stanovich & West 2000; Kahneman 2011), רקע תואם. |
+| **4** | **קשב חזותי וסלקטיביות**<br>`Visual Attention & Saliency` | <bdi>Visual Saliency & F-Pattern Eye-Tracking</bdi> | מפת חום וקטורית משודרגת 1100x560 (`visual_attention_heatmap.svg`) | שכבות מפת חום, כרטיס מוצר מדגים | SVG, CSS | — | [`slide04_visual_attention.png`](docs/screenshots/slide04_visual_attention.png) | מפת החום מוצגת בצבעוניות עריכתית חמה, כוללת מראי מקום (Rayner 1998; Itti & Koch 2001). |
+| **5** | **תפיסה ועיבוד חושי**<br>`Sensory Marketing` | <bdi>Cross-Modal Congruence & Sensory Perception</bdi> | גלגל חושים וקטורי משודרג 1100x560 (`sensory_wheel.svg`) בפלטת Warm Editorial | 5 מקטעי חושים מעגליים עם יישומים שיווקיים | SVG, CSS | — | [`slide05_sensory_marketing.png`](docs/screenshots/slide05_sensory_marketing.png) | מוצגים כל 5 החושים עם יישומים שיווקיים ומראי מקום (Krishna 2012; Spence 2015), רקע הרמוני. |
+| **6** | **רגשות וסמנים סומטיים בהחלטות**<br>`Emotions & Somatic Markers` | <bdi>Somatic Marker Hypothesis (Antonio Damasio)</bdi> | תרשים זרימה וקטורי משודרג 1100x560 (`somatic_marker.svg`) | מסלול עיבוד רגשי מקדים לבחירה צרכנית (RTL) | SVG, CSS | — | [`slide06_somatic_markers.png`](docs/screenshots/slide06_somatic_markers.png) | מודגש הקשר בין קלט חושי, תגובה גופנית והחלטה, כולל מראי מקום (Damasio 1994; Bechara et al. 1997). |
+| **7** | **זיכרון ואסוציאציות מותג**<br>`Memory Retrieval` | <bdi>Spreading Activation & Associative Networks</bdi> | רשת אסוציאציות נוירונלית משודרגת 1100x560 (`brand_associative_network.svg`) | צמתים וקשרי אסוציאציה מבוססי משקל | SVG, CSS | — | [`slide07_associative_networks.png`](docs/screenshots/slide07_associative_networks.png) | מוצגת רשת זיכרון סמנטית סביב מותג יוקרה, כולל מראי מקום (Collins & Loftus 1975; Keller 1993). |
 | **8** | **הדמיה תלת-ממדית: מפת המוח הקונספטואלית**<br>`Interactive 3D Brain` | <bdi>PFC, Amygdala, Insula, Nucleus Accumbens</bdi> | מודל תלת-ממדי אנטומי (CC BY-SA 3.0, כ-85k מצולעים) + תרשים גיבוי (`hero_brain_diagram.jpg`) | גרירה ב-2 צירים, מחוות מגע, זום `+`/`-`, חיווי אחוז זום, חתך Cutaway, 4 אזורים ותדרי שמע | Three.js WebGL, Web Audio API, JS (`brain3d.js`) | — | [`slide08_brain3d.png`](docs/screenshots/slide08_brain3d.png)<br>חתך: [`slide08_brain3d_cutaway.png`](docs/screenshots/slide08_brain3d_cutaway.png) | רינדור חלק (60fps), לחיצה על אזור מזיזה מצלמה ומשמיעה צליל תדר, כפתורי זום וחתך פעילים, תצוגת Fallback בהיעדר WebGL. |
-| **9** | **אפקט המחסור: למה אנחנו ממהרים לקנות?**<br>`The Scarcity Effect & FOMO` | <bdi>Scarcity Effect (Worchel 1975) & Reactance</bdi> | תצלום יוקרתי (`luxury_handbag.jpg`), באנר דחיפות, גרף עמודות השוואתי דינמי | תהליך Wizard (שלב א׳, ב׳, תוצאות), 3 סליידרים (1–10), איפוס | JS (`scarcity_sim.js`), Pyodide WebAssembly | `calculate_scarcity_comparison(ratings_a, ratings_b)` | [`slide09_scarcity_effect.png`](docs/screenshots/slide09_scarcity_effect.png)<br>פעיל: [`slide09_scarcity_active.png`](docs/screenshots/slide09_scarcity_active.png) | דירוג שני המצבים מפיק גרף עמודות השוואתי, מחשב מכפיל מחסור ב-Python, ומציג הסתייגות מתודולוגית. |
-| **10** | **פרדוקס הבחירה: האם יותר אפשרויות משמחות יותר?**<br>`The Paradox of Choice` | <bdi>Choice Overload & Analysis Paralysis (Schwartz)</bdi> | תצלומי בישום (`perfume_trio.jpg`, `perfumes_collection_12.jpg`), גריד 12 כרטיסים | **שעון עצר דיגיטלי חי (`performance.now()`)**, בחירת מוצר, מודאל דירוג קושי (1–10), איפוס | JS (`choice_paradox.js`), Pyodide WebAssembly | `calculate_choice_paradox(round_1, round_2)` | [`slide10_choice_paradox.png`](docs/screenshots/slide10_choice_paradox.png)<br>פעיל: [`slide10_choice_active.png`](docs/screenshots/slide10_choice_active.png) | שעון העצר מודד זמן אמת בכל סבב; מסך התוצאות מציג פערי זמנים ומכפיל זמן שחושב ב-Python. |
+| **9** | **אפקט המחסור: למה אנחנו ממהרים לקנות?**<br>`The Scarcity Effect & FOMO` | <bdi>Scarcity Effect (Worchel 1975) & Reactance</bdi> | תצלום יוקרה ריאליסטי של Maison Vendôme (`handbag_editorial.png`), באנר דחיפות, גרף השוואתי | תהליך Wizard (שלב א׳, ב׳, תוצאות), 3 סליידרים (1–10), איפוס | JS (`scarcity_sim.js`), Pyodide WebAssembly | `calculate_scarcity_comparison(ratings_a, ratings_b)` | [`slide09_scarcity_effect.png`](docs/screenshots/slide09_scarcity_effect.png)<br>פעיל: [`slide09_scarcity_active.png`](docs/screenshots/slide09_scarcity_active.png) | דירוג שני המצבים מפיק גרף עמודות השוואתי, מחשב מכפיל מחסור ב-Python, ומציג הסתייגות מתודולוגית. |
+| **10** | **פרדוקס הבחירה: האם יותר אפשרויות משמחות יותר?**<br>`The Paradox of Choice` | <bdi>Choice Overload & Analysis Paralysis (Schwartz)</bdi> | קטלוג ספרייט של 12 בשמים מעוצב (`perfume_catalog_editorial.png`), גריד כרטיסים | **שעון עצר דיגיטלי חי (`performance.now()`)**, בחירת מוצר (3 מול 12), מודאל דירוג קושי (1–10), איפוס | JS (`choice_paradox.js`), Pyodide WebAssembly | `calculate_choice_paradox(round_1, round_2)` | [`slide10_choice_paradox.png`](docs/screenshots/slide10_choice_paradox.png)<br>פעיל: [`slide10_choice_active.png`](docs/screenshots/slide10_choice_active.png) | שעון העצר מודד זמן אמת בכל סבב; מסך התוצאות מציג פערי זמנים ומכפיל זמן שחושב ב-Python. |
 | **11** | **אפקט הפיתיון ופרדוקס הבחירה**<br>`The Decoy Effect` | <bdi>Asymmetric Dominance Effect (Huber et al. 1982)</bdi> | דיאגרמה וקטורית (`decoy_effect.svg`) | הסבר תהליכי על הסטת בחירה באמצעות חלופה נחותה א-סימטרית | SVG, CSS | — | [`slide11_loss_aversion.png`](docs/screenshots/slide11_loss_aversion.png) | הדיאגרמה ממחישה באופן ברור כיצד אפשרות פיתיון מנתבת לרכישת חבילת הפרימיום היקרה. |
 | **12** | **השפעה והוכחה חברתית**<br>`Social Proof & Conformity` | <bdi>Social Proof & Normative Cues (Cialdini)</bdi> | איור וקטורי (`social_proof.svg`) | רמזי קונפורמיות במסחר מקוון (דירוגים, ביקורות המונים, מונה צופים) | SVG, CSS | — | [`slide12_social_proof.png`](docs/screenshots/slide12_social_proof.png) | מומחשים אותות חברתיים שונים התורמים להפחתת חרדת קנייה וצמצום אי-ודאות. |
-| **13** | **תורת הסיכויים: למה הפסד כואב יותר מרווח?**<br>`Prospect Theory` | <bdi>Loss Aversion & Value Function (Kahneman & Tversky)</bdi> | **עקומת S אינטראקטיבית מבוססת SVG**, נקודה נעה זוהרת, Tooltip ערך | בורר רווח/הפסד, סליידר סכום (₪0–₪500), עדכון בזמן אמת של עקומת הערך | SVG, JS (`prospect_theory.js`), Pyodide | `calculate_prospect_theory(amount, is_gain)` | [`slide13_prospect_theory.png`](docs/screenshots/slide13_prospect_theory.png) | הזזת הסליידר מזיזה את הנקודה בדיוק מתמטי על העקומה ומציגה ערך פסיכולוגי מחושב ב-Python ($v(x)$). |
+| **13** | **תורת הסיכויים: למה הפסד כואב יותר מרווח?**<br>`Prospect Theory` | <bdi>Loss Aversion & Value Function (Kahneman & Tversky)</bdi> | **עקומת S אינטראקטיבית מבוססת SVG**, נקודה נעה, Tooltip ערך | בורר רווח/הפסד, סליידר סכום (₪0–₪500), עדכון בזמן אמת של עקומת הערך | SVG, JS (`prospect_theory.js`), Pyodide | `calculate_prospect_theory(amount, is_gain)` | [`slide13_prospect_theory.png`](docs/screenshots/slide13_prospect_theory.png) | הזזת הסליידר מזיזה את הנקודה בדיוק מתמטי על העקומה ומציגה ערך פסיכולוגי מחושב ב-Python ($v(x)$). |
 | **14** | **אפקט העיגון: איך המחיר הראשון משפיע עלינו?**<br>`Anchoring Effect` | <bdi>Anchoring & Adjustment (Tversky & Kahneman 1974)</bdi> | גרף עמודות השוואתי דינמי (מחיר בסיס, עוגן, שווי מוערך) | מחוון מחיר עוגן (₪400–₪1,200), כפתור "🎯 בדקו את השפעת המחיר", איפוס | JS, Pyodide WebAssembly | `calculate_anchoring(anchor_price)` | [`slide14_anchoring_effect.png`](docs/screenshots/slide14_anchoring_effect.png)<br>מחושב: [`slide14_anchoring_calculated.png`](docs/screenshots/slide14_anchoring_calculated.png) | לחיצה מריצה נוסחת שווי ב-Python, מעדכנת עמודות גרפיות ומציגה הסתייגות מתודולוגית. |
 | **15** | **כאב התשלום וארנקים דיגיטליים**<br>`The "Pain of Paying"` | <bdi>Decoupling & Insular Attenuation (Prelec & Loewenstein)</bdi> | איור וקטורי (`pain_of_paying.svg`) | השוואת חיכוך תשלום במזומן מוחשי לחוסר חיכוך בארנק דיגיטלי וכרטיס אשראי | SVG, CSS | — | [`slide15_framing_effect.png`](docs/screenshots/slide15_framing_effect.png) | האיור ממחיש את ניתוק הכאב המיידי ואת השפעתו על הרדמת פעילות האינסולה במוח. |
-| **16** | **שיווק מבוסס מדע ואתיקה מקצועית**<br>`Ethical Marketing & Dark Patterns` | <bdi>Nudge (Thaler) vs. Dark Patterns (Brignull)</bdi> | תצלום יוקרתי (`luxury_handbag.jpg`), באנר דחיפות, מודאל Confirmshaming, 4 כרטיסי תיאוריה | מעבר טאבים (השוואה, חנות א׳, חנות ב׳), מודאל אזהרה מעורר אשמה, שאלת אבחון, איפוס | JS (`ethical_marketing.js`), Pyodide | `calculate_dark_patterns_ethics(store_type, insurance_selected)` | [`slide16_dark_patterns.png`](docs/screenshots/slide16_dark_patterns.png) | ניסיון ביטול ביטוח בחנות ב׳ מפעיל מודאל Confirmshaming; שאלת האבחון מחשבת מדדי אוטונומיה ב-Python (100% מול 35%). |
+| **16** | **שיווק מבוסס מדע ואתיקה מקצועית**<br>`Ethical Marketing & Dark Patterns` | <bdi>Nudge (Thaler) vs. Dark Patterns (Brignull)</bdi> | תצלום יוקרה של Maison Vendôme (`handbag_editorial.png`), מודאל Confirmshaming, כרטיסי תיאוריה | מעבר טאבים (השוואה, חנות א׳, חנות ב׳), מודאל אזהרה מעורר אשמה, שאלת אבחון, איפוס | JS (`ethical_marketing.js`), Pyodide | `calculate_dark_patterns_ethics(store_type, insurance_selected)` | [`slide16_dark_patterns.png`](docs/screenshots/slide16_dark_patterns.png) | ניסיון ביטול ביטוח בחנות ב׳ מפעיל מודאל Confirmshaming; שאלת האבחון מחשבת מדדי אוטונומיה ב-Python (100% מול 35%). |
 | **17** | **סוכני AI ועתיד ההחלטות הצרכניות**<br>`AI Agents & Consumer Decisions` | <bdi>Machine Customers & Algorithmic Biases</bdi> | דיאגרמת מעגל החלטה וקטורית (`ai_decision_loop.svg`) | שלבי מעגל ההחלטה: ניטור התנהגותי, חיזוי הטיות, התאמת חלופות וסוכנים קונים | SVG, CSS | — | [`slide17_neuropricing.png`](docs/screenshots/slide17_neuropricing.png) | מומחשים שלבי מעגל ההחלטה של סוכן AI והשפעתם על שוק המסחר העתידי. |
-| **18** | **סיכום ותובנות יישומיות**<br>`Summary & Actionable Takeaways` | <bdi>Integrative Framework & Consumer Empowerment</bdi> | 2 כרטיסיות יישומיות מובלטות (לאיש השיווק / לצרכן הביקורתי) | קריאה מובנית, עיצוב Glassmorphism יוקרתי | HTML5, CSS Grid | — | [`slide18_ethical_nudging.png`](docs/screenshots/slide18_ethical_nudging.png) | מוצגים עקרונות יישומיים מנומקים המגשרים בין שני תחומי הדעת ומעצימים את הצרכן. |
+| **18** | **סיכום ותובנות יישומיות**<br>`Summary & Actionable Takeaways` | <bdi>Integrative Framework & Consumer Empowerment</bdi> | 2 כרטיסיות יישומיות מובלטות (לאיש השיווק / לצרכן הביקורתי) | קריאה מובנית, עיצוב Warm Editorial מאוורר | HTML5, CSS Grid | — | [`slide18_ethical_nudging.png`](docs/screenshots/slide18_ethical_nudging.png) | מוצגים עקרונות יישומיים מנומקים המגשרים בין שני תחומי הדעת ומעצימים את הצרכן. |
 | **19** | **כשהפרסומת מעוררת רגש – האם נקנה יותר?**<br>`Emotional Advertising Lab` | <bdi>Affective Priming & Attitude-Behavior Gap (Zajonc)</bdi> | תצלומי סטודיו מקוריים (`perfume_neutral.jpg`, `perfume_emotional.jpg`), גרף השוואה דינמי | תהליך Wizard (שלב 1, 2, תוצאות), נגן שמע בלחיצה, 3 סליידרים (1–10), איפוס | Web Audio API, JS (`emotional_ad.js`), Pyodide | `calculate_emotional_ad_comparison(ad_a_ratings, ad_b_ratings)` | ניטרלי: [`slide19_emotional_ad_neutral.png`](docs/screenshots/slide19_emotional_ad_neutral.png)<br>רגשי: [`slide19_emotional_ad_emotional.png`](docs/screenshots/slide19_emotional_ad_emotional.png)<br>תוצאות: [`slide19_emotional_ad_results.png`](docs/screenshots/slide19_emotional_ad_results.png) | דירוג שני המצבים מפיק גרף עמודות ופער עמדה-התנהגות המחושב ב-Python; שמע מופעל רק בלחיצה יזומה. |
 | **20** | **ביבליוגרפיה, קרדיטים ומקורות**<br>`References, Credits & Foundations` | <bdi>Academic Integrity & Open Licensing</bdi> | 2 כרטיסיות מובנות (16 מקורות מחקריים ב-APA / תיעוד רישוי נכסים ומנועים) | קישורים וטקסט מעוצב, כרטיסיית קרדיטים | HTML5, CSS Grid | — | [`slide20_references.png`](docs/screenshots/slide20_references.png) | מופיעים כל 16 המקורות המאומתים לפי תקן APA וכל נכסי המדיה מתועדים כנדרש ברישוי חופשי. |
 
@@ -136,7 +143,8 @@
 
 ### 5.2 מעבדת אפקט המחסור ו-FOMO (The Scarcity Effect) – שקופית 9
 * **מטרת הלמידה:** הדגמת ההשפעה הפסיכולוגית של התרעות מלאי דוחקות על תחושת הדחיפות והחשש מהחמצה.
-* **קלט המשתמש:** 3 מחווני דירוג (סולם 1 עד 10) עבור: 1. רצון לרכוש כעת; 2. תחושת דחיפות; 3. חשש מהחמצה (FOMO) – בשני מצבי מוצר עוקבים לאותו תיק יוקרה (₪2,400).
+* **נכס חזותי ומוצר:** תיק היוקרה הריאליסטי של Maison Vendôme (`assets/images/handbag_editorial.png`, ₪2,400).
+* **קלט המשתמש:** 3 מחווני דירוג (סולם 1 עד 10) עבור: 1. רצון לרכוש כעת; 2. תחושת דחיפות; 3. חשש מהחמצה (FOMO) – בשני מצבי מוצר עוקבים לאותו תיק יוקרה.
 * **תהליך החישוב:** איסוף הדירוגים משלב א׳ (זמינות רגילה) ושלב ב׳ (התרעת דחיפות "נותרו 2 יחידות בלבד!"); העברת הנתונים לפונקציית Python `calculate_scarcity_comparison(ratings_a, ratings_b)` במנוע Pyodide WebAssembly.
 * **פלט מוצג למשתמש:** מסך תוצאות השוואתי הכולל 3 גרפי עמודות דינמיים, חישוב פערים בנקודות ובאחוזים, חישוב מכפיל המחסור (Scarcity Multiplier), ותובנה פסיכולוגית על תיאוריית ההתנגדות של וורצ'ל (Worchel 1975).
 * **התנהגות כפתורים ואיפוס:** כפתור מעבר לשלב ב׳, כפתור מעבר למסך תוצאות, כפתור חזרה לשלב א׳, וכפתור "נסה שוב" המאפס את כל המחוונים ומחזיר לשלב הראשון.
@@ -145,9 +153,10 @@
 
 ### 5.3 ניסוי פרדוקס הבחירה ועומס יתר (The Paradox of Choice) – שקופית 10
 * **מטרת הלמידה:** מדידה אמפירית בזמן אמת של השפעת מספר האפשרויות על משך קבלת ההחלטה (Decision Time) ורמת הקושי הסובייקטיבית.
+* **נכסים חזותיים ומוצרים:** קטלוג ספרייט של 12 בשמים מעוצב (`assets/images/perfume_catalog_editorial.png`).
 * **קלט המשתמש:**
-  * סבב 1: בחירת בושם אחד מתוך 3 אפשרויות (`perfume_trio.jpg`).
-  * סבב 2: בחירת בושם אחד מתוך 12 אפשרויות בקטלוג מעוצב (`perfumes_collection_12.jpg`).
+  * סבב 1: בחירת בושם אחד מתוך 3 אפשרויות ממוקדות.
+  * סבב 2: בחירת בושם אחד מתוך קטלוג רחב של 12 אפשרויות.
   * דירוג קושי (1–10) במודאל קופץ לאחר כל סבב.
 * **תהליך החישוב:** שעון עצר דיגיטלי חי המודד מילי-שניות מרגע הצגת האפשרויות ועד הלחיצה בעזרת `performance.now()`; העברת הזמנים והדירוגים לפונקציית Python `calculate_choice_paradox(round_1, round_2)`.
 * **פלט מוצג למשתמש:** שעון עצר פעיל בלייב בעת הניסוי; מסך תוצאות עם גרף זמנים השוואתי, מכפיל זמן ($T_2/T_1$), פערי קושי, וניתוח קיפאון בבחירה (Analysis Paralysis, Schwartz 2004).
@@ -160,8 +169,8 @@
 * **קלט המשתמש:** בורר מצב (Toggle) בין "רווח כספי" ל"הפסד כספי", ומחוון סכום כספי (₪0 עד ₪500).
 * **תהליך החישוב:** חישוב פונקציית התועלת הפסיכולוגית ב-Python (`calculate_prospect_theory`):
   $$v(x) = \begin{cases} x^{0.88} & \text{for } x \ge 0 \\ -2.25(-x)^{0.88} & \text{for } x < 0 \end{cases}$$
-  ותרגום מתמטי של התוצאה למיקום קואורדינטות $(X, Y)$ על גבי עקומת S וקטורית ב-SVG.
-* **פלט מוצג למשתמש:** תנועה חלקה של נקודה זוהרת לאורך עקומת ה-SVG, חיווי טקסטואלי ורגשי דינמי, השוואת מדדי עוצמה רגשית (הממחישה שכאב הפסד של ₪200 שווה בעוצמתו לכ-2.25 מעונג רווח של ₪200).
+  ותרגום מתמטי של התוצאה למיקום קואורדינטות $(X, Y)$ על גבי עקומת S וקטורית ב-SVG (`prospect_theory_curve.svg`).
+* **פלט מוצג למשתמש:** תנועה חלקה של נקודה לאורך עקומת ה-SVG, חיווי טקסטואלי ורגשי דינמי, השוואת מדדי עוצמה רגשית (הממחישה שכאב הפסד של ₪200 שווה בעוצמתו לכ-2.25 מעונג רווח של ₪200).
 * **התנהגות כפתורים ואיפוס:** מעבר מיידי ורציף בין רווח להפסד, עדכון חי בכל שינוי סליידר.
 * **מגבלות מדעיות:** מובהר כי המקדמים ($\alpha=0.88, \lambda=2.25$) מייצגים ממוצעים אמפיריים ומדד שנאת ההפסד משתנה בין יחידים ובהקשרים שונים.
 * **קריטריוני בדיקה:** דיוק מתמטי של הנקודה על ציר ה-SVG, הצגת ערכים שליליים עבור הפסד, אימות מנוע Python בקונסול.
@@ -217,7 +226,7 @@
 | **FR-03** | מונה שקופיות דינמי ופס התקדמות חזותי. | Must | המונה מציג באופן עקבי `X / 20` ופס ההתקדמות מתארך ברוחב יחסי מדויק בכל שקופית. | **עבר (Pass)** |
 | **FR-04** | מודל מוח תלת-ממדי אינטראקטיבי בשקופית 8 עם סיבוב חופשי וזום. | Must | המודל מאפשר סיבוב עכבר ומגע בשני צירים, כפתורי זום `+`/`-`, תצוגת אחוז זום, עצירת סיבוב ואיפוס מבט. | **עבר (Pass)** |
 | **FR-05** | מצב חתך Cutaway וכרטיסיות מידע עם צלילי תדרים בשקופית 8. | Must | כפתור חתך מציג מבנה פנימי; לחיצה על PFC, אמיגדלה, אינסולה או NAcc מציגה כרטיסיית הסבר ומשמיעה צליל תדר ייחודי. | **עבר (Pass)** |
-| **FR-06** | סימולציית אפקט המחסור בשקופית 9 עם השוואת A/B ודירוגים. | Must | המשתמש מדרג 3 מדדים בשני מצבים; לחיצה מציגה גרף השוואה ומכפיל מחסור מחושב ב-Python. | **עבר (Pass)** |
+| **FR-06** | סימולציית אפקט המחסור בשקופית 9 עם תיק Maison Vendôme. | Must | המשתמש מדרג 3 מדדים בשני מצבי מלאי; לחיצה מציגה גרף השוואה ומכפיל מחסור מחושב ב-Python. | **עבר (Pass)** |
 | **FR-07** | ניסוי פרדוקס הבחירה בשקופית 10 עם שעון עצר דיגיטלי חי. | Must | שעון עצר מודד זמן בחירה בלייב (3 מול 12 בשמים); התוצאות מציגות פער זמנים ומכפיל זמן שחושב ב-Python. | **עבר (Pass)** |
 | **FR-08** | סימולציית תורת הסיכויים בשקופית 13 עם עקומת S דינמית. | Must | מעבר רווח/הפסד והזזת סליידר ₪0–₪500 מזיזים נקודה על עקומת ה-SVG ומחשבים $v(x)$ ב-Python. | **עבר (Pass)** |
 | **FR-09** | סימולציית אפקט העיגון בשקופית 14 עם מחוון מחיר עוגן. | Must | מחוון עוגן (₪400–₪1,200) מעדכן נוסחת שווי ומציג גרף עמודות השוואתי בלחיצה על כפתור. | **עבר (Pass)** |
@@ -234,12 +243,12 @@
 | :---: | :--- | :--- | :---: | :--- | :---: |
 | **NFR-01** | **ביצועים ומהירות** | רינדור מודל Three.js בקצב יציב של 60fps; השהיית אנימציה בעת עזיבת השקופית. | Must | אין נפילות פריימים או צריכת מעבד ברקע בשקופיות שאינן שקופית 8. | **עבר (Pass)** |
 | **NFR-02** | **תגובתיות ממשק** | זמן תגובה מיידי (<100ms) לכל פעולת קליטת קלט, גרירת סליידר או מעבר שקופית. | Must | עדכון רציף של אלמנטים גרפיים ומחווני טקסט ללא השהיות מורגשות (Lag). | **עבר (Pass)** |
-| **NFR-03** | **חוסן מקומי (Offline)** | הפעלת המצגת מקובץ מקומי (`file:///`) ללא שגיאות טעינת תמונות או דיאגרמות. | Must | כל נכסי המדיה נטענים מקומית מ-`assets/images/` ללא תלות בחיבור לרשת. | **עבר (Pass)** |
+| **NFR-03** | **חוסן מקומי (Offline)** | הפעלת המצגת מקובץ מקומי (`file:///`) ללא שגיאות טעינת תמונות או דיאגרמות. | Must | כל 16 נכסי המדיה נטענים מקומית מ-`assets/images/` ללא תלות ברשת. | **עבר (Pass)** |
 | **NFR-04** | **גיבוי מנוע Python** | קיומו של מנוע Fallback ב-JavaScript לכל מודל חישוב במקרה ש-Pyodide אינו זמין. | Must | ניתוק רשת יזום אינו קורס את הסימולציות; המערכת מחשבת תוצאות באמצעות מנוע הגיבוי. | **עבר (Pass)** |
 | **NFR-05** | **נגישות שפה (BIDI/RTL)** | תמיכה מלאה בכיווניות עברית (`dir="rtl"`) ובידוד מונחים לועזיים באמצעות `<bdi>`. | Must | אין שיבושי סדר מילים, גרשיים הפוכים או סימני פיסוק שקופצים לצידו הלא-נכון של המשפט. | **עבר (Pass)** |
-| **NFR-06** | **אחידות עיצובית** | שימוש במערכת עיצוב מרכזית (CSS Variables, Dark Luxury Glassmorphism). | Must | פלטת צבעים עקבית בכל 20 השקופיות, רקע שחור עמוק, הדגשות זהב וניאון, גופן Heebo אחיד. | **עבר (Pass)** |
+| **NFR-06** | **אחידות עיצובית Warm Editorial** | שימוש במערכת עיצוב מרכזית (CSS Variables, Warm Editorial Palette). | Must | פלטת צבעים עקבית בכל 20 השקופיות, רקע שמנת חם, מסגרות יין, גופני Heebo ו-Assistant אחידים. | **עבר (Pass)** |
 | **NFR-07** | **פרטיות נתונים מלאה** | היעדר איסוף, שמירה או שידור של נתונים אישיים, דירוגים או אמצעי תשלום. | Must | כל הדירוגים והנתונים נשמרים בזיכרון המקומי (RAM) של הדפדפן בלבד ומתאפסים ברענון. | **עבר (Pass)** |
-| **NFR-08** | **תאימות דפדפנים** | פעולה חלקה בכל הדפדפנים המודרניים המובילים. | Must | תאימות מלאה ל-Microsoft Edge, Google Chrome, Mozilla Firefox ו-Apple Safari. | **עבר (Pass)** |
+| **NFR-08** | **תאימות דפדפנים** | פעולה חלקה בכל הדפדפנים המודרניים המובילים. | Must | תאימות מלאה ל-Google Chrome, Microsoft Edge, Mozilla Firefox ו-Apple Safari. | **עבר (Pass)** |
 | **NFR-09** | **עמידה במדיניות אודיו** | השתקת צלילים מלאה כברירת מחדל בהתאם למדיניות Autoplay של דפדפנים. | Must | שום צליל אינו מושמע ללא לחיצה יזומה מוקדמת של המשתמש על כפתור שמע או אזור מוחי. | **עבר (Pass)** |
 | **NFR-10** | **היעדר חשיפת קוד גולמי** | הסרה מוחלטת של קוד Python, מספרי גרסאות והודעות Pyodide ממסכי ההצגה לקהל. | Must | הממשק נקי ומותאם להצגה אקדמית מול קהל; שום שורת קוד או Traceback אינה נראית לעין. | **עבר (Pass)** |
 
@@ -253,12 +262,12 @@
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        User Interface & UX Layer                       │
-│      20 HTML5 Slides  •  Dark Luxury Glassmorphism  •  Native RTL/BIDI │
+│    20 HTML5 Slides  •  Warm Editorial System  •  Native RTL & BIDI     │
 └──────────────────────────────────┬─────────────────────────────────────┘
                                    │
 ┌──────────────────────────────────┴─────────────────────────────────────┐
 │                    Presentation & Control Layer                        │
-│    presentation.js (Slide Navigation, Keyboard, Touch Swipe, TOC)      │
+│ presentation.js (Slide Navigation, Slider Guard, Keyboard, Touch, TOC) │
 └──────────────┬───────────────────┬───────────────────┬─────────────────┘
                │                   │                   │
 ┌──────────────┴─────────┐ ┌───────┴─────────┐ ┌───────┴─────────────────┐
@@ -277,72 +286,62 @@
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 7.2 פירוט הטכנולוגיות שבשימוש בפועל
-* **HTML5 Semantic Standard:** שלד סמנטי של 20 שקופיות מובחנות (`<section class="slide" id="slide-X">`), תגיות `<bdi>` לבידוד מונחים בלועזית, ומאפייני נגישות (`aria-label`, `aria-hidden`).
-* **Modern CSS3:** שימוש ב-CSS Custom Properties, מודל Dark Luxury Glassmorphism כהה ועמוק (`#070a14`), אנימציות Keyframes, ועימוד גמיש (Grid & Flexbox).
-* **Vanilla JavaScript (ES6+):** 9 סקריפטים מודולריים נקיים ללא תלות ב-Frameworks כבדים (React/Vue/Angular), המבטיחים ביצועים מהירים, אפס שגיאות תחביר ועצמאות מלאה.
-* **Three.js WebGL Engine (`js/vendor/three.min.js`):** שמור מקומית במאגר לתמיכה מלאה ב-Offline, מנהל סצנה, מצלמה, רשת חלקיקים תלת-ממדית, רשת אנטומית מתקדמת, גרירה בשני צירים, מחוות מגע, כפתורי זום דיגיטליים, מצב חתך Cutaway, וקרני הטלה לבחירת אזורים.
-* **Web Audio API Synthesizer (`js/audio.js`):** מחולל צלילים פרוצדורלי מלא (Pads, Arpeggios, Delays, Reverbs) ללא קובצי סאונד מוקלטים, בעל רישוי חופשי 100% ותאימות מלאה לדפדפנים.
-* **Pyodide WebAssembly:** סביבת ריצה אמיתית של CPython v3.11 בדפדפן, המריצה 6 מודלים מתמטיים והתנהגותיים ברקע.
-* **SVG Vector Graphics ברזולוציה גבוהה:** דיאגרמות תהליכיות משודרגות ב-ViewBox של 1100x560 חדות בכל גודל מסך, מותאמות לפלטת Dark Luxury עם מראי מקום אקדמיים.
-* **GitHub & Git Version Control:** ניהול תצורה שיתופי הדרגתי, תיעוד מלא של 29 שלבי עבודה בתיקיית `prompts/`.
-
-### 7.3 עץ הקבצים ותחומי אחריות (File Hierarchy)
+### 7.2 עץ הקבצים ותחומי אחריות (File Hierarchy)
 
 ```
 SHM-2026/
 │
-├── index.html                   # קובץ המצגת הראשי – 20 שקופיות, תפריט TOC, סרגלי ניווט ופופ-אפים
-├── PRD.md                       # מסמך דרישות המוצר (גרסה 2.2 סופית ומאושרת)
-├── README.md                    # סקירת פרויקט, טבלת שקופיות, גלריית צילומי מסך, קוד Python וביבליוגרפיה
+├── index.html                   # קובץ המצגת הראשי – 20 שקופיות בעיצוב Warm Editorial, תפריט TOC, סרגלי ניווט ופופ-אפים
+├── PRD.md                       # מסמך דרישות המוצר (גרסה 3.0 סופית ומאושרת)
+├── README.md                    # תיעוד פרויקט מלא, טבלת שקופיות, גלריית צילומי מסך, קוד Python והיסטוריית תרומות
+├── .gitattributes               # הגדרות ניהול שורות Git
 │
 ├── css/
-│   └── style.css                # מערכת עיצוב מרכזית: Dark Luxury Glassmorphism, טיפוגרפיה, RTL/BIDI ועיצוב מעבדות
+│   └── style.css                # מערכת עיצוב מרכזית: Warm Editorial, משתני --ed-*, טיפוגרפיה, RTL/BIDI ועיצוב מעבדות
 │
 ├── js/
 │   ├── presentation.js          # בקר ניווט ראשי, מקלדת (כולל הגנה על סליידרים), מגע, TOC וניהול שקופיות
 │   ├── audio.js                 # מנוע סינתזת Web Audio API, מוזיקת רקע Ambient ואפקטי תדרים לאזורי מוח
 │   ├── brain3d.js               # בקר מודל מוח תלת-ממדי, גרירה בשני צירים, מגע, זום, מצב חתך ואזורים מוחיים
 │   ├── python_runner.js         # אתחול Pyodide, הרצת 6 מודלי Python, Lazy Loading ו-verifyPythonExecution
-│   ├── scarcity_sim.js          # לוגיקת מעבדת אפקט המחסור ו-FOMO (שקופית 9)
-│   ├── choice_paradox.js        # לוגיקת ניסוי פרדוקס הבחירה, סטופר דיגיטלי חי וגריד בשמים (שקופית 10)
+│   ├── scarcity_sim.js          # לוגיקת מעבדת אפקט המחסור ו-FOMO (תיק Maison Vendôme, שקופית 9)
+│   ├── choice_paradox.js        # לוגיקת ניסוי פרדוקס הבחירה, שעון עצר דיגיטלי חי וגריד בשמים (שקופית 10)
 │   ├── prospect_theory.js       # לוגיקת סימולציית תורת הסיכויים ועקומת S ב-SVG (שקופית 13)
 │   ├── ethical_marketing.js     # לוגיקת מעבדת שיווק אתי, מודאל Confirmshaming ושאלת אבחון (שקופית 16)
 │   ├── emotional_ad.js          # לוגיקת מעבדת פרסום רגשי AURA Privée, נגן שמע ופער עמדה-התנהגות (שקופית 19)
 │   └── vendor/
-│       └── three.min.js         # ספריית Three.js שמורה מקומית (Offline-ready)
+│       ├── three.min.js         # ספריית Three.js שמורה מקומית (Offline-ready)
+│       └── brain_mesh_data.js   # נתוני רשת המוח האנטומי (CC BY-SA 3.0)
 │
 ├── assets/
-│   └── images/                  # כל נכסי המדיה והדיאגרמות המקומיות:
-│       ├── consumer_brain_hero.jpg      # תמונת שער נוירו-גרפית מקורית (שקופית 1)
-│       ├── hero_brain_diagram.jpg       # תרשים מוח מעוצב וגיבוי ל-Three.js (שקופית 8)
-│       ├── luxury_handbag.jpg           # תצלום מסחרי לתיק יוקרה (שקופיות 9 ו-16)
-│       ├── perfume_trio.jpg             # תצלום שלישיית בשמי יוקרה לסבב 1 (שקופית 10)
-│       ├── perfumes_collection_12.jpg   # תצלום קטלוג 12 בשמים לסבב 2 (שקופית 10)
-│       ├── perfume_neutral.jpg          # פרסומת עובדתית מינימליסטית AURA Privée (שקופית 19)
-│       ├── perfume_emotional.jpg        # פרסומת רגשית אווירתית AURA Privée (שקופית 19)
-│       ├── dual_system.svg              # דיאגרמת מערכת 1 מול 2 (1100x560, שקופית 3)
-│       ├── visual_attention_heatmap.svg # מפת חום לקשב חזותי (1100x560, שקופית 4)
-│       ├── sensory_wheel.svg            # גלגל חושים שיווקי (1100x560, שקופית 5)
-│       ├── somatic_marker.svg           # תרשים סמנים סומטיים (1100x560, שקופית 6)
-│       ├── brand_associative_network.svg# רשת אסוציאציות מותג (1100x560, שקופית 7)
-│       ├── decoy_effect.svg             # דיאגרמת אפקט הפיתיון (שקופית 11)
-│       ├── social_proof.svg             # איור הוכחה חברתית (שקופית 12)
-│       ├── pain_of_paying.svg           # איור כאב התשלום (שקופית 15)
-│       └── ai_decision_loop.svg         # מעגל החלטה של סוכני AI (שקופית 17)
+│   ├── images/                  # כל נכסי המדיה והדיאגרמות המקומיות:
+│   │   ├── consumer_brain_hero.jpg      # תמונת שער נוירו-גרפית מקורית (שקופית 1)
+│   │   ├── hero_brain_diagram.jpg       # תרשים מוח מעוצב וגיבוי ל-Three.js (שקופית 8)
+│   │   ├── handbag_editorial.png        # תצלום יוקרה ריאליסטי של תיק Maison Vendôme (שקופיות 9 ו-16)
+│   │   ├── perfume_catalog_editorial.png# קטלוג ספרייט של 12 בשמי יוקרה (שקופית 10)
+│   │   ├── perfume_neutral.jpg          # פרסומת עובדתית מינימליסטית AURA Privée (שקופית 19)
+│   │   ├── perfume_emotional.jpg        # פרסומת רגשית אווירתית AURA Privée (שקופית 19)
+│   │   ├── dual_system.svg              # דיאגרמת מערכת 1 מול 2 (1100x560, שקופית 3)
+│   │   ├── visual_attention_heatmap.svg # מפת חום לקשב חזותי (1100x560, שקופית 4)
+│   │   ├── sensory_wheel.svg            # גלגל חושים שיווקי (1100x560, שקופית 5)
+│   │   ├── somatic_marker.svg           # תרשים סמנים סומטיים (1100x560, שקופית 6)
+│   │   ├── brand_associative_network.svg# רשת אסוציאציות מותג (1100x560, שקופית 7)
+│   │   ├── decoy_effect.svg             # דיאגרמת אפקט הפיתיון (שקופית 11)
+│   │   ├── social_proof.svg             # איור הוכחה חברתית (שקופית 12)
+│   │   ├── prospect_theory_curve.svg    # עקומת S אינטראקטיבית (שקופית 13)
+│   │   ├── anchoring_effect.svg         # גרף אפקט העיגון (שקופית 14)
+│   │   ├── pain_of_paying.svg           # איור כאב התשלום (שקופית 15)
+│   │   ├── nudge_vs_darkpattern.svg     # איור שיווק אתי (שקופית 16)
+│   │   └── ai_decision_loop.svg         # מעגל החלטה של סוכני AI (שקופית 17)
+│   └── models/
+│       └── brain_fsaverage_dk.json      # קואורדינטות המוח האנטומי
 │
 ├── docs/
-│   ├── screenshots/             # 27 צילומי מסך אותנטיים ברזולוציית 1440x900:
-│   │   ├── slide01_welcome.png ... slide20_references.png (כל 20 השקופיות)
-│   │   └── slide08_brain3d_cutaway.png, slide09_scarcity_active.png, slide10_choice_active.png,
-│   │       slide14_anchoring_calculated.png, slide19_emotional_ad_*.png (מצבי אינטראקציה פעילים)
+│   ├── screenshots/             # 27 צילומי מסך אותנטיים ברזולוציית 1440x900
 │   ├── content-audit.md         # ביקורת תוכן ומקורות אקדמיים
-│   ├── lecturer-requirements-checklist.md # רשימת תיוג מול דרישות המרצה
-│   └── visual-redesign-plan.md  # תוכנית עיצוב חזותי
+│   └── lecturer-requirements-checklist.md # רשימת תיוג מול דרישות המרצה
 │
 └── prompts/                     # תיעוד אותנטי מלא של כל 29 שלבי הפיתוח מבוססי AI
-    ├── 01_PRD_Planning.md ... 16_PRD_Upgrade.md
-    └── 17_README_Visuals_Screenshots.md ... 29_Revert_Slides1to8_Theme_And_Slide19.md
 ```
 
 ---
@@ -369,18 +368,18 @@ SHM-2026/
 
 ### 9.1 סטטוס בדיקות מפורט וחבילת האימות האוטומטית (89 Assertions)
 
-חבילת בדיקות אוטומטית מקיפה (`scratch/run_verification_suite.js`) הופעלה על הפרויקט ובדקה 89 תנאים קפדניים. להלן סיכום תוצאות הבדיקה:
+חבילת בדיקות אוטומטית מקיפה (`scratch/run_verification_suite.js`) הופעלה על הפרויקט ובדקה 89 תנאים קפדניים. להלן סיכום תוצאות הבדיקה המאומתות:
 
 | תחום בדיקה | תיאור הבדיקה ושיטת הביצוע | היקף בדיקות | סטטוס ביצוע | תוצאה וממצאים בפועל |
 | :--- | :--- | :---: | :---: | :--- |
 | **מבנה שקופיות DOM** | סריקת `index.html` לאימות 20 שקופיות בדיוק ברצף `slide-1` עד `slide-20`. | 1 | **בוצע בפועל** | **עבר (Pass)** — 20 שקופיות בדיוק, אפס כפילויות או דילוגים. |
-| **שחזור שקופית 1** | אימות תמונת `consumer_brain_hero.jpg`, כותרות, שמות שתי המגישות, שיוך לאוניברסיטת חיפה ומאפייני נגישות. | 7 | **בוצע בפועל** | **עבר (Pass)** — תמונת Hero מקורית, שמס סבאג ומלאק פרוג'ה מוצגות בשוויון, מאפייני `aria` תקינים. |
-| **ערכת נושא כהה (שקופיות 1–8)** | אימות הסרת מחלקות פיילוט בהיר והיעדר סגנונות רקע בהירים בשקופיות 1–8. | 16 | **בוצע בפועל** | **עבר (Pass)** — כל 8 השקופיות הראשונות פועלות בערכת Dark Luxury שחורה ומעמיקה. |
+| **שער הפרויקט (שקופית 1)** | אימות תמונת `consumer_brain_hero.jpg`, כותרות, שמות שתי המגישות, שיוך לאוניברסיטת חיפה ומאפייני נגישות. | 7 | **בוצע בפועל** | **עבר (Pass)** — תמונת Hero מקורית, שמס סבאג ומלאק פרוג'ה מוצגות בשוויון, מאפייני `aria` תקינים. |
+| **ערכת Warm Editorial** | אימות משתני הצבעים העריכתיים (`--ed-*`), רקע שמנת חם (`#F7F3ED`), כרטיסיות נייר (`#FCF9F5`) וניגודיות טקסט בכל 20 השקופיות. | 16 | **בוצע בפועל** | **עבר (Pass)** — כל 20 השקופיות פועלות באופן אחיד ומלא בערכת Warm Editorial. |
 | **שימור מראי מקום אקדמיים** | אימות קיומם של ציטוטי מחקר קנוניים בשקופיות 2–7 (Knutson, Stanovich, Itti, Krishna, Damasio, Collins). | 6 | **בוצע בפועל** | **עבר (Pass)** — כל מראי המקום האקדמיים שמורים ומדויקים. |
-| **פקדי מוח 3D בשקופית 8** | אימות כפתור סיבוב, כפתורי זום `+`/`-`, חיווי אחוז זום, כפתור חתך Cutaway, איפוס מבט, 4 כפתורי אזורים וכרטיס מידע. | 13 | **בוצע בפועל** | **עבר (Pass)** — כל פקדי השליטה המתקדמים קיימים ומעוצבים ב-Dark Luxury glassmorphism. |
-| **שחזור מעבדת AURA Privée בשקופית 19** | אימות מנגנון 3 השלבים, 3 הפאנלים, תמונות `perfume_neutral.jpg` ו-`perfume_emotional.jpg`, והסרת מוצרים אחרים. | 6 | **בוצע בפועל** | **עבר (Pass)** — מעבדת AURA Privée שוחזרה במלואה ופועלת באופן אותנטי. |
-| **דיאגרמות SVG משודרגות (שקופיות 3–7)** | אימות ViewBox רחב ברזולוציית 1100x560 ורקע כהה יוקרתי בכל 5 הדיאגרמות. | 15 | **בוצע בפועל** | **עבר (Pass)** — כל 5 הדיאגרמות ברזולוציה גבוהה ומוצגות בחדות על רקע Dark Luxury. |
-| **סגנונות CSS ייעודיים לפקדי 3D** | אימות קיומן של הגדרות CSS לפקדי זום, חתך, גרירה וכרטיסיות מידע בערכה כהה. | 8 | **בוצע בפועל** | **עבר (Pass)** — כל הסגנונות קיימים ב-`css/style.css` ללא שום דריסת רקע בהיר. |
+| **פקדי מוח 3D בשקופית 8** | אימות כפתור סיבוב, כפתורי זום `+`/`-`, חיווי אחוז זום, כפתור חתך Cutaway, איפוס מבט, 4 כפתורי אזורים וכרטיס מידע. | 13 | **בוצע בפועל** | **עבר (Pass)** — כל פקדי השליטה המתקדמים קיימים ופועלים ב-Three.js. |
+| **מעבדת AURA Privée בשקופית 19** | אימות מנגנון 3 השלבים, 3 הפאנלים, תמונות `perfume_neutral.jpg` ו-`perfume_emotional.jpg`, מוזיקת אווירה ופער עמדה-התנהגות ב-Python. | 6 | **בוצע בפועל** | **עבר (Pass)** — מעבדת AURA Privée פועלת באופן אותנטי ומדויק. |
+| **דיאגרמות SVG משודרגות (שקופיות 3–7)** | אימות ViewBox רחב ברזולוציית 1100x560 ועיצוב Warm Editorial בכל 5 הדיאגרמות. | 15 | **בוצע בפועל** | **עבר (Pass)** — כל 5 הדיאגרמות ברזולוציה גבוהה ומוצגות בחדות. |
+| **שילוב נכסי מלאק בשקופיות 9 ו-10** | אימות תמונת תיק Maison Vendôme (`handbag_editorial.png`), קטלוג 12 הבשמים (`perfume_catalog_editorial.png`) ושעון העצר הדיגיטלי החי. | 8 | **בוצע בפועל** | **עבר (Pass)** — נכסי מוצרים ריאליסטיים משולבים ופועלים ללא תקלות. |
 | **תחביר וקומפילציית JavaScript** | בדיקת `node -c` על כל 9 קובצי הסקריפט בתיקיית `js/`. | 9 | **בוצע בפועל** | **עבר (Pass)** — Exit Code 0 בכל 9 הקבצים, אפס שגיאות תחביר או שגיאות זמן-ריצה. |
 | **לכידת צילומי מסך אמיתיים (1440x900)** | לכידה חיה של כל 20 השקופיות ומצבי אינטראקציה פעילים באמצעות Headless Edge CDP. | 27 | **בוצע בפועל** | **עבר (Pass)** — 27 קובצי PNG תקינים ומאומתים ב-`docs/screenshots/`. |
 | **סה"כ בדיקות אימות** | **סיכום כולל של חבילת הבדיקות האוטומטית והאימות החזותי** | **89** | **בוצע בפועל** | **89 מתוך 89 עברו בהצלחה (100% Pass)** |
@@ -394,7 +393,7 @@ SHM-2026/
 | **R-01** | **כשל בטעינת Pyodide מ-CDN** (סביבה מנותקת אינטרנט). | בינונית | בינונית | **מיושם:** לכל 6 הסימולציות קיים מנוע גיבוי מקומי ב-JavaScript (<bdi>JS Mathematical Fallback</bdi>) המחשב את התוצאות במדויק מבלי להציג שגיאה לצופה. |
 | **R-02** | **חסימת שמע על ידי מדיניות הדפדפן** (<bdi>Autoplay Policy</bdi>). | גבוהה | נמוכה | **מיושם:** ה-AudioContext מושתק כברירת מחדל (`isMuted: true`), ומופעל אך ורק לאחר לחיצה יזומה של המשתמש על כפתור רמקול או בחירת אזור. |
 | **R-03** | **היעדר תמיכת WebGL** במחשבים ישנים או מקרנים מיושנים. | נמוכה | בינונית | **מיושם:** מנגנון Fallback אוטומטי ב-`brain3d.js` המזהה חוסר תמיכה ומציג במקומו את תרשים הגיבוי המעוצב (`hero_brain_diagram.jpg`). |
-| **R-04** | **עומס קוגניטיבי על הקהל** במצגת של 20 שקופיות. | בינונית | בינונית | **מיושם:** שמירה על עיצוב מאוורר, חלוקה לכרטיסיות מודולריות, הסרת בלוקי קוד טכניים, ושילוב מעבדות אינטראקטיביות לשבירת פסיביות. |
+| **R-04** | **עומס קוגניטיבי על הקהל** במצגת של 20 שקופיות. | בינונית | בינונית | **מיושם:** שמירה על עיצוב מאוורר, פלטת Warm Editorial חמה ומרגיעה, כרטיסיות מודולריות, הסרת בלוקי קוד טכניים, ושילוב מעבדות אינטראקטיביות לשבירת פסיביות. |
 | **R-05** | **פרשנות מוטעית של סימולציה כעובדה ניסויית**. | נמוכה | גבוהה | **מיושם:** הטמעת הערות מתודולוגיות ואזהרות אקדמיות מפורשות בכל שקופית אינטראקטיבית. |
 
 ---
@@ -474,18 +473,20 @@ SHM-2026/
 - [x] **היקף שקופיות:** קיימות בדיוק 20 שקופיות סדורות וממוספרות (`slide-1` עד `slide-20`).
 - [x] **ניווט ובקרה:** כל כפתורי הניווט, קיצורי המקלדת (עם הגנת סליידרים), תפריט ה-TOC ומחוות המגע פועלים כהלכה.
 - [x] **מודל תלת-ממדי:** מודל מוח Three.js בשקופית 8 פועל חלק ב-60fps, עם גרירה בשני צירים, מגע, כפתורי זום `+`/`-`, תצוגת אחוז זום, מצב חתך Cutaway, 4 מוקדים אינטראקטיביים וגיבוי תקין.
-- [x] **מערכת שמע:** מוזיקת רקע Ambient עתידנית ואפקטים קוליים פועלים ב-Web Audio API בהפעלה יזומה ומושתקים כברירת מחדל.
+- [x] **מערכת שמע:** מוזיקת רקע Ambient ואפקטים קוליים פועלים ב-Web Audio API בהפעלה יזומה ומושתקים כברירת מחדל.
 - [x] **סימולציות אינטראקטיביות:** כל 7 המעבדות (שקופיות 8, 9, 10, 13, 14, 16, 19) פועלות ומגיבות לקלט.
 - [x] **מנוע Python בדפדפן:** כל 6 המודלים המדעיים פועלים ב-Pyodide WebAssembly ומאומתים בקונסול (`verifyPythonExecution()`).
 - [x] **היעדר שגיאות JavaScript:** כל 9 קובצי הסקריפט עברו קומפילציה ובדיקת תחביר ב-`node -c` עם 0 שגיאות.
-- [x] **תקינות נכסי מדיה:** כל 16 התמונות והדיאגרמות קיימות מקומית ב-`assets/images/` ונטענות ב-Offline.
-- [x] **דיאגרמות SVG משודרגות:** 5 דיאגרמות ברזולוציה של 1100x560 מותאמות לפלטת Dark Luxury וכוללות מראי מקום אקדמיים.
-- [x] **נגישות שפה:** תמיכה מלאה ב-RTL, בידוד מונחים לועזיים באמצעות `<bdi>`, מאפייני `aria`, וגופן Heebo תקני.
+- [x] **תקינות נכסי מדיה:** כל 16 התמונות והדיאגרמות קיימות מקומית ב-`assets/images/` ונטענות ב-Offline ללא שגיאות.
+- [x] **דיאגרמות SVG משודרגות:** 5 דיאגרמות ברזולוציה של 1100x560 מותאמות לפלטת Warm Editorial וכוללות מראי מקום אקדמיים.
+- [x] **שילוב נכסי מוצרים של מלאק:** תיק Maison Vendôme בשקופית 9 וקטלוג 12 הבשמים עם שעון העצר בשקופית 10 משולבים ופועלים באופן אופטימלי.
+- [x] **אחידות חזותית Warm Editorial:** כל 20 השקופיות חולקות את אותה פלטת צבעים עריכתית חמה ואיכותית.
+- [x] **נגישות שפה:** תמיכה מלאה ב-RTL, בידוד מונחים לועזיים באמצעות `<bdi>`, מאפייני `aria`, וגופני Heebo ו-Assistant תקניים.
 - [x] **דיוק מדעי ואתיקה:** מודלים מיוחסים לחוקרים הנכונים, מופיעות אזהרות מתודולוגיות, ודיסקליימר היעדר סליקה מוצג.
 - [x] **ביבליוגרפיה מאומתת:** 16 מקורות אקדמיים לפי תקן APA סונכרנו במלואם בין שקופית 20 ל-README.
 - [x] **גלריית צילומי מסך:** 27 צילומי מסך אותנטיים ברזולוציית 1440x900 שמורים בתיקיית `docs/screenshots/` ומקושרים במסמכים.
 - [x] **תיעוד תהליך מלא:** תיקיית `prompts/` מכילה 29 קובצי תיעוד אותנטיים וכרונולוגיים של כל שלבי העבודה (`01` עד `29`).
-- [x] **מסמך PRD מעודכן:** מסמך זה (גרסה 2.2) משקף במדויק ובשלמות את המערכת הסופית, המאושרת והבדוקה.
+- [x] **מסמך PRD מעודכן:** מסמך זה (גרסה 3.0) משקף במדויק ובשלמות את המערכת הסופית, המאושרת והבדוקה.
 
 ---
 
@@ -494,16 +495,17 @@ SHM-2026/
 ### 13.1 שיתוף הפעולה בין שמס סבאג למלאק פרוג'ה
 הפרויקט מהווה סינתזה אקדמית מובנית בין שני תחומי דעת משלימים באוניברסיטת חיפה:
 * **שמס סבאג (פסיכולוגיה):** הובילה את המחקר הקוגניטיבי, מודל שתי המערכות, תורת הסיכויים, אפקט העיגון, היוריסטיקות שיפוט, סמנים סומטיים, והבטחת הדיוק האקדמי של נוסחאות ה-Python וההסתייגויות המדעיות.
-* **מלאק פרוג'ה (תקשורת ושיווק):** הובילה את שילוב הדוגמאות המסחריות, שיווק חושי, רשתות אסוציאציה מותגית, שיווק אתי מול דפוסי חושך (Dark Patterns), שדרוג הדיאגרמות הווקטוריות לרזולוציית 1100x560, פיתוח פקדי השליטה המתקדמים במודל המוח התלת-ממדי, ובדיקת דרישות המרצה.
+* **מלאק פרוג'ה (תקשורת ושיווק):** הובילה את שילוב הדוגמאות המסחריות, שפת העיצוב החמה (Warm Editorial), תיק Maison Vendôme, קטלוג 12 הבשמים, שיווק חושי, רשתות אסוציאציה מותגית, שיווק אתי מול דפוסי חושך (Dark Patterns), שדרוג הדיאגרמות הווקטוריות לרזולוציית 1100x560, פיתוח פקדי השליטה המתקדמים במודל המוח התלת-ממדי, ובדיקת דרישות המרצה.
 
 ### 13.2 מעקב אחר היסטוריית ה-Git ואינטגרציית התרומות
 תהליך האינטגרציה שילב את תרומות שתי הסטודנטיות תוך שמירה מלאה על כל Commit ו-Pull Request בהיסטוריית ה-Git:
-1. **נקודת הבסיס היציבה (`cbc0433`):** גרסת בסיס יציבה עם ערכת עיצוב Dark Luxury ומעבדת AURA Privée.
+1. **נקודת הבסיס היציבה (`cbc0433`):** גרסת בסיס יציבה עם תשתית 20 שקופיות ומעבדת AURA Privée.
 2. **Pull Request #1 (`3b69cc3` / `25b717c`):** פיילוט עריכתי, בדיקת המרות Python Map לשקופית 19.
 3. **Commits `2d19ea8` & `8cb62c0`:** ביקורת מול דרישות המרצה (שיעור 2, סעיף 11) — תיקון המרות Pyodide Map, תיקון יחס גובה-רוחב ב-Three.js, והגנת מקלדת על סליידרים ב-`presentation.js`.
 4. **Pull Request #2 (`c7ada3d` / `4e69e51`):** שדרוג מודל המוח בשקופית 8 לרשת אנטומית מתקדמת (CC BY-SA 3.0, כ-85k מצולעים) עם תמיכה במצב חתך Cutaway.
 5. **Pull Request #3 (`19e0e24` / `82851bc`):** שדרוג פקדי התלת-ממד בשקופית 8 (גרירה בשני צירים, מחוות מגע, כפתורי זום דיגיטליים `+`/`-`, חיווי אחוז זום חי, וכפתור הפעלה/עצירה של סיבוב אוטומטי).
 6. **Pull Request #4 (`05c6415` / `f9aabfd`):** שדרוג אקדמי של 5 דיאגרמות SVG לרזולוציית 1100x560 והטמעת מראי מקום מדעיים מורחבים.
-7. **שחזור מדויק ואינטגרציה סופית (גרסה 2.2):** שחזור ערכת הרקע השחורה והיוקרתית בשקופיות 1–8, שחזור תמונת השער הנוירו-גרפית בשקופית 1, שחזור מעבדת AURA Privée בשקופית 19, תוך שימור מלא של כל הדיאגרמות המשודרגות (מותאמות ל-Dark Luxury), פקדי ה-3D המשודרגים, כל 7 המעבדות האינטראקטיביות, מנוע ה-Python ו-27 צילומי המסך.
+7. **Pull Request #5 (`d72159d` / `831c293`):** ענף `malak-improvments` שבו פותחו שדרוגי המוצרים לשקופית 9 (תיק יוקרה Maison Vendôme) ושקופית 10 (קטלוג 12 בשמים ושעון עצר דיגיטלי חי).
+8. **Commit `84366cf` (שילוב סופי ומהדורת Warm Editorial):** הטמעה מלאה של מערכת העיצוב החמה בכל 20 השקופיות, שילוב סופי ומאומת של כל שיפורי מלאק בשקופיות 9 ו-10, שימור תמונת שקופית 1 המקורית ומעבדת שקופית 19 המקורית, תיקון כל סיומות הקבצים ואימות 0 שגיאות.
 
 **סטטוס אימות סופי: 89 מתוך 89 בדיקות איכות עברו בהצלחה מלאה (100% Pass). המערכת מוכנה להגשה סופית.**
