@@ -9,7 +9,7 @@
   <title>המוח הצרכני – הפסיכולוגיה שמאחורי החלטות קנייה</title>
   <link rel="stylesheet" href="css/style.css?v=20261030_s8_v2">
 </head>
-<body class="editorial-active">
+<body>
 
   <!-- פס התקדמות עליון -->
   <div class="progress-container">
@@ -19,38 +19,33 @@
   <!-- חלל הצגת השקופיות -->
   <main class="presentation-viewport">
 
-    <!-- ==================== שקופית 1: שער בעיצוב עריכתי (Pilot) ==================== -->
-    <section class="slide editorial-pilot active" id="slide-1">
-      <div class="cover-grid editorial-cover-grid">
+    <!-- ==================== שקופית 1: שער בעיצוב עשיר עם Hero Image ==================== -->
+    <section class="slide active" id="slide-1">
+      <div class="cover-grid">
         <!-- עמודת הטקסט והצוות -->
-        <div class="cover-text-col editorial-cover-copy">
-          <div class="cover-badge-top editorial-kicker">
-            <span class="badge-uni">אוניברסיטת חיפה</span>
-            <span class="badge-divider" aria-hidden="true">•</span>
+        <div class="cover-text-col">
+          <div class="cover-badge-top">
+            <span class="badge-uni">🏛️ אוניברסיטת חיפה</span>
+            <span class="badge-divider">•</span>
             <span class="badge-course">מטלה מספר 1 | קורס סוכני <bdi>AI</bdi> ו-<bdi>Vibe Coding</bdi></span>
           </div>
-
-          <div class="editorial-headline-block">
-            <h1 class="cover-title">מי באמת מחליט מה נקנה?</h1>
-            <p class="cover-subtitle">אתם בוחרים — ואז מגלים מה השפיע על הבחירה שלכם.</p>
+          
+          <div>
+            <h1 class="cover-title">המוח הצרכני</h1>
+            <p class="cover-subtitle">הפסיכולוגיה שמאחורי החלטות קנייה</p>
             <p class="cover-subtitle-en"><bdi>The Consumer Brain: The Psychology Behind Purchasing Decisions</bdi></p>
           </div>
 
-          <div class="editorial-cta-row">
-            <button type="button" class="btn-start-presentation" id="btnStartPresentation">
-              <span>בואו נבדוק</span>
-              <span aria-hidden="true">←</span>
-            </button>
-          </div>
-
           <!-- תיאור צוות העבודה באופן שוויוני ומקצועי -->
-          <div class="team-container editorial-byline" aria-label="צוות המגישות">
+          <div class="team-container" aria-label="צוות המגישות">
             <div class="team-institution-header">
+              <span class="inst-icon">🎓</span>
               <span>מוסד לימודים משותף: <strong>אוניברסיטת חיפה</strong></span>
             </div>
 
             <div class="team-equal-grid">
               <div class="team-card-box psych">
+                <span class="team-icon">🧠</span>
                 <div class="team-info">
                   <h4>סטודנטית לפסיכולוגיה</h4>
                   <div class="team-name">שמס סבאג</div>
@@ -59,6 +54,7 @@
               </div>
 
               <div class="team-card-box comm">
+                <span class="team-icon">📈</span>
                 <div class="team-info">
                   <h4>סטודנטית לתקשורת ושיווק</h4>
                   <div class="team-name">מלאק פרוג'ה</div>
@@ -67,26 +63,29 @@
               </div>
             </div>
           </div>
+
+          <div style="margin-top: 4px;">
+            <button type="button" class="btn-start-presentation" id="btnStartPresentation">
+              <span>התחל במצגת</span>
+              <span aria-hidden="true">←</span>
+            </button>
+          </div>
         </div>
 
-        <!-- עמודת המוקד החזותי (Editorial Visual Focal Point) -->
-        <div class="cover-visual-col editorial-cover-visual">
-          <figure class="hero-brain-frame editorial-hero-frame">
-            <img src="assets/images/gritti_tutu_02.jpg" alt="בקבוק ואריזת הבושם המקוריים Gritti Tutù Extrait de Parfum (100 ml) מתוך הקולקציה הלבנה של Gritti Venetia">
-            <div class="editorial-hero-tag">
-              <span><bdi>Gritti Tutù — Extrait de Parfum (100 ml)</bdi></span>
-              <span><bdi>€ 260</bdi></span>
-            </div>
-          </figure>
-          <div class="hero-caption editorial-hero-caption">
-            אותו מוצר ואותו מחיר בדיוק — כיצד מסגור, קשב ורגש מעצבים את הבחירה שלנו? (צילום מוצר רשמי: <bdi>Gritti Fragrances</bdi>).
+        <!-- עמודת התמונה המרכזית (Hero Visual) -->
+        <div class="cover-visual-col">
+          <div class="hero-brain-frame">
+            <img src="assets/images/consumer_brain_hero.jpg" alt="המוח הצרכני: רשתות עצביות והפסיכולוגיה של החלטות קנייה">
+          </div>
+          <div class="hero-caption">
+            הדמיה קונספטואלית: המוח הצרכני — רשתות עצביות, חישובי ערך ומסלולי קבלת החלטות
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==================== שקופית 2: מיתוס מול מדע ==================== -->
-    <section class="slide editorial-pilot" id="slide-2">
+    <section class="slide" id="slide-2">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>מבוא וגבולות המדע: מיתוס מול מציאות</h2>
@@ -137,7 +136,7 @@
     </section>
 
     <!-- ==================== שקופית 3: מודל שתי המערכות ==================== -->
-    <section class="slide editorial-pilot" id="slide-3">
+    <section class="slide" id="slide-3">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>מודל שתי המערכות: אינטואיציה מול שיקול דעת</h2>
@@ -153,7 +152,7 @@
     </section>
 
     <!-- ==================== שקופית 4: קשב חזותי ==================== -->
-    <section class="slide editorial-pilot" id="slide-4">
+    <section class="slide" id="slide-4">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>קשב חזותי וסלקטיביות</h2>
@@ -169,7 +168,7 @@
     </section>
 
     <!-- ==================== שקופית 5: תפיסה ועיבוד חושי ==================== -->
-    <section class="slide editorial-pilot" id="slide-5">
+    <section class="slide" id="slide-5">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>תפיסה ועיבוד חושי</h2>
@@ -185,7 +184,7 @@
     </section>
 
     <!-- ==================== שקופית 6: רגשות וסמנים סומטיים ==================== -->
-    <section class="slide editorial-pilot" id="slide-6">
+    <section class="slide" id="slide-6">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>רגשות וסמנים סומטיים בהחלטות</h2>
@@ -201,7 +200,7 @@
     </section>
 
     <!-- ==================== שקופית 7: זיכרון ואסוציאציות ==================== -->
-    <section class="slide editorial-pilot" id="slide-7">
+    <section class="slide" id="slide-7">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>זיכרון ואסוציאציות מותג</h2>
@@ -217,7 +216,7 @@
     </section>
 
     <!-- ==================== שקופית 8: מודל תלת-ממדי אנטומי אינטראקטיבי ==================== -->
-    <section class="slide editorial-pilot" id="slide-8" style="background-color: #F7F3ED; color: #252329;">
+    <section class="slide" id="slide-8">
       <header class="slide-header">
         <div class="slide-title-group">
           <h2>הדמיה תלת-ממדית: רשתות המוח בקבלת החלטות צרכניות</h2>
@@ -1621,251 +1620,199 @@
       </div>
     </section>
 
-    <!-- ==================== שקופית 19: סימולציית פרסום רגשי (Pilot) ==================== -->
-    <section class="slide editorial-pilot" id="slide-19">
-      <header class="slide-header editorial-slide-header">
+    <!-- ==================== שקופית 19: סימולציית פרסום רגשי ==================== -->
+    <section class="slide" id="slide-19">
+      <header class="slide-header">
         <div class="slide-title-group">
-          <h2>כשהפרסומת מעוררת רגש – האם נקנה יותר?</h2>
-          <div class="slide-subtitle"><bdi>Gritti Tutù (Extrait de Parfum): Self-Reported Brand Attitude &amp; Purchase Intention</bdi></div>
+          <h2>כשהפרסומת מעוררת רגש – האם אנחנו רוצים לקנות יותר?</h2>
+          <div class="slide-subtitle"><bdi>Emotional vs. Neutral Advertising: Impact on Brand Attitude &amp; Purchase Intent</bdi></div>
         </div>
-        <span class="slide-badge">פעילות השוואתית</span>
+        <span class="slide-badge">סימולציית מעבדה חיה</span>
       </header>
 
-      <!-- הערת שקיפות מתודולוגית קצרה וגלויה -->
-      <div class="scientific-notice editorial-method-note">
-        <strong>הערה מתודולוגית:</strong>
-        זוהי פעילות לימודית המבוססת על דיווח עצמי (עמדה כלפי המותג וכוונת קנייה מוצהרת) — היא אינה מחקר מבוקר, אינה מוכיחה סיבתיות, ואינה מודדת התנהגות רכישה בפועל. סדר הצגת המודעות נקבע אקראית והגישות הפרסומיות נחשפות רק לאחר הדירוג.
+      <!-- הערת שקיפות מדעית והסבר קצר -->
+      <div class="scientific-notice">
+        <strong>הבהרה לימודית ומתודולוגית:</strong>
+        סימולציה זו ממחישה כיצד מסרים רגשיים עשויים לחזק אסוציאציות חיוביות (<bdi>Affective Associations</bdi>) ועמדה כלפי מותג (<bdi>Brand Attitude</bdi>). התוצאות מהוות התנסות אישית חינוכית ואינן מהוות ניסוי מעבדה מבוקר עם תוקף סיבתי מלא.
       </div>
 
       <!-- מכולת שלבי הסימולציה -->
       <div class="emot-sim-container" id="emotSimContainer">
-        <!-- סרגל צעדים בתוויות ניטרליות לפני הדירוג -->
-        <div class="emot-steps-tracker" role="tablist" aria-label="שלבי הפעילות">
+        <!-- סרגל צעדים (Wizard Progress Tracker) -->
+        <div class="emot-steps-tracker">
           <div class="step-pill active" id="trackerStepA">
             <span class="step-num">1</span>
-            <span id="trackerLabelStepA">מודעה א׳</span>
+            <span>פרסומת א׳ – ניטרלית</span>
           </div>
-          <span class="tracker-arrow" aria-hidden="true">←</span>
+          <span class="tracker-arrow">←</span>
           <div class="step-pill" id="trackerStepB">
             <span class="step-num">2</span>
-            <span id="trackerLabelStepB">מודעה ב׳</span>
+            <span>פרסומת ב׳ – רגשית</span>
           </div>
-          <span class="tracker-arrow" aria-hidden="true">←</span>
+          <span class="tracker-arrow">←</span>
           <div class="step-pill" id="trackerStepRes">
             <span class="step-num">3</span>
-            <span>השוואת הדירוגים</span>
+            <span>השוואת תוצאות ומסקנות</span>
           </div>
         </div>
 
-        <!-- שלב 1: מודעה א' (מוצגת ראשונה בסדר אקראי; תווית ניטרלית לפני דירוג) -->
+        <!-- שלב 1: פרסומת א' (ניטרלית) -->
         <div class="emot-step-panel active" id="panelStepA">
-          <div class="emot-ad-grid rating-collapsed" id="adGridStepA">
-            <!-- כרטיסיית מודעה א' -->
-            <article class="ad-display-card" id="adCardStepA">
-              <div class="ad-top-bar">
-                <div class="ad-badge" id="adBadgeStepA">מודעה א׳</div>
-                <span class="ad-volume-spec">100 מ"ל • <bdi>Extrait de Parfum</bdi></span>
-              </div>
-
+          <div class="emot-ad-grid">
+            <!-- כרטיסיית המודעה הניטרלית -->
+            <div class="ad-display-card neutral">
+              <div class="ad-badge neutral">מודעה א׳: פרסומת אינפורמטיבית-ניטרלית</div>
               <div class="ad-image-frame">
-                <img src="assets/images/gritti_tutu_01.jpg" alt="בקבוק הבושם המקורי Gritti Tutù Extrait de Parfum 100 ml — מודעה א׳" class="ad-img" id="adImgStepA">
+                <img src="assets/images/perfume_neutral.jpg" alt="AURA Privée - פרסומת ניטרלית לבקבוק בושם יוקרתי" class="ad-img">
               </div>
-
-              <div class="ad-copy-wrap">
+              <div class="ad-copy-neutral">
                 <div class="ad-headline-row">
-                  <h3><bdi>Gritti Tutù — White Collection</bdi></h3>
-                  <span class="ad-price-tag"><bdi>€ 260</bdi></span>
+                  <h3>AURA Privée — L'Étoile Noire</h3>
+                  <span class="ad-price-tag">₪ 480</span>
                 </div>
-
-                <!-- תוכן המודעה מותאם דינמית לפי הסדר האקראי (עובדתי או רגשי) -->
-                <div class="ad-body-slot" id="adBodySlotA">
-                  <div class="ad-specs-list">
-                    <div class="spec-item"><span class="spec-label">ריכוז ותכולה:</span> <span class="spec-val"><bdi>Extrait de Parfum</bdi> • 100 מ"ל (בית הבישום <bdi>Gritti Venetia</bdi>)</span></div>
-                    <div class="spec-item"><span class="spec-label">תווים עליונים:</span> <span class="spec-val">אשכולית, דומדמניות שחורות, קוקוס ושמפניה ורודה</span></div>
-                    <div class="spec-item"><span class="spec-label">תווי לב ובסיס:</span> <span class="spec-val">יסמין, ורד, הליוטרופ ותווים פודרתיים • פטל, וניל, ענבר ומושק</span></div>
-                  </div>
+                <div class="ad-specs-list">
+                  <div class="spec-item"><span class="spec-label">גודל בקבוק:</span> <span class="spec-val">100 מ"ל (Eau de Parfum 20% תמציות)</span></div>
+                  <div class="spec-item"><span class="spec-label">תווי ניחוח:</span> <span class="spec-val">ברגמוט איטלקי, פלפל שחור, ארז ועץ אלון</span></div>
+                  <div class="spec-item"><span class="spec-label">ארץ ייצור:</span> <span class="spec-val">צרפת (בקבוק קריסטל שחור איטלקי)</span></div>
                 </div>
-
-                <div class="ad-exposure-actions">
-                  <button type="button" class="btn-reveal-rating" id="btnRevealRatingA" aria-expanded="false" aria-controls="ratingCardA">
-                    <span>דרגו את הרושם</span>
-                    <span aria-hidden="true">←</span>
-                  </button>
-                </div>
+                <p class="ad-neutral-note">תיאור מוצר עובדתי, תאורת סטודיו מאוזנת, ללא מוזיקה וללא סיפור אישי.</p>
               </div>
-            </article>
+            </div>
 
-            <!-- כרטיסיית הדירוג עבור מודעה א' (נחשפת בלחיצה על "דרגו את הרושם") -->
-            <div class="ad-rating-card" id="ratingCardA" hidden style="display: none;">
-              <h4>דירוג מודעה א׳</h4>
-              <p class="rating-subtext">בחרו או אשרו ציון לכל אחת משלוש השאלות (סולם 1 עד 10). ניתן לבחור בנקודת האמצע (5/10) בלחיצה על "אשר 5/10" ללא הזזת המחוון:</p>
+            <!-- כרטיסיית הדירוג עבור פרסומת א' -->
+            <div class="ad-rating-card">
+              <h4>📝 דרגו את תחושתכם מפרסומת א׳ (סולם 1 עד 10):</h4>
+              <p class="rating-subtext">השיבו בכנות על פי התרשמותכם הראשונית מהמודעה:</p>
 
-              <!-- שאלה 1 -->
+              <!-- מדד 1 -->
               <div class="rating-slider-group">
                 <div class="rating-label-row">
                   <label for="ratingEmotionA">1. עד כמה הפרסומת עוררה רגש חיובי?</label>
-                  <div class="rating-status-controls">
-                    <span class="rating-val-badge unconfirmed" id="valBadgeEmotionA">5/10 (ממתין)</span>
-                    <button type="button" class="btn-confirm-midpoint" id="btnConfirmEmotionA" data-step="A" data-metric="emotion">אשר 5/10</button>
-                  </div>
+                  <span class="rating-val-badge" id="valBadgeEmotionA">4/10</span>
                 </div>
-                <input type="range" id="ratingEmotionA" min="1" max="10" value="5" class="ad-range-slider" aria-label="דירוג רגש חיובי מודעה א">
-                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (בינוני / אמצע)</span><span>10 (במידה רבה מאוד)</span></div>
+                <input type="range" id="ratingEmotionA" min="1" max="10" value="4" class="ad-range-slider neutral-slider" aria-label="דירוג רגש חיובי מודעה א">
+                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (בינוני)</span><span>10 (עוררה מאוד)</span></div>
               </div>
 
-              <!-- שאלה 2 -->
+              <!-- מדד 2 -->
               <div class="rating-slider-group">
                 <div class="rating-label-row">
                   <label for="ratingBrandA">2. עד כמה אתם מרגישים חיבור למותג?</label>
-                  <div class="rating-status-controls">
-                    <span class="rating-val-badge unconfirmed" id="valBadgeBrandA">5/10 (ממתין)</span>
-                    <button type="button" class="btn-confirm-midpoint" id="btnConfirmBrandA" data-step="A" data-metric="brand">אשר 5/10</button>
-                  </div>
+                  <span class="rating-val-badge" id="valBadgeBrandA">4/10</span>
                 </div>
-                <input type="range" id="ratingBrandA" min="1" max="10" value="5" class="ad-range-slider" aria-label="דירוג חיבור למותג מודעה א">
-                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (בינוני / אמצע)</span><span>10 (חיבור חזק מאוד)</span></div>
+                <input type="range" id="ratingBrandA" min="1" max="10" value="4" class="ad-range-slider neutral-slider" aria-label="דירוג חיבור למותג מודעה א">
+                <div class="rating-ticks"><span>1 (אין חיבור)</span><span>5 (בינוני)</span><span>10 (חיבור עמוק)</span></div>
               </div>
 
-              <!-- שאלה 3 -->
+              <!-- מדד 3 -->
               <div class="rating-slider-group">
                 <div class="rating-label-row">
                   <label for="ratingIntentA">3. עד כמה אתם מעוניינים לקנות את הבושם?</label>
-                  <div class="rating-status-controls">
-                    <span class="rating-val-badge unconfirmed" id="valBadgeIntentA">5/10 (ממתין)</span>
-                    <button type="button" class="btn-confirm-midpoint" id="btnConfirmIntentA" data-step="A" data-metric="intent">אשר 5/10</button>
-                  </div>
+                  <span class="rating-val-badge" id="valBadgeIntentA">3/10</span>
                 </div>
-                <input type="range" id="ratingIntentA" min="1" max="10" value="5" class="ad-range-slider" aria-label="דירוג כוונת קנייה מודעה א">
-                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (בינוני / אמצע)</span><span>10 (מעוניין מאוד)</span></div>
+                <input type="range" id="ratingIntentA" min="1" max="10" value="3" class="ad-range-slider neutral-slider" aria-label="דירוג כוונת קנייה מודעה א">
+                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (אולי)</span><span>10 (מעוניין מאוד)</span></div>
               </div>
 
-              <p class="rating-gate-hint" id="ratingGateHintA" aria-live="polite">
-                יש לבחור או לאשר ציון בכל 3 השאלות כדי להמשיך למודעה ב׳.
-              </p>
-
-              <button type="button" class="btn-step-next" id="btnGoToStepB" disabled aria-disabled="true">
-                <span>המשך למודעה ב׳</span>
-                <span aria-hidden="true">←</span>
+              <button type="button" class="btn-step-next" id="btnGoToStepB">
+                <span>המשך לפרסומת ב׳ (הרגשית)</span>
+                <span>←</span>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- שלב 2: מודעה ב' (מוצגת שנייה בסדר אקראי; תווית ניטרלית לפני דירוג) -->
+        <!-- שלב 2: פרסומת ב' (רגשית) -->
         <div class="emot-step-panel" id="panelStepB" style="display: none;">
-          <div class="emot-ad-grid rating-collapsed" id="adGridStepB">
-            <!-- כרטיסיית מודעה ב' -->
-            <article class="ad-display-card" id="adCardStepB">
+          <div class="emot-ad-grid">
+            <!-- כרטיסיית המודעה הרגשית -->
+            <div class="ad-display-card emotional">
               <div class="ad-top-bar">
-                <div class="ad-badge" id="adBadgeStepB">מודעה ב׳</div>
-                <span class="ad-volume-spec">100 מ"ל • <bdi>Extrait de Parfum</bdi></span>
+                <div class="ad-badge emotional">מודעה ב׳: פרסומת רגשית-סיפורית</div>
+                <!-- כפתור מוזיקה יזום -->
+                <button type="button" class="btn-audio-toggle" id="btnToggleAdMusic" title="הפעל או השתק מוזיקת אווירה מקורית">
+                  <span id="adMusicIcon">🎵</span>
+                  <span id="adMusicText">הפעל מוזיקת אווירה</span>
+                </button>
               </div>
 
               <div class="ad-image-frame">
-                <img src="assets/images/gritti_tutu_03.jpg" alt="בקבוק הבושם המקורי Gritti Tutù Extrait de Parfum 100 ml — מודעה ב׳" class="ad-img" id="adImgStepB">
+                <img src="assets/images/perfume_emotional.jpg" alt="AURA Privée - פרסומת רגשית רומנטית לאותו בקבוק בושם" class="ad-img">
               </div>
 
-              <div class="ad-copy-wrap">
+              <div class="ad-copy-emotional">
                 <div class="ad-headline-row">
-                  <h3><bdi>Gritti Tutù — White Collection</bdi></h3>
-                  <span class="ad-price-tag"><bdi>€ 260</bdi></span>
+                  <h3>AURA Privée — L'Étoile Noire</h3>
+                  <span class="ad-price-tag emotional">₪ 480</span>
                 </div>
-
-                <!-- תוכן המודעה מותאם דינמית לפי הסדר האקראי -->
-                <div class="ad-body-slot" id="adBodySlotB">
-                  <p class="ad-story-quote">
-                    "הדקה השקטה שלפני הרגע הגדול: נשימה עמוקה מול המראה, מגע של משי, והתחושה המדויקת של נוכחות, חן ורוך שנשארים איתך לאורך כל הערב."
-                  </p>
-                </div>
-
-                <div class="ad-exposure-actions">
-                  <button type="button" class="btn-step-prev" id="btnBackToStepAFromCard">
-                    <span aria-hidden="true">→</span>
-                    <span>חזרה למודעה א׳</span>
-                  </button>
-                  <button type="button" class="btn-reveal-rating" id="btnRevealRatingB" aria-expanded="false" aria-controls="ratingCardB">
-                    <span>דרגו את הרושם</span>
-                    <span aria-hidden="true">←</span>
-                  </button>
+                <p class="ad-story-quote">
+                  "יש ניחוחות שלא רק מריחים – אלא זוכרים. רגע של קִרבה אמיתית בשקיעה, מבט אחד שמספר סיפור שלם, וביטחון שאי אפשר להתעלם ממנו. <strong>חברו לרגע, הרגישו את העוצמה שלכם.</strong>"
+                </p>
+                <div class="ad-emotional-cues">
+                  <span>✨ אווירה רומנטית</span>
+                  <span>🌅 תאורת שקיעה חמה</span>
+                  <span>❤️ אהבה וביטחון עצמי</span>
                 </div>
               </div>
-            </article>
+            </div>
 
-            <!-- כרטיסיית הדירוג עבור מודעה ב' (נחשפת בלחיצה על "דרגו את הרושם") -->
-            <div class="ad-rating-card" id="ratingCardB" hidden style="display: none;">
-              <h4>דירוג מודעה ב׳</h4>
-              <p class="rating-subtext">בחרו או אשרו ציון לכל אחת משלוש השאלות (סולם 1 עד 10). ניתן לבחור בנקודת האמצע (5/10) בלחיצה על "אשר 5/10" ללא הזזת המחוון:</p>
+            <!-- כרטיסיית הדירוג עבור פרסומת ב' -->
+            <div class="ad-rating-card">
+              <h4>📝 דרגו את תחושתכם מפרסומת ב׳ (סולם 1 עד 10):</h4>
+              <p class="rating-subtext">שימו לב כיצד האווירה, הסיפור והדימוי משפיעים עליכם:</p>
 
-              <!-- שאלה 1 -->
+              <!-- מדד 1 -->
               <div class="rating-slider-group">
                 <div class="rating-label-row">
                   <label for="ratingEmotionB">1. עד כמה הפרסומת עוררה רגש חיובי?</label>
-                  <div class="rating-status-controls">
-                    <span class="rating-val-badge unconfirmed" id="valBadgeEmotionB">5/10 (ממתין)</span>
-                    <button type="button" class="btn-confirm-midpoint" id="btnConfirmEmotionB" data-step="B" data-metric="emotion">אשר 5/10</button>
-                  </div>
+                  <span class="rating-val-badge emotional" id="valBadgeEmotionB">8/10</span>
                 </div>
-                <input type="range" id="ratingEmotionB" min="1" max="10" value="5" class="ad-range-slider" aria-label="דירוג רגש חיובי מודעה ב">
-                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (בינוני / אמצע)</span><span>10 (במידה רבה מאוד)</span></div>
+                <input type="range" id="ratingEmotionB" min="1" max="10" value="8" class="ad-range-slider emotional-slider" aria-label="דירוג רגש חיובי מודעה ב">
+                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (בינוני)</span><span>10 (עוררה מאוד)</span></div>
               </div>
 
-              <!-- שאלה 2 -->
+              <!-- מדד 2 -->
               <div class="rating-slider-group">
                 <div class="rating-label-row">
                   <label for="ratingBrandB">2. עד כמה אתם מרגישים חיבור למותג?</label>
-                  <div class="rating-status-controls">
-                    <span class="rating-val-badge unconfirmed" id="valBadgeBrandB">5/10 (ממתין)</span>
-                    <button type="button" class="btn-confirm-midpoint" id="btnConfirmBrandB" data-step="B" data-metric="brand">אשר 5/10</button>
-                  </div>
+                  <span class="rating-val-badge emotional" id="valBadgeBrandB">8/10</span>
                 </div>
-                <input type="range" id="ratingBrandB" min="1" max="10" value="5" class="ad-range-slider" aria-label="דירוג חיבור למותג מודעה ב">
-                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (בינוני / אמצע)</span><span>10 (חיבור חזק מאוד)</span></div>
+                <input type="range" id="ratingBrandB" min="1" max="10" value="8" class="ad-range-slider emotional-slider" aria-label="דירוג חיבור למותג מודעה ב">
+                <div class="rating-ticks"><span>1 (אין חיבור)</span><span>5 (בינוני)</span><span>10 (חיבור עמוק)</span></div>
               </div>
 
-              <!-- שאלה 3 -->
+              <!-- מדד 3 -->
               <div class="rating-slider-group">
                 <div class="rating-label-row">
                   <label for="ratingIntentB">3. עד כמה אתם מעוניינים לקנות את הבושם?</label>
-                  <div class="rating-status-controls">
-                    <span class="rating-val-badge unconfirmed" id="valBadgeIntentB">5/10 (ממתין)</span>
-                    <button type="button" class="btn-confirm-midpoint" id="btnConfirmIntentB" data-step="B" data-metric="intent">אשר 5/10</button>
-                  </div>
+                  <span class="rating-val-badge emotional" id="valBadgeIntentB">6/10</span>
                 </div>
-                <input type="range" id="ratingIntentB" min="1" max="10" value="5" class="ad-range-slider" aria-label="דירוג כוונת קנייה מודעה ב">
-                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (בינוני / אמצע)</span><span>10 (מעוניין מאוד)</span></div>
+                <input type="range" id="ratingIntentB" min="1" max="10" value="6" class="ad-range-slider emotional-slider" aria-label="דירוג כוונת קנייה מודעה ב">
+                <div class="rating-ticks"><span>1 (כלל לא)</span><span>5 (אולי)</span><span>10 (מעוניין מאוד)</span></div>
               </div>
-
-              <p class="rating-gate-hint" id="ratingGateHintB" aria-live="polite">
-                יש לבחור או לאשר ציון בכל 3 השאלות כדי להציג את השוואת הדירוגים.
-              </p>
 
               <div class="step-buttons-row">
                 <button type="button" class="btn-step-prev" id="btnBackToStepA">
-                  <span aria-hidden="true">→</span>
-                  <span>חזרה למודעה א׳</span>
+                  <span>→</span>
+                  <span>חזרה לפרסומת א׳</span>
                 </button>
-                <button type="button" class="btn-step-next primary" id="btnGoToResults" disabled aria-disabled="true">
-                  <span>השווה בין הדירוגים</span>
-                  <span aria-hidden="true">←</span>
+                <button type="button" class="btn-step-next primary" id="btnGoToResults">
+                  <span>שקלל תוצאות והשווה 📊</span>
+                  <span>←</span>
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- שלב 3: תוצאות על בסיס דירוגי המשתתף בלבד + חשיפת הגישות הפרסומיות + מגירת הסבר ומגבלות -->
+        <!-- שלב 3: תוצאות, גרף השוואתי ותובנות פסיכולוגיות -->
         <div class="emot-step-panel" id="panelStepResults" style="display: none;">
           <div class="results-layout-grid">
-            <!-- עמודה ראשית: השוואת הדירוגים -->
+            <!-- עמודה ימנית: גרף השוואה ומדדים מחושבים -->
             <div class="results-chart-card">
               <div class="chart-header-row">
-                <h4>השוואת הדירוגים שלכם: <bdi>Gritti Tutù (100 ml, € 260)</bdi></h4>
-                <span class="python-calculated-badge" id="emotCalcEngineBadge">חושב באמצעות Python</span>
-              </div>
-
-              <!-- הודעת חשיפת הגישות הפרסומיות לאחר הדירוג -->
-              <div class="order-reveal-banner" id="emotOrderRevealNote">
-                <strong>חשיפת הגישות הפרסומיות לאחר הדירוג:</strong> בסבב זה מודעה א׳ הציגה מפרט עובדתי ומודעה ב׳ הציגה מסגור רגשי-סיפורי.
+                <h4>📊 השוואת הדירוגים: פרסומת ניטרלית מול רגשית</h4>
+                <span class="python-calculated-badge">מחושב במודל סטטיסטי ב-Python</span>
               </div>
 
               <!-- גרף עמודות השוואתי תלת-מדדי -->
@@ -1873,19 +1820,19 @@
                 <!-- קבוצה 1: עוררות רגש חיובי -->
                 <div class="metric-chart-group">
                   <div class="metric-title-row">
-                    <span class="metric-group-name">1. רגש חיובי שהתעורר (דיווח עצמי)</span>
-                    <span class="metric-diff-badge neutral" id="diffEmotionBadge">0 נקודות (0%)</span>
+                    <span class="metric-group-name">❤️ עוררות רגש חיובי</span>
+                    <span class="metric-diff-badge positive" id="diffEmotionBadge">+4.0 נקודות (+100%)</span>
                   </div>
                   <div class="paired-bars">
                     <div class="bar-item">
-                      <span class="bar-label" id="labelResEmotionA">עובדתית (מודעה א׳):</span>
-                      <div class="bar-track"><div class="bar-fill neutral" id="barResEmotionA" style="width: 50%;"></div></div>
-                      <span class="bar-val" id="valResEmotionA">5/10</span>
+                      <span class="bar-label">ניטרלית (א׳):</span>
+                      <div class="bar-track"><div class="bar-fill neutral" id="barResEmotionA" style="width: 40%;"></div></div>
+                      <span class="bar-val" id="valResEmotionA">4/10</span>
                     </div>
                     <div class="bar-item">
-                      <span class="bar-label" id="labelResEmotionB">רגשית (מודעה ב׳):</span>
-                      <div class="bar-track"><div class="bar-fill emotional" id="barResEmotionB" style="width: 50%;"></div></div>
-                      <span class="bar-val emotional" id="valResEmotionB">5/10</span>
+                      <span class="bar-label">רגשית (ב׳):</span>
+                      <div class="bar-track"><div class="bar-fill emotional" id="barResEmotionB" style="width: 80%;"></div></div>
+                      <span class="bar-val emotional" id="valResEmotionB">8/10</span>
                     </div>
                   </div>
                 </div>
@@ -1893,19 +1840,19 @@
                 <!-- קבוצה 2: חיבור למותג -->
                 <div class="metric-chart-group">
                   <div class="metric-title-row">
-                    <span class="metric-group-name">2. חיבור ועמדה כלפי המותג (דיווח עצמי)</span>
-                    <span class="metric-diff-badge neutral" id="diffBrandBadge">0 נקודות (0%)</span>
+                    <span class="metric-group-name">🤝 חיבור ועמדה כלפי המותג</span>
+                    <span class="metric-diff-badge positive" id="diffBrandBadge">+4.0 נקודות (+100%)</span>
                   </div>
                   <div class="paired-bars">
                     <div class="bar-item">
-                      <span class="bar-label" id="labelResBrandA">עובדתית (מודעה א׳):</span>
-                      <div class="bar-track"><div class="bar-fill neutral" id="barResBrandA" style="width: 50%;"></div></div>
-                      <span class="bar-val" id="valResBrandA">5/10</span>
+                      <span class="bar-label">ניטרלית (א׳):</span>
+                      <div class="bar-track"><div class="bar-fill neutral" id="barResBrandA" style="width: 40%;"></div></div>
+                      <span class="bar-val" id="valResBrandA">4/10</span>
                     </div>
                     <div class="bar-item">
-                      <span class="bar-label" id="labelResBrandB">רגשית (מודעה ב׳):</span>
-                      <div class="bar-track"><div class="bar-fill emotional" id="barResBrandB" style="width: 50%;"></div></div>
-                      <span class="bar-val emotional" id="valResBrandB">5/10</span>
+                      <span class="bar-label">רגשית (ב׳):</span>
+                      <div class="bar-track"><div class="bar-fill emotional" id="barResBrandB" style="width: 80%;"></div></div>
+                      <span class="bar-val emotional" id="valResBrandB">8/10</span>
                     </div>
                   </div>
                 </div>
@@ -1913,77 +1860,66 @@
                 <!-- קבוצה 3: כוונת קנייה -->
                 <div class="metric-chart-group">
                   <div class="metric-title-row">
-                    <span class="metric-group-name">3. כוונת קנייה מוצהרת (דיווח עצמי)</span>
-                    <span class="metric-diff-badge neutral" id="diffIntentBadge">0 נקודות (0%)</span>
+                    <span class="metric-group-name">🛍️ כוונת קנייה מוצהרת</span>
+                    <span class="metric-diff-badge positive" id="diffIntentBadge">+3.0 נקודות (+100%)</span>
                   </div>
                   <div class="paired-bars">
                     <div class="bar-item">
-                      <span class="bar-label" id="labelResIntentA">עובדתית (מודעה א׳):</span>
-                      <div class="bar-track"><div class="bar-fill neutral" id="barResIntentA" style="width: 50%;"></div></div>
-                      <span class="bar-val" id="valResIntentA">5/10</span>
+                      <span class="bar-label">ניטרלית (א׳):</span>
+                      <div class="bar-track"><div class="bar-fill neutral" id="barResIntentA" style="width: 30%;"></div></div>
+                      <span class="bar-val" id="valResIntentA">3/10</span>
                     </div>
                     <div class="bar-item">
-                      <span class="bar-label" id="labelResIntentB">רגשית (מודעה ב׳):</span>
-                      <div class="bar-track"><div class="bar-fill emotional" id="barResIntentB" style="width: 50%;"></div></div>
-                      <span class="bar-val emotional" id="valResIntentB">5/10</span>
+                      <span class="bar-label">רגשית (ב׳):</span>
+                      <div class="bar-track"><div class="bar-fill emotional" id="barResIntentB" style="width: 60%;"></div></div>
+                      <span class="bar-val emotional" id="valResIntentB">6/10</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- כפתור נסה שוב (מגריל מחדש את סדר המודעות) -->
+              <!-- כפתור נסה שוב -->
               <div class="reset-button-wrap">
                 <button type="button" class="btn-retry" id="btnRestartSim">
-                  <span>דרגו מחדש (פעילות חדשה בסדר אקראי)</span>
+                  <span>🔄</span>
+                  <span>נסה שוב (התחל סימולציה מחדש)</span>
                 </button>
               </div>
             </div>
 
-            <!-- עמודה שנייה: תובנה מותאמת אישית + הסבר ומגבלות מתודולוגיות מתקפלות -->
+            <!-- עמודה שמאלית: ניתוח פסיכולוגי ואקדמי מורחב -->
             <div class="results-insights-card">
-              <h4>מה מראים הדירוגים שלכם?</h4>
+              <h4>🧠 ניתוח פסיכולוגי ומחקרי</h4>
 
-              <div class="editorial-dynamic-summary" id="emotDynamicSummary">
-                <strong>סיכום השוואתי:</strong> שתי המודעות מציגות את אותו הבושם (<bdi>Gritti Tutù Extrait de Parfum, 100 ml</bdi>) באותו המחיר (<bdi>€ 260</bdi>). ההשוואה מבוססת אך ורק על הדירוגים שהזנתם.
+              <div class="psych-concept-box">
+                <div class="concept-header">
+                  <span class="concept-icon">✨</span>
+                  <strong>פרסום רגשי ואסוציאציה אפקטיבית (<bdi>Emotional Advertising &amp; Affective Association</bdi>)</strong>
+                </div>
+                <p>
+                  לפי מחקרי <bdi>Zajonc (1980)</bdi> ו-<bdi>Holbrook &amp; Batra (1987)</bdi>, תגובה רגשית מקדימה עיבוד קוגניטיבי מפורט. שילוב תאורת שקיעה, קרבה אנושית ומוזיקה יוצר קישור אסוציאטיבי מהיר בין רגשות הנאה וביטחון לבין המוצר (<bdi>System 1</bdi>), גם כאשר הבושם, מחירו (480 ₪) ונפחו זהים לחלוטין.
+                </p>
               </div>
 
-              <!-- סעיף מתקפל נגיש להסבר תיאורטי ולמגבלות המתודולוגיות -->
-              <details class="editorial-theory-drawer" id="emotTheoryDrawer">
-                <summary class="editorial-theory-summary">
-                  <span>הסבר תיאורטי ומגבלות מתודולוגיות (<bdi>Zajonc, 1980; Holbrook &amp; Batra, 1987; ELM</bdi>)</span>
-                </summary>
-                <div class="editorial-theory-content">
-                  <div class="psych-concept-box warning">
-                    <div class="concept-header">
-                      <strong>מגבלות מתודולוגיות בפרשנות התוצאות (למה אין להסיק סיבתיות?)</strong>
-                    </div>
-                    <p>
-                      <strong>1. הבדלים מרובים בתמונה ובטקסט:</strong> שתי המודעות נבדלות זו מזו במקביל הן בניסוח המילולי והן באווירה החזותית, ולכן לא ניתן לבודד גורם יחיד שהשפיע על הדירוג.<br>
-                      <strong>2. היכרות מוקדמת עם המותג:</strong> מאחר ש-<bdi>Gritti Tutù</bdi> הוא בושם אמיתי, היכרות מוקדמת, העדפת תווי ניחוח אישית או עמדה כלפי רמת המחיר (<bdi>€ 260</bdi>) משפיעות על התשובות מעבר למסגור המודעה.<br>
-                      <strong>3. חשיפה לשתי המודעות ברצף (<bdi>Within-Subject Order Effects</bdi>):</strong> צפייה בשתי המודעות זו אחר זו יוצרת השוואה מודעת ואפקט העברה, גם כאשר סדר ההצגה מוגרל אקראית.<br>
-                      <strong>4. דיווח עצמי לימודי בלבד:</strong> פעילות זו מודדת הצהרות בדיווח עצמי של משתתף יחיד, ואינה ניסוי מבוקר או מדידה של התנהגות רכישה בפועל.
-                    </p>
-                  </div>
-
-                  <div class="psych-concept-box">
-                    <div class="concept-header">
-                      <strong>פרסום רגשי מול מפרט עובדתי (<bdi>Zajonc, 1980; Holbrook &amp; Batra, 1987</bdi>)</strong>
-                    </div>
-                    <p>
-                      מחקרים מראים כי עוררות רגשית עשויה להשפיע על העדפה באמצעות קישור אסוציאטיבי מהיר (<bdi>System 1</bdi>), בעוד שמפרט עובדתי פונה לעיבוד אנליטי של תכונות המוצר (<bdi>System 2</bdi>). עם זאת, פרסום רגשי אינו מנצח תמיד: צרכנים רבים מעדיפים מידע עובדתי ממוקד או מעניקים לשתי הגישות ציונים דומים.
-                    </p>
-                  </div>
-
-                  <div class="psych-concept-box">
-                    <div class="concept-header">
-                      <strong>פער עמדה–כוונת קנייה (<bdi>ELM - Petty &amp; Cacioppo, 1986; Ajzen &amp; Fishbein</bdi>)</strong>
-                    </div>
-                    <p>
-                      לפי מודל הסבירות לעיבוד (<bdi>ELM</bdi>) ומודל הפעולה המנומקת, חיבה למודעה או עמדה חיובית מדווחת כלפי המותג אינן מתורגמות בהכרח לכוונת קנייה מוצהרת או לרכישה בפועל (<bdi>Attitude-Behavior Gap</bdi>) בשל שיקולי מחיר (<bdi>€ 260</bdi>), תקציב וצורך אישי.
-                    </p>
-                  </div>
+              <div class="psych-concept-box">
+                <div class="concept-header">
+                  <span class="concept-icon">🎯</span>
+                  <strong>עמדה כלפי מותג (<bdi>Brand Attitude</bdi>) מול כוונת קנייה (<bdi>Purchase Intention</bdi>)</strong>
                 </div>
-              </details>
+                <p>
+                  מודל הפעולה המנומקת (<bdi>Ajzen &amp; Fishbein</bdi>) ומודל הסבירות לעיבוד (<bdi>ELM - Petty &amp; Cacioppo</bdi>) מראים כי עמדה חיובית כלפי פרסומת אינה מיתרגמת באופן ליניארי לקנייה מיידית. קיים <em>פער עמדה-התנהגות (<bdi>Attitude-Behavior Gap</bdi>)</em>: הצרכן עשוי לאהוב את המותג, אך מחיר גבוה, שיקולי תקציב או חוסר צורך מיידי ממתנים את כוונת הרכישה בפועל.
+                </p>
+              </div>
+
+              <div class="psych-concept-box warning">
+                <div class="concept-header">
+                  <span class="concept-icon">⚖️</span>
+                  <strong>גבולות ההשפעה: למה רגש אינו מבטיח רכישה?</strong>
+                </div>
+                <p>
+                  פרסום רגשי מגביר את המודעות והסימפטיה, אך צרכנים ביקורתיים מפעילים בקרה פרה-פרונטלית (<bdi>PFC</bdi>) בעת החלטת התשלום (<bdi>Insula</bdi>). לכן, אסטרטגיה שיווקית יעילה ואתית משלבת ערך רגשי אותנטי לצד תועלת מוצרית ממשית.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -2037,7 +1973,7 @@
             <li><strong>תמונת מוח מרכזית (שקופית 1):</strong> איור דיגיטלי נוירו-גרפי מותאם אישית שנוצר עבור הפרויקט (<bdi>consumer_brain_hero.jpg</bdi>).</li>
             <li><strong>תצלום תיק יוקרה מסחרי (שקופיות 9 ו-16):</strong> תצלום סטודיו של תיק עור שחור ופרזול זהב עבור מותג דמיוני (<bdi>Maison Vendôme</bdi>, <bdi>luxury_handbag.jpg</bdi>) לשם השוואת אפקט המחסור ומעבדת השיווק האתי.</li>
             <li><strong>תצלומי קולקציות הבישום (שקופית 10):</strong> תצלומי סטודיו מקוריים של שלישיית בשמים (<bdi>perfume_trio.jpg</bdi>) וקטלוג 12 הבשמים (<bdi>perfumes_collection_12.jpg</bdi>) עבור ניסוי פרדוקס הבחירה ועומס יתר.</li>
-            <li><strong>צילומי המוצר הרשמיים של הבושם <bdi>Gritti Tutù</bdi> (שקופיות 1 ו-19):</strong> צילומי מוצר רשמיים של <bdi>Gritti Tutù — Extrait de Parfum (100 ml, SKU: DGB00600)</bdi> מתוך הקולקציה הלבנה (<bdi>White Collection</bdi>), באדיבות האתר הרשמי של המותג <bdi>Gritti Fragrances (Gritti Venetia)</bdi>: <bdi><code>https://www.grittifragrances.com/products/tutu-dgb00600</code></bdi> (קבצים מקומיים: <bdi>gritti_tutu_01.jpg</bdi>, <bdi>gritti_tutu_02.jpg</bdi>, <bdi>gritti_tutu_03.jpg</bdi>; שימוש הוגן אקדמי-לימודי).</li>
+            <li><strong>תצלומי פרסום לבושם (שקופית 19):</strong> צילומי סטודיו מסחריים מקוריים שנוצרו במיוחד עבור המותג הדמיוני (<bdi>AURA Privée</bdi>, <bdi>perfume_neutral.jpg</bdi> ו-<bdi>perfume_emotional.jpg</bdi>) להשוואת פרסומת ניטרלית מול רגשית.</li>
             <li><strong>איורים ודיאגרמות קונספטואליות (שקופיות 3–17):</strong> איורים וקטוריים מקוריים בפורמט <bdi>SVG</bdi> שפותחו עבור המצגת (רישיון פרויקט <bdi>MIT / Creative Commons BY 4.0</bdi>).</li>
             <li><strong>ספריות קוד ומנועי מחשוב:</strong> <bdi>Three.js WebGL Engine</bdi> (<bdi>three.min.js</bdi>), <bdi>Web Audio API Ambient Synthesizer</bdi> (<bdi>audio.js</bdi> — סינתזה מוזיקלית אופציונלית, כבויה כברירת מחדל), ו-<bdi>Pyodide WebAssembly CPython v3.11</bdi>.</li>
             <li><strong>הערת רישוי ושימוש הוגן:</strong> כלל התכנים והאיורים נוצרו ונשמרו מקומית תחת תיקיות <bdi>assets/</bdi> ו-<bdi>js/vendor/</bdi> לשם טעינה מלאה ועצמאית, ללא תלות ברשת חיצונית (<bdi>Offline-ready</bdi>).</li>

@@ -76,24 +76,16 @@
     sessionStorage.setItem(state.storageKey, slideNumber);
 
     // עדכון תצוגת שקופיות ב-DOM
-    let isEditorialSlide = false;
     elements.slides.forEach((slide, index) => {
       const isTarget = index + 1 === slideNumber;
       if (isTarget) {
         slide.classList.add('active');
-        if (slide.classList.contains('editorial-pilot')) {
-          isEditorialSlide = true;
-        }
         // גלילה חלקה לראש השקופית
         slide.scrollTop = 0;
       } else {
         slide.classList.remove('active');
       }
     });
-
-    if (document.body && document.body.classList) {
-      document.body.classList.toggle('editorial-active', isEditorialSlide);
-    }
 
     // עדכון פס התקדמות עליון
     const progressPercent = (slideNumber / state.totalSlides) * 100;
