@@ -1,56 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" width="100%" height="100%">
   <defs>
-    <linearGradient id="gain-fill" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#34d399" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#34d399" stop-opacity="0.05"/>
-    </linearGradient>
-    <linearGradient id="loss-fill" x1="100%" y1="0%" x2="0%" y2="0%">
-      <stop offset="0%" stop-color="#fb7185" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#fb7185" stop-opacity="0.05"/>
+    <linearGradient id="ptBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCF9F5"/>
+      <stop offset="100%" stop-color="#F7F3ED"/>
     </linearGradient>
   </defs>
 
-  <rect width="720" height="380" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+  <rect width="720" height="380" rx="14" fill="url(#ptBgGrad)" stroke="#DEC7D0" stroke-width="1.5"/>
 
   <!-- Title & Formula -->
-  <text x="680" y="38" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#34d399" text-anchor="end">תורת הסיכויים ושנאת הפסד (Prospect Theory)</text>
-  <text x="680" y="58" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="end">פונקציית הערך הא-סימטרית: כאב ההפסד תלול פי 2–2.5 מהנאת הרווח (Kahneman &amp; Tversky, 1979)</text>
+  <text x="680" y="38" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#502638" text-anchor="end">תורת הסיכויים ושנאת הפסד (Prospect Theory)</text>
+  <text x="680" y="58" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#5A5258" text-anchor="end">פונקציית הערך הא-סימטרית: כאב ההפסד תלול פי 2–2.5 מהנאת הרווח (Kahneman &amp; Tversky, 1979)</text>
 
   <!-- Coordinate System (Center at x=360, y=210) -->
   <g transform="translate(0, 20)">
     <!-- Axes -->
-    <line x1="80" y1="200" x2="640" y2="200" stroke="#64748b" stroke-width="2"/>
-    <line x1="360" y1="50" x2="360" y2="330" stroke="#64748b" stroke-width="2"/>
+    <line x1="80" y1="200" x2="640" y2="200" stroke="#8E7F87" stroke-width="2"/>
+    <line x1="360" y1="50" x2="360" y2="330" stroke="#8E7F87" stroke-width="2"/>
 
     <!-- Axis Labels -->
-    <text x="630" y="190" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#34d399" text-anchor="end">+ רווח אובייקטיבי ($)</text>
-    <text x="90" y="190" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#fb7185" text-anchor="start">- הפסד אובייקטיבי ($)</text>
-    <text x="375" y="70" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#38bdf8">+ תועלת פסיכולוגית (ערך חיובי)</text>
-    <text x="375" y="325" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#fb7185">- כאב פסיכולוגי (ערך שלילי)</text>
+    <text x="630" y="190" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#32705C" text-anchor="end">+ רווח אובייקטיבי ($)</text>
+    <text x="90" y="190" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#B83D2B" text-anchor="start">- הפסד אובייקטיבי ($)</text>
+    <text x="375" y="70" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#502638">+ תועלת פסיכולוגית (ערך חיובי)</text>
+    <text x="375" y="325" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#B83D2B">- כאב פסיכולוגי (ערך שלילי)</text>
 
     <!-- Reference Point (0,0) -->
-    <circle cx="360" cy="200" r="5" fill="#f8fafc"/>
-    <text x="350" y="218" font-family="'Assistant', system-ui, sans-serif" font-size="11" fill="#cbd5e1" text-anchor="end">נקודת ייחוס (Reference Point)</text>
+    <circle cx="360" cy="200" r="5" fill="#502638"/>
+    <text x="350" y="218" font-family="'Assistant', system-ui, sans-serif" font-size="11" font-weight="600" fill="#5A5258" text-anchor="end">נקודת ייחוס (Reference Point)</text>
 
     <!-- S-Curve Paths -->
     <!-- Gain Region (Concave): (360,200) to (600,100) -->
-    <path d="M360,200 C430,140 500,110 600,100" fill="none" stroke="#34d399" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M360,200 C430,140 500,110 600,100" fill="none" stroke="#32705C" stroke-width="3.5" stroke-linecap="round"/>
 
     <!-- Loss Region (Convex & Much Steeper): (360,200) to (160,320) -->
-    <path d="M360,200 C310,260 250,310 160,320" fill="none" stroke="#fb7185" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M360,200 C310,260 250,310 160,320" fill="none" stroke="#D85B49" stroke-width="3.5" stroke-linecap="round"/>
 
     <!-- Gain Example Point: Gain +$100 -->
-    <circle cx="480" cy="125" r="5" fill="#34d399"/>
-    <line x1="480" y1="125" x2="480" y2="200" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3"/>
-    <line x1="360" y1="125" x2="480" y2="125" stroke="#34d399" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="480" y="215" font-family="system-ui, sans-serif" font-size="10" fill="#a7f3d0" text-anchor="middle">+100$</text>
-    <text x="345" y="129" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#a7f3d0" text-anchor="end">+V</text>
+    <circle cx="480" cy="125" r="5" fill="#32705C"/>
+    <line x1="480" y1="125" x2="480" y2="200" stroke="#32705C" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="360" y1="125" x2="480" y2="125" stroke="#32705C" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="480" y="218" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#32705C" text-anchor="middle">+100$</text>
+    <text x="345" y="129" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#32705C" text-anchor="end">+V</text>
 
     <!-- Loss Example Point: Loss -$100 (Notice it drops more than double!) -->
-    <circle cx="240" cy="285" r="5" fill="#fb7185"/>
-    <line x1="240" y1="200" x2="240" y2="285" stroke="#fb7185" stroke-width="1" stroke-dasharray="3,3"/>
-    <line x1="240" y1="285" x2="360" y2="285" stroke="#fb7185" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="240" y="190" font-family="system-ui, sans-serif" font-size="10" fill="#fecdd3" text-anchor="middle">-100$</text>
-    <text x="375" y="289" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#fecdd3">-2.25V (כאב כפול!)</text>
+    <circle cx="240" cy="285" r="5" fill="#D85B49"/>
+    <line x1="240" y1="200" x2="240" y2="285" stroke="#D85B49" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="240" y1="285" x2="360" y2="285" stroke="#D85B49" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="240" y="190" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#B83D2B" text-anchor="middle">-100$</text>
+    <text x="375" y="289" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#B83D2B" text-anchor="start">-2.5V (כאב כפול!)</text>
   </g>
 </svg>

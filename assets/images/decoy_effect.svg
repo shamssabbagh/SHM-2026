@@ -1,50 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="100%" height="100%">
-  <rect width="720" height="340" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+  <defs>
+    <linearGradient id="decoyBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCF9F5"/>
+      <stop offset="100%" stop-color="#F7F3ED"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="340" rx="14" fill="url(#decoyBgGrad)" stroke="#DEC7D0" stroke-width="1.5"/>
 
   <!-- Title -->
-  <text x="680" y="38" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#fbbf24" text-anchor="end">אפקט הפיתיון (The Decoy Effect)</text>
-  <text x="680" y="58" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="end">נחיתות א-סימטרית: כיצד הוספת אפשרות שלישית מכוונת לרכישת המוצר הרווחי ביותר</text>
+  <text x="680" y="38" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#502638" text-anchor="end">אפקט הפיתיון (The Decoy Effect)</text>
+  <text x="680" y="58" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#5A5258" text-anchor="end">נחיתות א-סימטרית: כיצד הוספת אפשרות שלישית מכוונת לרכישת המוצר הרווחי ביותר</text>
 
   <!-- 3 Product Cards comparison (Popcorn or Subscription classic example) -->
   <g transform="translate(60, 90)">
     <!-- Option A: Small (Competitor) -->
     <g transform="translate(0, 0)">
-      <rect width="180" height="210" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1"/>
-      <circle cx="90" cy="45" r="24" fill="#334155"/>
+      <rect width="180" height="210" rx="12" fill="#FFFFFF" stroke="#DEC7D0" stroke-width="1.2"/>
+      <circle cx="90" cy="45" r="24" fill="#F2E7EB"/>
       <text x="90" y="52" font-family="system-ui, sans-serif" font-size="20" text-anchor="middle">🍿</text>
-      <text x="90" y="95" font-family="'Heebo', system-ui, sans-serif" font-size="15" font-weight="700" fill="#cbd5e1" text-anchor="middle">קטן</text>
-      <text x="90" y="125" font-family="'Heebo', system-ui, sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle">₪ 18</text>
-      <text x="90" y="155" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">תמורה בסיסית</text>
-      <rect x="25" y="170" width="130" height="26" rx="6" fill="#334155"/>
-      <text x="90" y="187" font-family="'Assistant', system-ui, sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">חלופה זולה</text>
+      <text x="90" y="95" font-family="'Heebo', system-ui, sans-serif" font-size="15" font-weight="700" fill="#502638" text-anchor="middle">קטן</text>
+      <text x="90" y="125" font-family="'Heebo', system-ui, sans-serif" font-size="22" font-weight="900" fill="#252329" text-anchor="middle">₪ 18</text>
+      <text x="90" y="155" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#5A5258" text-anchor="middle">תמורה בסיסית</text>
+      <rect x="25" y="170" width="130" height="26" rx="6" fill="#F2E7EB"/>
+      <text x="90" y="187" font-family="'Assistant', system-ui, sans-serif" font-size="11" font-weight="600" fill="#502638" text-anchor="middle">חלופה זולה</text>
     </g>
 
     <!-- Option B: Decoy (Medium - Intentionally unappealing) -->
     <g transform="translate(210, 0)">
-      <rect width="180" height="210" rx="10" fill="rgba(251, 113, 133, 0.08)" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="4,4"/>
-      <circle cx="90" cy="45" r="24" fill="rgba(251, 113, 133, 0.2)"/>
+      <rect width="180" height="210" rx="12" fill="#FFF2F0" stroke="#D85B49" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <circle cx="90" cy="45" r="24" fill="#FADCD6"/>
       <text x="90" y="52" font-family="system-ui, sans-serif" font-size="20" text-anchor="middle">🍿</text>
-      <text x="90" y="95" font-family="'Heebo', system-ui, sans-serif" font-size="15" font-weight="700" fill="#fda4af" text-anchor="middle">בינוני (פיתיון)</text>
-      <text x="90" y="125" font-family="'Heebo', system-ui, sans-serif" font-size="22" font-weight="900" fill="#f43f5e" text-anchor="middle">₪ 28</text>
-      <text x="90" y="155" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#fda4af" text-anchor="middle">מחיר כמעט כמו הגדול!</text>
-      <rect x="25" y="170" width="130" height="26" rx="6" fill="rgba(251, 113, 133, 0.2)"/>
-      <text x="90" y="187" font-family="'Assistant', system-ui, sans-serif" font-size="11" font-weight="700" fill="#fb7185" text-anchor="middle">לא משתלם בעליל</text>
+      <text x="90" y="95" font-family="'Heebo', system-ui, sans-serif" font-size="15" font-weight="700" fill="#B83D2B" text-anchor="middle">בינוני (פיתיון)</text>
+      <text x="90" y="125" font-family="'Heebo', system-ui, sans-serif" font-size="22" font-weight="900" fill="#B83D2B" text-anchor="middle">₪ 28</text>
+      <text x="90" y="155" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#B83D2B" text-anchor="middle">מחיר כמעט כמו הגדול!</text>
+      <rect x="25" y="170" width="130" height="26" rx="6" fill="#FADCD6"/>
+      <text x="90" y="187" font-family="'Assistant', system-ui, sans-serif" font-size="11" font-weight="700" fill="#B83D2B" text-anchor="middle">לא משתלם בעליל</text>
     </g>
 
     <!-- Option C: Large (Target Product) -->
     <g transform="translate(420, 0)">
-      <rect width="180" height="210" rx="10" fill="rgba(52, 211, 153, 0.12)" stroke="#34d399" stroke-width="2"/>
+      <rect width="180" height="210" rx="12" fill="#F0F7F4" stroke="#32705C" stroke-width="2"/>
       <!-- Best Value Badge -->
-      <rect x="35" y="-12" width="110" height="24" rx="12" fill="#10b981"/>
-      <text x="90" y="4" font-family="'Heebo', system-ui, sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">★ הבחירה הפופולרית</text>
+      <rect x="35" y="-12" width="110" height="24" rx="12" fill="#32705C"/>
+      <text x="90" y="4" font-family="'Heebo', system-ui, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">★ הבחירה הפופולרית</text>
 
-      <circle cx="90" cy="45" r="24" fill="rgba(52, 211, 153, 0.25)"/>
+      <circle cx="90" cy="45" r="24" fill="#D8ECE4"/>
       <text x="90" y="52" font-family="system-ui, sans-serif" font-size="22" text-anchor="middle">🍿🍿</text>
-      <text x="90" y="95" font-family="'Heebo', system-ui, sans-serif" font-size="15" font-weight="700" fill="#a7f3d0" text-anchor="middle">ענק (יעד המכירה)</text>
-      <text x="90" y="125" font-family="'Heebo', system-ui, sans-serif" font-size="24" font-weight="900" fill="#34d399" text-anchor="middle">₪ 30</text>
-      <text x="90" y="155" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#6ee7b7" text-anchor="middle">"רק ב-2 ₪ יותר מהבינוני!"</text>
-      <rect x="25" y="170" width="130" height="26" rx="6" fill="#10b981"/>
-      <text x="90" y="187" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">85% מהצרכנים יבחרו בו</text>
+      <text x="90" y="95" font-family="'Heebo', system-ui, sans-serif" font-size="15" font-weight="700" fill="#32705C" text-anchor="middle">ענק (יעד המכירה)</text>
+      <text x="90" y="125" font-family="'Heebo', system-ui, sans-serif" font-size="24" font-weight="900" fill="#32705C" text-anchor="middle">₪ 30</text>
+      <text x="90" y="155" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#32705C" text-anchor="middle">"רק ב-2 ₪ יותר מהבינוני!"</text>
+      <rect x="25" y="170" width="130" height="26" rx="6" fill="#32705C"/>
+      <text x="90" y="187" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="800" fill="#FFFFFF" text-anchor="middle">85% מהצרכנים יבחרו בו</text>
     </g>
   </g>
 </svg>

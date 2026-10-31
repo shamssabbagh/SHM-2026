@@ -1,26 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="100%" height="100%">
-  <rect width="720" height="320" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+  <defs>
+    <linearGradient id="nudgeBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCF9F5"/>
+      <stop offset="100%" stop-color="#F7F3ED"/>
+    </linearGradient>
+  </defs>
 
-  <text x="680" y="38" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#38bdf8" text-anchor="end">אתיקה שיווקית: דחיפה מוסרית מול תבנית אפלה</text>
-  <text x="680" y="58" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="end">הגבול בין ארכיטקטורת בחירה שקופה (Thaler &amp; Sunstein) למלכודות מניפולטיביות</text>
+  <rect width="720" height="320" rx="14" fill="url(#nudgeBgGrad)" stroke="#DEC7D0" stroke-width="1.5"/>
+
+  <text x="680" y="38" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#502638" text-anchor="end">אתיקה שיווקית: דחיפה מוסרית מול תבנית אפלה</text>
+  <text x="680" y="58" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#5A5258" text-anchor="end">הגבול בין ארכיטקטורת בחירה שקופה (Thaler &amp; Sunstein) למלכודות מניפולטיביות</text>
 
   <!-- Left: Ethical Nudge -->
   <g transform="translate(60, 90)">
-    <rect width="280" height="190" rx="12" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
-    <text x="140" y="35" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="800" fill="#34d399" text-anchor="middle">✓ דחיפה אתית (Nudge)</text>
-    <text x="250" y="70" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• שקיפות מלאה לגבי אפשרויות הבחירה</text>
-    <text x="250" y="95" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• שמירה על אוטונומיה מוחלטת של הצרכן</text>
-    <text x="250" y="120" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• ביטול בלחיצה אחת פשוטה ללא מכשולים</text>
-    <text x="250" y="150" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="700" fill="#a7f3d0" text-anchor="end">מטרה: סיוע לרווחת הצרכן</text>
+    <rect width="280" height="195" rx="12" fill="#F0F7F4" stroke="#32705C" stroke-width="1.5"/>
+    <text x="140" y="35" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="800" fill="#235243" text-anchor="middle">✓ דחיפה אתית (Nudge)</text>
+    <text x="250" y="70" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#252329" text-anchor="end">• שקיפות מלאה לגבי אפשרויות הבחירה</text>
+    <text x="250" y="95" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#252329" text-anchor="end">• שמירה על אוטונומיה מוחלטת של הצרכן</text>
+    <text x="250" y="120" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#252329" text-anchor="end">• ביטול בלחיצה אחת פשוטה ללא מכשולים</text>
+    <rect x="25" y="145" width="230" height="28" rx="6" fill="#D8ECE4"/>
+    <text x="140" y="164" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="800" fill="#235243" text-anchor="middle">מטרה: סיוע לרווחת הצרכן</text>
   </g>
 
   <!-- Right: Dark Patterns -->
   <g transform="translate(380, 90)">
-    <rect width="280" height="190" rx="12" fill="#1e293b" stroke="#f43f5e" stroke-width="1.5"/>
-    <text x="140" y="35" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="800" fill="#f43f5e" text-anchor="middle">✕ תבנית אפלה (Dark Pattern)</text>
-    <text x="250" y="70" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• סימון תיבות מראש (Pre-ticked boxes)</text>
-    <text x="250" y="95" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• מלכודות ביטול מסורבלות ("Roach Motel")</text>
-    <text x="250" y="120" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#cbd5e1" text-anchor="end">• השחרת אפשרות יציאה ובושה (Confirmshaming)</text>
-    <text x="250" y="150" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="700" fill="#fda4af" text-anchor="end">מטרה: רווח קצר-טווח על חשבון אמון</text>
+    <rect width="280" height="195" rx="12" fill="#FFF6F5" stroke="#D85B49" stroke-width="1.5"/>
+    <text x="140" y="35" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="800" fill="#B83D2B" text-anchor="middle">✕ תבנית אפלה (Dark Pattern)</text>
+    <text x="250" y="70" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#252329" text-anchor="end">• סימון תיבות מראש (Pre-ticked boxes)</text>
+    <text x="250" y="95" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#252329" text-anchor="end">• מלכודות ביטול מסורבלות ("Roach Motel")</text>
+    <text x="250" y="120" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#252329" text-anchor="end">• השחרת אפשרות יציאה ובושה (Confirmshaming)</text>
+    <rect x="25" y="145" width="230" height="28" rx="6" fill="#FADCD6"/>
+    <text x="140" y="164" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="800" fill="#B83D2B" text-anchor="middle">מטרה: רווח קצר-טווח על חשבון אמון</text>
   </g>
 </svg>

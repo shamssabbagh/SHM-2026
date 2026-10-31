@@ -1,56 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="100%" height="100%">
   <defs>
-    <linearGradient id="anchor-scale" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="50%" stop-color="#818cf8"/>
-      <stop offset="100%" stop-color="#fb7185"/>
+    <linearGradient id="anchor-scale-warm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#32705C"/>
+      <stop offset="50%" stop-color="#C87A28"/>
+      <stop offset="100%" stop-color="#D85B49"/>
+    </linearGradient>
+    <linearGradient id="anchorBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCF9F5"/>
+      <stop offset="100%" stop-color="#F7F3ED"/>
     </linearGradient>
   </defs>
 
-  <rect width="720" height="340" rx="14" fill="#0b1120" stroke="#334155" stroke-width="1.5"/>
+  <rect width="720" height="340" rx="14" fill="url(#anchorBgGrad)" stroke="#DEC7D0" stroke-width="1.5"/>
 
-  <text x="680" y="40" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#38bdf8" text-anchor="end">הטיית העיגון וההתאמה (Anchoring Heuristic)</text>
-  <text x="680" y="62" font-family="'Assistant', system-ui, sans-serif" font-size="13" fill="#94a3b8" text-anchor="end">כיצד מחיר עוגן ראשוני מכתיב את תפיסת ההוגנות והשווי (Tversky &amp; Kahneman)</text>
+  <text x="680" y="40" font-family="'Heebo', system-ui, sans-serif" font-size="19" font-weight="800" fill="#502638" text-anchor="end">הטיית העיגון וההתאמה (Anchoring Heuristic)</text>
+  <text x="680" y="62" font-family="'Assistant', system-ui, sans-serif" font-size="13" fill="#5A5258" text-anchor="end">כיצד מחיר עוגן ראשוני מכתיב את תפיסת ההוגנות והשווי (Tversky &amp; Kahneman)</text>
 
   <!-- Scale Line -->
-  <g transform="translate(60, 150)">
-    <line x1="0" y1="0" x2="600" y2="0" stroke="url(#anchor-scale)" stroke-width="6" stroke-linecap="round"/>
+  <g transform="translate(60, 160)">
+    <line x1="0" y1="0" x2="600" y2="0" stroke="url(#anchor-scale-warm)" stroke-width="6" stroke-linecap="round"/>
 
     <!-- Anchor Point: ₪1,200 -->
     <g transform="translate(520, 0)">
-      <circle cx="0" cy="0" r="14" fill="#fb7185" stroke="#fff" stroke-width="3"/>
+      <circle cx="0" cy="0" r="14" fill="#D85B49" stroke="#fff" stroke-width="3"/>
       <!-- Label Top -->
-      <rect x="-65" y="-75" width="130" height="55" rx="8" fill="#1e293b" stroke="#fb7185" stroke-width="1.5"/>
-      <text x="0" y="-55" font-family="'Heebo', system-ui, sans-serif" font-size="12" font-weight="700" fill="#fecdd3" text-anchor="middle">עוגן התחלתי גבוה</text>
-      <text x="0" y="-32" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">₪ 1,200</text>
+      <rect x="-65" y="-75" width="130" height="55" rx="8" fill="#FFFFFF" stroke="#D85B49" stroke-width="1.5"/>
+      <text x="0" y="-55" font-family="'Heebo', system-ui, sans-serif" font-size="12" font-weight="700" fill="#B83D2B" text-anchor="middle">עוגן התחלתי גבוה</text>
+      <text x="0" y="-32" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="900" fill="#502638" text-anchor="middle">₪ 1,200</text>
       <!-- Explanation bottom -->
-      <text x="0" y="28" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#fda4af" text-anchor="middle">"מחיר מקורי / מומלץ לצרכן"</text>
+      <text x="0" y="28" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#B83D2B" text-anchor="middle">"מחיר מקורי / מומלץ לצרכן"</text>
     </g>
 
     <!-- Actual Sale Price: ₪590 -->
     <g transform="translate(280, 0)">
-      <circle cx="0" cy="0" r="14" fill="#34d399" stroke="#fff" stroke-width="3"/>
+      <circle cx="0" cy="0" r="14" fill="#32705C" stroke="#fff" stroke-width="3"/>
       <!-- Label Top -->
-      <rect x="-65" y="-75" width="130" height="55" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
-      <text x="0" y="-55" font-family="'Heebo', system-ui, sans-serif" font-size="12" font-weight="700" fill="#a7f3d0" text-anchor="middle">מחיר מבצע בפועל</text>
-      <text x="0" y="-32" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="900" fill="#34d399" text-anchor="middle">₪ 590</text>
+      <rect x="-65" y="-75" width="130" height="55" rx="8" fill="#FFFFFF" stroke="#32705C" stroke-width="1.5"/>
+      <text x="0" y="-55" font-family="'Heebo', system-ui, sans-serif" font-size="12" font-weight="700" fill="#235243" text-anchor="middle">מחיר מבצע בפועל</text>
+      <text x="0" y="-32" font-family="'Heebo', system-ui, sans-serif" font-size="16" font-weight="900" fill="#235243" text-anchor="middle">₪ 590</text>
       <!-- Explanation bottom -->
-      <text x="0" y="28" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#6ee7b7" text-anchor="middle">נתפס כחיסכון אדיר ("מציאה")</text>
+      <text x="0" y="28" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="600" fill="#235243" text-anchor="middle">נתפס כחיסכון אדיר ("מציאה")</text>
     </g>
 
     <!-- Adjustment Arrow -->
-    <path d="M500,-15 C420,-40 370,-40 300,-15" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-dasharray="6,4"/>
-    <polygon points="305,-20 295,-15 302,-9" fill="#818cf8"/>
-    <text x="400" y="-45" font-family="'Assistant', system-ui, sans-serif" font-size="11" font-weight="600" fill="#c7d2fe" text-anchor="middle">התאמה בלתי מספקת (Insufficient Adjustment)</text>
+    <path d="M500,-15 C420,-40 370,-40 300,-15" fill="none" stroke="#502638" stroke-width="2.5" stroke-dasharray="6,4"/>
+    <polygon points="305,-20 295,-15 302,-9" fill="#502638"/>
+    <text x="400" y="-45" font-family="'Assistant', system-ui, sans-serif" font-size="12" font-weight="700" fill="#502638" text-anchor="middle">התאמה בלתי מספקת (Insufficient Adjustment)</text>
 
     <!-- True Value Baseline: ₪350 -->
     <g transform="translate(80, 0)">
-      <circle cx="0" cy="0" r="8" fill="#64748b"/>
-      <text x="0" y="28" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">עלות ייצור אמיתית (₪350)</text>
+      <circle cx="0" cy="0" r="8" fill="#8E7F87"/>
+      <text x="0" y="28" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#5A5258" text-anchor="middle">עלות ייצור אמיתית (₪350)</text>
     </g>
   </g>
-
-  <rect x="60" y="240" width="600" height="60" rx="8" fill="rgba(56, 189, 248, 0.08)" stroke="#38bdf8" stroke-width="1"/>
-  <text x="640" y="264" font-family="'Heebo', system-ui, sans-serif" font-size="13" font-weight="700" fill="#7dd3fc" text-anchor="end">תובנה שיווקית יישומית:</text>
-  <text x="640" y="285" font-family="'Assistant', system-ui, sans-serif" font-size="12" fill="#e0f2fe" text-anchor="end">הצרכן לא שופט מחיר באופן מוחלט, אלא תמיד ביחס לעוגן שחווה ראשון. חשיפת עוגן גבוה מגדילה דרמטית את הנכונות לשלם (WTP).</text>
 </svg>
