@@ -137,8 +137,9 @@
       card.setAttribute('data-perfume-id', perfume.id);
 
       card.innerHTML = `
-        <div class="perfume-visual-head">
-          <span class="editorial-perfume-photo" role="img" aria-label="${perfume.name}" style="background-position: ${((Number(perfume.id.slice(1)) - 1) % 4) * 100 / 3}% ${Math.floor((Number(perfume.id.slice(1)) - 1) / 4) * 50}%"></span>
+        <div class="perfume-visual-head" style="--accent-hue: ${perfume.color}">
+          <div class="perfume-glow-circle"></div>
+          <span class="perfume-bottle-icon">${perfume.icon}</span>
         </div>
         <div class="perfume-card-body">
           <span class="perfume-house-tag">${perfume.house}</span>
@@ -359,27 +360,6 @@
     cacheDOMElements();
     bindEvents();
     setStep('intro');
-    // Decode the shared catalog before a timed round can start.
-    const button = elements.btnStartExp;
-    if (button) {
-      button.disabled = true;
-      button.setAttribute('aria-busy', 'true');
-      const status = document.getElementById('choiceImageStatus');
-      const catalog = new Image();
-      const finish = (loaded) => {
-        button.disabled = false;
-        button.removeAttribute('aria-busy');
-        if (status) status.textContent = loaded
-          ? 'תמונות להמחשה שנוצרו ב-AI · מותגים ומוצרים דמיוניים'
-          : 'תמונות המוצרים לא נטענו. אפשר להמשיך לפי התיאורים או לרענן את העמוד.';
-      };
-      catalog.onload = async () => {
-        try { if (catalog.decode) await catalog.decode(); } catch (_) { /* loaded image remains usable */ }
-        finish(true);
-      };
-      catalog.onerror = () => finish(false);
-      catalog.src = 'assets/images/perfume_catalog_editorial.png';
-    }
   }
 
   if (document.readyState === 'loading') {
