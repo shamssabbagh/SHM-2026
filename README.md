@@ -121,20 +121,35 @@
 ---
 
 ### מעבדות אינטראקטיביות וחישובי Python (שקופיות 9, 10, 13, 14, 16)
-| שקופית 9 – אפקט המחסור (תיק יוקרה Maison Vendôme) | שקופית 10 – פרדוקס הבחירה (שעון עצר דיגיטלי חי) |
+#### שקופית 9 – אפקט המחסור ו-FOMO (תיק היוקרה של Maison Vendôme)
+| שלב א׳: מלאי שוטף וזמינות רגילה | שלב ב׳: התרעת מחסור פעילה ("נותרו רק 2 יחידות במלאי!") |
 | :---: | :---: |
-| [![שקופית 9 מחסור](docs/screenshots/slide09_scarcity_active.png)](docs/screenshots/slide09_scarcity_active.png) | [![שקופית 10 בחירה](docs/screenshots/slide10_choice_active.png)](docs/screenshots/slide10_choice_active.png) |
-| *תיק יוקרה MAISON VENDÔME במצב "נותרו רק 2 יחידות במלאי!", סליידרים והשוואת Python.* | *ניסוי שעון עצר דיגיטלי חי: מדידת זמן בחירה ב-3 מול קטלוג 12 בשמים מעוצב.* |
+| [![שקופית 9 מלאי רגיל](docs/screenshots/slide09_scarcity_effect.png)](docs/screenshots/slide09_scarcity_effect.png) | [![שקופית 9 מחסור פעיל](docs/screenshots/slide09_scarcity_active.png)](docs/screenshots/slide09_scarcity_active.png) |
+| *מצב בסיס: תיק היוקרה MAISON VENDÔME במלאי שוטף ודירוג סליידרים.* | *מצב דחיפות: באנר אזהרה, אפקט FOMO, גרף עמודות דינמי ומכפיל מחסור ב-Python.* |
 
-| שקופית 13 – תורת הסיכויים ועקומת S | שקופית 14 – אפקט העיגון וחישוב שווי ב-Python |
+#### שקופית 10 – פרדוקס הבחירה ושעון עצר דיגיטלי חי
+| שלב מבוא: הצגת הניסוי ושלישיית הבשמים | סבב בחירה פעיל: שעון עצר חי וקטלוג 12 הבשמים |
 | :---: | :---: |
-| [![שקופית 13 תורת הסיכויים](docs/screenshots/slide13_prospect_theory.png)](docs/screenshots/slide13_prospect_theory.png) | [![שקופית 14 עיגון](docs/screenshots/slide14_anchoring_calculated.png)](docs/screenshots/slide14_anchoring_calculated.png) |
-| *עקומת S אינטראקטיבית: הדגמת שנאת הפסד ביחס של פי 2.25 עם נקודה נעה.* | *חישוב CPython WebAssembly של הערכת שווי תחת מחיר עוגן משתנה.* |
+| [![שקופית 10 מבוא](docs/screenshots/slide10_choice_paradox.png)](docs/screenshots/slide10_choice_paradox.png) | [![שקופית 10 פעיל](docs/screenshots/slide10_choice_active.png)](docs/screenshots/slide10_choice_active.png) |
+| *מבוא לניסוי: הצגת חוקי הניסוי, יעדי המדידה ושלישיית הבשמים.* | *שעון עצר דיגיטלי חי (`performance.now()`), בחירה מקטלוג 12 הבשמים ודירוג קושי.* |
 
-| שקופית 16 – שיווק אתי מול דפוסי חושך |
+#### שקופית 13 – תורת הסיכויים ועקומת S אינטראקטיבית
+| שקופית 13 – עקומת S אינטראקטיבית ב-SVG |
+| :---: |
+| [![שקופית 13 תורת הסיכויים](docs/screenshots/slide13_prospect_theory.png)](docs/screenshots/slide13_prospect_theory.png) |
+| *פונקציית ערך א-סימטרית ($v(x)$): שנאת הפסד ביחס של פי 2.25, בורר רווח/הפסד וסליידר סכום (₪0–₪500) המניע נקודה חיה.* |
+
+#### שקופית 14 – אפקט העיגון והתאמת שווי ב-Python
+| שלב א׳: כיול מחיר עוגן התחלתי (₪400–₪1,200) | שלב ב׳: תוצאת חישוב שווי ב-CPython וגרף עמודות |
+| :---: | :---: |
+| [![שקופית 14 עוגן התחלתי](docs/screenshots/slide14_anchoring_effect.png)](docs/screenshots/slide14_anchoring_effect.png) | [![שקופית 14 עוגן מחושב](docs/screenshots/slide14_anchoring_calculated.png)](docs/screenshots/slide14_anchoring_calculated.png) |
+| *מצב התחלתי לפני הרצת החישוב, עם מחיר בסיס אמיתי של ₪399.* | *הפעלת מנוע CPython WebAssembly, הפקת גרף עמודות השוואתי ותוספת שווי משוקללת.* |
+
+#### שקופית 16 – שיווק אתי מול דפוסי חושך (Dark Patterns)
+| שקופית 16 – מעבדת Checkout השוואתית ושאלת אבחון |
 | :---: |
 | [![שקופית 16 שיווק אתי](docs/screenshots/slide16_dark_patterns.png)](docs/screenshots/slide16_dark_patterns.png) |
-| *מעבדת Checkout השוואתית: חנות הוגנת מול חנות מניפולטיבית עם מודאל Confirmshaming.* |
+| *השוואת Checkout הוגן מול מניפולטיבי (Confirmshaming, ביטוח מסומן מראש, מדדי אוטונומיה ב-Python).* |
 
 ---
 
